@@ -13,13 +13,16 @@ class CategoryItem extends Component {
   render() {
     const { data: { category } } = this.props
 
-    const wrapperClasses = classNames('h3 pl5 pr4 vtex-category-item', {
-      'show-arrow': category.hasChildren,
-    })
+    const wrapperClasses = classNames(
+      'h3 w4 pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
+      {
+        'show-arrow': category.hasChildren,
+      }
+    )
 
     return (
       <div className={wrapperClasses}>
-        <a href={category.href} className="db mt6 no-underline ttu black-90">
+        <a href={category.href} className="db mt6 no-underline ttu">
           {category.name}
         </a>
 

@@ -34,6 +34,10 @@ body {
   position: relative;
 }
 
+.vtex-category-item.show-arrow:hover::before {
+  border-top-color: white;
+}
+
 .vtex-category-item.show-arrow::before {
   content: ' ';
   position: absolute;
