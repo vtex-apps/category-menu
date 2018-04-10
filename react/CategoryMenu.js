@@ -10,12 +10,12 @@ import CategoryItem from './CategoryItem'
  */
 class CategoryMenu extends Component {
   render() {
-    const { data } = this.props
+    const { data: { categories } } = this.props
 
     return (
       <div className="h3 bg-near-white">
         <nav className="flex w-two-thirds center h0">
-          {data.categories.map(category => (
+          {categories.map(category => (
             <CategoryItem key={category.id} id={category.id} />
           ))}
         </nav>
