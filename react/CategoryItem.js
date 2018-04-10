@@ -45,6 +45,8 @@ class CategoryItem extends Component {
 }
 
 CategoryItem.propTypes = {
+  /** Id of the category */
+  id: PropTypes.number.isRequired,
   data: PropTypes.shape({
     category: PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -54,8 +56,6 @@ CategoryItem.propTypes = {
     }),
     loading: PropTypes.bool.isRequired,
   }).isRequired,
-  /** Id of the category */
-  id: PropTypes.number.isRequired,
 }
 
 const options = {

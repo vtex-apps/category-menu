@@ -27,10 +27,12 @@ class CategoryMenu extends Component {
 CategoryMenu.propTypes = {
   data: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    categories: PropTypes.arrayOf({
-      name: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-    }),
+    categories: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+      })
+    ),
   }),
 }
 
