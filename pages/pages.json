@@ -1,6 +1,6 @@
 {
   "pages": {
-    "menu": {
+    "category-menu": {
       "path": "/",
       "theme": "theme"
     }
