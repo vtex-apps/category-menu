@@ -1,0 +1,15 @@
+query($id: Int!) {
+  category(id: $id) {
+    ...CategoryFields
+    hasChildren
+    children {
+      ...CategoryFields
+    }
+  }
+}
+
+fragment CategoryFields on Category {
+  id
+  name
+  href
+}

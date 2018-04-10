@@ -27,3 +27,36 @@ body,
 body {
   background-color: white;
 }
+
+/* Category items */
+
+.vtex-category-item {
+  position: relative;
+}
+
+.vtex-category-item.show-arrow::before {
+  content: ' ';
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid black;
+  top: 31px;
+  left: 5px;
+}
+
+.vtex-category-sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 400px;
+  min-height: 230px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.vtex-category-item:hover .vtex-category-sub-menu {
+  display: block;
+}
