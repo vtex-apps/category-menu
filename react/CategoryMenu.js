@@ -3,14 +3,19 @@ import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
-import CategoryItem from './CategoryItem'
+import CategoryItem from './components/CategoryItem'
+import WrappedSpinner from './components/WrappedSpinner'
 
 /**
  * Component that represents the menu containing the categories of the store
  */
 class CategoryMenu extends Component {
   render() {
-    const { data: { categories } } = this.props
+    const { data: { categories, loading } } = this.props
+
+    if (loading) {
+      return <WrappedSpinner />
+    }
 
     return (
       <div className="h3 bg-near-white">

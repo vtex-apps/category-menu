@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import classNames from 'classnames'
 
-import categoryQuery from './queries/categoryQuery.gql'
+import WrappedSpinner from './WrappedSpinner'
+import categoryQuery from '../queries/categoryQuery.gql'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -14,7 +15,7 @@ class CategoryItem extends Component {
     const { data: { category, loading } } = this.props
 
     if (loading) {
-      return 'loading'
+      return <WrappedSpinner />
     }
 
     const wrapperClasses = classNames(
