@@ -15,7 +15,7 @@ class CategoryItem extends Component {
     const { data: { category, loading } } = this.props
 
     const wrapperClasses = classNames(
-      'pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
+      'h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
       {
         'show-arrow': category && category.hasChildren,
       }
