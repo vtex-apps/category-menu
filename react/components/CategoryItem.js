@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import classNames from 'classnames'
 
-import WrappedSpinner from './WrappedSpinner'
 import categoryQuery from '../queries/categoryQuery.gql'
 
 /**
@@ -15,7 +14,7 @@ class CategoryItem extends Component {
     const { data: { category, loading } } = this.props
 
     if (loading) {
-      return <WrappedSpinner />
+      return <div />
     }
 
     const wrapperClasses = classNames(

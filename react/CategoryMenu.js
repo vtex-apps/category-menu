@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
 import CategoryItem from './components/CategoryItem'
-import WrappedSpinner from './components/WrappedSpinner'
 
 /**
  * Component that represents the menu containing the categories of the store
@@ -14,7 +13,7 @@ class CategoryMenu extends Component {
     const { data: { categories, loading } } = this.props
 
     if (loading) {
-      return <WrappedSpinner />
+      return <div />
     }
 
     return (
