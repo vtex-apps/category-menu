@@ -4,6 +4,7 @@ import { graphql } from 'react-apollo'
 import classNames from 'classnames'
 
 import categoryQuery from '../queries/categoryQuery.gql'
+import LoadingBar from './LoadingBar'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -13,39 +14,39 @@ class CategoryItem extends Component {
   render() {
     const { data: { category, loading } } = this.props
 
-    if (loading) {
-      return <div />
-    }
-
     const wrapperClasses = classNames(
-      'h3 w4 pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
+      'pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
       {
-        'show-arrow': category.hasChildren,
+        'show-arrow': category && category.hasChildren,
       }
     )
 
     return (
-      <div className={wrapperClasses}>
-        <a href={category.href} className="db mt6 no-underline ttu">
-          {category.name}
-        </a>
+      <div className="h3 w4">
+        <LoadingBar loading={loading}>
+          <div className={wrapperClasses}>
+            <a href={category.href} className="db mt6 no-underline ttu">
+              {category.name}
+            </a>
 
-        {category.hasChildren && (
-          <div className="vtex-category-sub-menu pv6 ph5 br2 br--bottom">
-            <ul className="list ma0 pa0 f6">
-              {category.children.map(subCategory => (
-                <li key={subCategory.id} className="lh-copy">
-                  <a
-                    className="near-black no-underline underline-hover"
-                    href={subCategory.href}
-                  >
-                    {subCategory.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {category.hasChildren && (
+              <div className="vtex-category-sub-menu pv6 ph5 br2 br--bottom">
+                <ul className="list ma0 pa0 f6">
+                  {category.children.map(subCategory => (
+                    <li key={subCategory.id} className="lh-copy">
+                      <a
+                        className="near-black no-underline underline-hover"
+                        href={subCategory.href}
+                      >
+                        {subCategory.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
-        )}
+        </LoadingBar>
       </div>
     )
   }
