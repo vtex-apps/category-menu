@@ -11,7 +11,11 @@ import categoryQuery from './queries/categoryQuery.gql'
  */
 class CategoryItem extends Component {
   render() {
-    const { data: { category } } = this.props
+    const { data: { category, loading } } = this.props
+
+    if (loading) {
+      return 'loading'
+    }
 
     const wrapperClasses = classNames(
       'h3 w4 pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
