@@ -15,6 +15,13 @@ $ npm t     # this
 $ yarn test # or this one
 ```
 
+To update the tests snapshots use
+
+```sh
+$ npm t -- -u  # like this
+$ yarn test -u # or this
+```
+
 ## Configuration
 
 TODO

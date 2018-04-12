@@ -2,8 +2,7 @@
   "name": "vtex.render-getting-started",
   "version": "0.0.0",
   "scripts": {
-    "test": "jest",
-    "update-snapshots": "jest --updateSnapshot"
+    "test": "jest"
   },
   "dependencies": {
     "@vtex/styleguide": "^2.0.0-rc.35",
