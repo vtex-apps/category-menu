@@ -16,7 +16,7 @@ LoadingBar.propTypes = {
   children: PropTypes.node.isRequired,
   /** Fallback node to show while loading content */
   fallback: PropTypes.node,
-  /** Show the loading? */
+  /** Display loading bar */
   loading: PropTypes.bool,
 }
 
