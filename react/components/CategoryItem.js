@@ -10,21 +10,31 @@ class CategoryItem extends Component {
   render() {
     const { category } = this.props
 
+    const hasChildren = category.hasChildren || category.children.length > 0
+
     const wrapperClasses = classNames(
-      'h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90',
+      'h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white',
       {
-        'show-arrow': category && category.hasChildren,
+        'show-arrow': hasChildren,
       }
     )
+
+    const linkStyle = {
+      color: 'inherit',
+    }
 
     return (
       <div className="h3 w4" data-testid="category-item">
         <div className={wrapperClasses}>
-          <a href={category.href} className="db mt6 no-underline ttu">
+          <a
+            href={category.href}
+            className="db mt6 no-underline ttu"
+            style={linkStyle}
+          >
             {category.name}
           </a>
 
-          {category.hasChildren && (
+          {hasChildren && (
             <div className="vtex-category-sub-menu pv6 ph5 br2 br--bottom">
               <ul className="list ma0 pa0 f6">
                 {category.children.map(subCategory => (

@@ -13,7 +13,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         data-testid="category-item"
       >
         <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90"
+          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
         >
           <a
             class="db mt6 no-underline ttu"
@@ -28,7 +28,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         data-testid="category-item"
       >
         <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90"
+          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
         >
           <a
             class="db mt6 no-underline ttu"
@@ -43,7 +43,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         data-testid="category-item"
       >
         <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-white hover-bg-black-90"
+          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
         >
           <a
             class="db mt6 no-underline ttu"
