@@ -1,12 +1,100 @@
 @import url(//io.vtex.com.br/fonts/fabriga/stylesheet.css);
-body,button,input,optgroup,select,textarea,span,h1,h2,h3,h4,p1 {
-  font-family: Fabriga,-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea,
+span,
+h1,
+h2,
+h3,
+h4,
+p1 {
+  font-family: Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 }
 
-html, body, #render-container, #render-provider, #render-provider > article {
+html,
+body,
+#render-container,
+#render-provider,
+#render-provider > article {
   min-height: 100%;
 }
 
 body {
   background-color: white;
+}
+
+/* Category items */
+
+.vtex-category-item {
+  position: relative;
+}
+
+.vtex-category-item.show-arrow:hover::before {
+  border-top-color: white;
+}
+
+.vtex-category-item.show-arrow::before {
+  content: ' ';
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 3px solid black;
+  top: 31px;
+  left: 5px;
+}
+
+.vtex-category-sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 400px;
+  min-height: 230px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.vtex-category-item:hover .vtex-category-sub-menu {
+  display: block;
+}
+
+/* Loading Bar */
+.loading-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 1000;
+  opacity: 0.05;
+  background: black;
+  transform: translateX(100%);
+  animation: loadbar 0.8s 0.3s infinite ease-in-out;
+}
+
+@keyframes loadbar {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  60% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
