@@ -1,16 +1,16 @@
 query {
   categories(treeLevel: 1) {
-    ...CategoryFields
+    id
+    name
+    href
+    slug
+    hasChildren
     children {
-      ...CategoryFields
+      id
+      name
+      href
+      slug
+      hasChildren
     }
   }
-}
-
-fragment CategoryFields on Category {
-  id
-  name
-  href
-  slug
-  hasChildren
 }
