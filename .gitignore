@@ -35,3 +35,4 @@ npm-debug.log
 lib
 .eslintrc
 yarn-error.log
+.vscode
