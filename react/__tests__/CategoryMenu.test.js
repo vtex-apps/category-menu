@@ -70,4 +70,8 @@ describe('CategoryMenu component', () => {
       wrapper.container.querySelectorAll('[data-testid="category-item"]').length
     ).toBe(3)
   })
+
+  it("shouldn't be able to find a Category 4 item", () => {
+    expect(() => wrapper.getByText('Category 4')).toThrow()
+  })
 })
