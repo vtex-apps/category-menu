@@ -35,7 +35,10 @@ class CategoryItem extends Component {
           </a>
 
           {hasChildren && (
-            <div className="vtex-category-sub-menu pv6 ph5 br2 br--bottom">
+            <div
+              className="vtex-category-sub-menu pv6 ph5 br2 br--bottom"
+              data-testid="category-submenu"
+            >
               <ul className="list ma0 pa0 f6">
                 {category.children.map(subCategory => (
                   <li key={subCategory.id} className="lh-copy">
