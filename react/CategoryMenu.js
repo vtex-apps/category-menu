@@ -17,9 +17,10 @@ class CategoryMenu extends Component {
       <LoadingBar loading={loading}>
         <div className="h3 bg-near-white">
           <nav className="flex w-two-thirds center h0">
-            {categories.map(category => (
-              <CategoryItem key={category.id} id={category.id} />
-            ))}
+            {categories &&
+              categories.map(category => (
+                <CategoryItem key={category.id} category={category} />
+              ))}
           </nav>
         </div>
       </LoadingBar>
