@@ -1,6 +1,5 @@
-/* eslint-env jest */
 import React from 'react'
-import { render } from 'react-testing-library'
+import { mount } from 'enzyme'
 
 import CategoryItem from '../components/CategoryItem'
 
@@ -24,14 +23,16 @@ describe('CategoryItem component', () => {
       ],
     }
 
-    wrapper = render(<CategoryItem category={categoryMock} />)
+    wrapper = mount(<CategoryItem category={categoryMock} />)
   })
 
   it('should have the correct href', () => {
-    expect(wrapper.getByText('Category').href).toBe(`${location.href}#1`)
+    expect(wrapper.getDOMNode().querySelector('a').href).toBe(
+      `${location.href}#1`
+    )
   })
 
   it('should match snapshot', () => {
-    expect(wrapper.container).toMatchSnapshot()
+    expect(wrapper.getElement()).toMatchSnapshot()
   })
 })

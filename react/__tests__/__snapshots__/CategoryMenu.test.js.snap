@@ -1,59 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryMenu component should match snapshot 1`] = `
-<div>
-  <div
-    class="h3 bg-near-white"
-  >
-    <nav
-      class="flex w-two-thirds center h0"
-    >
-      <div
-        class="h3 w4"
-        data-testid="category-item"
-      >
-        <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
-        >
-          <a
-            class="db mt6 no-underline ttu"
-            href="#1"
-          >
-            Category 1
-          </a>
-        </div>
-      </div>
-      <div
-        class="h3 w4"
-        data-testid="category-item"
-      >
-        <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
-        >
-          <a
-            class="db mt6 no-underline ttu"
-            href="#2"
-          >
-            Category 2
-          </a>
-        </div>
-      </div>
-      <div
-        class="h3 w4"
-        data-testid="category-item"
-      >
-        <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
-        >
-          <a
-            class="db mt6 no-underline ttu"
-            href="#3"
-          >
-            Category 3
-          </a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
+<CategoryMenu
+  data={
+    Object {
+      "categories": Array [
+        Object {
+          "children": Array [],
+          "hasChildren": false,
+          "href": "#1",
+          "id": 1,
+          "name": "Category 1",
+          "slug": "category-1",
+        },
+        Object {
+          "children": Array [],
+          "hasChildren": false,
+          "href": "#2",
+          "id": 2,
+          "name": "Category 2",
+          "slug": "category-2",
+        },
+        Object {
+          "children": Array [],
+          "hasChildren": false,
+          "href": "#3",
+          "id": 3,
+          "name": "Category 3",
+          "slug": "category-3",
+        },
+      ],
+      "loading": false,
+    }
+  }
+  showGiftCategory={false}
+  showPromotionCategory={false}
+/>
 `;

@@ -1,40 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryItem component should match snapshot 1`] = `
-<div>
-  <div
-    class="h3 w4"
-    data-testid="category-item"
-  >
-    <div
-      class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white show-arrow"
-    >
-      <a
-        class="db mt6 no-underline ttu"
-        href="#1"
-      >
-        Category
-      </a>
-      <div
-        class="vtex-category-sub-menu pv6 ph5 br2 br--bottom"
-        data-testid="category-submenu"
-      >
-        <ul
-          class="list ma0 pa0 f6"
-        >
-          <li
-            class="lh-copy"
-          >
-            <a
-              class="near-black no-underline underline-hover"
-              href="#2"
-            >
-              Sub-category
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<CategoryItem
+  category={
+    Object {
+      "children": Array [
+        Object {
+          "href": "#2",
+          "id": 2,
+          "name": "Sub-category",
+          "slug": "sub-category",
+        },
+      ],
+      "hasChildren": true,
+      "href": "#1",
+      "id": 1,
+      "name": "Category",
+      "slug": "category",
+    }
+  }
+/>
 `;
