@@ -71,7 +71,7 @@ describe('CategoryMenu component', () => {
     ).toBe(3)
   })
 
-  it("shouldn't be able to find a Category 4 item", () => {
+  it("shouldn't be able to find a `Category 4` item", () => {
     expect(() => wrapper.getByText('Category 4')).toThrow()
   })
 })
