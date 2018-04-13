@@ -29,6 +29,10 @@ class CategoryMenu extends Component {
 }
 
 CategoryMenu.propTypes = {
+  /** Whether to show the promotion category or not */
+  showPromotionCategory: PropTypes.bool.isRequired,
+  /** Whether to show the gift category or not */
+  showGiftCategory: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     categories: PropTypes.arrayOf(
@@ -38,6 +42,22 @@ CategoryMenu.propTypes = {
       })
     ),
   }),
+}
+
+CategoryMenu.schema = {
+  title: 'Category Menu',
+  description: 'A menu showing a list of the available categories on the store',
+  type: 'object',
+  properties: {
+    showPromotionCategory: {
+      type: 'boolean',
+      title: 'Show the promotion category',
+    },
+    showGiftCategory: {
+      type: 'boolean',
+      title: 'Show the gifts category',
+    },
+  },
 }
 
 export default graphql(getCategories)(CategoryMenu)
