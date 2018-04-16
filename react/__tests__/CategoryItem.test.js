@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import CategoryItem from '../components/CategoryItem'
 
@@ -23,13 +23,11 @@ describe('CategoryItem component', () => {
       ],
     }
 
-    wrapper = mount(<CategoryItem category={categoryMock} />)
+    wrapper = shallow(<CategoryItem category={categoryMock} />)
   })
 
   it('should have the correct href', () => {
-    expect(wrapper.getDOMNode().querySelector('a').href).toBe(
-      `${location.href}#1`
-    )
+    expect(wrapper.find({ href: '#1' }).exists()).toBe(true)
   })
 
   it('should match snapshot', () => {
