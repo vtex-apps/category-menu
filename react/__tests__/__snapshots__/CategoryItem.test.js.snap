@@ -1,39 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryItem component should match snapshot 1`] = `
-<div>
+<div
+  className="h3 w4"
+  data-testid="category-item"
+>
   <div
-    class="h3 w4"
-    data-testid="category-item"
+    className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white show-arrow"
   >
-    <div
-      class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white show-arrow"
+    <a
+      className="db mt6 no-underline ttu"
+      href="#1"
+      style={
+        Object {
+          "color": "inherit",
+        }
+      }
     >
-      <a
-        class="db mt6 no-underline ttu"
-        href="#1"
+      Category
+    </a>
+    <div
+      className="vtex-category-sub-menu pv6 ph5 br2 br--bottom"
+      data-testid="category-submenu"
+    >
+      <ul
+        className="list ma0 pa0 f6"
       >
-        Category
-      </a>
-      <div
-        class="vtex-category-sub-menu pv6 ph5 br2 br--bottom"
-        data-testid="category-submenu"
-      >
-        <ul
-          class="list ma0 pa0 f6"
+        <li
+          className="lh-copy"
+          key="2"
         >
-          <li
-            class="lh-copy"
+          <a
+            className="near-black no-underline underline-hover"
+            href="#2"
           >
-            <a
-              class="near-black no-underline underline-hover"
-              href="#2"
-            >
-              Sub-category
-            </a>
-          </li>
-        </ul>
-      </div>
+            Sub-category
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

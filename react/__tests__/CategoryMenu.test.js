@@ -1,15 +1,12 @@
-/* eslint-env jest */
 import React from 'react'
-import { render } from 'react-testing-library'
-import { MockedProvider } from 'react-apollo/test-utils'
+import { mount } from 'enzyme'
 
-import CategoryMenu from '../CategoryMenu'
-import getCategories from '../queries/categoriesQuery.gql'
+import { CategoryMenu } from '../CategoryMenu'
 
 describe('CategoryMenu component', () => {
   let wrapper
 
-  beforeEach(done => {
+  beforeEach(() => {
     const mockedCategories = [
       {
         id: 1,
@@ -37,24 +34,14 @@ describe('CategoryMenu component', () => {
       },
     ]
 
-    wrapper = render(
-      <MockedProvider
-        mocks={[
-          {
-            request: { query: getCategories },
-            result: { data: { categories: mockedCategories } },
-          },
-        ]}
-      >
-        <CategoryMenu />
-      </MockedProvider>
+    wrapper = mount(
+      <CategoryMenu
+        data={{
+          categories: mockedCategories,
+          loading: false,
+        }}
+      />
     )
-
-    // necessary because we need to wait for the graphql
-    // response, even if it's a mocked one
-    setTimeout(() => {
-      done()
-    }, 0)
   })
 
   it('should be rendered', () => {
@@ -62,16 +49,26 @@ describe('CategoryMenu component', () => {
   })
 
   it('should match snapshot', () => {
-    expect(wrapper.container).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should render 3 menu items', () => {
+    expect(wrapper.find('[data-testid="category-item"]').length).toBe(3)
+  })
+
+  it('should have all provided categories', () => {
     expect(
-      wrapper.container.querySelectorAll('[data-testid="category-item"]').length
-    ).toBe(3)
+      wrapper.containsAllMatchingElements([
+        /* eslint-disable react/jsx-key */
+        <a>Category 1</a>,
+        <a>Category 2</a>,
+        <a>Category 3</a>,
+        /* eslint-enable */
+      ])
+    ).toBe(true)
   })
 
   it("shouldn't be able to find a `Category 4` item", () => {
-    expect(() => wrapper.getByText('Category 4')).toThrow()
+    expect(wrapper.containsMatchingElement(<a>Category 4</a>)).toBe(false)
   })
 })

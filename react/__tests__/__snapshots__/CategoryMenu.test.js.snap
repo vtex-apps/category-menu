@@ -1,59 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryMenu component should match snapshot 1`] = `
-<div>
-  <div
-    class="h3 bg-near-white"
+<CategoryMenu
+  data={
+    Object {
+      "categories": Array [
+        Object {
+          "children": Array [],
+          "hasChildren": false,
+          "href": "#1",
+          "id": 1,
+          "name": "Category 1",
+          "slug": "category-1",
+        },
+        Object {
+          "children": Array [],
+          "hasChildren": false,
+          "href": "#2",
+          "id": 2,
+          "name": "Category 2",
+          "slug": "category-2",
+        },
+        Object {
+          "children": Array [],
+          "hasChildren": false,
+          "href": "#3",
+          "id": 3,
+          "name": "Category 3",
+          "slug": "category-3",
+        },
+      ],
+      "loading": false,
+    }
+  }
+  showGiftCategory={false}
+  showPromotionCategory={false}
+>
+  <LoadingBar
+    fallback={null}
+    loading={false}
   >
-    <nav
-      class="flex w-two-thirds center h0"
+    <div
+      className="h3 bg-near-white"
     >
-      <div
-        class="h3 w4"
-        data-testid="category-item"
+      <nav
+        className="flex w-two-thirds center h0"
       >
-        <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+        <CategoryItem
+          category={
+            Object {
+              "children": Array [],
+              "hasChildren": false,
+              "href": "#1",
+              "id": 1,
+              "name": "Category 1",
+              "slug": "category-1",
+            }
+          }
+          key="1"
         >
-          <a
-            class="db mt6 no-underline ttu"
-            href="#1"
+          <div
+            className="h3 w4"
+            data-testid="category-item"
           >
-            Category 1
-          </a>
-        </div>
-      </div>
-      <div
-        class="h3 w4"
-        data-testid="category-item"
-      >
-        <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            <div
+              className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            >
+              <a
+                className="db mt6 no-underline ttu"
+                href="#1"
+                style={
+                  Object {
+                    "color": "inherit",
+                  }
+                }
+              >
+                Category 1
+              </a>
+            </div>
+          </div>
+        </CategoryItem>
+        <CategoryItem
+          category={
+            Object {
+              "children": Array [],
+              "hasChildren": false,
+              "href": "#2",
+              "id": 2,
+              "name": "Category 2",
+              "slug": "category-2",
+            }
+          }
+          key="2"
         >
-          <a
-            class="db mt6 no-underline ttu"
-            href="#2"
+          <div
+            className="h3 w4"
+            data-testid="category-item"
           >
-            Category 2
-          </a>
-        </div>
-      </div>
-      <div
-        class="h3 w4"
-        data-testid="category-item"
-      >
-        <div
-          class="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            <div
+              className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            >
+              <a
+                className="db mt6 no-underline ttu"
+                href="#2"
+                style={
+                  Object {
+                    "color": "inherit",
+                  }
+                }
+              >
+                Category 2
+              </a>
+            </div>
+          </div>
+        </CategoryItem>
+        <CategoryItem
+          category={
+            Object {
+              "children": Array [],
+              "hasChildren": false,
+              "href": "#3",
+              "id": 3,
+              "name": "Category 3",
+              "slug": "category-3",
+            }
+          }
+          key="3"
         >
-          <a
-            class="db mt6 no-underline ttu"
-            href="#3"
+          <div
+            className="h3 w4"
+            data-testid="category-item"
           >
-            Category 3
-          </a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
+            <div
+              className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            >
+              <a
+                className="db mt6 no-underline ttu"
+                href="#3"
+                style={
+                  Object {
+                    "color": "inherit",
+                  }
+                }
+              >
+                Category 3
+              </a>
+            </div>
+          </div>
+        </CategoryItem>
+      </nav>
+    </div>
+  </LoadingBar>
+</CategoryMenu>
 `;

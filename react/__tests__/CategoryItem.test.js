@@ -1,6 +1,5 @@
-/* eslint-env jest */
 import React from 'react'
-import { render } from 'react-testing-library'
+import { shallow } from 'enzyme'
 
 import CategoryItem from '../components/CategoryItem'
 
@@ -24,14 +23,14 @@ describe('CategoryItem component', () => {
       ],
     }
 
-    wrapper = render(<CategoryItem category={categoryMock} />)
+    wrapper = shallow(<CategoryItem category={categoryMock} />)
   })
 
   it('should have the correct href', () => {
-    expect(wrapper.getByText('Category').href).toBe(`${location.href}#1`)
+    expect(wrapper.find({ href: '#1' }).exists()).toBe(true)
   })
 
   it('should match snapshot', () => {
-    expect(wrapper.container).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })
