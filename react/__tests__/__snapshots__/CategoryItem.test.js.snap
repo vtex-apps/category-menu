@@ -28,6 +28,7 @@ exports[`CategoryItem component should match snapshot 1`] = `
       >
         <li
           className="lh-copy"
+          key="2"
         >
           <a
             className="near-black no-underline underline-hover"

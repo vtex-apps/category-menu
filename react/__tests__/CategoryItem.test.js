@@ -31,6 +31,6 @@ describe('CategoryItem component', () => {
   })
 
   it('should match snapshot', () => {
-    expect(wrapper.getElement()).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 })

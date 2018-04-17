@@ -49,7 +49,7 @@ describe('CategoryMenu component', () => {
   })
 
   it('should match snapshot', () => {
-    expect(wrapper.getElement()).toMatchSnapshot()
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('should render 3 menu items', () => {
