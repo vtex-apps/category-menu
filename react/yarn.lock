@@ -39,9 +39,9 @@
     react-responsive-modal "^2.0.1"
     vtex-tachyons "^2.3.0"
 
-"@vtex/vtex-scripts@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@vtex/vtex-scripts/-/vtex-scripts-0.4.0.tgz#263af2aab83c152977b78e8ef08dfa11e641c122"
+"@vtex/vtex-scripts@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@vtex/vtex-scripts/-/vtex-scripts-0.4.2.tgz#61894102892329351a8b099f61d0ad8752a0810b"
   dependencies:
     babel "~6.23.0"
     babel-jest "~22.4.3"
