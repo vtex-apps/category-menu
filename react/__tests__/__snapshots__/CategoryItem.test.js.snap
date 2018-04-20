@@ -2,7 +2,7 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <div
-  className="h3 w4"
+  className="h3 w4 category-menu__item"
   data-testid="category-item"
 >
   <div
@@ -20,14 +20,14 @@ exports[`CategoryItem component should match snapshot 1`] = `
       Category
     </a>
     <div
-      className="vtex-category-sub-menu pv6 ph5 br2 br--bottom"
+      className="category-menu__sub-menu pv6 ph5 br2 br--bottom"
       data-testid="category-submenu"
     >
       <ul
         className="list ma0 pa0 f6"
       >
         <li
-          className="lh-copy"
+          className="lh-copy category-menu__sub-item"
           key="2"
         >
           <a

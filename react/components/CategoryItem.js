@@ -24,7 +24,7 @@ class CategoryItem extends Component {
     }
 
     return (
-      <div className="h3 w4" data-testid="category-item">
+      <div className="h3 w4 category-menu__item" data-testid="category-item">
         <div className={wrapperClasses}>
           <a
             href={category.href}
@@ -36,12 +36,15 @@ class CategoryItem extends Component {
 
           {hasChildren && (
             <div
-              className="vtex-category-sub-menu pv6 ph5 br2 br--bottom"
+              className="category-menu__sub-menu pv6 ph5 br2 br--bottom"
               data-testid="category-submenu"
             >
               <ul className="list ma0 pa0 f6">
                 {category.children.map(subCategory => (
-                  <li key={subCategory.id} className="lh-copy">
+                  <li
+                    key={subCategory.id}
+                    className="lh-copy category-menu__sub-item"
+                  >
                     <a
                       className="near-black no-underline underline-hover"
                       href={subCategory.href}
