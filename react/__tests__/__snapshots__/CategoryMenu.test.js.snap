@@ -41,7 +41,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
     loading={false}
   >
     <div
-      className="category-menu h3 bg-near-white"
+      className="vtex-category-menu h3 bg-near-white"
     >
       <nav
         className="flex w-two-thirds center h0"
@@ -60,7 +60,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="1"
         >
           <div
-            className="h3 w4 category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
+            className="h3 w4 vtex-category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
             data-testid="category-item"
           >
             <a
@@ -85,7 +85,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="2"
         >
           <div
-            className="h3 w4 category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
+            className="h3 w4 vtex-category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
             data-testid="category-item"
           >
             <a
@@ -110,7 +110,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="3"
         >
           <div
-            className="h3 w4 category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
+            className="h3 w4 vtex-category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
             data-testid="category-item"
           >
             <a

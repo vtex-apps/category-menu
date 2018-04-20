@@ -13,7 +13,7 @@ class CategoryItem extends Component {
     const hasChildren = category.hasChildren || category.children.length > 0
 
     const wrapperClasses = classNames(
-      'h3 w4 category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white',
+      'h3 w4 vtex-category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white',
       {
         'show-arrow': hasChildren,
       }
@@ -27,14 +27,14 @@ class CategoryItem extends Component {
 
         {hasChildren && (
           <div
-            className="category-menu__sub-menu pv6 ph5 br2 br--bottom"
+            className="vtex-category-menu__sub-menu pv6 ph5 br2 br--bottom"
             data-testid="category-submenu"
           >
             <ul className="list ma0 pa0 f6">
               {category.children.map(subCategory => (
                 <li
                   key={subCategory.id}
-                  className="lh-copy category-menu__sub-item"
+                  className="lh-copy vtex-category-menu__sub-item"
                 >
                   <a
                     className="near-black no-underline underline-hover"

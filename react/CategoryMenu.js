@@ -17,7 +17,7 @@ export class CategoryMenu extends Component {
 
     return (
       <LoadingBar loading={loading}>
-        <div className="category-menu h3 bg-near-white">
+        <div className="vtex-category-menu h3 bg-near-white">
           <nav className="flex w-two-thirds center h0">
             {categories &&
               categories.map(category => (
