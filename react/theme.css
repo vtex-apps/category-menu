@@ -30,15 +30,19 @@ body {
 
 /* Category items */
 
-.vtex-category-item {
+.category-menu__item {
   position: relative;
 }
 
-.vtex-category-item.show-arrow:hover::before {
+.category-menu__item > a {
+  color: inherit;
+}
+
+.category-menu__item.show-arrow:hover::before {
   border-top-color: white;
 }
 
-.vtex-category-item.show-arrow::before {
+.category-menu__item.show-arrow::before {
   content: ' ';
   position: absolute;
   display: inline-block;
@@ -51,7 +55,7 @@ body {
   left: 5px;
 }
 
-.vtex-category-sub-menu {
+.category-menu__sub-menu {
   display: none;
   position: absolute;
   top: 100%;
@@ -61,7 +65,7 @@ body {
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.vtex-category-item:hover .vtex-category-sub-menu {
+.category-menu__item:hover .category-menu__sub-menu {
   display: block;
 }
 
