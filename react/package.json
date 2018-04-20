@@ -5,7 +5,7 @@
     "test": "vtex-scripts test"
   },
   "dependencies": {
-    "@vtex/styleguide": "^2.0.0-rc.35",
+    "@vtex/styleguide": "^2.0.0-rc.39",
     "classnames": "^2.2.5"
   },
   "devDependencies": {
