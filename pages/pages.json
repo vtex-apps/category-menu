@@ -1,8 +1,7 @@
 {
   "pages": {
     "category-menu": {
-      "path": "/category-menu",
-      "theme": "theme"
+      "path": "/category-menu"
     }
   },
   "extensions": {

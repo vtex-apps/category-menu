@@ -6,6 +6,8 @@ import getCategories from './queries/categoriesQuery.gql'
 import CategoryItem from './components/CategoryItem'
 import LoadingBar from './components/LoadingBar'
 
+import './global.css'
+
 /**
  * Component that represents the menu containing the categories of the store
  */
