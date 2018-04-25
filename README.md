@@ -1,6 +1,11 @@
 # Category Menu
 
-Category Menu is a canonical component that any VTEX store can install.
+Category Menu is a canonical app that any VTEX store can install.
+
+## Continuous Integrations 
+
+### Travis CI 
+[![Build Status](https://travis-ci.org/vtex-apps/category-menu.svg?branch=master)](https://travis-ci.org/vtex-apps/category-menu)
 
 ## Usage
 
