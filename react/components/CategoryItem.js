@@ -13,7 +13,7 @@ class CategoryItem extends Component {
     const hasChildren = category.hasChildren || category.children.length > 0
 
     const wrapperClasses = classNames(
-      'h3 w4 vtex-category-menu__item dib pl5 pr4 black-90 hover-bg-black-90 hover-white',
+      'vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white',
       {
         'show-arrow': hasChildren,
       }
