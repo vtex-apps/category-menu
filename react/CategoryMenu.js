@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo'
 import getCategories from './queries/categoriesQuery.gql'
 import CategoryItem from './components/CategoryItem'
 import LoadingBar from './components/LoadingBar'
+import { categoryPropType } from './propTypes'
 
 import './global.css'
 
@@ -19,7 +20,7 @@ export class CategoryMenu extends Component {
 
     return (
       <LoadingBar loading={loading}>
-        <div className="vtex-category-menu h3 bg-near-white">
+        <div className="vtex-category-menu h3">
           <nav className="flex w-two-thirds center h0">
             {categories &&
               categories.map(category => (
@@ -39,12 +40,7 @@ CategoryMenu.propTypes = {
   showGiftCategory: PropTypes.bool,
   data: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    categories: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-      })
-    ),
+    categories: PropTypes.arrayOf(categoryPropType),
   }),
 }
 
