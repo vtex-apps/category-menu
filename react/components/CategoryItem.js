@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import classNames from 'classnames'
 
 import CategorySubMenu from './CategorySubMenu'
 import { categoryPropType } from '../propTypes'
@@ -14,14 +13,9 @@ class CategoryItem extends Component {
 
     const hasChildren = category.hasChildren || category.children.length > 0
 
-    const wrapperClasses = classNames('vtex-category-menu__item h3 dib pl4', {
-      'show-arrow pr6': hasChildren,
-      pr4: !hasChildren,
-    })
-
     return (
-      <div className={wrapperClasses} data-testid="category-item">
-        <a href={category.href} className="db mt6 no-underline ttu">
+      <div className="vtex-category-menu__item ph4" data-testid="category-item">
+        <a href={category.href} className="db no-underline ttu">
           {category.name}
         </a>
 
