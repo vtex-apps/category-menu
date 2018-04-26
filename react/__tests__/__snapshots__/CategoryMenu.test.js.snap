@@ -41,7 +41,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
     loading={false}
   >
     <div
-      className="h3 bg-near-white"
+      className="vtex-category-menu h3 bg-near-white"
     >
       <nav
         className="flex w-two-thirds center h0"
@@ -60,24 +60,15 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="1"
         >
           <div
-            className="h3 w4"
+            className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
             data-testid="category-item"
           >
-            <div
-              className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            <a
+              className="db mt6 no-underline ttu"
+              href="#1"
             >
-              <a
-                className="db mt6 no-underline ttu"
-                href="#1"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                Category 1
-              </a>
-            </div>
+              Category 1
+            </a>
           </div>
         </CategoryItem>
         <CategoryItem
@@ -94,24 +85,15 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="2"
         >
           <div
-            className="h3 w4"
+            className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
             data-testid="category-item"
           >
-            <div
-              className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            <a
+              className="db mt6 no-underline ttu"
+              href="#2"
             >
-              <a
-                className="db mt6 no-underline ttu"
-                href="#2"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                Category 2
-              </a>
-            </div>
+              Category 2
+            </a>
           </div>
         </CategoryItem>
         <CategoryItem
@@ -128,24 +110,15 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="3"
         >
           <div
-            className="h3 w4"
+            className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
             data-testid="category-item"
           >
-            <div
-              className="h-100 w-100 dib pl5 pr4 vtex-category-item black-90 hover-bg-black-90 hover-white"
+            <a
+              className="db mt6 no-underline ttu"
+              href="#3"
             >
-              <a
-                className="db mt6 no-underline ttu"
-                href="#3"
-                style={
-                  Object {
-                    "color": "inherit",
-                  }
-                }
-              >
-                Category 3
-              </a>
-            </div>
+              Category 3
+            </a>
           </div>
         </CategoryItem>
       </nav>

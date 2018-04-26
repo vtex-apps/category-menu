@@ -6,16 +6,20 @@ import getCategories from './queries/categoriesQuery.gql'
 import CategoryItem from './components/CategoryItem'
 import LoadingBar from './components/LoadingBar'
 
+import './global.css'
+
 /**
  * Component that represents the menu containing the categories of the store
  */
 export class CategoryMenu extends Component {
   render() {
-    const { data: { categories, loading } } = this.props
+    const {
+      data: { categories, loading },
+    } = this.props
 
     return (
       <LoadingBar loading={loading}>
-        <div className="h3 bg-near-white">
+        <div className="vtex-category-menu h3 bg-near-white">
           <nav className="flex w-two-thirds center h0">
             {categories &&
               categories.map(category => (
