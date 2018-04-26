@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
+import CategorySubMenu from './CategorySubMenu'
+import { categoryPropType } from '../propTypes'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -12,12 +14,10 @@ class CategoryItem extends Component {
 
     const hasChildren = category.hasChildren || category.children.length > 0
 
-    const wrapperClasses = classNames(
-      'vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white',
-      {
-        'show-arrow': hasChildren,
-      }
-    )
+    const wrapperClasses = classNames('vtex-category-menu__item h3 dib pl4', {
+      'show-arrow pr6': hasChildren,
+      pr4: !hasChildren,
+    })
 
     return (
       <div className={wrapperClasses} data-testid="category-item">
@@ -25,28 +25,7 @@ class CategoryItem extends Component {
           {category.name}
         </a>
 
-        {hasChildren && (
-          <div
-            className="vtex-category-menu__sub-menu pv6 ph5 br2 br--bottom"
-            data-testid="category-submenu"
-          >
-            <ul className="list ma0 pa0 f6">
-              {category.children.map(subCategory => (
-                <li
-                  key={subCategory.id}
-                  className="lh-copy vtex-category-menu__sub-item"
-                >
-                  <a
-                    className="near-black no-underline underline-hover"
-                    href={subCategory.href}
-                  >
-                    {subCategory.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        {hasChildren && <CategorySubMenu subCategories={category.children} />}
       </div>
     )
   }
@@ -54,12 +33,7 @@ class CategoryItem extends Component {
 
 CategoryItem.propTypes = {
   /** Category to be displayed */
-  category: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
-    hasChildren: PropTypes.bool.isRequired,
-  }).isRequired,
+  category: categoryPropType.isRequired,
 }
 
 export default CategoryItem
