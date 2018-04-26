@@ -41,7 +41,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
     loading={false}
   >
     <div
-      className="vtex-category-menu h3 bg-near-white"
+      className="vtex-category-menu"
     >
       <nav
         className="flex w-two-thirds center h0"
@@ -60,11 +60,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="1"
         >
           <div
-            className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
+            className="vtex-category-menu__item ph4"
             data-testid="category-item"
           >
             <a
-              className="db mt6 no-underline ttu"
+              className="db no-underline ttu"
               href="#1"
             >
               Category 1
@@ -85,11 +85,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="2"
         >
           <div
-            className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
+            className="vtex-category-menu__item ph4"
             data-testid="category-item"
           >
             <a
-              className="db mt6 no-underline ttu"
+              className="db no-underline ttu"
               href="#2"
             >
               Category 2
@@ -110,11 +110,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           key="3"
         >
           <div
-            className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white"
+            className="vtex-category-menu__item ph4"
             data-testid="category-item"
           >
             <a
-              className="db mt6 no-underline ttu"
+              className="db no-underline ttu"
               href="#3"
             >
               Category 3

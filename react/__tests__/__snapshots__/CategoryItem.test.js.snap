@@ -2,34 +2,26 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <div
-  className="vtex-category-menu__item h3 w4 dib pl5 pr4 black-90 hover-bg-black-90 hover-white show-arrow"
+  className="vtex-category-menu__item ph4"
   data-testid="category-item"
 >
   <a
-    className="db mt6 no-underline ttu"
+    className="db no-underline ttu"
     href="#1"
   >
     Category
   </a>
-  <div
-    className="vtex-category-menu__sub-menu pv6 ph5 br2 br--bottom"
-    data-testid="category-submenu"
-  >
-    <ul
-      className="list ma0 pa0 f6"
-    >
-      <li
-        className="lh-copy vtex-category-menu__sub-item"
-        key="2"
-      >
-        <a
-          className="near-black no-underline underline-hover"
-          href="#2"
-        >
-          Sub-category
-        </a>
-      </li>
-    </ul>
-  </div>
+  <CategorySubMenu
+    subCategories={
+      Array [
+        Object {
+          "href": "#2",
+          "id": 2,
+          "name": "Sub-category",
+          "slug": "sub-category",
+        },
+      ]
+    }
+  />
 </div>
 `;
