@@ -64,8 +64,6 @@ body {
   background-color: #333333;
   top: 100%;
   left: 0;
-  min-width: 400px;
-  min-height: 230px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
