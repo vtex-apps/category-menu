@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 
 import { categoryPropType } from '../propTypes'
 
+/**
+ * Represents the sub-menu item list, which renders the categories and
+ * a optional category title with a link
+ */
 class CategorySubMenuItems extends Component {
   render() {
     const { name, href, categories } = this.props

@@ -4,6 +4,10 @@ import PropTypes from 'prop-types'
 import CategorySubMenuItems from './CategorySubMenuItems'
 import { categoryPropType } from '../propTypes'
 
+/**
+ * Represents the category item sub-menu, responsible for rendering the
+ * categories and it's own sub-categories
+ */
 class CategorySubMenu extends Component {
   render() {
     return (
