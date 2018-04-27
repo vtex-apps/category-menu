@@ -21,7 +21,7 @@ export class CategoryMenu extends Component {
     return (
       <LoadingBar loading={loading}>
         <div className="vtex-category-menu">
-          <nav className="flex w-two-thirds center h0">
+          <nav className="flex w-two-thirds center h-100">
             {categories &&
               categories.map(category => (
                 <CategoryItem key={category.id} category={category} />

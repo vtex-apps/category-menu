@@ -36,10 +36,6 @@ body {
   height: 60px;
 }
 
-.vtex-category-menu nav {
-  height: 100%;
-}
-
 .vtex-category-menu__item {
   position: relative;
   display: inline-block;
