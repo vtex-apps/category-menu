@@ -44,7 +44,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       className="vtex-category-menu"
     >
       <nav
-        className="flex w-two-thirds center h0"
+        className="flex w-two-thirds center h-100"
       >
         <CategoryItem
           category={
