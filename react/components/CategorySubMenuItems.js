@@ -7,7 +7,13 @@ import { categoryPropType } from '../propTypes'
  * Represents the sub-menu item list, which renders the categories and
  * a optional category title with a link
  */
-class CategorySubMenuItems extends Component {
+export default class CategorySubMenuItems extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    href: PropTypes.string,
+    categories: PropTypes.arrayOf(categoryPropType).isRequired,
+  }
+
   render() {
     const { name, href, categories } = this.props
 
@@ -34,11 +40,3 @@ class CategorySubMenuItems extends Component {
     )
   }
 }
-
-CategorySubMenuItems.propTypes = {
-  name: PropTypes.string,
-  href: PropTypes.string,
-  categories: PropTypes.arrayOf(categoryPropType).isRequired,
-}
-
-export default CategorySubMenuItems

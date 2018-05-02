@@ -7,7 +7,12 @@ import { categoryPropType } from '../propTypes'
  * Component that represents a single category displayed in the menu, also displays
  * the subcategories, if the provided category has them
  */
-class CategoryItem extends Component {
+export default class CategoryItem extends Component {
+  static propTypes = {
+    /** Category to be displayed */
+    category: categoryPropType.isRequired,
+  }
+
   render() {
     const { category } = this.props
 
@@ -24,10 +29,3 @@ class CategoryItem extends Component {
     )
   }
 }
-
-CategoryItem.propTypes = {
-  /** Category to be displayed */
-  category: categoryPropType.isRequired,
-}
-
-export default CategoryItem
