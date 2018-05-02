@@ -36,93 +36,95 @@ exports[`CategoryMenu component should match snapshot 1`] = `
   showGiftCategory={false}
   showPromotionCategory={false}
 >
-  <LoadingBar
-    fallback={null}
-    loading={false}
-  >
+  <NoSSR>
     <div
       className="vtex-category-menu"
     >
-      <nav
-        className="flex w-two-thirds center h-100"
+      <LoadingBar
+        fallback={null}
+        loading={false}
       >
-        <CategoryItem
-          category={
-            Object {
-              "children": Array [],
-              "hasChildren": false,
-              "href": "#1",
-              "id": 1,
-              "name": "Category 1",
-              "slug": "category-1",
-            }
-          }
-          key="1"
+        <nav
+          className="flex w-two-thirds center h-100"
         >
-          <div
-            className="vtex-category-menu__item ph4"
-            data-testid="category-item"
-          >
-            <a
-              className="db no-underline ttu"
-              href="#1"
-            >
-              Category 1
-            </a>
-          </div>
-        </CategoryItem>
-        <CategoryItem
-          category={
-            Object {
-              "children": Array [],
-              "hasChildren": false,
-              "href": "#2",
-              "id": 2,
-              "name": "Category 2",
-              "slug": "category-2",
+          <CategoryItem
+            category={
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#1",
+                "id": 1,
+                "name": "Category 1",
+                "slug": "category-1",
+              }
             }
-          }
-          key="2"
-        >
-          <div
-            className="vtex-category-menu__item ph4"
-            data-testid="category-item"
+            key="1"
           >
-            <a
-              className="db no-underline ttu"
-              href="#2"
+            <div
+              className="vtex-category-menu__item ph4"
+              data-testid="category-item"
             >
-              Category 2
-            </a>
-          </div>
-        </CategoryItem>
-        <CategoryItem
-          category={
-            Object {
-              "children": Array [],
-              "hasChildren": false,
-              "href": "#3",
-              "id": 3,
-              "name": "Category 3",
-              "slug": "category-3",
+              <a
+                className="db no-underline ttu"
+                href="#1"
+              >
+                Category 1
+              </a>
+            </div>
+          </CategoryItem>
+          <CategoryItem
+            category={
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#2",
+                "id": 2,
+                "name": "Category 2",
+                "slug": "category-2",
+              }
             }
-          }
-          key="3"
-        >
-          <div
-            className="vtex-category-menu__item ph4"
-            data-testid="category-item"
+            key="2"
           >
-            <a
-              className="db no-underline ttu"
-              href="#3"
+            <div
+              className="vtex-category-menu__item ph4"
+              data-testid="category-item"
             >
-              Category 3
-            </a>
-          </div>
-        </CategoryItem>
-      </nav>
+              <a
+                className="db no-underline ttu"
+                href="#2"
+              >
+                Category 2
+              </a>
+            </div>
+          </CategoryItem>
+          <CategoryItem
+            category={
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#3",
+                "id": 3,
+                "name": "Category 3",
+                "slug": "category-3",
+              }
+            }
+            key="3"
+          >
+            <div
+              className="vtex-category-menu__item ph4"
+              data-testid="category-item"
+            >
+              <a
+                className="db no-underline ttu"
+                href="#3"
+              >
+                Category 3
+              </a>
+            </div>
+          </CategoryItem>
+        </nav>
+      </LoadingBar>
     </div>
-  </LoadingBar>
+  </NoSSR>
 </CategoryMenu>
 `;
