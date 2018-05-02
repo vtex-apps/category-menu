@@ -8,7 +8,11 @@ import { categoryPropType } from '../propTypes'
  * Represents the category item sub-menu, responsible for rendering the
  * categories and it's own sub-categories
  */
-class CategorySubMenu extends Component {
+export default class CategorySubMenu extends Component {
+  static propTypes = {
+    subCategories: PropTypes.arrayOf(categoryPropType).isRequired,
+  }
+
   render() {
     return (
       <div
@@ -33,9 +37,3 @@ class CategorySubMenu extends Component {
     )
   }
 }
-
-CategorySubMenu.propTypes = {
-  subCategories: PropTypes.arrayOf(categoryPropType).isRequired,
-}
-
-export default CategorySubMenu

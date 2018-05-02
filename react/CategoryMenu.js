@@ -13,6 +13,39 @@ import './global.css'
  * Component that represents the menu containing the categories of the store
  */
 export class CategoryMenu extends Component {
+  static propTypes = {
+    /** Whether to show the promotion category or not */
+    showPromotionCategory: PropTypes.bool,
+    /** Whether to show the gift category or not */
+    showGiftCategory: PropTypes.bool,
+    data: PropTypes.shape({
+      loading: PropTypes.bool.isRequired,
+      categories: PropTypes.arrayOf(categoryPropType),
+    }),
+  }
+
+  static defaultProps = {
+    showPromotionCategory: false,
+    showGiftCategory: false,
+  }
+
+  static schema = {
+    title: 'Category Menu',
+    description:
+      'A menu showing a list of the available categories on the store',
+    type: 'object',
+    properties: {
+      showPromotionCategory: {
+        type: 'boolean',
+        title: 'Show the promotion category',
+      },
+      showGiftCategory: {
+        type: 'boolean',
+        title: 'Show the gifts category',
+      },
+    },
+  }
+
   render() {
     const {
       data: { categories, loading },
@@ -31,38 +64,6 @@ export class CategoryMenu extends Component {
       </LoadingBar>
     )
   }
-}
-
-CategoryMenu.propTypes = {
-  /** Whether to show the promotion category or not */
-  showPromotionCategory: PropTypes.bool,
-  /** Whether to show the gift category or not */
-  showGiftCategory: PropTypes.bool,
-  data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    categories: PropTypes.arrayOf(categoryPropType),
-  }),
-}
-
-CategoryMenu.defaultProps = {
-  showPromotionCategory: false,
-  showGiftCategory: false,
-}
-
-CategoryMenu.schema = {
-  title: 'Category Menu',
-  description: 'A menu showing a list of the available categories on the store',
-  type: 'object',
-  properties: {
-    showPromotionCategory: {
-      type: 'boolean',
-      title: 'Show the promotion category',
-    },
-    showGiftCategory: {
-      type: 'boolean',
-      title: 'Show the gifts category',
-    },
-  },
 }
 
 export default graphql(getCategories)(CategoryMenu)
