@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { NoSSR } from 'render'
 import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
@@ -52,16 +53,18 @@ export class CategoryMenu extends Component {
     } = this.props
 
     return (
-      <LoadingBar loading={loading}>
+      <NoSSR>
         <div className="vtex-category-menu">
-          <nav className="flex w-two-thirds center h-100">
-            {categories &&
-              categories.map(category => (
-                <CategoryItem key={category.id} category={category} />
-              ))}
-          </nav>
+          <LoadingBar loading={loading}>
+            <nav className="flex w-two-thirds center h-100">
+              {categories &&
+                categories.map(category => (
+                  <CategoryItem key={category.id} category={category} />
+                ))}
+            </nav>
+          </LoadingBar>
         </div>
-      </LoadingBar>
+      </NoSSR>
     )
   }
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const LoadingBar = ({ children, loading, fallback }) =>
   loading ? (
-    <div className="loading-container h3 bg-near-white">
+    <div className="loading-container h-100">
       <div className="loading-bar" />
       {fallback}
     </div>
