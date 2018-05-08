@@ -16,7 +16,7 @@ export default class CategoryItem extends Component {
   render() {
     const { category } = this.props
 
-    const hasChildren = category.hasChildren || category.children.length > 0
+    const hasChildren = !!(category.hasChildren || (category.children && category.children.length > 0))
 
     return (
       <div className="vtex-category-menu__item ph4" data-testid="category-item">
