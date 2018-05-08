@@ -36,7 +36,27 @@ exports[`CategoryMenu component should match snapshot 1`] = `
   showGiftCategory={false}
   showPromotionCategory={false}
 >
-  <NoSSR>
+  <NoSSR
+    onSSR={
+      <div
+        className="vtex-category-menu"
+      >
+        <nav
+          className="flex w-two-thirds center h-100"
+        >
+          <CategoryItem
+            category={
+              Object {
+                "href": "#category",
+                "id": 0,
+                "name": "Category",
+              }
+            }
+          />
+        </nav>
+      </div>
+    }
+  >
     <div
       className="vtex-category-menu"
     >
