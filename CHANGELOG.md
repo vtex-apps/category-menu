@@ -6,12 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.1.1] - 2018-05-08
+## [0.1.0] - 2018-05-12
 ### Added
-
-* Changelog file.
+- Add SSR fallback.
+- Add LoadingBar component
 
 ### Changed
-
-* Component style to match desgin specification.
-
+- Component style to match desgin specification.
+- Migrate submenu to separate component.
