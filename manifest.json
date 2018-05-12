@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "category-menu",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "title": "Category Menu",
   "description": "Displays the categories for the store in a menu",
   "defaultLocale": "pt-BR",
@@ -14,7 +14,9 @@
   },
   "mustUpdateAt": "2019-04-09",
   "categories": [],
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "settingsSchema": {},
   "scripts": {
     "postreleasy": "vtex publish --public"
