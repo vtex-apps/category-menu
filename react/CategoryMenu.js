@@ -55,7 +55,9 @@ export class CategoryMenu extends Component {
     const fallback = (
       <div className="vtex-category-menu">
         <nav className="flex w-two-thirds center h-100">
-          <CategoryItem category={{ id: 0, name: 'Category', href: '#category' }} />
+          <CategoryItem
+            category={{ id: 0, name: 'Category', href: '#category' }}
+          />
         </nav>
       </div>
     )
