@@ -7,14 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Changed
-
+## [0.1.1] - 2018-05-12
+### Fixed
 - Using Link instead of anchor tag to link to the search page.
 
 ## [0.1.0] - 2018-05-12
-
 ### Added
-
 - Add SSR fallback.
 - Add LoadingBar component
 
