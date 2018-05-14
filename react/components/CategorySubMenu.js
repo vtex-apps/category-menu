@@ -24,8 +24,8 @@ export default class CategorySubMenu extends Component {
           .map(category => (
             <CategorySubMenuItems
               key={category.id}
+              slug={category.slug}
               name={category.name}
-              href={category.href}
               categories={category.children}
             />
           ))}

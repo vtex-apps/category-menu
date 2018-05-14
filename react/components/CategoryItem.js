@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'render'
 import CategorySubMenu from './CategorySubMenu'
 import { categoryPropType } from '../propTypes'
 
@@ -16,13 +16,20 @@ export default class CategoryItem extends Component {
   render() {
     const { category } = this.props
 
-    const hasChildren = !!(category.hasChildren || (category.children && category.children.length > 0))
+    const hasChildren = !!(
+      category.hasChildren ||
+      (category.children && category.children.length > 0)
+    )
 
     return (
       <div className="vtex-category-menu__item ph4" data-testid="category-item">
-        <a href={category.href} className="db no-underline ttu">
+        <Link
+          page="store/search"
+          params={{ term: category.slug }}
+          className="db no-underline ttu"
+        >
           {category.name}
-        </a>
+        </Link>
 
         {hasChildren && <CategorySubMenu subCategories={category.children} />}
       </div>
