@@ -9,16 +9,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-* Using Link insteadof anchor tag to link to the search page.
+- Using Link instead of anchor tag to link to the search page.
 
 ## [0.1.0] - 2018-05-12
 
 ### Added
 
-* Add SSR fallback.
-* Add LoadingBar component
+- Add SSR fallback.
+- Add LoadingBar component
 
 ### Changed
 
-* Component style to match desgin specification.
-* Migrate submenu to separate component.
+- Component style to match desgin specification.
+- Migrate submenu to separate component.
