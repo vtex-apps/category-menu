@@ -27,7 +27,7 @@ describe('CategoryItem component', () => {
   })
 
   it('should have the correct href', () => {
-    expect(wrapper.find({ href: '#1' }).exists()).toBe(true)
+    expect(wrapper.find({ params: { term: 'category' } }).exists()).toBe(true)
   })
 
   it('should match snapshot', () => {
