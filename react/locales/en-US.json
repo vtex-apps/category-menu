@@ -1,1 +1,6 @@
-{}
+{
+  "editor.category-menu.title": "Category menu",
+  "editor.category-menu.description": "A menu showing a list of the available categories on the store",
+  "editor.category-menu.show-promotion-category.title": "Show the promotion category",
+  "editor.category-menu.show-gift-category.title": "Show the gifts category"
+}

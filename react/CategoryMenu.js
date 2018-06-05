@@ -31,18 +31,17 @@ export class CategoryMenu extends Component {
   }
 
   static schema = {
-    title: 'Category Menu',
-    description:
-      'A menu showing a list of the available categories on the store',
+    title: 'editor.category-menu.title',
+    description: 'editor.category-menu.description',
     type: 'object',
     properties: {
       showPromotionCategory: {
         type: 'boolean',
-        title: 'Show the promotion category',
+        title: 'editor.category-menu.show-promotion-category.title',
       },
       showGiftCategory: {
         type: 'boolean',
-        title: 'Show the gifts category',
+        title: 'editor.category-menu.show-gift-category.title',
       },
     },
   }
