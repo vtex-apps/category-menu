@@ -5,12 +5,17 @@ exports[`CategoryItem component should match snapshot 1`] = `
   className="vtex-category-menu__item ph4"
   data-testid="category-item"
 >
-  <a
+  <Link
     className="db no-underline ttu"
-    href="#1"
+    page="store/search"
+    params={
+      Object {
+        "term": "category",
+      }
+    }
   >
     Category
-  </a>
+  </Link>
   <CategorySubMenu
     subCategories={
       Array [

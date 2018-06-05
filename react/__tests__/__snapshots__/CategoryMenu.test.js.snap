@@ -84,12 +84,22 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               className="vtex-category-menu__item ph4"
               data-testid="category-item"
             >
-              <a
+              <Link
                 className="db no-underline ttu"
-                href="#1"
+                page="store/search"
+                params={
+                  Object {
+                    "term": "category-1",
+                  }
+                }
               >
-                Category 1
-              </a>
+                <a
+                  className="db no-underline ttu"
+                  href="store/search"
+                >
+                  Category 1
+                </a>
+              </Link>
             </div>
           </CategoryItem>
           <CategoryItem
@@ -109,12 +119,22 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               className="vtex-category-menu__item ph4"
               data-testid="category-item"
             >
-              <a
+              <Link
                 className="db no-underline ttu"
-                href="#2"
+                page="store/search"
+                params={
+                  Object {
+                    "term": "category-2",
+                  }
+                }
               >
-                Category 2
-              </a>
+                <a
+                  className="db no-underline ttu"
+                  href="store/search"
+                >
+                  Category 2
+                </a>
+              </Link>
             </div>
           </CategoryItem>
           <CategoryItem
@@ -134,12 +154,22 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               className="vtex-category-menu__item ph4"
               data-testid="category-item"
             >
-              <a
+              <Link
                 className="db no-underline ttu"
-                href="#3"
+                page="store/search"
+                params={
+                  Object {
+                    "term": "category-3",
+                  }
+                }
               >
-                Category 3
-              </a>
+                <a
+                  className="db no-underline ttu"
+                  href="store/search"
+                >
+                  Category 3
+                </a>
+              </Link>
             </div>
           </CategoryItem>
         </nav>
