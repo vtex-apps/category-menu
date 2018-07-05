@@ -11,20 +11,19 @@ import { categoryPropType } from '../propTypes'
 export default class CategorySubMenuItems extends Component {
   static propTypes = {
     name: PropTypes.string,
-    slug: PropTypes.string,
+    params: PropTypes.object,
     categories: PropTypes.arrayOf(categoryPropType).isRequired,
   }
 
   render() {
-    const { name, slug, categories } = this.props
-
+    const { name, params, categories } = this.props
     return (
       <div className="vtex-category-sub-menu__items-container">
         {name && (
           <Link
-            page="store/search"
+            page="store/category"
             className="vtex-category-sub-menu__items-title"
-            params={{ term: slug }}
+            params={params}
           >
             {name}
           </Link>
@@ -36,8 +35,8 @@ export default class CategorySubMenuItems extends Component {
               className="vtex-category-sub-menu__item lh-copy"
             >
               <Link
-                page="store/search"
-                params={{ term: category.slug }}
+                page="store/category"
+                params={{ ...params, category: category.slug }}
                 className="no-underline underline-hover"
               >
                 {category.name}
