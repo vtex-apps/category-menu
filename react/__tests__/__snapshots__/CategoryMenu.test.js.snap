@@ -86,16 +86,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             >
               <Link
                 className="db no-underline ttu"
-                page="store/search"
+                page="store/department"
                 params={
                   Object {
-                    "term": "category-1",
+                    "department": "category-1",
                   }
                 }
               >
                 <a
                   className="db no-underline ttu"
-                  href="store/search"
+                  href="store/department"
                 >
                   Category 1
                 </a>
@@ -121,16 +121,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             >
               <Link
                 className="db no-underline ttu"
-                page="store/search"
+                page="store/department"
                 params={
                   Object {
-                    "term": "category-2",
+                    "department": "category-2",
                   }
                 }
               >
                 <a
                   className="db no-underline ttu"
-                  href="store/search"
+                  href="store/department"
                 >
                   Category 2
                 </a>
@@ -156,16 +156,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             >
               <Link
                 className="db no-underline ttu"
-                page="store/search"
+                page="store/department"
                 params={
                   Object {
-                    "term": "category-3",
+                    "department": "category-3",
                   }
                 }
               >
                 <a
                   className="db no-underline ttu"
-                  href="store/search"
+                  href="store/department"
                 >
                   Category 3
                 </a>

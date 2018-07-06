@@ -10,6 +10,7 @@ import { categoryPropType } from '../propTypes'
  */
 export default class CategorySubMenu extends Component {
   static propTypes = {
+    params: PropTypes.object,
     subCategories: PropTypes.arrayOf(categoryPropType).isRequired,
   }
 
@@ -24,7 +25,7 @@ export default class CategorySubMenu extends Component {
           .map(category => (
             <CategorySubMenuItems
               key={category.id}
-              slug={category.slug}
+              params={{ ...this.props.params, category: category.slug }}
               name={category.name}
               categories={category.children}
             />
@@ -32,6 +33,7 @@ export default class CategorySubMenu extends Component {
 
         <CategorySubMenuItems
           categories={this.props.subCategories.filter(c => !c.hasChildren)}
+          params={this.props.params}
         />
       </div>
     )

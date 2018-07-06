@@ -24,14 +24,16 @@ export default class CategoryItem extends Component {
     return (
       <div className="vtex-category-menu__item ph4" data-testid="category-item">
         <Link
-          page="store/search"
-          params={{ term: category.slug }}
+          page="store/department"
+          params={{ department: category.slug }}
           className="db no-underline ttu"
         >
           {category.name}
         </Link>
 
-        {hasChildren && <CategorySubMenu subCategories={category.children} />}
+        {hasChildren && <CategorySubMenu
+          params={{ department: category.slug }}
+          subCategories={category.children} />}
       </div>
     )
   }
