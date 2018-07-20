@@ -4,14 +4,24 @@
   background-color: #3d3d3d;
   color: white;
   height: 60px;
+  overflow-y: visible;
+}
+
+.vtex-category-menu > nav {
+  height: 60px;
+  overflow-x: scroll;
+  overflow-y: visible;
 }
 
 .vtex-category-menu__item {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 1.15rem;
-  min-width: 145px;
+  font-size: 1rem;
+  min-width: 200px;
 }
 
 .vtex-category-menu__item:hover {
@@ -20,7 +30,6 @@
 
 .vtex-category-menu__item > a {
   color: inherit;
-  margin-top: 20px;
 }
 
 .vtex-category-sub-menu {
@@ -42,7 +51,7 @@
 }
 
 .vtex-category-sub-menu__items-container {
-  min-width: 150px;
+  min-width: 200px;
 }
 
 .vtex-category-sub-menu__items-title {

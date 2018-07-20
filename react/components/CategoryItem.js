@@ -21,6 +21,12 @@ export default class CategoryItem extends Component {
       (category.children && category.children.length > 0)
     )
 
+    if (hasChildren) {
+      const scrollHeight = document.getElementById('vtex-category-menu-nav')
+        ? document.getElementById('vtex-category-menu-nav').scrollLeft - 50
+        : 0
+    }
+
     return (
       <div className="vtex-category-menu__item ph4" data-testid="category-item">
         <Link

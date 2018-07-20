@@ -52,8 +52,8 @@ export class CategoryMenu extends Component {
     } = this.props
 
     const fallback = (
-      <div className="vtex-category-menu">
-        <nav className="flex w-two-thirds center h-100">
+      <div className="vtex-category-menu ph7-l ph4 ph5-ns">
+        <nav className="flex center h-100">
           <CategoryItem
             category={{ id: 0, name: 'Category', href: '#category' }}
           />
@@ -63,9 +63,9 @@ export class CategoryMenu extends Component {
 
     return (
       <NoSSR onSSR={fallback}>
-        <div className="vtex-category-menu">
+        <div className="vtex-category-menu ph7-l ph4 ph5-ns">
           <LoadingBar loading={loading}>
-            <nav className="flex w-two-thirds center h-100">
+            <nav id='vtex-category-menu-nav' className="flex center h-100">
               {categories &&
                 categories.map(category => (
                   <CategoryItem key={category.id} category={category} />
