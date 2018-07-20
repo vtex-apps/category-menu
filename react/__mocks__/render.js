@@ -11,22 +11,9 @@ export class NoSSR extends Component {
   }
 }
 
-export class Link extends Component {
-  static propTypes = {
-    page: PropTypes.string,
-    children: PropTypes.any,
-    className: PropTypes.string,
-  }
-
-  render() {
-    return (
-      <a
-        className={this.props.className}
-        href={this.props.page}
-      >
-        {this.props.children}
-      </a>
-    )
-  }
+export function Link({ params, className, children }) { // eslint-disable-line react/prop-types
+  return (
+    <a className={className} href={`/${params.department}/s`}>{children}</a>
+  )
 }
 

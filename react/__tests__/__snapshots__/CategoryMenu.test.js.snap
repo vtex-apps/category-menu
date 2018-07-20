@@ -36,145 +36,123 @@ exports[`CategoryMenu component should match snapshot 1`] = `
   showGiftCategory={false}
   showPromotionCategory={false}
 >
-  <NoSSR
-    onSSR={
-      <div
-        className="vtex-category-menu"
-      >
-        <nav
-          className="flex w-two-thirds center h-100"
-        >
-          <CategoryItem
-            category={
-              Object {
-                "href": "#category",
-                "id": 0,
-                "name": "Category",
-              }
-            }
-          />
-        </nav>
-      </div>
-    }
+  <div
+    className="vtex-category-menu"
   >
-    <div
-      className="vtex-category-menu"
+    <LoadingBar
+      fallback={null}
+      loading={false}
     >
-      <LoadingBar
-        fallback={null}
-        loading={false}
+      <nav
+        className="flex w-two-thirds center h-100"
       >
-        <nav
-          className="flex w-two-thirds center h-100"
+        <CategoryItem
+          category={
+            Object {
+              "children": Array [],
+              "hasChildren": false,
+              "href": "#1",
+              "id": 1,
+              "name": "Category 1",
+              "slug": "category-1",
+            }
+          }
+          key="1"
         >
-          <CategoryItem
-            category={
-              Object {
-                "children": Array [],
-                "hasChildren": false,
-                "href": "#1",
-                "id": 1,
-                "name": "Category 1",
-                "slug": "category-1",
-              }
-            }
-            key="1"
+          <div
+            className="vtex-category-menu__item ph4"
+            data-testid="category-item"
           >
-            <div
-              className="vtex-category-menu__item ph4"
-              data-testid="category-item"
+            <Link
+              className="db no-underline ttu"
+              page="store/search"
+              params={
+                Object {
+                  "term": "category-1",
+                }
+              }
             >
               <Link
                 className="db no-underline ttu"
-                page="store/department"
-                params={
-                  Object {
-                    "department": "category-1",
-                  }
-                }
+                href="/category-1/s"
               >
-                <a
-                  className="db no-underline ttu"
-                  href="store/department"
-                >
-                  Category 1
-                </a>
-              </Link>
-            </div>
-          </CategoryItem>
-          <CategoryItem
-            category={
-              Object {
-                "children": Array [],
-                "hasChildren": false,
-                "href": "#2",
-                "id": 2,
-                "name": "Category 2",
-                "slug": "category-2",
-              }
+                Category 1
+              </a>
+            </Link>
+          </div>
+        </CategoryItem>
+        <CategoryItem
+          category={
+            Object {
+              "children": Array [],
+              "hasChildren": false,
+              "href": "#2",
+              "id": 2,
+              "name": "Category 2",
+              "slug": "category-2",
             }
-            key="2"
+          }
+          key="2"
+        >
+          <div
+            className="vtex-category-menu__item ph4"
+            data-testid="category-item"
           >
-            <div
-              className="vtex-category-menu__item ph4"
-              data-testid="category-item"
+            <Link
+              className="db no-underline ttu"
+              page="store/search"
+              params={
+                Object {
+                  "term": "category-2",
+                }
+              }
             >
               <Link
                 className="db no-underline ttu"
-                page="store/department"
-                params={
-                  Object {
-                    "department": "category-2",
-                  }
-                }
+                href="/category-2/s"
               >
-                <a
-                  className="db no-underline ttu"
-                  href="store/department"
-                >
-                  Category 2
-                </a>
-              </Link>
-            </div>
-          </CategoryItem>
-          <CategoryItem
-            category={
-              Object {
-                "children": Array [],
-                "hasChildren": false,
-                "href": "#3",
-                "id": 3,
-                "name": "Category 3",
-                "slug": "category-3",
-              }
+                Category 2
+              </a>
+            </Link>
+          </div>
+        </CategoryItem>
+        <CategoryItem
+          category={
+            Object {
+              "children": Array [],
+              "hasChildren": false,
+              "href": "#3",
+              "id": 3,
+              "name": "Category 3",
+              "slug": "category-3",
             }
-            key="3"
+          }
+          key="3"
+        >
+          <div
+            className="vtex-category-menu__item ph4"
+            data-testid="category-item"
           >
-            <div
-              className="vtex-category-menu__item ph4"
-              data-testid="category-item"
+            <Link
+              className="db no-underline ttu"
+              page="store/search"
+              params={
+                Object {
+                  "term": "category-3",
+                }
+              }
             >
               <Link
                 className="db no-underline ttu"
-                page="store/department"
-                params={
-                  Object {
-                    "department": "category-3",
-                  }
-                }
+                href="/category-3/s"
               >
-                <a
-                  className="db no-underline ttu"
-                  href="store/department"
-                >
-                  Category 3
-                </a>
-              </Link>
-            </div>
-          </CategoryItem>
-        </nav>
-      </LoadingBar>
-    </div>
-  </NoSSR>
+                Category 3
+              </a>
+            </Link>
+          </div>
+        </CategoryItem>
+      </nav>
+    </LoadingBar>
+  </div>
 </CategoryMenu>
 `;

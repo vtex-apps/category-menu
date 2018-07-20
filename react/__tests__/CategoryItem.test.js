@@ -10,14 +10,12 @@ describe('CategoryItem component', () => {
     const categoryMock = {
       id: 1,
       name: 'Category',
-      href: '#1',
       slug: 'category',
       hasChildren: true,
       children: [
         {
           id: 2,
           name: 'Sub-category',
-          href: '#2',
           slug: 'sub-category',
         },
       ],

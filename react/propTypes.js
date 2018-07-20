@@ -9,7 +9,7 @@ function lazyFunction(f) {
 export const categoryPropType = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   hasChildren: PropTypes.bool,
   children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),
 })
