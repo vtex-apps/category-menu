@@ -7,10 +7,10 @@ exports[`CategoryItem component should match snapshot 1`] = `
 >
   <Link
     className="db no-underline ttu"
-    page="store/department"
+    page="store/search"
     params={
       Object {
-        "department": "category",
+        "term": "category",
       }
     }
   >
@@ -25,7 +25,6 @@ exports[`CategoryItem component should match snapshot 1`] = `
     subCategories={
       Array [
         Object {
-          "href": "#2",
           "id": 2,
           "name": "Sub-category",
           "slug": "sub-category",
