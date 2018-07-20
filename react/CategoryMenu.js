@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { NoSSR } from 'render'
 import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
@@ -51,29 +50,17 @@ export class CategoryMenu extends Component {
       data: { categories, loading },
     } = this.props
 
-    const fallback = (
-      <div className="vtex-category-menu">
-        <nav className="flex w-two-thirds center h-100">
-          <CategoryItem
-            category={{ id: 0, name: 'Category', href: '#category' }}
-          />
-        </nav>
-      </div>
-    )
-
     return (
-      <NoSSR onSSR={fallback}>
-        <div className="vtex-category-menu">
-          <LoadingBar loading={loading}>
-            <nav className="flex w-two-thirds center h-100">
-              {categories &&
-                categories.map(category => (
-                  <CategoryItem key={category.id} category={category} />
-                ))}
-            </nav>
-          </LoadingBar>
-        </div>
-      </NoSSR>
+      <div className="vtex-category-menu">
+        <LoadingBar loading={loading}>
+          <nav className="flex w-two-thirds center h-100">
+            {categories &&
+              categories.map(category => (
+                <CategoryItem key={category.id} category={category} />
+              ))}
+          </nav>
+        </LoadingBar>
+      </div>
     )
   }
 }
