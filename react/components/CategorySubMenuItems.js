@@ -28,22 +28,24 @@ export default class CategorySubMenuItems extends Component {
             {name}
           </Link>
         )}
-        <ul className="vtex-category-sub-menu__items list ma0 pa0 f6">
-          {categories.map(category => (
-            <li
-              key={category.id}
-              className="vtex-category-sub-menu__item lh-copy"
-            >
-              <Link
-                page="store/category"
-                params={{ ...params, category: category.slug }}
-                className="no-underline underline-hover"
+        {categories && (
+          <ul className="vtex-category-sub-menu__items list ma0 pa0 f6">
+            {categories.map(category => (
+              <li
+                key={category.id}
+                className="vtex-category-sub-menu__item lh-copy"
               >
-                {category.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                <Link
+                  page="store/category"
+                  params={{ ...params, category: category.slug }}
+                  className="no-underline underline-hover"
+                >
+                  {category.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     )
   }

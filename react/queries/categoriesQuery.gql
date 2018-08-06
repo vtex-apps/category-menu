@@ -11,6 +11,12 @@ query {
       href
       slug
       hasChildren
+      children {
+        id
+        name
+        href
+        slug
+      }
     }
   }
 }
