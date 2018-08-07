@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.3] - 2018-08-07
+### Fixed
+- Return the 3 level of categories and just map when defined
+
 ## [0.2.2] - 2018-07-25
 ### Removed
 - Remove `NoSSR` component.
