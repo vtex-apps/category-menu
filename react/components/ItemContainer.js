@@ -26,7 +26,7 @@ export default class ItemContainer extends Component {
           category: parentSlug ? item.slug : undefined,
         }}
       >
-        {item.name}
+        {item.name.toUpperCase()}
       </Link>
     )
   }

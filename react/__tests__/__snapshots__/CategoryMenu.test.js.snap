@@ -153,7 +153,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
                       href="/category-1/s"
                     >
-                      Category 1
+                      CATEGORY 1
                     </a>
                   </Link>
                 </div>
@@ -175,7 +175,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
                       href="/category-2/s"
                     >
-                      Category 2
+                      CATEGORY 2
                     </a>
                   </Link>
                 </div>
@@ -197,7 +197,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
                       href="/category-3/s"
                     >
-                      Category 3
+                      CATEGORY 3
                     </a>
                   </Link>
                 </div>
