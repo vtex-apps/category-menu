@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
 import CategoryItem from './components/CategoryItem'
-import LoadingBar from './components/LoadingBar'
 import { categoryPropType } from './propTypes'
 
 import './global.css'
@@ -18,6 +17,7 @@ export class CategoryMenu extends Component {
     showPromotionCategory: PropTypes.bool,
     /** Whether to show the gift category or not */
     showGiftCategory: PropTypes.bool,
+    /** Categories query data */
     data: PropTypes.shape({
       loading: PropTypes.bool.isRequired,
       categories: PropTypes.arrayOf(categoryPropType),
@@ -47,19 +47,23 @@ export class CategoryMenu extends Component {
 
   render() {
     const {
-      data: { categories, loading },
+      data: { categories },
     } = this.props
-
+    const itemWidthPercent = 100 / (categories.length + 1)
     return (
-      <div className="vtex-category-menu">
-        <LoadingBar loading={loading}>
-          <nav className="flex w-two-thirds center h-100">
-            {categories &&
-              categories.map(category => (
-                <CategoryItem key={category.id} category={category} />
-              ))}
-          </nav>
-        </LoadingBar>
+      <div className="vtex-category-menu flex justify-center items-center bg-near-black white">
+        <div className="vtex-category-menu__container h-100 w-70 flex justify-between items-center f6 overflow-hidden">
+          <CategoryItem noRedirect category={{
+            children: categories,
+            name: 'Departamentos',
+          }} widthPercent={itemWidthPercent} />
+          {categories && categories.map(category => (
+            <Fragment key={category.id}>
+              <span className="br bw1 b--white-30 h1"></span>
+              <CategoryItem category={category} widthPercent={itemWidthPercent} />
+            </Fragment>
+          ))}
+        </div>
       </div>
     )
   }
