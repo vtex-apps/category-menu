@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'render'
 import PropTypes from 'prop-types'
-import { categoryItemPropType } from '../propTypes'
+import { categoryItemShape } from '../propTypes'
 
 import ItemContainer from './ItemContainer'
 
@@ -16,7 +16,7 @@ export default class CategoryItem extends Component {
 
   static propTypes = {
     /** Category to be displayed */
-    category: categoryItemPropType.isRequired,
+    category: categoryItemShape.isRequired,
     /** Set use of Link component */
     noRedirect: PropTypes.bool,
     /** Item's width percent */
@@ -25,10 +25,11 @@ export default class CategoryItem extends Component {
 
   render() {
     const { category, widthPercent } = this.props
+    const { isHover } = this.state
 
     const containerStyle = {
       top: this.item && this.item.offsetTop + this.item.clientHeight,
-      display: this.state.isHover ? 'flex' : 'none',
+      display: isHover ? 'flex' : 'none',
     }
 
     const linkClasses = 'w-100 h-100 no-underline flex justify-center items-center f6 outline-0'
@@ -41,7 +42,9 @@ export default class CategoryItem extends Component {
         style={{ width: `${widthPercent}%` }}
       >
         {this.props.noRedirect ? (
-          <a href="#" className={linkClasses}>
+          <a href="#" className={linkClasses}
+            style={{ backgroundColor: isHover ? '#333333' : 'transparent' }}
+          >
             {category.name.toUpperCase()}
           </a>
         ) : (
@@ -49,6 +52,7 @@ export default class CategoryItem extends Component {
             page="store/department"
             params={{ department: category.slug }}
             className={linkClasses}
+            style={{ backgroundColor: isHover ? '#333333' : 'transparent' }}
           >
             {category.name.toUpperCase()}
           </Link>
