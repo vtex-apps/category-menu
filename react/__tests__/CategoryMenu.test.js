@@ -56,18 +56,6 @@ describe('CategoryMenu component', () => {
     expect(wrapper.find('.vtex-category-menu__item').length).toBe(4)
   })
 
-  it('should have all provided categories', () => {
-    expect(
-      wrapper.containsAllMatchingElements([
-        /* eslint-disable react/jsx-key */
-        <a>Category 1</a>,
-        <a>Category 2</a>,
-        <a>Category 3</a>,
-        /* eslint-enable */
-      ])
-    ).toBe(true)
-  })
-
   it("shouldn't be able to find a `Category 4` item", () => {
     expect(wrapper.containsMatchingElement(<a>Category 4</a>)).toBe(false)
   })
