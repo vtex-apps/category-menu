@@ -47,7 +47,7 @@ export class CategoryMenu extends Component {
 
   render() {
     const {
-      data: { categories },
+      data: { categories = [] },
     } = this.props
     const itemWidthPercent = 100 / (categories.length + 1)
     return (

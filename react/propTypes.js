@@ -13,7 +13,7 @@ export const categoryPropType = PropTypes.shape({
   children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),
 })
 
-export const categoryItemPropType = PropTypes.shape({
+export const categoryItemShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   slug: PropTypes.string,
   children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),

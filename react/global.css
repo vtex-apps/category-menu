@@ -8,10 +8,6 @@
   padding: .7rem 1rem;
 }
 
-.vtex-category-menu__item > a:hover {
-  background-color: #333333;
-}
-
 .vtex-category-menu__item-container {
   padding-left: 15%;
   padding-right: 15%;
