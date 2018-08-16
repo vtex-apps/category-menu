@@ -2,11 +2,17 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <div
-  className="vtex-category-menu__item ph4"
-  data-testid="category-item"
+  className="vtex-category-menu__item h-100 flex justify-center items-center"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "width": "undefined%",
+    }
+  }
 >
   <Link
-    className="db no-underline ttu"
+    className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
     page="store/department"
     params={
       Object {
@@ -14,23 +20,28 @@ exports[`CategoryItem component should match snapshot 1`] = `
       }
     }
   >
-    Category
+    CATEGORY
   </Link>
-  <CategorySubMenu
-    params={
+  <div
+    className="absolute w-100 left-0"
+    style={
       Object {
-        "department": "category",
+        "display": "none",
+        "top": undefined,
       }
     }
-    subCategories={
-      Array [
-        Object {
-          "id": 2,
-          "name": "Sub-category",
-          "slug": "sub-category",
-        },
-      ]
-    }
-  />
+  >
+    <ItemContainer
+      categories={
+        Array [
+          Object {
+            "id": 2,
+            "name": "Sub-category",
+            "slug": "sub-category",
+          },
+        ]
+      }
+    />
+  </div>
 </div>
 `;
