@@ -90,6 +90,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           <a
             className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
             href="#"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+              }
+            }
           >
             DEPARTAMENTOS
           </a>
@@ -240,6 +245,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 "department": "category-1",
               }
             }
+            style={
+              Object {
+                "backgroundColor": "transparent",
+              }
+            }
           >
             <a
               className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
@@ -284,6 +294,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 "department": "category-2",
               }
             }
+            style={
+              Object {
+                "backgroundColor": "transparent",
+              }
+            }
           >
             <a
               className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
@@ -326,6 +341,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             params={
               Object {
                 "department": "category-3",
+              }
+            }
+            style={
+              Object {
+                "backgroundColor": "transparent",
               }
             }
           >

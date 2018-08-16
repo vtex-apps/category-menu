@@ -19,6 +19,11 @@ exports[`CategoryItem component should match snapshot 1`] = `
         "department": "category",
       }
     }
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
   >
     CATEGORY
   </Link>
