@@ -10,6 +10,11 @@ export const categoryPropType = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  hasChildren: PropTypes.bool,
+  children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),
+})
+
+export const categoryItemPropType = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string,
   children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),
 })
