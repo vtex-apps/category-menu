@@ -37,122 +37,308 @@ exports[`CategoryMenu component should match snapshot 1`] = `
   showPromotionCategory={false}
 >
   <div
-    className="vtex-category-menu"
+    className="vtex-category-menu flex justify-center items-center bg-near-black white"
   >
-    <LoadingBar
-      fallback={null}
-      loading={false}
+    <div
+      className="vtex-category-menu__container h-100 w-70 flex justify-between items-center f6 overflow-hidden"
     >
-      <nav
-        className="flex w-two-thirds center h-100"
+      <CategoryItem
+        category={
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#1",
+                "id": 1,
+                "name": "Category 1",
+                "slug": "category-1",
+              },
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#2",
+                "id": 2,
+                "name": "Category 2",
+                "slug": "category-2",
+              },
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#3",
+                "id": 3,
+                "name": "Category 3",
+                "slug": "category-3",
+              },
+            ],
+            "name": "Departamentos",
+          }
+        }
+        noRedirect={true}
+        widthPercent={25}
       >
-        <CategoryItem
-          category={
+        <div
+          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          style={
             Object {
-              "children": Array [],
-              "hasChildren": false,
-              "href": "#1",
-              "id": 1,
-              "name": "Category 1",
-              "slug": "category-1",
+              "width": "25%",
             }
           }
-          key="1"
         >
-          <div
-            className="vtex-category-menu__item ph4"
-            data-testid="category-item"
+          <a
+            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            href="#"
           >
-            <Link
-              className="db no-underline ttu"
-              page="store/department"
-              params={
-                Object {
-                  "department": "category-1",
-                }
+            DEPARTAMENTOS
+          </a>
+          <div
+            className="absolute w-100 left-0"
+            style={
+              Object {
+                "display": "none",
+                "top": undefined,
+              }
+            }
+          >
+            <ItemContainer
+              categories={
+                Array [
+                  Object {
+                    "children": Array [],
+                    "hasChildren": false,
+                    "href": "#1",
+                    "id": 1,
+                    "name": "Category 1",
+                    "slug": "category-1",
+                  },
+                  Object {
+                    "children": Array [],
+                    "hasChildren": false,
+                    "href": "#2",
+                    "id": 2,
+                    "name": "Category 2",
+                    "slug": "category-2",
+                  },
+                  Object {
+                    "children": Array [],
+                    "hasChildren": false,
+                    "href": "#3",
+                    "id": 3,
+                    "name": "Category 3",
+                    "slug": "category-3",
+                  },
+                ]
               }
             >
-              <a
-                className="db no-underline ttu"
-                href="/category-1/s"
+              <div
+                className="vtex-category-menu__item-container w-100 flex justify-center bg-white shadow-5 ph7 pv4"
               >
-                Category 1
-              </a>
-            </Link>
+                <div
+                  className="fl flex flex-column pa4"
+                  key="1"
+                >
+                  <Link
+                    className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                    page="store/department"
+                    params={
+                      Object {
+                        "category": undefined,
+                        "department": "category-1",
+                      }
+                    }
+                  >
+                    <a
+                      className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                      href="/category-1/s"
+                    >
+                      Category 1
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="fl flex flex-column pa4"
+                  key="2"
+                >
+                  <Link
+                    className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                    page="store/department"
+                    params={
+                      Object {
+                        "category": undefined,
+                        "department": "category-2",
+                      }
+                    }
+                  >
+                    <a
+                      className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                      href="/category-2/s"
+                    >
+                      Category 2
+                    </a>
+                  </Link>
+                </div>
+                <div
+                  className="fl flex flex-column pa4"
+                  key="3"
+                >
+                  <Link
+                    className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                    page="store/department"
+                    params={
+                      Object {
+                        "category": undefined,
+                        "department": "category-3",
+                      }
+                    }
+                  >
+                    <a
+                      className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                      href="/category-3/s"
+                    >
+                      Category 3
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </ItemContainer>
           </div>
-        </CategoryItem>
-        <CategoryItem
-          category={
+        </div>
+      </CategoryItem>
+      <span
+        className="br bw1 b--white-30 h1"
+      />
+      <CategoryItem
+        category={
+          Object {
+            "children": Array [],
+            "hasChildren": false,
+            "href": "#1",
+            "id": 1,
+            "name": "Category 1",
+            "slug": "category-1",
+          }
+        }
+        widthPercent={25}
+      >
+        <div
+          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          style={
             Object {
-              "children": Array [],
-              "hasChildren": false,
-              "href": "#2",
-              "id": 2,
-              "name": "Category 2",
-              "slug": "category-2",
+              "width": "25%",
             }
           }
-          key="2"
         >
-          <div
-            className="vtex-category-menu__item ph4"
-            data-testid="category-item"
-          >
-            <Link
-              className="db no-underline ttu"
-              page="store/department"
-              params={
-                Object {
-                  "department": "category-2",
-                }
+          <Link
+            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            page="store/department"
+            params={
+              Object {
+                "department": "category-1",
               }
+            }
+          >
+            <a
+              className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+              href="/category-1/s"
             >
-              <a
-                className="db no-underline ttu"
-                href="/category-2/s"
-              >
-                Category 2
-              </a>
-            </Link>
-          </div>
-        </CategoryItem>
-        <CategoryItem
-          category={
+              CATEGORY 1
+            </a>
+          </Link>
+        </div>
+      </CategoryItem>
+      <span
+        className="br bw1 b--white-30 h1"
+      />
+      <CategoryItem
+        category={
+          Object {
+            "children": Array [],
+            "hasChildren": false,
+            "href": "#2",
+            "id": 2,
+            "name": "Category 2",
+            "slug": "category-2",
+          }
+        }
+        widthPercent={25}
+      >
+        <div
+          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          style={
             Object {
-              "children": Array [],
-              "hasChildren": false,
-              "href": "#3",
-              "id": 3,
-              "name": "Category 3",
-              "slug": "category-3",
+              "width": "25%",
             }
           }
-          key="3"
         >
-          <div
-            className="vtex-category-menu__item ph4"
-            data-testid="category-item"
-          >
-            <Link
-              className="db no-underline ttu"
-              page="store/department"
-              params={
-                Object {
-                  "department": "category-3",
-                }
+          <Link
+            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            page="store/department"
+            params={
+              Object {
+                "department": "category-2",
               }
+            }
+          >
+            <a
+              className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+              href="/category-2/s"
             >
-              <a
-                className="db no-underline ttu"
-                href="/category-3/s"
-              >
-                Category 3
-              </a>
-            </Link>
-          </div>
-        </CategoryItem>
-      </nav>
-    </LoadingBar>
+              CATEGORY 2
+            </a>
+          </Link>
+        </div>
+      </CategoryItem>
+      <span
+        className="br bw1 b--white-30 h1"
+      />
+      <CategoryItem
+        category={
+          Object {
+            "children": Array [],
+            "hasChildren": false,
+            "href": "#3",
+            "id": 3,
+            "name": "Category 3",
+            "slug": "category-3",
+          }
+        }
+        widthPercent={25}
+      >
+        <div
+          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          style={
+            Object {
+              "width": "25%",
+            }
+          }
+        >
+          <Link
+            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            page="store/department"
+            params={
+              Object {
+                "department": "category-3",
+              }
+            }
+          >
+            <a
+              className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+              href="/category-3/s"
+            >
+              CATEGORY 3
+            </a>
+          </Link>
+        </div>
+      </CategoryItem>
+    </div>
   </div>
 </CategoryMenu>
 `;

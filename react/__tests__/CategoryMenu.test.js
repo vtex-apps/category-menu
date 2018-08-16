@@ -52,8 +52,8 @@ describe('CategoryMenu component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should render 3 menu items', () => {
-    expect(wrapper.find('[data-testid="category-item"]').length).toBe(3)
+  it('should render 4 menu items', () => {
+    expect(wrapper.find('.vtex-category-menu__item').length).toBe(4)
   })
 
   it('should have all provided categories', () => {
