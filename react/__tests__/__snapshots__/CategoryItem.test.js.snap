@@ -2,7 +2,7 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <div
-  className="vtex-category-menu__item h-100 flex justify-center items-center"
+  className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   style={
@@ -12,16 +12,11 @@ exports[`CategoryItem component should match snapshot 1`] = `
   }
 >
   <Link
-    className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+    className="w-100 no-underline f6 outline-0 db tc truncate"
     page="store/department"
     params={
       Object {
         "department": "category",
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "transparent",
       }
     }
   >
@@ -46,6 +41,7 @@ exports[`CategoryItem component should match snapshot 1`] = `
           },
         ]
       }
+      parentSlug="category"
     />
   </div>
 </div>
