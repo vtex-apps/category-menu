@@ -5,6 +5,10 @@ import { graphql } from 'react-apollo'
 import getCategories from './queries/categoriesQuery.gql'
 import CategoryItem from './components/CategoryItem'
 import { categoryPropType } from './propTypes'
+import SideBar from './components/SideBar'
+import HamburguerIcon from './images/HamburguerIcon'
+
+const MAX_NUMBER_OF_MENUS = 6
 
 import './global.css'
 
@@ -22,11 +26,14 @@ export class CategoryMenu extends Component {
       loading: PropTypes.bool.isRequired,
       categories: PropTypes.arrayOf(categoryPropType),
     }),
+    /** Set mobile mode */
+    mobileMode: PropTypes.bool,
   }
 
   static defaultProps = {
     showPromotionCategory: false,
     showGiftCategory: false,
+    mobileMode: false,
   }
 
   static schema = {
@@ -45,21 +52,44 @@ export class CategoryMenu extends Component {
     },
   }
 
+  state = {
+    sideBarVisible: false,
+  }
+
+  handleSideBarVisible = () => {
+    this.setState({ sideBarVisible: !this.state.sideBarVisible })
+  }
+
   render() {
     const {
       data: { categories = [] },
     } = this.props
-    const itemWidthPercent = 100 / (categories.length + 1)
+    const categoriesSliced = categories.slice(0, MAX_NUMBER_OF_MENUS)
+    const itemWidthPercent = 100 / (categoriesSliced.length + 1)
+    if (this.props.mobileMode) {
+      return (
+        <Fragment>
+          {this.state.sideBarVisible && (
+            <SideBar
+              departments={categories}
+              onClose={this.handleSideBarVisible} />
+          )}
+          <div className="flex pa4 pointer" onClick={this.handleSideBarVisible}>
+            <HamburguerIcon />
+          </div>
+        </Fragment>
+      )
+    }
     return (
-      <div className="vtex-category-menu flex justify-center items-center bg-near-black white">
-        <div className="vtex-category-menu__container h-100 w-70 flex justify-between items-center f6 overflow-hidden">
+      <div className="vtex-category-menu flex justify-center items-center bg-white">
+        <div className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
             name: 'Departamentos',
           }} widthPercent={itemWidthPercent} />
-          {categories && categories.map(category => (
+          {categoriesSliced.map(category => (
             <Fragment key={category.id}>
-              <span className="br bw1 b--white-30 h1"></span>
+              <span className="br bw1 h1"></span>
               <CategoryItem category={category} widthPercent={itemWidthPercent} />
             </Fragment>
           ))}

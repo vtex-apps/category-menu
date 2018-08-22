@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { categoryItemShape } from '../propTypes'
 
 import ItemContainer from './ItemContainer'
+import classNames from 'classnames'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -32,19 +33,25 @@ export default class CategoryItem extends Component {
       display: isHover ? 'flex' : 'none',
     }
 
-    const linkClasses = 'w-100 h-100 no-underline flex justify-center items-center f6 outline-0'
+    const linkClasses = 'w-100 no-underline f6 outline-0 db tc truncate'
+
+    const itemClasses = classNames(
+      'vtex-category-menu__item flex justify-center items-center bb',
+      {
+        'b--transparent': !isHover,
+        'vtex-category-menu__item--border-blue': isHover,
+      }
+    )
 
     return (
-      <div className="vtex-category-menu__item h-100 flex justify-center items-center"
+      <div className={itemClasses}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHover: true })}
         onMouseLeave={() => this.setState({ isHover: false })}
         style={{ width: `${widthPercent}%` }}
       >
         {this.props.noRedirect ? (
-          <a href="#" className={linkClasses}
-            style={{ backgroundColor: isHover ? '#333333' : 'transparent' }}
-          >
+          <a href="#" className={linkClasses}>
             {category.name.toUpperCase()}
           </a>
         ) : (
@@ -52,14 +59,13 @@ export default class CategoryItem extends Component {
             page="store/department"
             params={{ department: category.slug }}
             className={linkClasses}
-            style={{ backgroundColor: isHover ? '#333333' : 'transparent' }}
           >
             {category.name.toUpperCase()}
           </Link>
         )}
         {category.children.length > 0 && (
           <div className="absolute w-100 left-0" style={containerStyle}>
-            <ItemContainer categories={category.children} />
+            <ItemContainer categories={category.children} parentSlug={category.slug} />
           </div>
         )}
       </div>

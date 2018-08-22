@@ -20,7 +20,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         page={parentSlug ? 'store/category' : 'store/department'}
-        className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+        className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
         params={{
           department: parentSlug || item.slug,
           category: parentSlug ? item.slug : undefined,
@@ -35,7 +35,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         page={parentSlug ? 'store/subcategory' : 'store/category'}
-        className="vtex-category-menu__link-level-3 black-60 pa4 ph5 no-underline outline-0 tl f6 near-black"
+        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate"
         params={{
           department: parentSlug || item.slug,
           category: parentSlug ? item.slug : subItem.slug,
@@ -49,19 +49,16 @@ export default class ItemContainer extends Component {
 
   render() {
     return (
-      <div className="vtex-category-menu__item-container w-100 flex justify-center bg-white shadow-5 ph7 pv4">
+      <div className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib">
         {this.props.categories.map(category => (
-          <div key={category.id} className="fl flex flex-column pa4">
+          <div key={category.id} className="fl db pa2">
             {this.renderLinkFirstLevel(this.props.parentSlug, category)}
             {category.children && category.children.length > 0 && (
               <Fragment>
-                <div className="bt b--black-10"></div>
-                {category.children.map((subCategory, index) => (
+                {category.children.map((subCategory) => (
                   <Fragment key={subCategory.id}>
+                    <span className="flex w-100 bt"></span>
                     {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
-                    {index !== category.children.length - 1 && (
-                      <div className="bt b--black-10"></div>
-                    )}
                   </Fragment>
                 ))}
               </Fragment>
