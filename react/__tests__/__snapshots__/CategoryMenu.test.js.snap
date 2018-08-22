@@ -33,14 +33,15 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       "loading": false,
     }
   }
+  mobileMode={false}
   showGiftCategory={false}
   showPromotionCategory={false}
 >
   <div
-    className="vtex-category-menu flex justify-center items-center bg-near-black white"
+    className="vtex-category-menu flex justify-center items-center bg-white"
   >
     <div
-      className="vtex-category-menu__container h-100 w-70 flex justify-between items-center f6 overflow-hidden"
+      className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden"
     >
       <CategoryItem
         category={
@@ -78,7 +79,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         widthPercent={25}
       >
         <div
-          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
           style={
@@ -88,13 +89,8 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           }
         >
           <a
-            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            className="w-100 no-underline f6 outline-0 db tc truncate"
             href="#"
-            style={
-              Object {
-                "backgroundColor": "transparent",
-              }
-            }
           >
             DEPARTAMENTOS
           </a>
@@ -138,14 +134,14 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               }
             >
               <div
-                className="vtex-category-menu__item-container w-100 flex justify-center bg-white shadow-5 ph7 pv4"
+                className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib"
               >
                 <div
-                  className="fl flex flex-column pa4"
+                  className="fl db pa2"
                   key="1"
                 >
                   <Link
-                    className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                    className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
                     page="store/department"
                     params={
                       Object {
@@ -155,7 +151,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     }
                   >
                     <a
-                      className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                      className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
                       href="/category-1/s"
                     >
                       CATEGORY 1
@@ -163,11 +159,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   </Link>
                 </div>
                 <div
-                  className="fl flex flex-column pa4"
+                  className="fl db pa2"
                   key="2"
                 >
                   <Link
-                    className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                    className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
                     page="store/department"
                     params={
                       Object {
@@ -177,7 +173,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     }
                   >
                     <a
-                      className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                      className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
                       href="/category-2/s"
                     >
                       CATEGORY 2
@@ -185,11 +181,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   </Link>
                 </div>
                 <div
-                  className="fl flex flex-column pa4"
+                  className="fl db pa2"
                   key="3"
                 >
                   <Link
-                    className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                    className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
                     page="store/department"
                     params={
                       Object {
@@ -199,7 +195,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     }
                   >
                     <a
-                      className="vtex-category-menu__link-level-2 f5 fw5 no-underline pa4 outline-0 tl near-black"
+                      className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
                       href="/category-3/s"
                     >
                       CATEGORY 3
@@ -212,7 +208,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         </div>
       </CategoryItem>
       <span
-        className="br bw1 b--white-30 h1"
+        className="br bw1 h1"
       />
       <CategoryItem
         category={
@@ -228,7 +224,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         widthPercent={25}
       >
         <div
-          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
           style={
@@ -238,21 +234,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           }
         >
           <Link
-            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            className="w-100 no-underline f6 outline-0 db tc truncate"
             page="store/department"
             params={
               Object {
                 "department": "category-1",
               }
             }
-            style={
-              Object {
-                "backgroundColor": "transparent",
-              }
-            }
           >
             <a
-              className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+              className="w-100 no-underline f6 outline-0 db tc truncate"
               href="/category-1/s"
             >
               CATEGORY 1
@@ -261,7 +252,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         </div>
       </CategoryItem>
       <span
-        className="br bw1 b--white-30 h1"
+        className="br bw1 h1"
       />
       <CategoryItem
         category={
@@ -277,7 +268,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         widthPercent={25}
       >
         <div
-          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
           style={
@@ -287,21 +278,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           }
         >
           <Link
-            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            className="w-100 no-underline f6 outline-0 db tc truncate"
             page="store/department"
             params={
               Object {
                 "department": "category-2",
               }
             }
-            style={
-              Object {
-                "backgroundColor": "transparent",
-              }
-            }
           >
             <a
-              className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+              className="w-100 no-underline f6 outline-0 db tc truncate"
               href="/category-2/s"
             >
               CATEGORY 2
@@ -310,7 +296,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         </div>
       </CategoryItem>
       <span
-        className="br bw1 b--white-30 h1"
+        className="br bw1 h1"
       />
       <CategoryItem
         category={
@@ -326,7 +312,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         widthPercent={25}
       >
         <div
-          className="vtex-category-menu__item h-100 flex justify-center items-center"
+          className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
           style={
@@ -336,21 +322,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           }
         >
           <Link
-            className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+            className="w-100 no-underline f6 outline-0 db tc truncate"
             page="store/department"
             params={
               Object {
                 "department": "category-3",
               }
             }
-            style={
-              Object {
-                "backgroundColor": "transparent",
-              }
-            }
           >
             <a
-              className="w-100 h-100 no-underline flex justify-center items-center f6 outline-0"
+              className="w-100 no-underline f6 outline-0 db tc truncate"
               href="/category-3/s"
             >
               CATEGORY 3
