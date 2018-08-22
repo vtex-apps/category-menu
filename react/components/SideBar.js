@@ -43,7 +43,7 @@ export default class SideBar extends Component {
             <span className="fw5">DEPARTAMENTOS</span>
             <IconCaretLeft size={13} color="#585959" />
           </div>
-          <div className="vtex-menu-sidebar__content h-100 shadow-5">
+          <div className="vtex-menu-sidebar__content shadow-5">
             {this.props.departments.map(department => (
               <Fragment key={department.id}>
                 <span className="flex bt"></span>
