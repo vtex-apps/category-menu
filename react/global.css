@@ -16,11 +16,10 @@
   padding-right: 8rem;
   margin-top: 0.4rem;
   max-height: 350px;
-  overflow-y: auto;
 }
 
 .vtex-category-menu__item-container > div {
-  width: calc(100% / 7);
+  width: 14.28%;
 }
 
 .vtex-category-menu__item-container > div > a {
@@ -45,7 +44,6 @@
 }
 
 .vtex-menu-sidebar {
-  height: 100vh;
   width: 85%;
 }
 
@@ -83,18 +81,4 @@
 
 .vtex-menu-sidebar__item > .vtex-menu-sidebar__item path {
   fill: #CACBCC;
-}
-
-.vtex-category-menu--open {
-  overflow-y: hidden;
-}
-
-.vtex-menu-sidebar__foreground {
-  height: 100vh;
-}
-
-@media only screen and (max-width: 49rem) {
-  .vtex-category-menu {
-    display: none;
-  }
 }

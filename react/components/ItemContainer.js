@@ -17,14 +17,15 @@ export default class ItemContainer extends Component {
   }
 
   renderLinkFirstLevel(parentSlug, item) {
+    const params = {
+      department: parentSlug || item.slug,
+    }
+    if (parentSlug) params.category = item.slug
     return (
       <Link
         page={parentSlug ? 'store/category' : 'store/department'}
         className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
-        params={{
-          department: parentSlug || item.slug,
-          category: parentSlug ? item.slug : undefined,
-        }}
+        params={params}
       >
         {item.name.toUpperCase()}
       </Link>
@@ -32,15 +33,16 @@ export default class ItemContainer extends Component {
   }
 
   renderLinkSecondLevel(parentSlug, item, subItem) {
+    const params = {
+      department: parentSlug || item.slug,
+      category: parentSlug ? item.slug : subItem.slug,
+    }
+    if (parentSlug) params.subcategory = subItem.slug
     return (
       <Link
         page={parentSlug ? 'store/subcategory' : 'store/category'}
         className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate"
-        params={{
-          department: parentSlug || item.slug,
-          category: parentSlug ? item.slug : subItem.slug,
-          subcategory: parentSlug ? subItem.slug : undefined,
-        }}
+        params={params}
       >
         {subItem.name}
       </Link>
@@ -49,7 +51,7 @@ export default class ItemContainer extends Component {
 
   render() {
     return (
-      <div className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib">
+      <div className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib overflow-y-auto">
         {this.props.categories.map(category => (
           <div key={category.id} className="fl db pa2">
             {this.renderLinkFirstLevel(this.props.parentSlug, category)}
