@@ -17,3 +17,6 @@ export function Link({ params, className, children }) { // eslint-disable-line r
   )
 }
 
+export const withRuntimeContext = (component) => (<component runtime={{
+  naviagte: () => {},
+}} />)

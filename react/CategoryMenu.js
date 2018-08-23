@@ -16,7 +16,7 @@ import './global.css'
 /**
  * Component that represents the menu containing the categories of the store
  */
-export class CategoryMenu extends Component {
+class CategoryMenu extends Component {
   static propTypes = {
     /** Whether to show the promotion category or not */
     showPromotionCategory: PropTypes.bool,
@@ -104,4 +104,5 @@ export class CategoryMenu extends Component {
   }
 }
 
-export default graphql(getCategories)(injectIntl(CategoryMenu))
+export const CategoryMenuWithIntl = injectIntl(CategoryMenu)
+export default graphql(getCategories)(CategoryMenuWithIntl)
