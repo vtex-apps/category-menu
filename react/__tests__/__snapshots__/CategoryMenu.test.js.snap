@@ -114,7 +114,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showPromotionCategory={false}
     >
       <div
-        className="vtex-category-menu dn-2 flex justify-center items-center bg-white ph10"
+        className="vtex-category-menu dn flex-l justify-center items-center bg-white ph10"
       >
         <div
           className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden"
@@ -210,7 +210,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <div
-                    className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib overflow-y-auto"
+                    className="vtex-category-menu__item-container w-100 ph10 bg-white shadow-5 pb2 dib overflow-y-auto"
                   >
                     <div
                       className="fl db pa2"
