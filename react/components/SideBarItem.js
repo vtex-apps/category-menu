@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { IconCaretDown, IconCaretUp } from 'vtex.styleguide'
+import { withRuntimeContext } from 'render'
 
-export default class SideBarItem extends Component {
+class SideBarItem extends Component {
   static propTypes = {
     /** Sidebar's item. */
     item: PropTypes.object.isRequired,
@@ -10,10 +11,9 @@ export default class SideBarItem extends Component {
     linkValues: PropTypes.arrayOf(PropTypes.string).isRequired,
     /** Closes sidebar. */
     onClose: PropTypes.func.isRequired,
-  }
-
-  static contextTypes = {
-    navigate: PropTypes.func,
+    runtime: PropTypes.shape({
+      navigate: PropTypes.func,
+    }),
   }
 
   state = {
@@ -28,7 +28,7 @@ export default class SideBarItem extends Component {
       const page = category
         ? (subcategory ? 'store/subcategory' : 'store/category')
         : 'store/department'
-      this.context.navigate({
+      this.props.runtime.navigate({
         page,
         params: { department, category, subcategory },
         fallbackToWindowLocation: false,
@@ -39,13 +39,15 @@ export default class SideBarItem extends Component {
 
   render() {
     const { item, linkValues } = this.props
+    const hasChildren = item.children && item.children.length > 0
     return (
       <div className="vtex-menu-sidebar__item">
         <div className="flex justify-between items-center pa4 pl6 pointer"
-          onClick={this.handleItemClick}>
+          onClick={this.handleItemClick}
+        >
           <span>{item.name}</span>
           {
-            item.children && item.children.length > 0 && (
+            hasChildren && (
               <span>
                 {this.state.open
                   ? <IconCaretUp size={13} />
@@ -56,7 +58,7 @@ export default class SideBarItem extends Component {
           }
         </div>
         {
-          item.children && item.children.length > 0 &&
+          hasChildren &&
           this.state.open && item.children.map(child => (
             <Fragment key={child.id}>
               <span className="flex bt"></span>
@@ -72,3 +74,5 @@ export default class SideBarItem extends Component {
     )
   }
 }
+
+export default withRuntimeContext(SideBarItem)

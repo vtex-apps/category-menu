@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { injectIntl, intlShape } from 'react-intl'
 import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
@@ -28,6 +29,8 @@ export class CategoryMenu extends Component {
     }),
     /** Set mobile mode */
     mobileMode: PropTypes.bool,
+    /** Intl */
+    intl: intlShape,
   }
 
   static defaultProps = {
@@ -56,13 +59,14 @@ export class CategoryMenu extends Component {
     sideBarVisible: false,
   }
 
-  handleSideBarVisible = () => {
+  handleSidebarToggle = () => {
     this.setState({ sideBarVisible: !this.state.sideBarVisible })
   }
 
   render() {
     const {
       data: { categories = [] },
+      intl,
     } = this.props
     const categoriesSliced = categories.slice(0, MAX_NUMBER_OF_MENUS)
     const itemWidthPercent = 100 / (categoriesSliced.length + 1)
@@ -71,21 +75,22 @@ export class CategoryMenu extends Component {
         <Fragment>
           {this.state.sideBarVisible && (
             <SideBar
+              title={intl.formatMessage({ id: 'category-menu.departments.title' })}
               departments={categories}
-              onClose={this.handleSideBarVisible} />
+              onClose={this.handleSidebarToggle} />
           )}
-          <div className="flex pa4 pointer" onClick={this.handleSideBarVisible}>
+          <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
             <HamburguerIcon />
           </div>
         </Fragment>
       )
     }
     return (
-      <div className="vtex-category-menu flex justify-center items-center bg-white">
+      <div className="vtex-category-menu dn-2 flex justify-center items-center bg-white ph10">
         <div className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
-            name: 'Departamentos',
+            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
           }} widthPercent={itemWidthPercent} />
           {categoriesSliced.map(category => (
             <Fragment key={category.id}>
@@ -99,4 +104,4 @@ export class CategoryMenu extends Component {
   }
 }
 
-export default graphql(getCategories)(CategoryMenu)
+export default graphql(getCategories)(injectIntl(CategoryMenu))
