@@ -21,24 +21,28 @@ class SideBarItem extends Component {
   }
 
   handleItemClick = () => {
-    if (this.props.item.children && this.props.item.children.length) {
+    const { item: { children }, runtime, onClose, linkValues } = this.props
+    if (children && children.length) {
       this.setState({ open: !this.state.open })
     } else {
-      const [department, category, subcategory] = this.props.linkValues
+      const [department, category, subcategory] = linkValues
+      const params = { department }
+      if (category) params.category = category
+      if (subcategory) params.subcategory = subcategory
       const page = category
         ? (subcategory ? 'store/subcategory' : 'store/category')
         : 'store/department'
-      this.props.runtime.navigate({
+      runtime.navigate({
         page,
-        params: { department, category, subcategory },
+        params,
         fallbackToWindowLocation: false,
       })
-      this.props.onClose()
+      onClose()
     }
   }
 
   render() {
-    const { item, linkValues } = this.props
+    const { item, linkValues, runtime, onClose } = this.props
     const hasChildren = item.children && item.children.length > 0
     return (
       <div className="vtex-menu-sidebar__item">
@@ -63,9 +67,10 @@ class SideBarItem extends Component {
             <Fragment key={child.id}>
               <span className="flex bt"></span>
               <SideBarItem
+                runtime={runtime}
                 item={child}
                 linkValues={[...linkValues, child.slug]}
-                onClose={this.props.onClose}
+                onClose={onClose}
               />
             </Fragment>
           ))
