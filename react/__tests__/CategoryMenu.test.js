@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
-
-import { CategoryMenu } from '../CategoryMenu'
+import { IntlProvider } from 'react-intl'
+import { CategoryMenuWithIntl } from '../CategoryMenu'
 
 describe('CategoryMenu component', () => {
   let wrapper
@@ -34,13 +34,17 @@ describe('CategoryMenu component', () => {
       },
     ]
 
+    const messages = require('../locales/en-US')
+
     wrapper = mount(
-      <CategoryMenu
-        data={{
-          categories: mockedCategories,
-          loading: false,
-        }}
-      />
+      <IntlProvider locale="en-US" messages={messages}>
+        <CategoryMenuWithIntl
+          data={{
+            categories: mockedCategories,
+            loading: false,
+          }}
+        />
+      </IntlProvider>
     )
   })
 
