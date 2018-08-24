@@ -87,7 +87,7 @@ class CategoryMenu extends Component {
       )
     }
     return (
-      <div className="vtex-category-menu dn flex-l justify-center items-center bg-white ph10">
+      <div className="vtex-category-menu flex justify-center items-center bg-white">
         <div className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
