@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { IntlProvider } from 'react-intl'
-import { CategoryMenuWithIntl } from '../CategoryMenu'
+import { CategoryMenuWithIntl } from '../index'
 
 describe('CategoryMenu component', () => {
   let wrapper
