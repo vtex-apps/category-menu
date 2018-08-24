@@ -51,7 +51,7 @@ export default class ItemContainer extends Component {
 
   render() {
     return (
-      <div className="vtex-category-menu__item-container w-100 ph10 bg-white shadow-5 pb2 dib overflow-y-auto">
+      <div className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib overflow-y-auto">
         {this.props.categories.map(category => (
           <div key={category.id} className="fl db pa2">
             {this.renderLinkFirstLevel(this.props.parentSlug, category)}

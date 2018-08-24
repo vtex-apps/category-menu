@@ -80,3 +80,9 @@
 .vtex-menu-sidebar__item > .vtex-menu-sidebar__item path {
   fill: #CACBCC;
 }
+
+@media only screen and (max-width: 48.05rem) {
+  .vtex-category-menu {
+    display: none;
+  }
+}
