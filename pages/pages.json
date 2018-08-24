@@ -6,7 +6,7 @@
   },
   "extensions": {
     "category-menu": {
-      "component": "CategoryMenu",
+      "component": "index",
       "props": {}
     }
   }
