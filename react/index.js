@@ -70,7 +70,6 @@ class CategoryMenu extends Component {
       mobileMode,
     } = this.props
     const categoriesSliced = categories.slice(0, MAX_NUMBER_OF_MENUS)
-    const itemWidthPercent = 100 / (categoriesSliced.length + 1)
     if (mobileMode) {
       return (
         <Fragment>
@@ -87,16 +86,16 @@ class CategoryMenu extends Component {
       )
     }
     return (
-      <div className="vtex-category-menu flex justify-center items-center bg-white">
-        <div className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden">
+      <div className="vtex-category-menu dn flex-m justify-center items-center bg-white">
+        <div className="vtex-category-menu__container w-100 flex flex-wrap justify-center items-center f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-          }} widthPercent={itemWidthPercent} />
+          }} />
           {categoriesSliced.map(category => (
             <Fragment key={category.id}>
               <span className="br bw1 h1"></span>
-              <CategoryItem category={category} widthPercent={itemWidthPercent} />
+              <CategoryItem category={category} />
             </Fragment>
           ))}
         </div>
