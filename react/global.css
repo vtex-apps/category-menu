@@ -12,8 +12,9 @@
 }
 
 .vtex-category-menu__item-container {
-  margin-top: 0.4rem;
-  max-height: 350px;
+  margin-top: 0.15rem;
+  max-height: 21.875rem;
+  box-shadow: inset 0px 4px 4px 0 rgba(0, 0, 0, .2), 0px 4px 4px 0 rgba(0, 0, 0, .2);
 }
 
 .vtex-category-menu__item-container > div {
@@ -28,6 +29,10 @@
   color: #4F4F4F;
 }
 
+.vtex-category-menu__container {
+  height: 3.53125rem;
+}
+
 .vtex-category-menu__container > span {
   border-color: #E3E4E6;
 }
@@ -35,7 +40,7 @@
 .vtex-category-menu__item-container > div > span,
 .vtex-menu-sidebar__content > span,
 .vtex-menu-sidebar__item > span {
-  border-width: 0.25px;
+  border-width: 1px;
   border-color: #E3E4E6;
   width: 90%;
   margin: 0 auto;
@@ -43,6 +48,10 @@
 
 .vtex-menu-sidebar {
   width: 85%;
+}
+
+.vtex-menu-sidebar__header {
+  height: 2.9375rem;
 }
 
 .vtex-menu-sidebar__header > span {
