@@ -39,7 +39,7 @@ export default class SideBar extends Component {
           className="vtex-menu-sidebar__foreground fixed bg-near-black top-0 z-1 w-100 vh-100 o-40"
           onClick={() => this.props.onClose()}
         />
-        <div className="vtex-menu-sidebar fixed bg-white vh-100 left-0 top-0 z-999">
+        <div className="vtex-menu-sidebar w-80 fixed bg-white vh-100 left-0 top-0 z-999">
           <div className="vtex-menu-sidebar__header flex justify-between items-center pa4 pl6 shadow-5 pointer"
             onClick={() => this.props.onClose()}
           >
