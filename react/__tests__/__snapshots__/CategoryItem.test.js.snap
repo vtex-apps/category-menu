@@ -2,14 +2,9 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <div
-  className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
+  className="vtex-category-menu__item flex justify-center items-center bb ph4 b--transparent"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
-  style={
-    Object {
-      "width": "undefined%",
-    }
-  }
 >
   <Link
     className="w-100 no-underline f6 outline-0 db tc truncate"

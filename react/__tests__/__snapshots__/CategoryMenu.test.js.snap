@@ -114,10 +114,10 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showPromotionCategory={false}
     >
       <div
-        className="vtex-category-menu flex justify-center items-center bg-white"
+        className="vtex-category-menu dn flex-m justify-center items-center bg-white"
       >
         <div
-          className="vtex-category-menu__container w-100 h-100 flex justify-between items-center f6 overflow-hidden"
+          className="vtex-category-menu__container w-100 flex flex-wrap justify-center items-center f6 overflow-hidden"
         >
           <CategoryItem
             category={
@@ -152,17 +152,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               }
             }
             noRedirect={true}
-            widthPercent={25}
           >
             <div
-              className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
+              className="vtex-category-menu__item flex justify-center items-center bb ph4 b--transparent"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
-              style={
-                Object {
-                  "width": "25%",
-                }
-              }
             >
               <a
                 className="w-100 no-underline f6 outline-0 db tc truncate"
@@ -210,7 +204,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <div
-                    className="vtex-category-menu__item-container w-100 bg-white shadow-5 pb2 dib overflow-y-auto"
+                    className="vtex-category-menu__item-container w-100 bg-white pb2 dib overflow-y-auto"
                   >
                     <div
                       className="fl db pa2"
@@ -294,17 +288,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 "slug": "category-1",
               }
             }
-            widthPercent={25}
           >
             <div
-              className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
+              className="vtex-category-menu__item flex justify-center items-center bb ph4 b--transparent"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
-              style={
-                Object {
-                  "width": "25%",
-                }
-              }
             >
               <Link
                 className="w-100 no-underline f6 outline-0 db tc truncate"
@@ -338,17 +326,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 "slug": "category-2",
               }
             }
-            widthPercent={25}
           >
             <div
-              className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
+              className="vtex-category-menu__item flex justify-center items-center bb ph4 b--transparent"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
-              style={
-                Object {
-                  "width": "25%",
-                }
-              }
             >
               <Link
                 className="w-100 no-underline f6 outline-0 db tc truncate"
@@ -382,17 +364,11 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 "slug": "category-3",
               }
             }
-            widthPercent={25}
           >
             <div
-              className="vtex-category-menu__item flex justify-center items-center bb b--transparent"
+              className="vtex-category-menu__item flex justify-center items-center bb ph4 b--transparent"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
-              style={
-                Object {
-                  "width": "25%",
-                }
-              }
             >
               <Link
                 className="w-100 no-underline f6 outline-0 db tc truncate"
