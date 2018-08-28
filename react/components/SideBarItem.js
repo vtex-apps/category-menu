@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { IconCaretDown, IconCaretUp } from 'vtex.styleguide'
 import { withRuntimeContext } from 'render'
 
@@ -11,9 +12,16 @@ class SideBarItem extends Component {
     linkValues: PropTypes.arrayOf(PropTypes.string).isRequired,
     /** Closes sidebar. */
     onClose: PropTypes.func.isRequired,
+    /** Runtime context. */
     runtime: PropTypes.shape({
       navigate: PropTypes.func,
     }),
+    /** Tree level. */
+    treeLevel: PropTypes.number,
+  }
+
+  static defaultProps = {
+    treeLevel: 1
   }
 
   state = {
@@ -42,38 +50,54 @@ class SideBarItem extends Component {
   }
 
   render() {
-    const { item, linkValues, runtime, onClose } = this.props
+    const { item, linkValues, runtime, onClose, treeLevel } = this.props
     const hasChildren = item.children && item.children.length > 0
+    const sideBarItemClasses = classNames(
+      'vtex-menu-sidebar__item', {
+        'bg-light-silver mid-gray fw3': treeLevel > 1,
+        'near-black': treeLevel === 1
+      }
+    )
+    const sideBarItemTitleClasses = classNames('', {
+      'ml5' : treeLevel === 3,
+      'ttu' : treeLevel === 1
+    })
     return (
-      <div className="vtex-menu-sidebar__item">
+      <div className={sideBarItemClasses}>
         <div className="flex justify-between items-center pa4 pl6 pointer"
           onClick={this.handleItemClick}
         >
-          <span>{item.name}</span>
+          <span className={sideBarItemTitleClasses}>
+            {item.name}
+          </span>
           {
             hasChildren && (
-              <span>
+              <span className={treeLevel === 1 ? 'gray' : 'silver'}>
                 {this.state.open
-                  ? <IconCaretUp size={13} />
-                  : <IconCaretDown size={13} />
+                  ? <IconCaretUp size={13} color={'currentcolor'}/>
+                  : <IconCaretDown size={13} color={'currentcolor'}/>
                 }
               </span>
             )
           }
         </div>
         {
-          hasChildren &&
-          this.state.open && item.children.map(child => (
-            <Fragment key={child.id}>
-              <span className="flex bt"></span>
-              <SideBarItem
-                runtime={runtime}
-                item={child}
-                linkValues={[...linkValues, child.slug]}
-                onClose={onClose}
-              />
-            </Fragment>
-          ))
+          hasChildren && (
+            <div className="bg-light-silver">
+              {this.state.open && item.children.map(child => (
+                <Fragment key={child.id}>
+                  <span className="flex bt w-90 b--light-gray center"></span>
+                  <SideBarItem
+                    runtime={runtime}
+                    item={child}
+                    linkValues={[...linkValues, child.slug]}
+                    onClose={onClose}
+                    treeLevel={treeLevel + 1}
+                  />
+                </Fragment>
+              ))}
+            </div>
+          )
         }
       </div>
     )

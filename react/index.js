@@ -94,7 +94,7 @@ class CategoryMenu extends Component {
           }} />
           {categoriesSliced.map(category => (
             <Fragment key={category.id}>
-              <span className="br bw1 h1"></span>
+              <span className="br bw1 h1 b--light-gray"></span>
               <CategoryItem category={category} />
             </Fragment>
           ))}
