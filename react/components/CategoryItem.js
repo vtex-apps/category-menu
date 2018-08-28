@@ -31,15 +31,14 @@ export default class CategoryItem extends Component {
       display: isHover ? 'flex' : 'none',
     }
 
-    const linkClasses = 'w-100 no-underline f6 outline-0 db tc truncate'
-
-    const itemClasses = classNames(
-      'vtex-category-menu__item flex justify-center items-center bb ph4',
-      {
+    const linkClasses = classNames(
+      'w-100 ph4 pv5 no-underline f6 outline-0 db tc truncate bb bw1 gray', {
         'b--transparent': !isHover,
-        'vtex-category-menu__item--border-blue': isHover,
+        'b--heavy-blue': isHover,
       }
     )
+
+    const itemClasses = 'vtex-category-menu__item flex justify-center items-center'
 
     return (
       <div className={itemClasses}

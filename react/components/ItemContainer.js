@@ -24,7 +24,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         page={parentSlug ? 'store/category' : 'store/department'}
-        className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate"
+        className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base"
         params={params}
       >
         {item.name.toUpperCase()}
@@ -41,7 +41,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         page={parentSlug ? 'store/subcategory' : 'store/category'}
-        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate"
+        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate gray"
         params={params}
       >
         {subItem.name}
@@ -59,7 +59,7 @@ export default class ItemContainer extends Component {
               <Fragment>
                 {category.children.map((subCategory) => (
                   <Fragment key={subCategory.id}>
-                    <span className="flex w-100 bt"></span>
+                    <span className="flex bt w-90 b--light-gray center"></span>
                     {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
                   </Fragment>
                 ))}
