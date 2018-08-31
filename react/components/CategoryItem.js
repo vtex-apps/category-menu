@@ -20,12 +20,10 @@ export default class CategoryItem extends Component {
     category: categoryItemShape.isRequired,
     /** Set use of Link component */
     noRedirect: PropTypes.bool,
-    /** Item's width percent */
-    widthPercent: PropTypes.number,
   }
 
   render() {
-    const { category, widthPercent } = this.props
+    const { category } = this.props
     const { isHover } = this.state
 
     const containerStyle = {
@@ -33,22 +31,20 @@ export default class CategoryItem extends Component {
       display: isHover ? 'flex' : 'none',
     }
 
-    const linkClasses = 'w-100 no-underline f6 outline-0 db tc truncate'
-
-    const itemClasses = classNames(
-      'vtex-category-menu__item flex justify-center items-center bb',
-      {
+    const linkClasses = classNames(
+      'w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray', {
         'b--transparent': !isHover,
-        'vtex-category-menu__item--border-blue': isHover,
+        'b--heavy-blue': isHover,
       }
     )
+
+    const itemClasses = 'vtex-category-menu__item flex justify-center items-center'
 
     return (
       <div className={itemClasses}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHover: true })}
         onMouseLeave={() => this.setState({ isHover: false })}
-        style={{ width: `${widthPercent}%` }}
       >
         {this.props.noRedirect ? (
           <a href="#" className={linkClasses}>

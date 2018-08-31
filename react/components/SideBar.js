@@ -39,17 +39,17 @@ export default class SideBar extends Component {
           className="vtex-menu-sidebar__foreground fixed bg-near-black top-0 z-1 w-100 vh-100 o-40"
           onClick={() => this.props.onClose()}
         />
-        <div className="vtex-menu-sidebar fixed bg-white vh-100 left-0 top-0 z-999">
+        <div className="vtex-menu-sidebar w-80 fixed bg-white vh-100 left-0 top-0 z-999">
           <div className="vtex-menu-sidebar__header flex justify-between items-center pa4 pl6 shadow-5 pointer"
             onClick={() => this.props.onClose()}
           >
-            <span className="fw5">{this.props.title}</span>
+            <span className="f4 fw5 dark-gray">{this.props.title}</span>
             <IconCaretLeft size={13} color="#585959" />
           </div>
-          <div className="vtex-menu-sidebar__content shadow-5">
+          <div className="vtex-menu-sidebar__content shadow-5 overflow-y-auto">
             {this.props.departments.map(department => (
               <Fragment key={department.id}>
-                <span className="flex bt"></span>
+                <span className="flex bt w-90 b--light-gray center"></span>
                 <SideBarItem
                   item={department}
                   linkValues={[department.slug]}

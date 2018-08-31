@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Update the `Styleguide` version.
 
+## [1.0.1] - 2018-08-31
+### Fixed
+ - Fix design issues.
+
 ## [1.0.0] - 2018-08-24
 ### Added
 - `SideBar` menu when mobile mode.
