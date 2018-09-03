@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Update css to use tachyons classes
 
+### Fixed
+- Fix wrap of department divider
+
 ## [1.1.0] - 2018-08-31
 ### Changed
 - Update the `Styleguide` version.
