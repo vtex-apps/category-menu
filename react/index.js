@@ -86,17 +86,17 @@ class CategoryMenu extends Component {
       )
     }
     return (
-      <div className="vtex-category-menu dn flex-m justify-center items-center bg-white">
-        <div className="vtex-category-menu__container w-100 h3 flex flex-wrap justify-center items-end f6 overflow-hidden">
+      <div className="vtex-category-menu bg-white dn flex-m justify-center w-100">
+        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end h3 w-100 w-90-l w-80-xl ph3-s ph7-m ph6-xl f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
           }} />
           {categoriesSliced.map(category => (
-            <Fragment key={category.id}>
-              <span className="mb5 pb2 br bw1 h1 b--light-gray"></span>
+            <div key={category.id} className="flex items-center">
+              <span className="mt3 br bw1 h1 b--light-gray"></span>
               <CategoryItem category={category} />
-            </Fragment>
+            </div>
           ))}
         </div>
       </div>
