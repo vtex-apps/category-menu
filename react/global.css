@@ -3,7 +3,7 @@
   box-shadow: inset 0px 4px 4px 0 rgba(0, 0, 0, .2), 0px 4px 4px 0 rgba(0, 0, 0, .2);
 }
 
-.vtex-category-menu__item-container > div {
+.vtex-category-menu__item-container > div > div {
   width: 14.28%;
 }
 

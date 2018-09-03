@@ -50,23 +50,27 @@ export default class ItemContainer extends Component {
   }
 
   render() {
+    
+        
     return (
-      <div className="vtex-category-menu__item-container w-100 bg-white pb2 dib overflow-y-auto">
-        {this.props.categories.map(category => (
-          <div key={category.id} className="fl db pa2">
-            {this.renderLinkFirstLevel(this.props.parentSlug, category)}
-            {category.children && category.children.length > 0 && (
-              <Fragment>
-                {category.children.map((subCategory) => (
-                  <Fragment key={subCategory.id}>
-                    <span className="flex bt w-90 b--light-gray center"></span>
-                    {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
-                  </Fragment>
-                ))}
-              </Fragment>
-            )}
-          </div>
-        ))}
+      <div className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto">
+        <div className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
+          {this.props.categories.map(category => (
+            <div key={category.id} className="fl db pa2">
+              {this.renderLinkFirstLevel(this.props.parentSlug, category)}
+              {category.children && category.children.length > 0 && (
+                <Fragment>
+                  {category.children.map((subCategory) => (
+                    <Fragment key={subCategory.id}>
+                      <span className="flex bt w-90 b--light-gray center"></span>
+                      {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
+                    </Fragment>
+                  ))}
+                </Fragment>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     )
   }
