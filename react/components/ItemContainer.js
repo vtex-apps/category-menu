@@ -24,7 +24,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         page={parentSlug ? 'store/category' : 'store/department'}
-        className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base"
+        className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
         params={params}
       >
         {item.name.toUpperCase()}
@@ -41,7 +41,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         page={parentSlug ? 'store/subcategory' : 'store/category'}
-        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate gray"
+        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate gray underline-hover"
         params={params}
       >
         {subItem.name}
