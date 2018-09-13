@@ -6,6 +6,7 @@
   "description": "Displays the categories for the store in a menu",
   "defaultLocale": "pt-BR",
   "dependencies": {
+    "vtex.store-components": "2.x",
     "vtex.store-graphql": "2.x",
     "vtex.styleguide": "6.x"
   },
