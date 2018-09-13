@@ -4,8 +4,8 @@ import { injectIntl, intlShape } from 'react-intl'
 import { graphql } from 'react-apollo'
 
 import getCategories from './queries/categoriesQuery.gql'
-import CategoryItem from './components/CategoryItem'
 import { categoryPropType } from './propTypes'
+import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
 import HamburguerIcon from './images/HamburguerIcon'
 
@@ -73,12 +73,11 @@ class CategoryMenu extends Component {
     if (mobileMode) {
       return (
         <Fragment>
-          {this.state.sideBarVisible && (
-            <SideBar
-              title={intl.formatMessage({ id: 'category-menu.departments.title' })}
-              departments={categories}
-              onClose={this.handleSidebarToggle} />
-          )}
+          <SideBar
+            visible={this.state.sideBarVisible}
+            title={intl.formatMessage({ id: 'category-menu.departments.title' })}
+            departments={categories}
+            onClose={this.handleSidebarToggle} />
           <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
             <HamburguerIcon />
           </div>
