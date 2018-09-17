@@ -1,17 +1,17 @@
-import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import { injectIntl, intlShape } from 'react-intl'
-import { graphql } from 'react-apollo'
+import './global.css'
 
-import getCategories from './queries/categoriesQuery.gql'
-import { categoryPropType } from './propTypes'
+import PropTypes from 'prop-types'
+import React, { Component, Fragment } from 'react'
+import { graphql } from 'react-apollo'
+import { injectIntl, intlShape } from 'react-intl'
+
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
 import HamburguerIcon from './images/HamburguerIcon'
+import { categoryPropType } from './propTypes'
+import getCategories from './queries/categoriesQuery.gql'
 
 const MAX_NUMBER_OF_MENUS = 6
-
-import './global.css'
 
 /**
  * Component that represents the menu containing the categories of the store
@@ -85,8 +85,8 @@ class CategoryMenu extends Component {
       )
     }
     return (
-      <div className="vtex-category-menu bg-white dn flex-m justify-center w-100">
-        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end h3 w-100 w-90-l w-80-xl ph3-s ph7-m ph6-xl f6 overflow-hidden">
+      <div className="vtex-category-menu bg-white dn flex-m justify-center">
+        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end h3 f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
