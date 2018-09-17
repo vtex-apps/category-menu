@@ -52,6 +52,22 @@ class CategoryMenu extends Component {
         type: 'boolean',
         title: 'editor.category-menu.show-gift-category.title',
       },
+      departments: {
+        title: 'category-menu.departments.title',
+        type: 'array',
+        minItems: 0,
+        maxItems: MAX_NUMBER_OF_MENUS,
+        items: {
+          title: 'editor.category-menu.departments.items.title',
+          type: 'object',
+          properties: {
+            id: {
+              title: 'editor.category-menu.departments.items.id',
+              type: 'number'
+            },
+          },
+        },
+      },
     },
   }
 
@@ -63,13 +79,20 @@ class CategoryMenu extends Component {
     this.setState({ sideBarVisible: !this.state.sideBarVisible })
   }
 
+  get departmentsSelecteds() {
+    const { data: { categories = [] }, departments } = this.props
+    const departmentsIds = departments.map(dept => dept.id)
+    return categories.filter(category => departmentsIds.includes(category.id))
+  }
+
   render() {
     const {
       data: { categories = [] },
       intl,
       mobileMode,
     } = this.props
-    const categoriesSliced = categories.slice(0, MAX_NUMBER_OF_MENUS)
+    const departments = this.departmentsSelecteds
+
     if (mobileMode) {
       return (
         <div className="vtex-category-menu vtex-category-menu--mobile">
@@ -91,7 +114,7 @@ class CategoryMenu extends Component {
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
           }} />
-          {categoriesSliced.map(category => (
+          {departments.map(category => (
             <div key={category.id} className="flex items-center">
               <span className="mt3 br bw1 h1 b--light-gray"></span>
               <CategoryItem category={category} />

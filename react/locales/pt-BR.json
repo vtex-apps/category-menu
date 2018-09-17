@@ -3,5 +3,7 @@
   "editor.category-menu.description": "Um menu mostrando uma lista de categorias disponíveis na loja",
   "editor.category-menu.show-promotion-category.title": "Mostrar a categoria de promoção",
   "editor.category-menu.show-gift-category.title": "Mostrar a categoria de presentes",
-  "category-menu.departments.title": "Departamentos"
+  "category-menu.departments.title": "Departamentos",
+  "editor.category-menu.departments.items.title": "Departamento",
+  "editor.category-menu.departments.items.id": "Id do Departamento"
 }
