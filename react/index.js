@@ -31,12 +31,17 @@ class CategoryMenu extends Component {
     mobileMode: PropTypes.bool,
     /** Intl */
     intl: intlShape,
+    /** Departments to be shown in the desktop mode. */
+    departments: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+    }))
   }
 
   static defaultProps = {
     showPromotionCategory: false,
     showGiftCategory: false,
     mobileMode: false,
+    departments: [],
   }
 
   static schema = {
