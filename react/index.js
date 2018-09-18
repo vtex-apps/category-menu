@@ -44,38 +44,6 @@ class CategoryMenu extends Component {
     departments: [],
   }
 
-  static schema = {
-    title: 'editor.category-menu.title',
-    description: 'editor.category-menu.description',
-    type: 'object',
-    properties: {
-      showPromotionCategory: {
-        type: 'boolean',
-        title: 'editor.category-menu.show-promotion-category.title',
-      },
-      showGiftCategory: {
-        type: 'boolean',
-        title: 'editor.category-menu.show-gift-category.title',
-      },
-      departments: {
-        title: 'category-menu.departments.title',
-        type: 'array',
-        minItems: 0,
-        maxItems: MAX_NUMBER_OF_MENUS,
-        items: {
-          title: 'editor.category-menu.departments.items.title',
-          type: 'object',
-          properties: {
-            id: {
-              title: 'editor.category-menu.departments.items.id',
-              type: 'number'
-            },
-          },
-        },
-      },
-    },
-  }
-
   state = {
     sideBarVisible: false,
   }
@@ -84,7 +52,7 @@ class CategoryMenu extends Component {
     this.setState({ sideBarVisible: !this.state.sideBarVisible })
   }
 
-  get departmentsSelecteds() {
+  get departmentsSelected() {
     const { data: { categories = [] }, departments } = this.props
     const departmentsIds = departments.map(dept => dept.id)
     return categories.filter(category => departmentsIds.includes(category.id))
@@ -96,7 +64,8 @@ class CategoryMenu extends Component {
       intl,
       mobileMode,
     } = this.props
-    const departments = this.departmentsSelecteds
+    const departments = this.departmentsSelected.length && this.departmentsSelected || 
+      categories.slice(0, MAX_NUMBER_OF_MENUS)
 
     if (mobileMode) {
       return (
@@ -132,4 +101,37 @@ class CategoryMenu extends Component {
 }
 
 export const CategoryMenuWithIntl = injectIntl(CategoryMenu)
+
+CategoryMenuWithIntl.schema = CategoryMenu.schema = {
+  title: 'editor.category-menu.title',
+  description: 'editor.category-menu.description',
+  type: 'object',
+  properties: {
+    showPromotionCategory: {
+      type: 'boolean',
+      title: 'editor.category-menu.show-promotion-category.title',
+    },
+    showGiftCategory: {
+      type: 'boolean',
+      title: 'editor.category-menu.show-gift-category.title',
+    },
+    departments: {
+      title: 'category-menu.departments.title',
+      type: 'array',
+      minItems: 0,
+      maxItems: MAX_NUMBER_OF_MENUS,
+      items: {
+        title: 'editor.category-menu.departments.items.title',
+        type: 'object',
+        properties: {
+          id: {
+            title: 'editor.category-menu.departments.items.id',
+            type: 'number',
+          },
+        },
+      },
+    },
+  },
+}
+
 export default graphql(getCategories)(CategoryMenuWithIntl)
