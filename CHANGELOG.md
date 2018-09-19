@@ -8,8 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Remove widths to match page default padding.
-
-### Fixed
 - Sidebar header now matches the minicart one.
 
 ## [1.2.0] - 2018-09-17
