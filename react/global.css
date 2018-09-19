@@ -10,3 +10,9 @@
 .vtex-menu-sidebar__content {
   height: calc(100% - 2.625rem);
 }
+
+@media only screen and (max-width: 40rem) {
+  body.vtex-category-menu-sidebar-open {
+    overflow-y: hidden;
+  }
+}

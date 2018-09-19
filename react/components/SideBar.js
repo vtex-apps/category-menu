@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
 import { Animation } from 'vtex.store-components'
 import { IconCaretLeft } from 'vtex.styleguide'
 import SideBarItem from './SideBarItem'
+
+const OPEN_SIDEBAR_CLASS = 'vtex-category-menu-sidebar-open'
 
 export default class SideBar extends Component {
   static propTypes = {
@@ -23,12 +26,24 @@ export default class SideBar extends Component {
     onClose: () => {},
   }
 
+  updateComponent() {
+    if (this.props.visible) {
+      document.body.classList.add(OPEN_SIDEBAR_CLASS)
+    } else {
+      document.body.classList.remove(OPEN_SIDEBAR_CLASS)
+    }
+  }
+
   componentDidMount() {
-    document.body.classList.add('overflow-y-hidden')
+    this.updateComponent()
+  }
+
+  componentDidUpdate() {
+    this.updateComponent()
   }
 
   componentWillUnmount() {
-    document.body.classList.remove('overflow-y-hidden')
+    document.body.classList.remove(OPEN_SIDEBAR_CLASS)
   }
 
   handleOutsideClick = () => {
@@ -38,21 +53,21 @@ export default class SideBar extends Component {
   render() {
     const { visible } = this.props
 
+    const scrimClasses = classNames('vtex-menu-sidebar__scrim fixed dim bg-near-black top-0 z-1 w-100 vh-100 o-40', {
+      dn: !visible,
+    })
+
     return (
       <Fragment>
-        {visible && (
-          <div
-            className="vtex-menu-sidebar__foreground fixed bg-near-black top-0 z-1 w-100 vh-100 o-40"
-            onClick={() => this.props.onClose()}
-          />
-        )}
+        <div style={{ willChange: 'opacity' }} className={scrimClasses} onClick={this.props.onClose} />
         <Animation
           isActive={visible}
           type="drawerRight"
-          className="fixed vh-100 w-80 left-0 top-0 z-999"
+          className="fixed vh-100 w-80 left-0 top-0 z-max"
         >
-          <div className="vtex-menu-sidebar w-100 fixed bg-white vh-100 left-0 top-0 z-999">
-            <div className="vtex-menu-sidebar__header flex justify-between items-center pa4 pl6 shadow-5 pointer"
+          <div className="vtex-menu-sidebar w-100 bg-white vh-100">
+            <div
+              className="vtex-menu-sidebar__header flex justify-between items-center pa4 pl6 shadow-5 pointer"
               onClick={() => this.props.onClose()}
             >
               <span className="f4 fw5 dark-gray">{this.props.title}</span>
@@ -72,8 +87,6 @@ export default class SideBar extends Component {
             </div>
           </div>
         </Animation>
-            
-          
       </Fragment>
     )
   }
