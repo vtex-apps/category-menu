@@ -6,7 +6,7 @@ import { Animation } from 'vtex.store-components'
 import { IconCaretLeft } from 'vtex.styleguide'
 import SideBarItem from './SideBarItem'
 
-const OPEN_SIDEBAR_CLASS = 'vtex-category-menu-sidebar-open'
+const OPEN_SIDEBAR_CLASS = 'vtex-menu-sidebar-open'
 
 export default class SideBar extends Component {
   static propTypes = {

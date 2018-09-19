@@ -12,7 +12,7 @@
 }
 
 @media only screen and (max-width: 40rem) {
-  body.vtex-category-menu-sidebar-open {
+  body.vtex-menu-sidebar-open {
     overflow-y: hidden;
   }
 }
