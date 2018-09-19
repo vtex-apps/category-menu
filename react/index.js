@@ -1,5 +1,3 @@
-import './global.css'
-
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { graphql } from 'react-apollo'
@@ -10,6 +8,8 @@ import SideBar from './components/SideBar'
 import HamburguerIcon from './images/HamburguerIcon'
 import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
+
+import './global.css'
 
 const MAX_NUMBER_OF_MENUS = 6
 
