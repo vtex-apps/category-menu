@@ -72,7 +72,7 @@ class CategoryMenu extends Component {
     const categoriesSliced = categories.slice(0, MAX_NUMBER_OF_MENUS)
     if (mobileMode) {
       return (
-        <Fragment>
+        <div className="vtex-category-menu vtex-category-menu--mobile">
           <SideBar
             visible={this.state.sideBarVisible}
             title={intl.formatMessage({ id: 'category-menu.departments.title' })}
@@ -81,7 +81,7 @@ class CategoryMenu extends Component {
           <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
             <HamburguerIcon />
           </div>
-        </Fragment>
+        </div>
       )
     }
     return (

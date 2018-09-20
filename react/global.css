@@ -7,7 +7,7 @@
   width: 14.28%;
 }
 
-.vtex-menu-sidebar__content {
+.vtex-category-menu--mobile .vtex-menu-sidebar__content {
   height: calc(100% - 2.625rem);
 }
 
