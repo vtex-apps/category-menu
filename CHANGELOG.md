@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Close category menu on click item.
 
+## [1.3.0] - 2018-09-26
+### Added
+- `departments` property to schema.
+
 ## [1.2.2] - 2018-09-20
 ### Changed
 - Sidebar header now matches the minicart one.
