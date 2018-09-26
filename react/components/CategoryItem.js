@@ -22,6 +22,8 @@ export default class CategoryItem extends Component {
     noRedirect: PropTypes.bool,
   }
 
+  closeMenu = () => (this.setState({ isHover: false }))
+
   render() {
     const { category } = this.props
     const { isHover } = this.state
@@ -44,7 +46,7 @@ export default class CategoryItem extends Component {
       <div className={itemClasses}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHover: true })}
-        onMouseLeave={() => this.setState({ isHover: false })}
+        onMouseLeave={this.closeMenu}
       >
         {this.props.noRedirect ? (
           <a href="#" className={linkClasses}>
@@ -52,6 +54,7 @@ export default class CategoryItem extends Component {
           </a>
         ) : (
           <Link
+            onClick={this.closeMenu}
             page="store/department"
             params={{ department: category.slug }}
             className={linkClasses}
@@ -61,7 +64,11 @@ export default class CategoryItem extends Component {
         )}
         {category.children.length > 0 && (
           <div className="absolute w-100 left-0" style={containerStyle}>
-            <ItemContainer categories={category.children} parentSlug={category.slug} />
+            <ItemContainer
+              categories={category.children}
+              parentSlug={category.slug}
+              closeMenu={this.closeMenu}
+            />
           </div>
         )}
       </div>

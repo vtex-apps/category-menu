@@ -137,6 +137,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           },
           "now": [Function],
           "textComponent": "span",
+          "timeZone": null,
         }
       }
       mobileMode={false}
@@ -232,6 +233,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       },
                     ]
                   }
+                  closeMenu={[Function]}
                 >
                   <div
                     className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto"
@@ -245,6 +247,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       >
                         <Link
                           className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                          onClick={[Function]}
                           page="store/department"
                           params={
                             Object {
@@ -266,6 +269,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       >
                         <Link
                           className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                          onClick={[Function]}
                           page="store/department"
                           params={
                             Object {
@@ -287,6 +291,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       >
                         <Link
                           className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                          onClick={[Function]}
                           page="store/department"
                           params={
                             Object {
@@ -334,6 +339,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               >
                 <Link
                   className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                  onClick={[Function]}
                   page="store/department"
                   params={
                     Object {
@@ -377,6 +383,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               >
                 <Link
                   className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                  onClick={[Function]}
                   page="store/department"
                   params={
                     Object {
@@ -420,6 +427,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               >
                 <Link
                   className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                  onClick={[Function]}
                   page="store/department"
                   params={
                     Object {

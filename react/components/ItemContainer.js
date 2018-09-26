@@ -14,6 +14,8 @@ export default class ItemContainer extends Component {
     categories: PropTypes.arrayOf(categoryPropType),
     /** Department slug */
     parentSlug: PropTypes.string,
+    /** Close menu callback */
+    closeMenu: PropTypes.func,
   }
 
   renderLinkFirstLevel(parentSlug, item) {
@@ -23,6 +25,7 @@ export default class ItemContainer extends Component {
     if (parentSlug) params.category = item.slug
     return (
       <Link
+        onClick={this.props.closeMenu}
         page={parentSlug ? 'store/category' : 'store/department'}
         className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
         params={params}
@@ -40,6 +43,7 @@ export default class ItemContainer extends Component {
     if (parentSlug) params.subcategory = subItem.slug
     return (
       <Link
+        onClick={this.props.closeMenu}
         page={parentSlug ? 'store/subcategory' : 'store/category'}
         className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate gray underline-hover"
         params={params}
