@@ -1,6 +1,5 @@
 .vtex-category-menu__item-container {
   max-height: 21.875rem;
-  box-shadow: inset 0px 4px 4px 0 rgba(0, 0, 0, .2), 0px 4px 4px 0 rgba(0, 0, 0, .2);
 }
 
 .vtex-category-menu__item-container > div > div {
