@@ -34,7 +34,7 @@ export default class CategoryItem extends Component {
     }
 
     const linkClasses = classNames(
-      'w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray', {
+      'w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray', {
         'b--transparent': !isHover,
         'b--heavy-blue': isHover,
       }
@@ -53,15 +53,15 @@ export default class CategoryItem extends Component {
             {category.name.toUpperCase()}
           </a>
         ) : (
-          <Link
-            onClick={this.closeMenu}
-            page="store/department"
-            params={{ department: category.slug }}
-            className={linkClasses}
-          >
-            {category.name.toUpperCase()}
-          </Link>
-        )}
+            <Link
+              onClick={this.closeMenu}
+              page="store/department"
+              params={{ department: category.slug }}
+              className={linkClasses}
+            >
+              {category.name.toUpperCase()}
+            </Link>
+          )}
         {category.children.length > 0 && (
           <div className="absolute w-100 left-0" style={containerStyle}>
             <ItemContainer

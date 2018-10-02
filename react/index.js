@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 
@@ -34,7 +34,7 @@ class CategoryMenu extends Component {
     /** Departments to be shown in the desktop mode. */
     departments: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number,
-    }))
+    })),
   }
 
   static defaultProps = {
@@ -64,7 +64,7 @@ class CategoryMenu extends Component {
       intl,
       mobileMode,
     } = this.props
-    const departments = this.departmentsSelected.length && this.departmentsSelected || 
+    const departments = this.departmentsSelected.length && this.departmentsSelected ||
       categories.slice(0, MAX_NUMBER_OF_MENUS)
 
     if (mobileMode) {
@@ -83,14 +83,13 @@ class CategoryMenu extends Component {
     }
     return (
       <div className="vtex-category-menu bg-white dn flex-m justify-center">
-        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end h3 f6 overflow-hidden">
+        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end f6 overflow-hidden">
           <CategoryItem noRedirect category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
           }} />
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
-              <span className="mt3 br bw1 h1 b--light-gray"></span>
               <CategoryItem category={category} />
             </div>
           ))}
