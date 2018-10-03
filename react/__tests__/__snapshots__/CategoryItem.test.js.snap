@@ -37,7 +37,7 @@ exports[`CategoryItem component should match snapshot 1`] = `
           },
         ]
       }
-      closeMenu={[Function]}
+      onCloseMenu={[Function]}
       parentSlug="category"
     />
   </div>
