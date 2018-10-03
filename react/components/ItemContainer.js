@@ -15,7 +15,7 @@ export default class ItemContainer extends Component {
     /** Department slug */
     parentSlug: PropTypes.string,
     /** Close menu callback */
-    closeMenu: PropTypes.func,
+    onCloseMenu: PropTypes.func.isRequired,
   }
 
   renderLinkFirstLevel(parentSlug, item) {
@@ -25,7 +25,7 @@ export default class ItemContainer extends Component {
     if (parentSlug) params.category = item.slug
     return (
       <Link
-        onClick={this.props.closeMenu}
+        onClick={this.props.onCloseMenu}
         page={parentSlug ? 'store/category' : 'store/department'}
         className="vtex-category-menu__link-level-2 db f6 fw4 no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
         params={params}
@@ -43,7 +43,7 @@ export default class ItemContainer extends Component {
     if (parentSlug) params.subcategory = subItem.slug
     return (
       <Link
-        onClick={this.props.closeMenu}
+        onClick={this.props.onCloseMenu}
         page={parentSlug ? 'store/subcategory' : 'store/category'}
         className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl f7 truncate gray underline-hover"
         params={params}
@@ -55,7 +55,7 @@ export default class ItemContainer extends Component {
 
   render() {
     return (
-      <div className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bt b--light-gray">
+      <div className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bw1 bb b--light-gray">
         <div className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
           {this.props.categories.map(category => (
             <div key={category.id} className="fl db pa2">
