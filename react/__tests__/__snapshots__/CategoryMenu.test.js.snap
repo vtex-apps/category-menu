@@ -233,10 +233,10 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       },
                     ]
                   }
-                  closeMenu={[Function]}
+                  onCloseMenu={[Function]}
                 >
                   <div
-                    className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bt b--light-gray"
+                    className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bw1 bb b--light-gray"
                   >
                     <div
                       className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl"
