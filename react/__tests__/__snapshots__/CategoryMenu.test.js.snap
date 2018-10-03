@@ -148,7 +148,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         className="vtex-category-menu bg-white dn flex-m justify-center"
       >
         <div
-          className="vtex-category-menu__container flex flex-wrap justify-center items-end h3 f6 overflow-hidden"
+          className="vtex-category-menu__container flex flex-wrap justify-center items-end f6 overflow-hidden"
         >
           <CategoryItem
             category={
@@ -190,7 +190,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               onMouseLeave={[Function]}
             >
               <a
-                className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                 href="#"
               >
                 DEPARTMENTS
@@ -236,7 +236,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   closeMenu={[Function]}
                 >
                   <div
-                    className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto"
+                    className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bt b--light-gray"
                   >
                     <div
                       className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl"
@@ -317,9 +317,6 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             className="flex items-center"
             key="1"
           >
-            <span
-              className="mt3 br bw1 h1 b--light-gray"
-            />
             <CategoryItem
               category={
                 Object {
@@ -338,7 +335,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 onMouseLeave={[Function]}
               >
                 <Link
-                  className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                  className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                   onClick={[Function]}
                   page="store/department"
                   params={
@@ -348,7 +345,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <a
-                    className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                    className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                     href="/category-1/s"
                   >
                     CATEGORY 1
@@ -361,9 +358,6 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             className="flex items-center"
             key="2"
           >
-            <span
-              className="mt3 br bw1 h1 b--light-gray"
-            />
             <CategoryItem
               category={
                 Object {
@@ -382,7 +376,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 onMouseLeave={[Function]}
               >
                 <Link
-                  className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                  className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                   onClick={[Function]}
                   page="store/department"
                   params={
@@ -392,7 +386,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <a
-                    className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                    className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                     href="/category-2/s"
                   >
                     CATEGORY 2
@@ -405,9 +399,6 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             className="flex items-center"
             key="3"
           >
-            <span
-              className="mt3 br bw1 h1 b--light-gray"
-            />
             <CategoryItem
               category={
                 Object {
@@ -426,7 +417,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 onMouseLeave={[Function]}
               >
                 <Link
-                  className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                  className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                   onClick={[Function]}
                   page="store/department"
                   params={
@@ -436,7 +427,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <a
-                    className="w-100 ph4 pt6 pb5 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
+                    className="w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray b--transparent"
                     href="/category-3/s"
                   >
                     CATEGORY 3
