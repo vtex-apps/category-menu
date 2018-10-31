@@ -70,13 +70,13 @@ class SideBarItem extends Component {
     const hasChildren = showSubcategories && item.children && item.children.length > 0
     const sideBarItemClasses = classNames(
       'vtex-menu-sidebar__item', {
-        'bg-light-silver mid-gray fw3': treeLevel > 1,
-        'near-black': treeLevel === 1
+        'bg-muted-5 c-on-muted-4': treeLevel > 1,
+        'c-on-base': treeLevel === 1
       }
     )
     const sideBarItemTitleClasses = classNames('', {
-      'ml5' : treeLevel === 3,
-      'ttu' : treeLevel === 1
+      'ml5': treeLevel === 3,
+      'ttu': treeLevel === 1
     })
     return (
       <div className={sideBarItemClasses}>
@@ -88,10 +88,10 @@ class SideBarItem extends Component {
           </span>
           {
             hasChildren && (
-              <span className={treeLevel === 1 ? 'gray' : 'silver'}>
+              <span className={treeLevel === 1 ? 'c-muted-2' : 'c-muted-3'}>
                 {this.state.open
-                  ? <IconCaretUp size={13} color={'currentcolor'}/>
-                  : <IconCaretDown size={13} color={'currentcolor'}/>
+                  ? <IconCaretUp size={13} color={'currentcolor'} />
+                  : <IconCaretDown size={13} color={'currentcolor'} />
                 }
               </span>
             )
@@ -100,7 +100,7 @@ class SideBarItem extends Component {
         {
           hasChildren && (
             <div className="bg-light-silver">
-              {this.state.open && 
+              {this.state.open &&
                 <Fragment>
                   <div className="vtex-menu-sidebar__item bg-muted-5 c-on-muted-3">
                     <div className="flex justify-between items-center pa4 pl6 pointer"
@@ -109,16 +109,16 @@ class SideBarItem extends Component {
                     </div>
                   </div>
                   {item.children.map(child => (
-                  <Fragment key={child.id}>
-                    <span className="flex bt w-90 b--light-gray center"></span>
-                    <SideBarItem
-                      runtime={runtime}
-                      item={child}
-                      linkValues={[...linkValues, child.slug]}
-                      onClose={onClose}
-                      treeLevel={treeLevel + 1}
-                    />
-                  </Fragment>))}
+                    <Fragment key={child.id}>
+                      <span className="flex bt w-90 b--muted-4 center"></span>
+                      <SideBarItem
+                        runtime={runtime}
+                        item={child}
+                        linkValues={[...linkValues, child.slug]}
+                        onClose={onClose}
+                        treeLevel={treeLevel + 1}
+                      />
+                    </Fragment>))}
                 </Fragment>
               }
             </div>
