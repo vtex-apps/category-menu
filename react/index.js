@@ -92,7 +92,7 @@ class CategoryMenu extends Component {
     }
     return (
       <div className="vtex-category-menu bg-base dn flex-m justify-center">
-        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end t-body overflow-hidden">
+        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end t-action overflow-hidden">
           {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={1 + showSubcategories} category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
