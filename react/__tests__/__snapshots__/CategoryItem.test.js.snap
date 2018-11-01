@@ -7,7 +7,7 @@ exports[`CategoryItem component should match snapshot 1`] = `
   onMouseLeave={[Function]}
 >
   <Link
-    className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+    className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
     onClick={[Function]}
     page="store/department"
     params={

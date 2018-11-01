@@ -156,7 +156,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         className="vtex-category-menu bg-base dn flex-m justify-center"
       >
         <div
-          className="vtex-category-menu__container flex flex-wrap justify-center items-end t-body overflow-hidden"
+          className="vtex-category-menu__container flex flex-wrap justify-center items-end t-action overflow-hidden"
         >
           <CategoryItem
             category={
@@ -199,7 +199,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               onMouseLeave={[Function]}
             >
               <a
-                className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                 href="#"
               >
                 DEPARTMENTS
@@ -256,7 +256,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         key="1"
                       >
                         <Link
-                          className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                          className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
                           onClick={[Function]}
                           page="store/department"
                           params={
@@ -266,7 +266,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                           }
                         >
                           <a
-                            className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                            className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
                             href="/category-1/s"
                           >
                             CATEGORY 1
@@ -278,7 +278,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         key="2"
                       >
                         <Link
-                          className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                          className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
                           onClick={[Function]}
                           page="store/department"
                           params={
@@ -288,7 +288,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                           }
                         >
                           <a
-                            className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                            className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
                             href="/category-2/s"
                           >
                             CATEGORY 2
@@ -300,7 +300,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         key="3"
                       >
                         <Link
-                          className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                          className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
                           onClick={[Function]}
                           page="store/department"
                           params={
@@ -310,7 +310,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                           }
                         >
                           <a
-                            className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+                            className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
                             href="/category-3/s"
                           >
                             CATEGORY 3
@@ -346,7 +346,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 onMouseLeave={[Function]}
               >
                 <Link
-                  className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                  className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                   onClick={[Function]}
                   page="store/department"
                   params={
@@ -356,7 +356,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <a
-                    className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                    className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                     href="/category-1/s"
                   >
                     CATEGORY 1
@@ -388,7 +388,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 onMouseLeave={[Function]}
               >
                 <Link
-                  className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                  className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                   onClick={[Function]}
                   page="store/department"
                   params={
@@ -398,7 +398,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <a
-                    className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                    className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                     href="/category-2/s"
                   >
                     CATEGORY 2
@@ -430,7 +430,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 onMouseLeave={[Function]}
               >
                 <Link
-                  className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                  className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                   onClick={[Function]}
                   page="store/department"
                   params={
@@ -440,7 +440,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <a
-                    className="w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
+                    className="w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1 b--transparent"
                     href="/category-3/s"
                   >
                     CATEGORY 3

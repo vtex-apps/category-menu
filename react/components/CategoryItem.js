@@ -36,7 +36,7 @@ export default class CategoryItem extends Component {
     }
 
     const linkClasses = classNames(
-      'w-100 pv5 mh6 no-underline t-body outline-0 db tc truncate bb bw1 c-muted-1', {
+      'w-100 pv5 mh6 no-underline t-action--small outline-0 db tc truncate bb bw1 c-muted-1', {
         'b--transparent': !isHover,
         'b--action-primary': isHover,
       }
