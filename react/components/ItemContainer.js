@@ -57,7 +57,7 @@ export default class ItemContainer extends Component {
 
   render() {
     return (
-      <div className="vtex-category-menu__item-container w-100 bg-base pb2 overflow-y-auto bw1 bb b--muted-3">
+      <div className="vtex-category-menu__item-container w-100 bg-base pb2 bw1 bb b--muted-3">
         <div className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
           {this.props.categories.map(category => (
             <div key={category.id} className="fl db pa2">
