@@ -29,7 +29,7 @@ export default class ItemContainer extends Component {
       <Link
         onClick={this.props.onCloseMenu}
         page={parentSlug ? 'store/category' : 'store/department'}
-        className="vtex-category-menu__link-level-2 db t-action-mini no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
+        className="vtex-category-menu__link-level-2 db t-action--small no-underline pa4 outline-0 tl truncate c-on-base underline-hover"
         params={params}
       >
         {item.name.toUpperCase()}
@@ -47,7 +47,7 @@ export default class ItemContainer extends Component {
       <Link
         onClick={this.props.onCloseMenu}
         page={parentSlug ? 'store/subcategory' : 'store/category'}
-        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl t-action-mini truncate c-muted-1 underline-hover"
+        className="vtex-category-menu__link-level-3 db pa3 ph5 no-underline outline-0 tl t-action--small truncate c-muted-1 underline-hover"
         params={params}
       >
         {subItem.name}
