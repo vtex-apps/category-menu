@@ -29,6 +29,8 @@ class CategoryMenu extends Component {
     }),
     /** Set mobile mode */
     mobileMode: PropTypes.bool,
+    /** Whether to show the departments category or not */
+    showDepartmentsCategory: PropTypes.bool,
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
@@ -41,6 +43,7 @@ class CategoryMenu extends Component {
     showPromotionCategory: false,
     showGiftCategory: false,
     mobileMode: false,
+    showDepartmentsCategory: true,
     departments: [],
   }
 
@@ -63,6 +66,7 @@ class CategoryMenu extends Component {
       data: { categories = [] },
       intl,
       mobileMode,
+      showDepartmentsCategory
     } = this.props
     const departments = this.departmentsSelected.length && this.departmentsSelected ||
       categories.slice(0, MAX_NUMBER_OF_MENUS)
@@ -84,10 +88,10 @@ class CategoryMenu extends Component {
     return (
       <div className="vtex-category-menu bg-white dn flex-m justify-center">
         <div className="vtex-category-menu__container flex flex-wrap justify-center items-end f6 overflow-hidden">
-          <CategoryItem noRedirect category={{
+          {showDepartmentsCategory ? <CategoryItem noRedirect category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-          }} />
+          }} /> : null}
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
               <CategoryItem category={category} />
@@ -109,6 +113,10 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
     showPromotionCategory: {
       type: 'boolean',
       title: 'editor.category-menu.show-promotion-category.title',
+    },
+    showDepartmentsCategory: {
+      type: 'boolean',
+      title: 'editor.category-menu.show-departments-category.title',
     },
     showGiftCategory: {
       type: 'boolean',
