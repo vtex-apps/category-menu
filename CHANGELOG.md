@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.4.0] - 2018-11-06
+### Added
+- Add prop `showDepartmentsCategory` with default `true` to allow users to hide the departments category.
+
 ## [1.3.3] - 2018-10-30
 ### Fixed
 - Fix menu borders
