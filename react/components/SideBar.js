@@ -18,6 +18,8 @@ export default class SideBar extends Component {
     onClose: PropTypes.func,
     /** Sidebar's visibility. */
     visible: PropTypes.bool,
+    /** Whether to show subcategories or not */
+    showSubcategories: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -51,7 +53,7 @@ export default class SideBar extends Component {
   }
 
   render() {
-    const { visible } = this.props
+    const { visible, onClose, showSubcategories } = this.props
 
     const scrimClasses = classNames('vtex-menu-sidebar__scrim fixed dim bg-near-black top-0 z-1 w-100 vh-100 o-40', {
       dn: !visible,
@@ -68,7 +70,7 @@ export default class SideBar extends Component {
           <div className="vtex-menu-sidebar w-100 bg-white vh-100">
             <div
               className="vtex-menu-sidebar__header flex justify-between items-center pa4 pl6 shadow-4 pointer h3"
-              onClick={() => this.props.onClose()}
+              onClick={onClose}
             >
               <span className="f4 fw5 dark-gray">{this.props.title}</span>
               <IconCaretLeft size={13} color="#585959" />
@@ -80,7 +82,8 @@ export default class SideBar extends Component {
                   <SideBarItem
                     item={department}
                     linkValues={[department.slug]}
-                    onClose={this.props.onClose}
+                    onClose={onClose}
+                    showSubcategories={showSubcategories}
                   />
                 </Fragment>
               ))}

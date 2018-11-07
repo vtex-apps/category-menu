@@ -18,6 +18,8 @@ class SideBarItem extends Component {
     }),
     /** Tree level. */
     treeLevel: PropTypes.number,
+    /** Whether to show subcategories or not */
+    showSubcategories: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -50,8 +52,8 @@ class SideBarItem extends Component {
   }
 
   render() {
-    const { item, linkValues, runtime, onClose, treeLevel } = this.props
-    const hasChildren = item.children && item.children.length > 0
+    const { item, linkValues, runtime, onClose, treeLevel, showSubcategories } = this.props
+    const hasChildren = showSubcategories && item.children && item.children.length > 0
     const sideBarItemClasses = classNames(
       'vtex-menu-sidebar__item', {
         'bg-light-silver mid-gray fw3': treeLevel > 1,

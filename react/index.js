@@ -31,6 +31,8 @@ class CategoryMenu extends Component {
     mobileMode: PropTypes.bool,
     /** Whether to show the departments category or not */
     showDepartmentsCategory: PropTypes.bool,
+    /** Whether to show subcategories or not */
+    showSubcategories: PropTypes.bool,
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
@@ -44,6 +46,7 @@ class CategoryMenu extends Component {
     showGiftCategory: false,
     mobileMode: false,
     showDepartmentsCategory: true,
+    showSubcategories: true,
     departments: [],
   }
 
@@ -66,7 +69,8 @@ class CategoryMenu extends Component {
       data: { categories = [] },
       intl,
       mobileMode,
-      showDepartmentsCategory
+      showDepartmentsCategory,
+      showSubcategories
     } = this.props
     const departments = this.departmentsSelected.length && this.departmentsSelected ||
       categories.slice(0, MAX_NUMBER_OF_MENUS)
@@ -78,7 +82,8 @@ class CategoryMenu extends Component {
             visible={this.state.sideBarVisible}
             title={intl.formatMessage({ id: 'category-menu.departments.title' })}
             departments={categories}
-            onClose={this.handleSidebarToggle} />
+            onClose={this.handleSidebarToggle}
+            showSubcategories={showSubcategories} />
           <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
             <HamburguerIcon />
           </div>
@@ -91,10 +96,11 @@ class CategoryMenu extends Component {
           {showDepartmentsCategory && <CategoryItem noRedirect category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+            showSubcategories: true,
           }} />}
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
-              <CategoryItem category={category} />
+              <CategoryItem category={category} showSubcategories={showSubcategories}/>
             </div>
           ))}
         </div>
@@ -117,6 +123,10 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
     showDepartmentsCategory: {
       type: 'boolean',
       title: 'editor.category-menu.show-departments-category.title',
+    },
+    showSubcategories: {
+      type: 'boolean',
+      title: 'editor.category-menu.show-subcategories.title',
     },
     showGiftCategory: {
       type: 'boolean',

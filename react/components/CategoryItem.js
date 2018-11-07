@@ -20,12 +20,14 @@ export default class CategoryItem extends Component {
     category: categoryItemShape.isRequired,
     /** Set use of Link component */
     noRedirect: PropTypes.bool,
+    /** Whether to show subcategories or not */
+    showSubcategories: PropTypes.bool,
   }
 
   handleCloseMenu = () => (this.setState({ isHover: false }))
 
   render() {
-    const { category } = this.props
+    const { category, showSubcategories } = this.props
     const { isHover } = this.state
 
     const containerStyle = {
@@ -62,7 +64,7 @@ export default class CategoryItem extends Component {
             {category.name.toUpperCase()}
           </Link>
         )}
-        {category.children.length > 0 && (
+        {showSubcategories && category.children.length > 0 && (
           <div className="absolute w-100 left-0" style={containerStyle}>
             <ItemContainer
               categories={category.children}
