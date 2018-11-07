@@ -16,6 +16,8 @@ export default class ItemContainer extends Component {
     parentSlug: PropTypes.string,
     /** Close menu callback */
     onCloseMenu: PropTypes.func.isRequired,
+    /** Whether to show second level links or not */
+    showSecondLevel: PropTypes.bool,
   }
 
   renderLinkFirstLevel(parentSlug, item) {
@@ -62,7 +64,7 @@ export default class ItemContainer extends Component {
               {this.renderLinkFirstLevel(this.props.parentSlug, category)}
               {category.children && category.children.length > 0 && (
                 <Fragment>
-                  {category.children.map((subCategory) => (
+                  {this.props.showSecondLevel && category.children.map((subCategory) => (
                     <Fragment key={subCategory.id}>
                       <span className="flex bt w-90 b--light-gray center"></span>
                       {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}

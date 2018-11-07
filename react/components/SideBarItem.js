@@ -31,8 +31,8 @@ class SideBarItem extends Component {
   }
 
   handleItemClick = () => {
-    const { item: { children }, runtime, onClose, linkValues } = this.props
-    if (children && children.length) {
+    const { item: { children }, runtime, onClose, linkValues, showSubcategories } = this.props
+    if (showSubcategories && children && children.length) {
       this.setState({ open: !this.state.open })
     } else {
       const [department, category, subcategory] = linkValues

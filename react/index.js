@@ -93,14 +93,13 @@ class CategoryMenu extends Component {
     return (
       <div className="vtex-category-menu bg-white dn flex-m justify-center">
         <div className="vtex-category-menu__container flex flex-wrap justify-center items-end f6 overflow-hidden">
-          {showDepartmentsCategory && <CategoryItem noRedirect category={{
+          {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={1+showSubcategories} category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-            showSubcategories: true,
           }} />}
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
-              <CategoryItem category={category} showSubcategories={showSubcategories}/>
+              <CategoryItem category={category} subcategoryLevels={+showSubcategories}/>
             </div>
           ))}
         </div>
