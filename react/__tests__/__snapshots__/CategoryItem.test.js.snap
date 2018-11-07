@@ -18,28 +18,5 @@ exports[`CategoryItem component should match snapshot 1`] = `
   >
     CATEGORY
   </Link>
-  <div
-    className="absolute w-100 left-0"
-    style={
-      Object {
-        "display": "none",
-        "top": undefined,
-      }
-    }
-  >
-    <ItemContainer
-      categories={
-        Array [
-          Object {
-            "id": 2,
-            "name": "Sub-category",
-            "slug": "sub-category",
-          },
-        ]
-      }
-      onCloseMenu={[Function]}
-      parentSlug="category"
-    />
-  </div>
 </div>
 `;

@@ -12,6 +12,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       "editor.category-menu.show-departments-category.title": "Show the departments category",
       "editor.category-menu.show-gift-category.title": "Show the gifts category",
       "editor.category-menu.show-promotion-category.title": "Show the promotion category",
+      "editor.category-menu.show-subcategories.title": "Show subcategories",
       "editor.category-menu.title": "Category menu",
     }
   }
@@ -135,6 +136,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             "editor.category-menu.show-departments-category.title": "Show the departments category",
             "editor.category-menu.show-gift-category.title": "Show the gifts category",
             "editor.category-menu.show-promotion-category.title": "Show the promotion category",
+            "editor.category-menu.show-subcategories.title": "Show subcategories",
             "editor.category-menu.title": "Category menu",
           },
           "now": [Function],
@@ -146,6 +148,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showDepartmentsCategory={true}
       showGiftCategory={false}
       showPromotionCategory={false}
+      showSubcategories={true}
     >
       <div
         className="vtex-category-menu bg-white dn flex-m justify-center"
@@ -186,6 +189,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               }
             }
             noRedirect={true}
+            subcategoryLevels={2}
           >
             <div
               className="vtex-category-menu__item flex justify-center items-center"
@@ -237,6 +241,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     ]
                   }
                   onCloseMenu={[Function]}
+                  showSecondLevel={true}
                 >
                   <div
                     className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bw1 bb b--light-gray"
@@ -331,6 +336,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   "slug": "category-1",
                 }
               }
+              subcategoryLevels={1}
             >
               <div
                 className="vtex-category-menu__item flex justify-center items-center"
@@ -372,6 +378,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   "slug": "category-2",
                 }
               }
+              subcategoryLevels={1}
             >
               <div
                 className="vtex-category-menu__item flex justify-center items-center"
@@ -413,6 +420,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   "slug": "category-3",
                 }
               }
+              subcategoryLevels={1}
             >
               <div
                 className="vtex-category-menu__item flex justify-center items-center"

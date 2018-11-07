@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.5.0] - 2018-11-07
+### Added
+- Add prop `showSubcategories` with default `true` to allow users to hide subcategories.
+
 ## [1.4.0] - 2018-11-06
 ### Added
 - Add prop `showDepartmentsCategory` with default `true` to allow users to hide the departments category.
