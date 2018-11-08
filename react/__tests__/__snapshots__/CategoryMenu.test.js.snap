@@ -156,7 +156,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         className="vtex-category-menu bg-base dn flex-m justify-center"
       >
         <div
-          className="vtex-category-menu__container flex flex-wrap justify-center items-end overflow-hidden"
+          className="vtex-category-menu__container flex flex-wrap justify-center items-end t-action overflow-hidden"
         >
           <CategoryItem
             category={
