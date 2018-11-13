@@ -16,6 +16,8 @@ export default class CategoryItem extends Component {
   }
 
   static propTypes = {
+    /** Baner URL src */
+    banner: PropTypes.string,
     /** Category to be displayed */
     category: categoryItemShape.isRequired,
     /** Set use of Link component */
@@ -24,10 +26,10 @@ export default class CategoryItem extends Component {
     subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
   }
 
-  handleCloseMenu = () => (this.setState({ isHover: false }))
+  handleCloseMenu = () => this.setState({ isHover: false })
 
   render() {
-    const { category, subcategoryLevels } = this.props
+    const { category, subcategoryLevels, banner } = this.props
     const { isHover } = this.state
 
     const containerStyle = {
@@ -36,7 +38,8 @@ export default class CategoryItem extends Component {
     }
 
     const linkClasses = classNames(
-      'w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray', {
+      'w-100 pv5 mh6 no-underline f6 outline-0 db tc truncate bb bw1 gray',
+      {
         'b--transparent': !isHover,
         'b--heavy-blue': isHover,
       }
@@ -45,8 +48,11 @@ export default class CategoryItem extends Component {
     const itemClasses = 'vtex-category-menu__item flex justify-center items-center'
 
     return (
-      <div className={itemClasses}
-        ref={e => { this.item = e }}
+      <div
+        className={itemClasses}
+        ref={e => {
+          this.item = e
+        }}
         onMouseEnter={() => this.setState({ isHover: true })}
         onMouseLeave={this.handleCloseMenu}
       >
@@ -71,6 +77,7 @@ export default class CategoryItem extends Component {
               parentSlug={category.slug}
               onCloseMenu={this.handleCloseMenu}
               showSecondLevel={subcategoryLevels === 2}
+              banner={banner}
             />
           </div>
         )}

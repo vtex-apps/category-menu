@@ -10,6 +10,8 @@ import PropTypes from 'prop-types'
  */
 export default class ItemContainer extends Component {
   static propTypes = {
+    /** Baner URL src */
+    banner: PropTypes.string,
     /** Category to be displayed */
     categories: PropTypes.arrayOf(categoryPropType),
     /** Department slug */
@@ -56,25 +58,32 @@ export default class ItemContainer extends Component {
   }
 
   render() {
+    const { banner, categories, parentSlug, showSecondLevel } = this.props
     return (
       <div className="vtex-category-menu__item-container w-100 bg-white pb2 overflow-y-auto bw1 bb b--light-gray">
         <div className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
-          {this.props.categories.map(category => (
+          {categories.map(category => (
             <div key={category.id} className="fl db pa2">
-              {this.renderLinkFirstLevel(this.props.parentSlug, category)}
+              {this.renderLinkFirstLevel(parentSlug, category)}
               {category.children && category.children.length > 0 && (
                 <Fragment>
-                  {this.props.showSecondLevel && category.children.map((subCategory) => (
-                    <Fragment key={subCategory.id}>
-                      <span className="flex bt w-90 b--light-gray center"></span>
-                      {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
-                    </Fragment>
-                  ))}
+                  {showSecondLevel &&
+                    category.children.map(subCategory => (
+                      <Fragment key={subCategory.id}>
+                        <span className="flex bt w-90 b--light-gray center" />
+                        {this.renderLinkSecondLevel(parentSlug, category, subCategory)}
+                      </Fragment>
+                    ))}
                 </Fragment>
               )}
             </div>
           ))}
         </div>
+        {banner && (
+          <div className="vtex-category-menu__banner">
+            <img src={banner} />
+          </div>
+        )}
       </div>
     )
   }

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
+import { find, prop, propEq } from 'ramda'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
@@ -36,9 +37,12 @@ class CategoryMenu extends Component {
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
-    departments: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-    })),
+    departments: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        banner: PropTypes.string,
+      })
+    ),
   }
 
   static defaultProps = {
@@ -58,8 +62,17 @@ class CategoryMenu extends Component {
     this.setState({ sideBarVisible: !this.state.sideBarVisible })
   }
 
+  findBanner = id => {
+    const { departments } = this.props
+    const predicate = propEq('id', id)
+    return prop('banner', find(predicate, departments))
+  }
+
   get departmentsSelected() {
-    const { data: { categories = [] }, departments } = this.props
+    const {
+      data: { categories = [] },
+      departments,
+    } = this.props
     const departmentsIds = departments.map(dept => dept.id)
     return categories.filter(category => departmentsIds.includes(category.id))
   }
@@ -70,9 +83,11 @@ class CategoryMenu extends Component {
       intl,
       mobileMode,
       showDepartmentsCategory,
-      showSubcategories
+      showSubcategories,
     } = this.props
-    const departments = this.departmentsSelected.length && this.departmentsSelected ||
+
+    const departments =
+      (this.departmentsSelected.length && this.departmentsSelected) ||
       categories.slice(0, MAX_NUMBER_OF_MENUS)
 
     if (mobileMode) {
@@ -83,7 +98,8 @@ class CategoryMenu extends Component {
             title={intl.formatMessage({ id: 'category-menu.departments.title' })}
             departments={categories}
             onClose={this.handleSidebarToggle}
-            showSubcategories={showSubcategories} />
+            showSubcategories={showSubcategories}
+          />
           <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
             <HamburguerIcon />
           </div>
@@ -93,13 +109,23 @@ class CategoryMenu extends Component {
     return (
       <div className="vtex-category-menu bg-white dn flex-m justify-center">
         <div className="vtex-category-menu__container flex flex-wrap justify-center items-end f6 overflow-hidden">
-          {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={1+showSubcategories} category={{
-            children: categories,
-            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-          }} />}
+          {showDepartmentsCategory && (
+            <CategoryItem
+              noRedirect
+              subcategoryLevels={1 + showSubcategories}
+              category={{
+                children: categories,
+                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+              }}
+            />
+          )}
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
-              <CategoryItem category={category} subcategoryLevels={+showSubcategories}/>
+              <CategoryItem
+                category={category}
+                subcategoryLevels={+showSubcategories}
+                banner={this.findBanner(category.id)}
+              />
             </div>
           ))}
         </div>
@@ -143,6 +169,13 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
           id: {
             title: 'editor.category-menu.departments.items.id',
             type: 'number',
+          },
+          banner: {
+            title: 'editor.category-menu.departments.items.banner',
+            type: 'string',
+            widget: {
+              'ui:widget': 'image-uploader',
+            },
           },
         },
       },
