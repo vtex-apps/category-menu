@@ -7,5 +7,6 @@
   "editor.category-menu.show-gift-category.title": "Mostrar la categoría de regalos",
   "category-menu.departments.title": "Departamentos",
   "editor.category-menu.departments.items.title": "Departamento",
-  "editor.category-menu.departments.items.id": "Id del Departamento"
+  "editor.category-menu.departments.items.id": "Id del Departamento",
+  "category-menu.all-category.title": "Ver Todos"
 }
