@@ -66,7 +66,7 @@ class SideBarItem extends Component {
   }
 
   render() {
-    const { item, linkValues, runtime, onClose, treeLevel, showSubcategories, intl } = this.props
+    const { item, linkValues, runtime, onClose, treeLevel, showSubcategories } = this.props
     const hasChildren = showSubcategories && item.children && item.children.length > 0
     const sideBarItemClasses = classNames(
       'vtex-menu-sidebar__item', {
