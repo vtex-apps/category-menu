@@ -5,6 +5,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
   locale="en-US"
   messages={
     Object {
+      "category-menu.all-category.title": "See All",
       "category-menu.departments.title": "Departments",
       "editor.category-menu.departments.items.id": "Department Id",
       "editor.category-menu.departments.items.title": "Department",
@@ -129,6 +130,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           },
           "locale": "en-US",
           "messages": Object {
+            "category-menu.all-category.title": "See All",
             "category-menu.departments.title": "Departments",
             "editor.category-menu.departments.items.id": "Department Id",
             "editor.category-menu.departments.items.title": "Department",
