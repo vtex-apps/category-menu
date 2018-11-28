@@ -66,7 +66,7 @@ export default class ItemContainer extends Component {
                 <Fragment>
                   {this.props.showSecondLevel && category.children.map((subCategory) => (
                     <Fragment key={subCategory.id}>
-                      <span className="flex bt w-90 b--muted-4 center"></span>
+                      <span className="flex w-90 center"></span>
                       {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
                     </Fragment>
                   ))}
