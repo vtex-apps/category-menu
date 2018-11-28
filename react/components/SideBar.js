@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import { Animation } from 'vtex.store-components'
-import { IconCaretLeft } from 'vtex.styleguide'
+import { IconClose } from 'vtex.styleguide'
 import SideBarItem from './SideBarItem'
 
 const OPEN_SIDEBAR_CLASS = 'vtex-menu-sidebar-open'
@@ -65,20 +65,19 @@ export default class SideBar extends Component {
         <Animation
           isActive={visible}
           type="drawerRight"
-          className="fixed vh-100 w-80 left-0 top-0 z-max"
+          className="fixed w-80 left-0 top-0 z-max"
         >
           <div className="vtex-menu-sidebar w-100 bg-base vh-100">
             <div
-              className="vtex-menu-sidebar__header flex justify-between items-center pa4 pl6 shadow-4 pointer h3"
+              className="vtex-menu-sidebar__header flex justify-between items-center pa5 pointer"
               onClick={onClose}
             >
-              <span className="t-heading-5 c-on-base">{this.props.title}</span>
-              <IconCaretLeft size={13} color="#585959" />
+              <IconClose size={24} color="#585959" />
             </div>
             <div className="vtex-menu-sidebar__content shadow-5 overflow-y-auto">
               {this.props.departments.map(department => (
                 <Fragment key={department.id}>
-                  <span className="flex bt w-90 b--muted-4 center"></span>
+                  <span className="flex w-90 center"></span>
                   <SideBarItem
                     item={department}
                     linkValues={[department.slug]}
