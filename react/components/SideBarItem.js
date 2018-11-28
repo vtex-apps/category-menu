@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { IconCaretDown, IconCaretUp } from 'vtex.styleguide'
 import { withRuntimeContext } from 'render'
 import { FormattedMessage } from 'react-intl'
 
+import PlusIcon from '../images/PlusIcon'
+import DeleteIcon from '../images/DeleteIcon';
 class SideBarItem extends Component {
   static propTypes = {
     /** Sidebar's item. */
@@ -88,10 +89,10 @@ class SideBarItem extends Component {
           </span>
           {
             hasChildren && (
-              <span className={treeLevel === 1 ? 'c-muted-2' : 'c-muted-3'}>
+              <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
                 {this.state.open
-                  ? <IconCaretUp size={13} color={'currentcolor'} />
-                  : <IconCaretDown size={13} color={'currentcolor'} />
+                  ? <DeleteIcon size={13} color={'currentcolor'} />
+                  : <PlusIcon size={13} color={'currentcolor'} />
                 }
               </span>
             )
