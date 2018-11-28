@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Add new icons and improve layout
+
 ## [2.0.0] - 2018-11-20
 ### Changed
 - Replace typography and color classes with design tokens.
