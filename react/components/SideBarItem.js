@@ -71,17 +71,17 @@ class SideBarItem extends Component {
     const hasChildren = showSubcategories && item.children && item.children.length > 0
     const sideBarItemClasses = classNames(
       'vtex-menu-sidebar__item', {
-        'bg-muted-5 c-on-muted-4': treeLevel > 1,
+        'c-muted-2 pl4 t-body': treeLevel > 1,
         'c-on-base': treeLevel === 1
       }
     )
     const sideBarItemTitleClasses = classNames('', {
       'ml5': treeLevel === 3,
-      'ttu': treeLevel === 1
+      't-heading-4 lh-solid': treeLevel === 1
     })
     return (
       <div className={sideBarItemClasses}>
-        <div className="flex justify-between items-center pa4 pl6 pointer"
+        <div className="flex justify-between items-center pa5 pl5 pointer"
           onClick={this.handleItemClick}
         >
           <span className={sideBarItemTitleClasses}>
@@ -100,18 +100,20 @@ class SideBarItem extends Component {
         </div>
         {
           hasChildren && (
-            <div className="bg-light-silver">
+            <div>
               {this.state.open &&
                 <Fragment>
-                  <div className="vtex-menu-sidebar__item bg-muted-5 c-on-muted-3">
-                    <div className="flex justify-between items-center pa4 pl6 pointer"
+                  <div className="vtex-menu-sidebar__item c-on-muted-3">
+                    <div className="flex justify-between items-center pa5 pl5 pointer t-body"
                       onClick={this.handleDepartmentClick}>
-                      <FormattedMessage id="category-menu.all-category.title" />
+                      <div className="pl4 c-muted-2">
+                        <FormattedMessage id="category-menu.all-category.title" />
+                      </div>
                     </div>
                   </div>
                   {item.children.map(child => (
                     <Fragment key={child.id}>
-                      <span className="flex bt w-90 b--muted-4 center"></span>
+                      <span className="flex w-90 center"></span>
                       <SideBarItem
                         runtime={runtime}
                         item={child}
