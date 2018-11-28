@@ -5,7 +5,7 @@ import { withRuntimeContext } from 'render'
 import { FormattedMessage } from 'react-intl'
 
 import PlusIcon from '../images/PlusIcon'
-import DeleteIcon from '../images/DeleteIcon';
+import MinusIcon from '../images/MinusIcon';
 class SideBarItem extends Component {
   static propTypes = {
     /** Sidebar's item. */
@@ -91,7 +91,7 @@ class SideBarItem extends Component {
             hasChildren && (
               <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
                 {this.state.open
-                  ? <DeleteIcon size={13} color={'currentcolor'} />
+                  ? <MinusIcon size={13} color={'currentcolor'} />
                   : <PlusIcon size={13} color={'currentcolor'} />
                 }
               </span>
