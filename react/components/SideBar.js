@@ -25,7 +25,7 @@ export default class SideBar extends Component {
   static defaultProps = {
     title: 'Departments',
     departments: [],
-    onClose: () => {},
+    onClose: () => { },
   }
 
   updateComponent() {
@@ -67,7 +67,7 @@ export default class SideBar extends Component {
           type="drawerRight"
           className="fixed w-80 left-0 top-0 z-max"
         >
-          <div className="vtex-menu-sidebar w-100 bg-base vh-100">
+          <div className="vtex-menu-sidebar w-100 bg-base z-max vh-100">
             <div
               className="vtex-menu-sidebar__header flex justify-between items-center pa5 pointer"
               onClick={onClose}
