@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
+import Icon from 'vtex.use-svg/Icon'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
-import HamburguerIcon from './images/HamburguerIcon'
 import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
@@ -85,7 +85,7 @@ class CategoryMenu extends Component {
             onClose={this.handleSidebarToggle}
             showSubcategories={showSubcategories} />
           <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
-            <HamburguerIcon />
+            <Icon id="hpa-hamburguer-menu" size={20} />
           </div>
         </div>
       )
