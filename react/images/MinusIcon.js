@@ -14,7 +14,7 @@ export default class DeleteIcon extends Component {
 
   static defaultProps = {
     size: 20,
-    fillColor: '#979899',
+    fillColor: '#3f3f40',
   }
 
   render() {
@@ -22,7 +22,7 @@ export default class DeleteIcon extends Component {
     return (
       <svg width={`${size}px`} height={`${size}px`} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <title>e delete</title>
-        <g fill={this.props.secondaryfill}>
+        <g fill={fillColor}>
           <path d="M15,7H1C0.4,7,0,7.4,0,8s0.4,1,1,1h14c0.6,0,1-0.4,1-1S15.6,7,15,7z" fill={fillColor}/>
         </g>
       </svg>
