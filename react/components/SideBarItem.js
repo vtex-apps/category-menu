@@ -5,7 +5,8 @@ import { withRuntimeContext } from 'render'
 import { FormattedMessage } from 'react-intl'
 
 import PlusIcon from '../images/PlusIcon'
-import MinusIcon from '../images/MinusIcon';
+import MinusIcon from '../images/MinusIcon'
+
 class SideBarItem extends Component {
   static propTypes = {
     /** Sidebar's item. */
@@ -99,32 +100,28 @@ class SideBarItem extends Component {
           }
         </div>
         {
-          hasChildren && (
-            <div>
-              {this.state.open &&
-                <Fragment>
-                  <div className="vtex-menu-sidebar__item c-on-muted-3">
-                    <div className="flex justify-between items-center pa5 pl5 pointer t-body"
-                      onClick={this.handleDepartmentClick}>
-                      <div className="pl4 c-muted-2">
-                        <FormattedMessage id="category-menu.all-category.title" />
-                      </div>
-                    </div>
+          hasChildren && this.state.open && (
+            <Fragment>
+              <div className="vtex-menu-sidebar__item c-on-muted-3">
+                <div className="flex justify-between items-center pa5 pl5 pointer t-body"
+                  onClick={this.handleDepartmentClick}>
+                  <div className="pl4 c-muted-2">
+                    <FormattedMessage id="category-menu.all-category.title" />
                   </div>
-                  {item.children.map(child => (
-                    <Fragment key={child.id}>
-                      <span className="flex w-90 center"></span>
-                      <SideBarItem
-                        runtime={runtime}
-                        item={child}
-                        linkValues={[...linkValues, child.slug]}
-                        onClose={onClose}
-                        treeLevel={treeLevel + 1}
-                      />
-                    </Fragment>))}
-                </Fragment>
-              }
-            </div>
+                </div>
+              </div>
+              {item.children.map(child => (
+                <Fragment key={child.id}>
+                  <span className="flex w-90 center"></span>
+                  <SideBarItem
+                    runtime={runtime}
+                    item={child}
+                    linkValues={[...linkValues, child.slug]}
+                    onClose={onClose}
+                    treeLevel={treeLevel + 1}
+                  />
+                </Fragment>))}
+            </Fragment>
           )
         }
       </div>
