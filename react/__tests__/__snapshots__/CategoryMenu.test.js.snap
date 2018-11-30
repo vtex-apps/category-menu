@@ -142,6 +142,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             "editor.category-menu.title": "Category menu",
           },
           "now": [Function],
+          "onError": [Function],
           "textComponent": "span",
           "timeZone": null,
         }
