@@ -75,6 +75,8 @@ class CategoryMenu extends Component {
     const departments = this.departmentsSelected.length && this.departmentsSelected ||
       categories.slice(0, MAX_NUMBER_OF_MENUS)
 
+    console.log(1 + showSubcategories)
+
     if (mobileMode) {
       return (
         <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
@@ -99,7 +101,7 @@ class CategoryMenu extends Component {
           }} />}
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
-              <CategoryItem category={category} subcategoryLevels={+showSubcategories} />
+              <CategoryItem category={category} subcategoryLevels={1 + showSubcategories} />
             </div>
           ))}
         </div>
