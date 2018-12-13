@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- Fix subcategories are not showing.
+- Fix not showing's subcategories.
 
 ## [2.2.0] - 2018-12-18
 ### Added
