@@ -117,6 +117,7 @@ class SideBarItem extends Component {
                   <span className="flex w-90 center"></span>
                   <SideBarItem
                     runtime={runtime}
+                    showSubcategories={showSubcategories}
                     item={child}
                     linkValues={[...linkValues, child.slug]}
                     onClose={onClose}
