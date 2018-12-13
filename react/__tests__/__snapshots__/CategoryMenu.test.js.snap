@@ -339,7 +339,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   "slug": "category-1",
                 }
               }
-              subcategoryLevels={1}
+              subcategoryLevels={2}
             >
               <div
                 className="undefined flex justify-center items-center"
@@ -381,7 +381,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   "slug": "category-2",
                 }
               }
-              subcategoryLevels={1}
+              subcategoryLevels={2}
             >
               <div
                 className="undefined flex justify-center items-center"
@@ -423,7 +423,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   "slug": "category-3",
                 }
               }
-              subcategoryLevels={1}
+              subcategoryLevels={2}
             >
               <div
                 className="undefined flex justify-center items-center"
