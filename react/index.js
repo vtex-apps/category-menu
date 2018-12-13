@@ -12,6 +12,7 @@ import getCategories from './queries/categoriesQuery.gql'
 import categoryMenu from './categoryMenu.css'
 
 const MAX_NUMBER_OF_MENUS = 6
+const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
 /**
  * Component that represents the menu containing the categories of the store
@@ -93,13 +94,13 @@ class CategoryMenu extends Component {
     return (
       <div className={`${categoryMenu.container} bg-base dn flex-m justify-center`}>
         <div className="flex flex-wrap justify-center items-end t-action overflow-hidden">
-          {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={1 + showSubcategories} category={{
+          {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
           }} />}
           {departments.map(category => (
             <div key={category.id} className="flex items-center">
-              <CategoryItem category={category} subcategoryLevels={1 + showSubcategories} />
+              <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
             </div>
           ))}
         </div>
