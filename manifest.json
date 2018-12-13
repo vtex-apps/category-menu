@@ -5,15 +5,9 @@
   "title": "Category Menu",
   "description": "Displays the categories for the store in a menu",
   "defaultLocale": "pt-BR",
-  "dependencies": {
-    "vtex.store-components": "2.x",
-    "vtex.store-graphql": "2.x",
-    "vtex.styleguide": "6.x",
-    "vtex.use-svg": "0.x"
-  },
   "builders": {
-    "pages": "0.x",
     "messages": "0.x",
+    "store": "0.x",
     "react": "2.x"
   },
   "mustUpdateAt": "2019-04-09",
@@ -23,5 +17,11 @@
   ],
   "scripts": {
     "postreleasy": "vtex publish --verbose"
+  },
+  "dependencies": {
+    "vtex.store-components": "3.x",
+    "vtex.store-graphql": "2.x",
+    "vtex.styleguide": "8.x",
+    "vtex.use-svg": "0.x"
   }
 }
