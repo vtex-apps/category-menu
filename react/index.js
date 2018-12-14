@@ -10,6 +10,7 @@ import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
 import './global.css'
+import categoryMenu from './categoryMenu.css'
 
 const MAX_NUMBER_OF_MENUS = 6
 
@@ -77,7 +78,7 @@ class CategoryMenu extends Component {
 
     if (mobileMode) {
       return (
-        <div className="vtex-category-menu vtex-category-menu--mobile">
+        <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
           <SideBar
             visible={this.state.sideBarVisible}
             title={intl.formatMessage({ id: 'category-menu.departments.title' })}
@@ -91,8 +92,8 @@ class CategoryMenu extends Component {
       )
     }
     return (
-      <div className="vtex-category-menu bg-base dn flex-m justify-center">
-        <div className="vtex-category-menu__container flex flex-wrap justify-center items-end t-action overflow-hidden">
+      <div className={`${categoryMenu.container} bg-base dn flex-m justify-center`}>
+        <div className="flex flex-wrap justify-center items-end t-action overflow-hidden">
           {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={1 + showSubcategories} category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
