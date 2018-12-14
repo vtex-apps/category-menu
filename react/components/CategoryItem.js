@@ -44,7 +44,7 @@ export default class CategoryItem extends Component {
       }
     )
 
-    const itemClasses = `${categoryMenu.container} bg-base dn flex justify-center items-center`
+    const itemClasses = `${categoryMenu.container} flex justify-center items-center`
 
     return (
       <div className={itemClasses}
