@@ -6,7 +6,6 @@ import { Animation } from 'vtex.store-components'
 import { IconClose } from 'vtex.styleguide'
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
-import Icon from 'vtex.use-svg/Icon'
 
 
 const OPEN_SIDEBAR_CLASS = categoryMenu.sidebarOpen
