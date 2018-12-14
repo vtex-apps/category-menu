@@ -1,0 +1,7 @@
+.itemContainer {
+    max-height: 21.875rem;
+}
+
+.mobile {
+    height: calc(100% - 2.625rem);
+}
