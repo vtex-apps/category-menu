@@ -5,7 +5,6 @@ import { categoryPropType } from '../propTypes'
 import PropTypes from 'prop-types'
 import categoryMenu from '../categoryMenu.css'
 
-
 /**
  * Component that represents an array of categories in the menu, also displays
  * the subcategories.

@@ -5,8 +5,11 @@ import classNames from 'classnames'
 import { Animation } from 'vtex.store-components'
 import { IconClose } from 'vtex.styleguide'
 import SideBarItem from './SideBarItem'
+import categoryMenu from '../categoryMenu.css'
+import Icon from 'vtex.use-svg/Icon'
 
-const OPEN_SIDEBAR_CLASS = 'vtex-menu-sidebar-open'
+
+const OPEN_SIDEBAR_CLASS = categoryMenu.sidebarOpen
 
 export default class SideBar extends Component {
   static propTypes = {
@@ -55,7 +58,7 @@ export default class SideBar extends Component {
   render() {
     const { visible, onClose, showSubcategories } = this.props
 
-    const scrimClasses = classNames('vtex-menu-sidebar__scrim fixed dim bg-base--inverted top-0 z-1 w-100 vh-100 o-40', {
+    const scrimClasses = classNames('fixed dim bg-base--inverted top-0 z-1 w-100 vh-100 o-40', {
       dn: !visible,
     })
 
@@ -67,14 +70,14 @@ export default class SideBar extends Component {
           type="drawerRight"
           className="fixed w-80 left-0 top-0 z-max"
         >
-          <div className="vtex-menu-sidebar w-100 bg-base z-max vh-100">
+          <div className={`${categoryMenu.sidebar} w-100 bg-base z-max vh-100 shadow-5 `}>
             <div
-              className="vtex-menu-sidebar__header flex justify-between items-center pa5 pointer"
+              className={`${categoryMenu.sidebarHeader} flex justify-between items-center pa5 pointer`}
               onClick={onClose}
             >
               <IconClose size={24} color="#585959" />
             </div>
-            <div className="vtex-menu-sidebar__content shadow-5 overflow-y-auto">
+            <div className={`${categoryMenu.sidebarContent} overflow-y-auto`}>
               {this.props.departments.map(department => (
                 <Fragment key={department.id}>
                   <span className="flex w-90 center"></span>
