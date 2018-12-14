@@ -5,6 +5,8 @@ import { categoryItemShape } from '../propTypes'
 
 import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
+import categoryMenu from '../categoryMenu.css'
+
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -42,7 +44,7 @@ export default class CategoryItem extends Component {
       }
     )
 
-    const itemClasses = 'vtex-category-menu__item flex justify-center items-center'
+    const itemClasses = `${categoryMenu.container} bg-base dn flex justify-center items-center`
 
     return (
       <div className={itemClasses}
