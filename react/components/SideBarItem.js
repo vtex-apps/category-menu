@@ -5,6 +5,8 @@ import { withRuntimeContext } from 'render'
 import { FormattedMessage } from 'react-intl'
 
 import Icon from 'vtex.use-svg/Icon'
+import categoryMenu from '../categoryMenu.css'
+
 
 
 class SideBarItem extends Component {
@@ -56,7 +58,7 @@ class SideBarItem extends Component {
 
   handleDepartmentClick = () => {
     const { runtime, onClose, linkValues } = this.props
-    const [department, category, subcategory] = linkValues
+    const [department] = linkValues
     const params = { department }
     const page = 'store/department'
     runtime.navigate({
@@ -71,7 +73,7 @@ class SideBarItem extends Component {
     const { item, linkValues, runtime, onClose, treeLevel, showSubcategories } = this.props
     const hasChildren = showSubcategories && item.children && item.children.length > 0
     const sideBarItemClasses = classNames(
-      'vtex-menu-sidebar__item', {
+      categoryMenu.sidebarItem, {
         'c-muted-2 pl4 t-body': treeLevel > 1,
         'c-on-base': treeLevel === 1
       }
@@ -102,7 +104,7 @@ class SideBarItem extends Component {
         {
           hasChildren && this.state.open && (
             <Fragment>
-              <div className="vtex-menu-sidebar__item c-on-muted-3">
+              <div className={`${categoryMenu.sidebarItem} c-on-muted-3`}>
                 <div className="flex justify-between items-center pa5 pl5 pointer t-body"
                   onClick={this.handleDepartmentClick}>
                   <div className="pl4 c-muted-2">
