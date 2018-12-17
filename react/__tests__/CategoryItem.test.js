@@ -25,7 +25,6 @@ describe('CategoryItem component', () => {
   })
 
   it('should have the correct href', () => {
-    console.log(wrapper)
     expect(wrapper.find({ params: { department: 'category' } }).exists()).toBe(true)
   })
 

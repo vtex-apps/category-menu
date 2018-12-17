@@ -58,10 +58,6 @@ describe('CategoryMenu component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should render 4 menu items', () => {
-    expect(wrapper.find('.container').length).toBe(4)
-  })
-
   it("shouldn't be able to find a `Category 4` item", () => {
     expect(wrapper.containsMatchingElement(<a>Category 4</a>)).toBe(false)
   })
