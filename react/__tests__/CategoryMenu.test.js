@@ -59,7 +59,7 @@ describe('CategoryMenu component', () => {
   })
 
   it('should render 4 menu items', () => {
-    expect(wrapper.find('.vtex-category-menu__item').length).toBe(4)
+    expect(wrapper.find('.container').length).toBe(4)
   })
 
   it("shouldn't be able to find a `Category 4` item", () => {

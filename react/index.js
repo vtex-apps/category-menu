@@ -9,7 +9,6 @@ import SideBar from './components/SideBar'
 import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
-import './global.css'
 import categoryMenu from './categoryMenu.css'
 
 const MAX_NUMBER_OF_MENUS = 6
