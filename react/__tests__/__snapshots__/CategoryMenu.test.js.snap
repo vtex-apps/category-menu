@@ -154,10 +154,10 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showSubcategories={true}
     >
       <div
-        className="vtex-category-menu bg-base dn flex-m justify-center"
+        className="undefined bg-base dn flex-m justify-center"
       >
         <div
-          className="vtex-category-menu__container flex flex-wrap justify-center items-end t-action overflow-hidden"
+          className="flex flex-wrap justify-center items-end t-action overflow-hidden"
         >
           <CategoryItem
             category={
@@ -195,7 +195,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             subcategoryLevels={2}
           >
             <div
-              className="vtex-category-menu__item flex justify-center items-center"
+              className="undefined flex justify-center items-center"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
@@ -247,7 +247,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   showSecondLevel={true}
                 >
                   <div
-                    className="vtex-category-menu__item-container w-100 bg-base pb2 bw1 bb b--muted-3"
+                    className="undefined w-100 bg-base pb2 bw1 bb b--muted-3"
                   >
                     <div
                       className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl"
@@ -257,7 +257,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         key="1"
                       >
                         <Link
-                          className="vtex-category-menu__link-level-2 db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                          className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                           onClick={[Function]}
                           page="store/department"
                           params={
@@ -267,7 +267,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                           }
                         >
                           <a
-                            className="vtex-category-menu__link-level-2 db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                             href="/category-1/s"
                           >
                             CATEGORY 1
@@ -279,7 +279,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         key="2"
                       >
                         <Link
-                          className="vtex-category-menu__link-level-2 db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                          className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                           onClick={[Function]}
                           page="store/department"
                           params={
@@ -289,7 +289,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                           }
                         >
                           <a
-                            className="vtex-category-menu__link-level-2 db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                             href="/category-2/s"
                           >
                             CATEGORY 2
@@ -301,7 +301,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         key="3"
                       >
                         <Link
-                          className="vtex-category-menu__link-level-2 db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                          className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                           onClick={[Function]}
                           page="store/department"
                           params={
@@ -311,7 +311,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                           }
                         >
                           <a
-                            className="vtex-category-menu__link-level-2 db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                             href="/category-3/s"
                           >
                             CATEGORY 3
@@ -342,7 +342,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               subcategoryLevels={1}
             >
               <div
-                className="vtex-category-menu__item flex justify-center items-center"
+                className="undefined flex justify-center items-center"
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
@@ -384,7 +384,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               subcategoryLevels={1}
             >
               <div
-                className="vtex-category-menu__item flex justify-center items-center"
+                className="undefined flex justify-center items-center"
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >
@@ -426,7 +426,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               subcategoryLevels={1}
             >
               <div
-                className="vtex-category-menu__item flex justify-center items-center"
+                className="undefined flex justify-center items-center"
                 onMouseEnter={[Function]}
                 onMouseLeave={[Function]}
               >

@@ -2,7 +2,7 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <div
-  className="vtex-category-menu__item flex justify-center items-center"
+  className="undefined flex justify-center items-center"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
