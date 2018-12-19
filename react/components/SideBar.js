@@ -57,7 +57,7 @@ export default class SideBar extends Component {
   render() {
     const { visible, onClose, showSubcategories } = this.props
 
-    const scrimClasses = classNames(`${categoryMenu.sidebarScrim} fixed dim bg-base--inverted top-0 z-1 w-100 vh-100 o-40`, {
+    const scrimClasses = classNames(`${categoryMenu.sidebarScrim} fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40`, {
       dn: !visible,
     })
 
