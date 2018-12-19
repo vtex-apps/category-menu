@@ -35,7 +35,7 @@ describe('CategoryMenu component', () => {
     ]
 
     const departments = mockedCategories.map(category => ({ id: category.id }))
-    const messages = require('../locales/en-US')
+    const messages = require('../../messages/en-US.json')
 
     wrapper = mount(
       <IntlProvider locale="en-US" messages={messages}>
