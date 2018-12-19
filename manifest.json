@@ -13,6 +13,7 @@
   },
   "builders": {
     "pages": "0.x",
+    "messages": "0.x",
     "react": "2.x"
   },
   "mustUpdateAt": "2019-04-09",
@@ -20,7 +21,6 @@
   "registries": [
     "smartcheckout"
   ],
-  "settingsSchema": {},
   "scripts": {
     "postreleasy": "vtex publish --verbose"
   }
