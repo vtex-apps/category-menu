@@ -1,6 +1,6 @@
 {
   "category-menu": {
     "blocks": [],
-    "component": "index"
+    "inheritComponent": true
   }
 }
