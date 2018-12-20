@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Fixed
-- Fix `Sidebar` shadow not filling the whole width of the screen.
+- Fix `Sidebar` shadow not filling the whole width of the screen and fix left padding.
 
 ## [2.3.1] - 2018-12-21
 ### Fixed
