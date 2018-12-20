@@ -63,7 +63,7 @@ export default class SideBar extends Component {
 
     return (
       <Fragment>
-        <div style={{ willChange: 'opacity' }} className={scrimClasses} onClick={this.props.onClose} />
+        <div className={scrimClasses} onClick={this.props.onClose} />
         <Animation
           isActive={visible}
           type="drawerRight"

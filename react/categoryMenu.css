@@ -1,21 +1,21 @@
 .itemContainer {
-    max-height: 21.875rem;
+  max-height: 21.875rem;
 }
 
 .itemContainer > div > div {
-    width: 14.28%;
+  width: 14.28%;
 }
 
 .animation {
-    left: -0.5rem;
+  left: -0.5rem;
 }
 
 .mobile {
-    height: calc(100% - 2.625rem);
+  height: calc(100% - 2.625rem);
 }
 
 @media only screen and (max-width: 40rem) {
-    body.sidebarOpen {
-        overflow-y: hidden;
-    }
+  body.sidebarOpen {
+      overflow-y: hidden;
+  }
 }
