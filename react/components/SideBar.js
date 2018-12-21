@@ -60,7 +60,7 @@ export default class SideBar extends Component {
     const scrimClasses = classNames(`${categoryMenu.sidebarScrim} fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40`, {
       dn: !visible,
     })
-
+    
     return (
       <Fragment>
         <div className={scrimClasses} onClick={this.props.onClose} />
@@ -76,7 +76,7 @@ export default class SideBar extends Component {
             >
               <IconClose size={24} color="#585959" />
             </div>
-            <div className={`${categoryMenu.sidebarContent} overflow-y-auto`}>
+            <div className={`${categoryMenu.sidebarContent} pb7`}>
               {this.props.departments.map(department => (
                 <Fragment key={department.id}>
                   <span className="flex w-90 center"></span>
