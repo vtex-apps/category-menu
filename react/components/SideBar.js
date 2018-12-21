@@ -69,7 +69,7 @@ export default class SideBar extends Component {
           type="drawerRight"
           className="fixed w-80 left--1 top-0 z-max"
         >
-          <div className={`${categoryMenu.sidebar} w-100 bg-base z-max vh-100 shadow-5 `}>
+          <div className={`${categoryMenu.sidebar} w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}>
             <div
               className={`${categoryMenu.sidebarHeader} flex justify-between items-center pa5 pointer`}
               onClick={onClose}
