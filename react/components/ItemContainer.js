@@ -29,7 +29,7 @@ export default class ItemContainer extends Component {
     return (
       <Link
         onClick={this.props.onCloseMenu}
-        page={parentSlug ? 'store/category' : 'store/department'}
+        page={parentSlug ? 'store.search#category' : 'store.search#department'}
         className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
         params={params}
       >
@@ -47,8 +47,8 @@ export default class ItemContainer extends Component {
     return (
       <Link
         onClick={this.props.onCloseMenu}
-        page={parentSlug ? 'store/subcategory' : 'store/category'}
-        className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`} 
+        page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
+        className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
         params={params}
       >
         {subItem.name}
