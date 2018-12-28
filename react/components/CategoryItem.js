@@ -59,7 +59,7 @@ export default class CategoryItem extends Component {
         ) : (
             <Link
               onClick={this.handleCloseMenu}
-              page="store.searh#department"
+              page="store.search#department"
               params={{ department: category.slug }}
               className={linkClasses}
             >
