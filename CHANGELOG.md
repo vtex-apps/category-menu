@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Show default props correctly on pages-editor.
 
 ## [2.3.3] - 2018-12-21
 ### Fixed
@@ -21,7 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.3.0] - 2018-12-19
 ### Added
-- Support to messages builder. 
+- Support to messages builder.
 
 ## [2.2.2] - 2018-12-19
 ### Fixed

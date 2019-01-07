@@ -119,18 +119,22 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
     showPromotionCategory: {
       type: 'boolean',
       title: 'editor.category-menu.show-promotion-category.title',
+      default: false,
     },
     showDepartmentsCategory: {
       type: 'boolean',
       title: 'editor.category-menu.show-departments-category.title',
+      default: true,
     },
     showSubcategories: {
       type: 'boolean',
       title: 'editor.category-menu.show-subcategories.title',
+      default: true,
     },
     showGiftCategory: {
       type: 'boolean',
       title: 'editor.category-menu.show-gift-category.title',
+      default: false,
     },
     departments: {
       title: 'category-menu.departments.title',
