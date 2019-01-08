@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.4] - 2019-01-08
+### Fixed
+- Show default props correctly on pages-editor.
+
 ## [2.3.3] - 2018-12-21
 ### Fixed
 - Fix `SideBar` not showing the whole content when scrolling.
@@ -21,7 +25,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.3.0] - 2018-12-19
 ### Added
-- Support to messages builder. 
+- Support to messages builder.
 
 ## [2.2.2] - 2018-12-19
 ### Fixed
