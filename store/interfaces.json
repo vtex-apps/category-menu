@@ -1,7 +1,5 @@
 {
   "category-menu": {
-    "allowed": [],
-    "required": [],
     "component": "index"
   }
 }
