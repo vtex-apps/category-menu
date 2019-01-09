@@ -57,15 +57,15 @@ export default class CategoryItem extends Component {
             {category.name.toUpperCase()}
           </a>
         ) : (
-          <Link
-            onClick={this.handleCloseMenu}
-            page="store/department"
-            params={{ department: category.slug }}
-            className={linkClasses}
-          >
-            {category.name.toUpperCase()}
-          </Link>
-        )}
+            <Link
+              onClick={this.handleCloseMenu}
+              page="store.search#department"
+              params={{ department: category.slug }}
+              className={linkClasses}
+            >
+              {category.name.toUpperCase()}
+            </Link>
+          )}
         {subcategoryLevels > 0 && category.children.length > 0 && (
           <div className="absolute w-100 left-0" style={containerStyle}>
             <ItemContainer

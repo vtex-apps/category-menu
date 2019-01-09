@@ -259,7 +259,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         <Link
                           className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                           onClick={[Function]}
-                          page="store/department"
+                          page="store.search#department"
                           params={
                             Object {
                               "department": "category-1",
@@ -281,7 +281,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         <Link
                           className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                           onClick={[Function]}
-                          page="store/department"
+                          page="store.search#department"
                           params={
                             Object {
                               "department": "category-2",
@@ -303,7 +303,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                         <Link
                           className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                           onClick={[Function]}
-                          page="store/department"
+                          page="store.search#department"
                           params={
                             Object {
                               "department": "category-3",
@@ -349,7 +349,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 <Link
                   className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
                   onClick={[Function]}
-                  page="store/department"
+                  page="store.search#department"
                   params={
                     Object {
                       "department": "category-1",
@@ -391,7 +391,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 <Link
                   className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
                   onClick={[Function]}
-                  page="store/department"
+                  page="store.search#department"
                   params={
                     Object {
                       "department": "category-2",
@@ -433,7 +433,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 <Link
                   className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
                   onClick={[Function]}
-                  page="store/department"
+                  page="store.search#department"
                   params={
                     Object {
                       "department": "category-3",

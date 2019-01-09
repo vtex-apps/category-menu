@@ -45,8 +45,8 @@ class SideBarItem extends Component {
       if (category) params.category = category
       if (subcategory) params.subcategory = subcategory
       const page = category
-        ? (subcategory ? 'store/subcategory' : 'store/category')
-        : 'store/department'
+        ? (subcategory ? 'store.search#subcategory' : 'store.search#category')
+        : 'store.search#department'
       runtime.navigate({
         page,
         params,
@@ -60,7 +60,7 @@ class SideBarItem extends Component {
     const { runtime, onClose, linkValues } = this.props
     const [department] = linkValues
     const params = { department }
-    const page = 'store/department'
+    const page = 'store.search#department'
     runtime.navigate({
       page,
       params,
