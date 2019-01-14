@@ -153,7 +153,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showPromotionCategory={false}
       showSubcategories={true}
     >
-      <div
+      <nav
         className="undefined bg-base dn flex-m justify-center"
       >
         <div
@@ -451,7 +451,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             </CategoryItem>
           </div>
         </div>
-      </div>
+      </nav>
     </CategoryMenu>
   </InjectIntl(CategoryMenu)>
 </IntlProvider>
