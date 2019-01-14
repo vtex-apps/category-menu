@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Using html5 tags to a more semantic structure.
 
-
 ## [2.4.2] - 2019-01-14
 ### Changed
 - Remove `undefined` classes.
