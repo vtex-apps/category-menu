@@ -35,25 +35,38 @@ class SideBarItem extends Component {
     open: false,
   }
 
+  get hasChildren(){
+    const { item: { children }, showSubcategories } = this.props
+    return showSubcategories && children && children.length > 0
+  } 
+
   handleItemClick = () => {
-    const { item: { children }, runtime, onClose, linkValues, showSubcategories } = this.props
-    if (showSubcategories && children && children.length) {
+    if (this.hasChildren) {
       this.setState({ open: !this.state.open })
     } else {
-      const [department, category, subcategory] = linkValues
-      const params = { department }
-      if (category) params.category = category
-      if (subcategory) params.subcategory = subcategory
-      const page = category
-        ? (subcategory ? 'store.search#subcategory' : 'store.search#category')
-        : 'store.search#department'
-      runtime.navigate({
-        page,
-        params,
-        fallbackToWindowLocation: false,
-      })
-      onClose()
+      this.navigateToPage()
     }
+  }
+
+  navigateToPage(){
+    const {onClose, linkValues, runtime } = this.props
+    
+    const [department, category, subcategory] = linkValues
+    const params = { department }
+    
+    if (category) params.category = category
+    if (subcategory) params.subcategory = subcategory
+    
+    const page = category
+      ? (subcategory ? 'store.search#subcategory' : 'store.search#category')
+      : 'store.search#department'
+
+    runtime.navigate({
+      page,
+      params,
+      fallbackToWindowLocation: false,
+    })
+    onClose()
   }
 
   handleDepartmentClick = () => {
@@ -69,9 +82,69 @@ class SideBarItem extends Component {
     onClose()
   }
 
+  renderItemHeader(){
+    const { item, treeLevel } = this.props
+    const { open: isOpened } = this.state
+
+    const sideBarItemTitleClasses = classNames('', {
+      'ml5': treeLevel === 3,
+      't-heading-4 lh-solid': treeLevel === 1
+    })
+
+    return (
+      <div className="flex justify-between items-center pa5 pl5 pointer"
+        onClick={this.handleItemClick}
+      >
+        <span className={sideBarItemTitleClasses}>
+          {item.name}
+        </span>
+        {
+          this.hasChildren && (
+            <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
+              {isOpened
+                ? <IconMinus size={16} />
+                : <IconPlus size={16} />
+              }
+            </span>
+          )
+        }
+      </div>
+    )
+  }
+
+  renderChildren(){
+    const { 
+      item: { children }, 
+      runtime,
+      linkValues,
+      onClose,
+      treeLevel,
+      showSubcategories } = this.props
+    return (
+      <ul>
+        <li className="pl4 pointer t-body c-muted-2"
+            onClick={this.handleDepartmentClick}>
+            <FormattedMessage id="category-menu.all-category.title" />
+        </li>
+        {children.map(child => (
+          <li key={child.id}>
+            <SideBarItem
+              showSubcategories={showSubcategories}
+              item={child}
+              linkValues={[...linkValues, child.slug]}
+              onClose={onClose}
+              treeLevel={treeLevel + 1}
+              runtime={runtime}
+            />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
   render() {
-    const { item, linkValues, runtime, onClose, treeLevel, showSubcategories } = this.props
-    const hasChildren = showSubcategories && item.children && item.children.length > 0
+    const { treeLevel } = this.props
+    
     const sideBarItemClasses = classNames(
       categoryMenu.sidebarItem, {
         'c-muted-2 pl4 t-body': treeLevel > 1,
@@ -83,49 +156,8 @@ class SideBarItem extends Component {
     })
     return (
       <div className={sideBarItemClasses}>
-        <div className="flex justify-between items-center pa5 pl5 pointer"
-          onClick={this.handleItemClick}
-        >
-          <span className={sideBarItemTitleClasses}>
-            {item.name}
-          </span>
-          {
-            hasChildren && (
-              <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
-                {this.state.open
-                  ? <IconMinus size={16} />
-                  : <IconPlus size={16} />
-                }
-              </span>
-            )
-          }
-        </div>
-        {
-          hasChildren && this.state.open && (
-            <Fragment>
-              <div className={`${categoryMenu.sidebarItem} c-on-muted-3`}>
-                <div className="flex justify-between items-center pa5 pl5 pointer t-body"
-                  onClick={this.handleDepartmentClick}>
-                  <div className="pl4 c-muted-2">
-                    <FormattedMessage id="category-menu.all-category.title" />
-                  </div>
-                </div>
-              </div>
-              {item.children.map(child => (
-                <Fragment key={child.id}>
-                  <span className="flex w-90 center"></span>
-                  <SideBarItem
-                    runtime={runtime}
-                    showSubcategories={showSubcategories}
-                    item={child}
-                    linkValues={[...linkValues, child.slug]}
-                    onClose={onClose}
-                    treeLevel={treeLevel + 1}
-                  />
-                </Fragment>))}
-            </Fragment>
-          )
-        }
+        {this.renderItemHeader()}
+        {this.hasChildren && this.state.open && this.renderChildren()}
       </div>
     )
   }
