@@ -92,7 +92,7 @@ class CategoryMenu extends Component {
       )
     }
     return (
-      <div className={`${categoryMenu.container} bg-base dn flex-m justify-center`}>
+      <nav className={`${categoryMenu.container} bg-base dn flex-m justify-center`}>
         <div className="flex flex-wrap justify-center items-end t-action overflow-hidden">
           {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
             children: categories,
@@ -104,7 +104,7 @@ class CategoryMenu extends Component {
             </div>
           ))}
         </div>
-      </div>
+      </nav>
     )
   }
 }

@@ -60,7 +60,7 @@ export default class SideBar extends Component {
     const scrimClasses = classNames(`${categoryMenu.sidebarScrim} fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40`, {
       dn: !visible,
     })
-    
+
     return (
       <Fragment>
         <div className={scrimClasses} onClick={this.props.onClose} />
@@ -69,7 +69,7 @@ export default class SideBar extends Component {
           type="drawerRight"
           className={`${categoryMenu.animation} fixed w-80 top-0 z-max`}
         >
-          <div className={`${categoryMenu.sidebar} w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}>
+          <aside className={`${categoryMenu.sidebar} w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}>
             <div
               className={`${categoryMenu.sidebarHeader} flex justify-between items-center pa5 pointer`}
               onClick={onClose}
@@ -89,7 +89,7 @@ export default class SideBar extends Component {
                 </Fragment>
               ))}
             </div>
-          </div>
+          </aside>
         </Animation>
       </Fragment>
     )
