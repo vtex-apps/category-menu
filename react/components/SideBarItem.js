@@ -79,7 +79,6 @@ class SideBarItem extends Component {
       }
     )
     const sideBarItemTitleClasses = classNames('', {
-      'ml5': treeLevel === 3,
       't-heading-4 lh-solid': treeLevel === 1
     })
     return (
