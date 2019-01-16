@@ -22,20 +22,15 @@ export default class CategoryItem extends Component {
     category: categoryItemShape.isRequired,
     /** Set use of Link component */
     noRedirect: PropTypes.bool,
-    /** Whether to show subcategories or not */
+    /** Number of subcategory levels */
     subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
   }
 
   handleCloseMenu = () => (this.setState({ isHover: false }))
 
-  render() {
-    const { category, subcategoryLevels } = this.props
+  renderHeader(){
+    const { category, noRedirect } = this.props
     const { isHover } = this.state
-
-    const containerStyle = {
-      top: this.item && this.item.offsetTop + this.item.clientHeight,
-      display: isHover ? 'flex' : 'none',
-    }
 
     const linkClasses = classNames(
       'w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
@@ -44,39 +39,54 @@ export default class CategoryItem extends Component {
       }
     )
 
+    return noRedirect ? (
+      <a href="#" className={linkClasses}>
+        {category.name.toUpperCase()}
+      </a>
+    ) : (
+      <Link
+        onClick={this.handleCloseMenu}
+        page="store.search#department"
+        params={{ department: category.slug }}
+        className={linkClasses}
+      >
+        {category.name.toUpperCase()}
+      </Link>
+    )
+  }
+
+  renderChildren(){
+    const { category, subcategoryLevels } = this.props
+    const { isHover } = this.state
+
+    const containerStyle = {
+      top: this.item && this.item.offsetTop + this.item.clientHeight,
+      display: isHover ? 'flex' : 'none',
+    }
+
+    return subcategoryLevels > 0 && category.children.length > 0 && (
+      <ItemContainer
+        containerStyle={containerStyle}
+        categories={category.children}
+        parentSlug={category.slug}
+        onCloseMenu={this.handleCloseMenu}
+        showSecondLevel={subcategoryLevels === 2}
+      />
+    )
+  }
+  
+  render() {
     const itemClasses = `${categoryMenu.container} flex justify-center items-center`
 
     return (
-      <div className={itemClasses}
+      <li className={itemClasses}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHover: true })}
         onMouseLeave={this.handleCloseMenu}
       >
-        {this.props.noRedirect ? (
-          <a href="#" className={linkClasses}>
-            {category.name.toUpperCase()}
-          </a>
-        ) : (
-            <Link
-              onClick={this.handleCloseMenu}
-              page="store.search#department"
-              params={{ department: category.slug }}
-              className={linkClasses}
-            >
-              {category.name.toUpperCase()}
-            </Link>
-          )}
-        {subcategoryLevels > 0 && category.children.length > 0 && (
-          <div className="absolute w-100 left-0" style={containerStyle}>
-            <ItemContainer
-              categories={category.children}
-              parentSlug={category.slug}
-              onCloseMenu={this.handleCloseMenu}
-              showSecondLevel={subcategoryLevels === 2}
-            />
-          </div>
-        )}
-      </div>
+        {this.renderHeader()}
+        {this.renderChildren()}
+      </li>
     )
   }
 }

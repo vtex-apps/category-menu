@@ -82,7 +82,7 @@ class SideBarItem extends Component {
     onClose()
   }
 
-  renderItemHeader(){
+  renderHeader(){
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
 
@@ -156,7 +156,7 @@ class SideBarItem extends Component {
     })
     return (
       <ul className={sideBarItemClasses}>
-        {this.renderItemHeader()}
+        {this.renderHeader()}
         {this.hasChildren && this.state.open && this.renderChildren()}
       </ul>
     )

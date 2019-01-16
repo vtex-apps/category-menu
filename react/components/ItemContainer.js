@@ -6,8 +6,7 @@ import PropTypes from 'prop-types'
 import categoryMenu from '../categoryMenu.css'
 
 /**
- * Component that represents an array of categories in the menu, also displays
- * the subcategories.
+ * Component responsible dor rendering an array of categories and its respective subcategories
  */
 export default class ItemContainer extends Component {
   static propTypes = {
@@ -27,14 +26,16 @@ export default class ItemContainer extends Component {
     }
     if (parentSlug) params.category = item.slug
     return (
-      <Link
-        onClick={this.props.onCloseMenu}
-        page={parentSlug ? 'store.search#category' : 'store.search#department'}
-        className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
-        params={params}
-      >
-        {item.name.toUpperCase()}
-      </Link>
+      <li>
+        <Link
+          onClick={this.props.onCloseMenu}
+          page={parentSlug ? 'store.search#category' : 'store.search#department'}
+          className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
+          params={params}
+        >
+          {item.name.toUpperCase()}
+        </Link>
+      </li>
     )
   }
 
@@ -45,37 +46,44 @@ export default class ItemContainer extends Component {
     }
     if (parentSlug) params.subcategory = subItem.slug
     return (
-      <Link
-        onClick={this.props.onCloseMenu}
-        page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
-        className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
-        params={params}
-      >
-        {subItem.name}
-      </Link>
+      <li key={subItem.id}>
+        <Link
+          onClick={this.props.onCloseMenu}
+          page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
+          className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
+          params={params}
+        >
+          {subItem.name}
+        </Link>
+      </li>
+    )
+  }
+
+  shouldRenderSecondLevel(category) {
+    const { children } = category
+    const { showSecondLevel } = this.props
+    
+    return children && children.length > 0 && showSecondLevel
+  } 
+
+  renderChildren(category){
+    return this.shouldRenderSecondLevel(category) && category.children.map(subCategory => 
+        this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)
     )
   }
 
   render() {
+    const { containerStyle } = this.props
     return (
-      <div className={`${categoryMenu.itemContainer} w-100 bg-base pb2 bw1 bb b--muted-3`}>
-        <div className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
+      <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 w-100 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
+        <ul className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
           {this.props.categories.map(category => (
-            <div key={category.id} className="fl db pa2">
+            <li key={category.id} className="fl db pa2">
               {this.renderLinkFirstLevel(this.props.parentSlug, category)}
-              {category.children && category.children.length > 0 && (
-                <Fragment>
-                  {this.props.showSecondLevel && category.children.map((subCategory) => (
-                    <Fragment key={subCategory.id}>
-                      <span className="flex w-90 center"></span>
-                      {this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)}
-                    </Fragment>
-                  ))}
-                </Fragment>
-              )}
-            </div>
+              {this.renderChildren(category)}
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     )
   }
