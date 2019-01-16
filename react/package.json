@@ -9,7 +9,6 @@
     "classnames": "^2.2.6",
     "graphql": "^14.0.2",
     "jsdom": "^11.8.0",
-    "ramda": "^0.26.1",
     "react-apollo": "^2.3.2",
     "react-intl": "^2.4.0"
   },

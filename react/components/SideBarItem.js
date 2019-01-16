@@ -92,7 +92,7 @@ class SideBarItem extends Component {
     })
 
     return (
-      <div className="flex justify-between items-center pa5 pl5 pointer"
+      <li className="flex justify-between items-center pa5 pointer"
         onClick={this.handleItemClick}
       >
         <span className={sideBarItemTitleClasses}>
@@ -108,7 +108,7 @@ class SideBarItem extends Component {
             </span>
           )
         }
-      </div>
+      </li>
     )
   }
 
@@ -121,8 +121,8 @@ class SideBarItem extends Component {
       treeLevel,
       showSubcategories } = this.props
     return (
-      <ul>
-        <li className="pl4 pointer t-body c-muted-2"
+      <Fragment>
+        <li className="pa5 pointer t-body c-muted-2"
             onClick={this.handleDepartmentClick}>
             <FormattedMessage id="category-menu.all-category.title" />
         </li>
@@ -138,7 +138,7 @@ class SideBarItem extends Component {
             />
           </li>
         ))}
-      </ul>
+      </Fragment>
     )
   }
 
@@ -147,7 +147,7 @@ class SideBarItem extends Component {
     
     const sideBarItemClasses = classNames(
       categoryMenu.sidebarItem, {
-        'c-muted-2 pl4 t-body': treeLevel > 1,
+        'c-muted-2 t-body': treeLevel > 1,
         'c-on-base': treeLevel === 1
       }
     )
@@ -155,10 +155,10 @@ class SideBarItem extends Component {
       't-heading-4 lh-solid': treeLevel === 1
     })
     return (
-      <div className={sideBarItemClasses}>
+      <ul className={sideBarItemClasses}>
         {this.renderItemHeader()}
         {this.hasChildren && this.state.open && this.renderChildren()}
-      </div>
+      </ul>
     )
   }
 }
