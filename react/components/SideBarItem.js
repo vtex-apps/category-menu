@@ -85,10 +85,11 @@ class SideBarItem extends Component {
   renderHeader(){
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
+    
+    console.log(treeLevel)
 
     const sideBarItemTitleClasses = classNames('', {
-      'ml5': treeLevel === 3,
-      't-heading-4 lh-solid': treeLevel === 1
+      't-heading-4 lh-solid': treeLevel === 1,
     })
 
     return (
@@ -124,7 +125,9 @@ class SideBarItem extends Component {
       <Fragment>
         <li className="pa5 pointer t-body c-muted-2"
             onClick={this.handleDepartmentClick}>
-            <FormattedMessage id="category-menu.all-category.title" />
+            <FormattedMessage id="category-menu.all-category.title" >
+              {txt => <span className="pl4">{txt}</span>}
+            </FormattedMessage>
         </li>
         {children.map(child => (
           <li key={child.id}>
@@ -147,13 +150,11 @@ class SideBarItem extends Component {
     
     const sideBarItemClasses = classNames(
       categoryMenu.sidebarItem, {
-        'c-muted-2 t-body': treeLevel > 1,
-        'c-on-base': treeLevel === 1
+        'c-muted-2 t-body pl4': treeLevel > 1,
+        'c-on-base': treeLevel === 1,
       }
     )
-    const sideBarItemTitleClasses = classNames('', {
-      't-heading-4 lh-solid': treeLevel === 1
-    })
+     
     return (
       <ul className={sideBarItemClasses}>
         {this.renderHeader()}
