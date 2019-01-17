@@ -11,7 +11,6 @@ import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
 
-const MAX_NUMBER_OF_MENUS = 6
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
 /**
@@ -59,38 +58,44 @@ class CategoryMenu extends Component {
     this.setState({ sideBarVisible: !this.state.sideBarVisible })
   }
 
-  get departmentsSelected() {
+  get departments() {
     const { data: { categories = [] }, departments } = this.props
     const departmentsIds = departments.map(dept => dept.id)
-    return categories.filter(category => departmentsIds.includes(category.id))
+    const departmentsSelected = categories.filter(category => departmentsIds.includes(category.id))
+    return (this.departmentsSelected && departmentsSelected.length) || categories
   }
 
-  render() {
+  renderSideBar(){
     const {
       data: { categories = [] },
       intl,
-      mobileMode,
+      showSubcategories
+    } = this.props
+    const { sideBarVisible } = this.state
+
+    return (
+      <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
+        <SideBar
+          visible={sideBarVisible}
+          title={intl.formatMessage({ id: 'category-menu.departments.title' })}
+          departments={categories}
+          onClose={this.handleSidebarToggle}
+          showSubcategories={showSubcategories} />
+        <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
+          <IconMenu size={20} />
+        </div>
+      </div>
+    )
+  }
+
+  renderMenu(){
+    const {
+      data: { categories = [] },
+      intl,
       showDepartmentsCategory,
       showSubcategories
     } = this.props
-    const departments = this.departmentsSelected.length && this.departmentsSelected ||
-      categories.slice(0, MAX_NUMBER_OF_MENUS)
 
-    if (mobileMode) {
-      return (
-        <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
-          <SideBar
-            visible={this.state.sideBarVisible}
-            title={intl.formatMessage({ id: 'category-menu.departments.title' })}
-            departments={categories}
-            onClose={this.handleSidebarToggle}
-            showSubcategories={showSubcategories} />
-          <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
-            <IconMenu size={20} />
-          </div>
-        </div>
-      )
-    }
     return (
       <nav className={`${categoryMenu.container} bg-base dn flex-m justify-center`}>
         <ul className="flex flex-wrap justify-center t-action overflow-hidden">
@@ -100,7 +105,7 @@ class CategoryMenu extends Component {
                 name: intl.formatMessage({ id: 'category-menu.departments.title' }),
               }} />
             }
-          {departments.map(category => (
+          {this.departments.map(category => (
             <Fragment key={category.id}>
               <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
             </Fragment>
@@ -108,6 +113,17 @@ class CategoryMenu extends Component {
         </ul>
       </nav>
     )
+  }
+
+  render() {
+    const {
+      mobileMode,
+    } = this.props
+
+    if (mobileMode) {
+      return this.renderSideBar()
+    }
+    return this.renderMenu()
   }
 }
 
@@ -142,7 +158,6 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       title: 'category-menu.departments.title',
       type: 'array',
       minItems: 0,
-      maxItems: MAX_NUMBER_OF_MENUS,
       items: {
         title: 'editor.category-menu.departments.items.title',
         type: 'object',
