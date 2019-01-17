@@ -20,6 +20,13 @@
   }
 }
 
+
+ul, li {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
 .container {}
 
 .linkLevel2 {}
@@ -36,8 +43,4 @@
 
 .sidebarContent {}
 
-ul, li {
-  padding: 0;
-  list-style-type: none;
-  margin: 0;
-}
+.sidebarItem{}
