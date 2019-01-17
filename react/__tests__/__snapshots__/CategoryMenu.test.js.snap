@@ -244,7 +244,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                 showSecondLevel={true}
               >
                 <div
-                  className="undefined absolute w-100 left-0 w-100 bg-base pb2 bw1 bb b--muted-3"
+                  className="undefined absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
                   style={
                     Object {
                       "display": "none",
