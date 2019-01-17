@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryItem component should match snapshot 1`] = `
-<div
+<li
   className="undefined flex justify-center items-center"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -18,5 +18,5 @@ exports[`CategoryItem component should match snapshot 1`] = `
   >
     CATEGORY
   </Link>
-</div>
+</li>
 `;
