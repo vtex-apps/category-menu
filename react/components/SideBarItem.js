@@ -85,8 +85,6 @@ class SideBarItem extends Component {
   renderHeader(){
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
-    
-    console.log(treeLevel)
 
     const sideBarItemTitleClasses = classNames('', {
       't-heading-4 lh-solid': treeLevel === 1,

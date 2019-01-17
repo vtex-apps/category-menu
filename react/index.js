@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
@@ -101,9 +101,9 @@ class CategoryMenu extends Component {
               }} />
             }
           {departments.map(category => (
-            <div key={category.id} className="flex items-center">
+            <Fragment key={category.id}>
               <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
-            </div>
+            </Fragment>
           ))}
         </ul>
       </nav>

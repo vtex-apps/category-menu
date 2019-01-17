@@ -67,8 +67,9 @@ export default class ItemContainer extends Component {
   } 
 
   renderChildren(category){
+    const { parentSlug } = this.props
     return this.shouldRenderSecondLevel(category) && category.children.map(subCategory => 
-        this.renderLinkSecondLevel(this.props.parentSlug, category, subCategory)
+        this.renderLinkSecondLevel(parentSlug, category, subCategory)
     )
   }
 
@@ -76,11 +77,13 @@ export default class ItemContainer extends Component {
     const { containerStyle } = this.props
     return (
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 w-100 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
-        <ul className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl">
+        <ul className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl flex">
           {this.props.categories.map(category => (
-            <li key={category.id} className="fl db pa2">
-              {this.renderLinkFirstLevel(this.props.parentSlug, category)}
-              {this.renderChildren(category)}
+            <li key={category.id} className="dib pa2 w-20">
+              <ul>
+                {this.renderLinkFirstLevel(this.props.parentSlug, category)}
+                {this.renderChildren(category)}
+              </ul>
             </li>
           ))}
         </ul>
