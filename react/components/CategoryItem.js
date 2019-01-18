@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
 import { categoryItemShape } from '../propTypes'
 
