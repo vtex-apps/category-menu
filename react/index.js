@@ -97,8 +97,8 @@ class CategoryMenu extends Component {
     } = this.props
 
     return (
-      <nav className={`${categoryMenu.container} flex justify-center items-center bg-base`}>
-        <ul className="inline-flex t-action overflow-hidden h-100 nowrap">
+      <nav className={`${categoryMenu.container} relative flex justify-center items-center bg-base`}>
+        <ul className="flex flex-wrap flex-row t-action overflow-hidden h3">
             {showDepartmentsCategory && 
               <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
                 children: categories,

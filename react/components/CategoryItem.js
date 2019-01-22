@@ -75,13 +75,9 @@ export default class CategoryItem extends Component {
     )
   }
   
-  get isOverflown(){
-    return this.item.scrollHeight > this.item.clientHeight || this.item.scrollWidth > this.item.clientWidth;
-  }
-
   render() {
     return (
-      <li className={`${categoryMenu.container} flex items-center dib`}
+      <li className={`${categoryMenu.container} flex items-center db`}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHover: true })}
         onMouseLeave={this.handleCloseMenu}
