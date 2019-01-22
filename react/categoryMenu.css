@@ -1,5 +1,10 @@
 .itemContainer {
   max-height: 21.875rem;
+  display: none;
+}
+
+.itemContainer:hover {
+  display: flex;
 }
 
 .itemContainer > div > div {
@@ -20,11 +25,11 @@
   }
 }
 
-
 ul, li {
   padding: 0;
   list-style-type: none;
   margin: 0;
+  break-inside: avoid;
 }
 
 .container {}

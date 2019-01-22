@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'vtex.render-runtime'
+import { Link, NoSSR } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
 import { categoryItemShape } from '../propTypes'
 
@@ -75,9 +75,13 @@ export default class CategoryItem extends Component {
     )
   }
   
+  get isOverflown(){
+    return this.item.scrollHeight > this.item.clientHeight || this.item.scrollWidth > this.item.clientWidth;
+  }
+
   render() {
     return (
-      <li className={`${categoryMenu.container} flex justify-center items-center`}
+      <li className={`${categoryMenu.container} flex items-center dib`}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHover: true })}
         onMouseLeave={this.handleCloseMenu}
