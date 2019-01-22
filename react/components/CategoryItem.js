@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, NoSSR } from 'vtex.render-runtime'
+import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
 import { categoryItemShape } from '../propTypes'
 
@@ -14,7 +14,7 @@ import categoryMenu from '../categoryMenu.css'
  */
 export default class CategoryItem extends Component {
   state = {
-    isHover: false,
+    isOnHover: false,
   }
 
   static propTypes = {
@@ -26,16 +26,16 @@ export default class CategoryItem extends Component {
     subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
   }
 
-  handleCloseMenu = () => (this.setState({ isHover: false }))
+  handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
   renderHeader(){
     const { category, noRedirect } = this.props
-    const { isHover } = this.state
+    const { isOnHover } = this.state
 
     const linkClasses = classNames(
       'w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
-        'b--transparent': !isHover,
-        'b--action-primary': isHover,
+        'b--transparent': !isOnHover,
+        'b--action-primary': isOnHover,
       }
     )
 
@@ -57,11 +57,11 @@ export default class CategoryItem extends Component {
 
   renderChildren(){
     const { category, subcategoryLevels } = this.props
-    const { isHover } = this.state
+    const { isOnHover } = this.state
 
     const containerStyle = {
       top: this.item && this.item.offsetTop + this.item.clientHeight,
-      display: isHover ? 'flex' : 'none',
+      display: isOnHover ? 'flex' : 'none',
     }
 
     return subcategoryLevels > 0 && category.children.length > 0 && (
@@ -77,9 +77,9 @@ export default class CategoryItem extends Component {
   
   render() {
     return (
-      <li className={`${categoryMenu.container} flex items-center db`}
+      <li className={`${categoryMenu.container, categoryMenu.list} flex items-center db list`}
         ref={e => { this.item = e }}
-        onMouseEnter={() => this.setState({ isHover: true })}
+        onMouseEnter={() => this.setState({ isOnHover: true })}
         onMouseLeave={this.handleCloseMenu}
       >
         {this.renderHeader()}

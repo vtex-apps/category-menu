@@ -76,9 +76,9 @@ export default class SideBar extends Component {
             >
               <IconClose size={24} activeClassName="c-muted-1" />
             </div>
-            <ul className={`${categoryMenu.sidebarContent} pb7`}>
+            <ul className={`${categoryMenu.sidebarContent} pb7 list ma0 pa0`}>
               {departments.map(department => (
-                <li key={department.id}>
+                <li key={department.id} className="list ma0 pa0">
                   <SideBarItem
                     item={department}
                     linkValues={[department.slug]}

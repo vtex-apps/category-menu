@@ -26,7 +26,7 @@ export default class ItemContainer extends Component {
     }
     if (parentSlug) params.category = item.slug
     return (
-      <li>
+      <li className="list pa0">
         <Link
           onClick={this.props.onCloseMenu}
           page={parentSlug ? 'store.search#category' : 'store.search#department'}
@@ -46,7 +46,7 @@ export default class ItemContainer extends Component {
     }
     if (parentSlug) params.subcategory = subItem.slug
     return (
-      <li key={subItem.id}>
+      <li key={subItem.id} className="list pa0">
         <Link
           onClick={this.props.onCloseMenu}
           page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
@@ -77,7 +77,7 @@ export default class ItemContainer extends Component {
     const { containerStyle } = this.props
     return (
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
-        <ul className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl flex">
+        <ul className="w-100 w-90-l w-80-xl center flex flex-wrap pa0 list">
           {this.props.categories.map(category => (
             <li key={category.id} className="dib pa2 w-20">
               <ul>

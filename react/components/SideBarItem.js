@@ -91,7 +91,7 @@ class SideBarItem extends Component {
     })
 
     return (
-      <li className="flex justify-between items-center pa5 pointer"
+      <li className="flex justify-between items-center pa5 pointer list ma0"
         onClick={this.handleItemClick}
       >
         <span className={sideBarItemTitleClasses}>
@@ -121,14 +121,14 @@ class SideBarItem extends Component {
       showSubcategories } = this.props
     return (
       <Fragment>
-        <li className="pa5 pointer t-body c-muted-2"
+        <li className="pa5 pointer t-body c-muted-2 ma0 list"
             onClick={this.handleDepartmentClick}>
             <FormattedMessage id="category-menu.all-category.title" >
               {txt => <span className="pl4">{txt}</span>}
             </FormattedMessage>
         </li>
         {children.map(child => (
-          <li key={child.id}>
+          <li key={child.id} className="list ma0 pa0">
             <SideBarItem
               showSubcategories={showSubcategories}
               item={child}
@@ -147,7 +147,7 @@ class SideBarItem extends Component {
     const { treeLevel } = this.props
     
     const sideBarItemClasses = classNames(
-      categoryMenu.sidebarItem, {
+      `${categoryMenu.sidebarItem} list pa0 ma0`, {
         'c-muted-2 t-body pl4': treeLevel > 1,
         'c-on-base': treeLevel === 1,
       }
