@@ -13,6 +13,7 @@ import categoryMenu from './categoryMenu.css'
 
 const MAX_NUMBER_OF_MENUS = 6
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
+const DEFAULT_ICON_SIZE = 16
 
 /**
  * Component that represents the menu containing the categories of the store
@@ -40,6 +41,10 @@ class CategoryMenu extends Component {
     departments: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number,
     })),
+    /** Mobile icon size */
+    iconSize: PropTypes.number,
+    /** Aditional classes for mobile icon */
+    iconClasses: PropTypes.string,
   }
 
   static defaultProps = {
@@ -49,6 +54,7 @@ class CategoryMenu extends Component {
     showDepartmentsCategory: true,
     showSubcategories: true,
     departments: [],
+    iconSize: DEFAULT_ICON_SIZE
   }
 
   state = {
@@ -70,6 +76,8 @@ class CategoryMenu extends Component {
       data: { categories = [] },
       intl,
       mobileMode,
+      iconSize,
+      iconClasses,
       showDepartmentsCategory,
       showSubcategories
     } = this.props
@@ -86,7 +94,7 @@ class CategoryMenu extends Component {
             onClose={this.handleSidebarToggle}
             showSubcategories={showSubcategories} />
           <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
-            <Icon id="hpa-hamburguer-menu" size={20} />
+            <Icon id="hpa-hamburguer-menu" className={iconClasses} size={iconSize} />
           </div>
         </div>
       )
