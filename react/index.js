@@ -124,52 +124,9 @@ class CategoryMenu extends Component {
     } = this.props
 
     if (mobile || mobileMode) {
-      const {
-        data: { categories = [] },
-        intl,
-        showSubcategories
-      } = this.props
-      const { sideBarVisible } = this.state
-  
-      return (
-        <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
-          <SideBar
-            visible={sideBarVisible}
-            title={intl.formatMessage({ id: 'category-menu.departments.title' })}
-            departments={categories}
-            onClose={this.handleSidebarToggle}
-            showSubcategories={showSubcategories} />
-          <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
-            <Icon id="hpa-hamburguer-menu" size={20} />
-          </div>
-        </div>
-      )
-    }else{
-      const {
-        data: { categories = [] },
-        intl,
-        showDepartmentsCategory,
-        showSubcategories
-      } = this.props
-  
-      return (
-        <nav className={`${categoryMenu.container} relative flex justify-center items-center bg-base`}>
-          <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-              {showDepartmentsCategory && 
-                <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
-                  children: categories,
-                  name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-                }} />
-              }
-            {this.departments.map(category => (
-              <Fragment key={category.id}>
-                <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
-              </Fragment>
-            ))}
-          </ul>
-        </nav>
-      )
+      return this.renderSideBar()
     }
+    return this.renderMenu()
   }
 }
 
