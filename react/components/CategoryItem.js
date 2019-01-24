@@ -35,14 +35,14 @@ export default class CategoryItem extends Component {
     const linkClasses = classNames(
       'w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
         'b--transparent': !isOnHover,
-        'b--action-primary': isOnHover,
+        'b--action-primary pointer': isOnHover,
       }
     )
 
     return noRedirect ? (
-      <a href="#" className={linkClasses}>
+      <span className={linkClasses}>
         {category.name.toUpperCase()}
-      </a>
+      </span>
     ) : (
       <Link
         onClick={this.handleCloseMenu}
@@ -77,7 +77,7 @@ export default class CategoryItem extends Component {
   
   render() {
     return (
-      <li className={`${categoryMenu.container, categoryMenu.list} flex items-center db list`}
+      <li className={`${categoryMenu.container} flex items-center db list`}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isOnHover: true })}
         onMouseLeave={this.handleCloseMenu}
