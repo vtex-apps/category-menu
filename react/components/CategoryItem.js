@@ -29,28 +29,28 @@ export default class CategoryItem extends Component {
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
   renderCategory(){
-    const { category, noRedirect } = this.props
+    const { category: { name, slug }, noRedirect } = this.props
     const { isOnHover } = this.state
 
-    const linkClasses = classNames(
-      'w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
+    const categoryClasses = classNames(
+      'w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
         'b--transparent': !isOnHover,
         'b--action-primary pointer': isOnHover,
       }
     )
 
     return noRedirect ? (
-      <span className={linkClasses}>
-        {category.name.toUpperCase()}
+      <span className={categoryClasses}>
+        {name.toUpperCase()}
       </span>
     ) : (
       <Link
         onClick={this.handleCloseMenu}
         page="store.search#department"
-        params={{ department: category.slug }}
-        className={linkClasses}
+        params={{ department: slug }}
+        className={categoryClasses}
       >
-        {category.name.toUpperCase()}
+        {name.toUpperCase()}
       </Link>
     )
   }
