@@ -95,11 +95,11 @@ class CategoryMenu extends Component {
       data: { categories = [] },
       intl,
       showDepartmentsCategory,
-      showSubcategories
+      showSubcategories,
     } = this.props
 
     return (
-      <nav className={`${categoryMenu.container} relative flex justify-center items-center bg-base`}>
+      <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
         <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showDepartmentsCategory && 
               <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
@@ -120,13 +120,9 @@ class CategoryMenu extends Component {
   render() {
     const {
       mobileMode,
-      runtime: { hints: { mobile } }
     } = this.props
 
-    if (mobile || mobileMode) {
-      return this.renderSideBar()
-    }
-    return this.renderMenu()
+    return mobileMode ? this.renderSideBar() : this.renderMenu()
   }
 }
 

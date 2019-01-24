@@ -2,7 +2,7 @@
 
 exports[`CategoryItem component should match snapshot 1`] = `
 <li
-  className="undefined flex justify-center items-center"
+  className="undefined flex items-center db list"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >

@@ -28,7 +28,7 @@ export default class CategoryItem extends Component {
 
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
-  renderHeader(){
+  renderCategory(){
     const { category, noRedirect } = this.props
     const { isOnHover } = this.state
 
@@ -82,7 +82,7 @@ export default class CategoryItem extends Component {
         onMouseEnter={() => this.setState({ isOnHover: true })}
         onMouseLeave={this.handleCloseMenu}
       >
-        {this.renderHeader()}
+        {this.renderCategory()}
         {this.renderChildren()}
       </li>
     )

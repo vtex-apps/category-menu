@@ -35,13 +35,13 @@ class SideBarItem extends Component {
     open: false,
   }
 
-  get hasChildren(){
+  get hasSubCategories(){
     const { item: { children }, showSubcategories } = this.props
     return showSubcategories && children && children.length > 0
   } 
 
   handleItemClick = () => {
-    if (this.hasChildren) {
+    if (this.hasSubCategories) {
       this.setState({ open: !this.state.open })
     } else {
       this.navigateToPage()
@@ -82,7 +82,7 @@ class SideBarItem extends Component {
     onClose()
   }
 
-  renderHeader(){
+  renderCategory(){
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
 
@@ -98,7 +98,7 @@ class SideBarItem extends Component {
           {item.name}
         </span>
         {
-          this.hasChildren && (
+          this.hasSubCategories && (
             <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
               {isOpened
                 ? <IconMinus size={16} />
@@ -119,6 +119,7 @@ class SideBarItem extends Component {
       onClose,
       treeLevel,
       showSubcategories } = this.props
+      
     return (
       <Fragment>
         <li className="pa5 pointer t-body c-muted-2 ma0 list"
@@ -155,8 +156,8 @@ class SideBarItem extends Component {
      
     return (
       <ul className={sideBarItemClasses}>
-        {this.renderHeader()}
-        {this.hasChildren && this.state.open && this.renderChildren()}
+        {this.renderCategory()}
+        {this.renderChildren()}
       </ul>
     )
   }

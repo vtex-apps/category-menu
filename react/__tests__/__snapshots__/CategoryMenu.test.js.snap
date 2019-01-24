@@ -154,10 +154,10 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showSubcategories={true}
     >
       <nav
-        className="undefined bg-base dn flex-m justify-center"
+        className="undefined relative dn-s flex-ns justify-center items-center bg-base"
       >
         <ul
-          className="flex flex-wrap justify-center t-action overflow-hidden"
+          className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
         >
           <CategoryItem
             category={
@@ -195,7 +195,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             subcategoryLevels={2}
           >
             <li
-              className="undefined flex justify-center items-center"
+              className="undefined flex items-center db list"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
@@ -253,14 +253,16 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                   }
                 >
                   <ul
-                    className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl flex"
+                    className="w-100 w-90-l w-80-xl center flex flex-wrap pa0 list"
                   >
                     <li
                       className="dib pa2 w-20"
                       key="1"
                     >
                       <ul>
-                        <li>
+                        <li
+                          className="list pa0"
+                        >
                           <Link
                             className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                             onClick={[Function]}
@@ -286,7 +288,9 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       key="2"
                     >
                       <ul>
-                        <li>
+                        <li
+                          className="list pa0"
+                        >
                           <Link
                             className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                             onClick={[Function]}
@@ -312,7 +316,9 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                       key="3"
                     >
                       <ul>
-                        <li>
+                        <li
+                          className="list pa0"
+                        >
                           <Link
                             className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
                             onClick={[Function]}
@@ -352,7 +358,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             subcategoryLevels={2}
           >
             <li
-              className="undefined flex justify-center items-center"
+              className="undefined flex items-center db list"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
@@ -389,7 +395,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             subcategoryLevels={2}
           >
             <li
-              className="undefined flex justify-center items-center"
+              className="undefined flex items-center db list"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
@@ -426,7 +432,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             subcategoryLevels={2}
           >
             <li
-              className="undefined flex justify-center items-center"
+              className="undefined flex items-center db list"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
