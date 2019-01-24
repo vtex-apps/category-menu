@@ -79,7 +79,7 @@ export default class ItemContainer extends Component {
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
         <ul className="w-100 w-90-l w-80-xl center flex flex-wrap pa0 list">
           {this.props.categories.map(category => (
-            <li key={category.id} className="dib pa2 w-20">
+            <li key={category.id} className="dib pa2">
               <ul>
                 {this.renderLinkFirstLevel(this.props.parentSlug, category)}
                 {this.renderChildren(category)}
