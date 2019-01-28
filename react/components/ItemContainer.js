@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'vtex.render-runtime'
 import { categoryPropType } from '../propTypes'
 
@@ -18,6 +18,9 @@ export default class ItemContainer extends Component {
     onCloseMenu: PropTypes.func.isRequired,
     /** Whether to show second level links or not */
     showSecondLevel: PropTypes.bool,
+
+    /** Custom styles to item container */
+    containerStyle: PropTypes.string,
   }
 
   renderLinkFirstLevel(parentSlug, item) {
@@ -62,14 +65,14 @@ export default class ItemContainer extends Component {
   shouldRenderSecondLevel(category) {
     const { children } = category
     const { showSecondLevel } = this.props
-    
-    return children && children.length > 0 && showSecondLevel
-  } 
 
-  renderChildren(category){
+    return children && children.length > 0 && showSecondLevel
+  }
+
+  renderChildren(category) {
     const { parentSlug } = this.props
-    return this.shouldRenderSecondLevel(category) && category.children.map(subCategory => 
-        this.renderLinkSecondLevel(parentSlug, category, subCategory)
+    return this.shouldRenderSecondLevel(category) && category.children.map(subCategory =>
+      this.renderLinkSecondLevel(parentSlug, category, subCategory)
     )
   }
 

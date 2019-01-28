@@ -28,17 +28,17 @@ class SideBarItem extends Component {
   }
 
   static defaultProps = {
-    treeLevel: 1
+    treeLevel: 1,
   }
 
   state = {
     open: false,
   }
 
-  get hasSubCategories(){
+  get hasSubCategories() {
     const { item: { children }, showSubcategories } = this.props
     return showSubcategories && children && children.length > 0
-  } 
+  }
 
   handleItemClick = () => {
     if (this.hasSubCategories) {
@@ -48,15 +48,15 @@ class SideBarItem extends Component {
     }
   }
 
-  navigateToPage(){
-    const {onClose, linkValues, runtime } = this.props
-    
+  navigateToPage() {
+    const { onClose, linkValues, runtime } = this.props
+
     const [department, category, subcategory] = linkValues
     const params = { department }
-    
+
     if (category) params.category = category
     if (subcategory) params.subcategory = subcategory
-    
+
     const page = category
       ? (subcategory ? 'store.search#subcategory' : 'store.search#category')
       : 'store.search#department'
@@ -82,7 +82,7 @@ class SideBarItem extends Component {
     onClose()
   }
 
-  renderCategory(){
+  renderCategory() {
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
 
@@ -123,10 +123,10 @@ class SideBarItem extends Component {
     return (
       <Fragment>
         <li className="pa5 pointer t-body c-muted-2 ma0 list"
-            onClick={this.handleDepartmentClick}>
-            <FormattedMessage id="category-menu.all-category.title" >
-              {txt => <span className="pl4">{txt}</span>}
-            </FormattedMessage>
+          onClick={this.handleDepartmentClick}>
+          <FormattedMessage id="category-menu.all-category.title" >
+            {txt => <span className="pl4">{txt}</span>}
+          </FormattedMessage>
         </li>
         {children.map(child => (
           <li key={child.id} className="list ma0 pa0">
@@ -146,14 +146,14 @@ class SideBarItem extends Component {
 
   render() {
     const { treeLevel } = this.props
-    
+
     const sideBarItemClasses = classNames(
       `${categoryMenu.sidebarItem} list pa0 ma0`, {
         'c-muted-2 t-body pl4': treeLevel > 1,
         'c-on-base': treeLevel === 1,
       }
     )
-     
+
     return (
       <ul className={sideBarItemClasses}>
         {this.renderCategory()}

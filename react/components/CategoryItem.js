@@ -7,7 +7,6 @@ import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
 
-
 /**
  * Component that represents a single category displayed in the menu, also displays
  * the subcategories, if the provided category has them
@@ -28,7 +27,7 @@ export default class CategoryItem extends Component {
 
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
-  renderCategory(){
+  renderCategory() {
     const { category: { name, slug }, noRedirect } = this.props
     const { isOnHover } = this.state
 
@@ -55,7 +54,7 @@ export default class CategoryItem extends Component {
     )
   }
 
-  renderChildren(){
+  renderChildren() {
     const { category, subcategoryLevels } = this.props
     const { isOnHover } = this.state
 
@@ -74,7 +73,7 @@ export default class CategoryItem extends Component {
       />
     )
   }
-  
+
   render() {
     return (
       <li className={`${categoryMenu.container} flex items-center db list`}

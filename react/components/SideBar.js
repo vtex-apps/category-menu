@@ -7,7 +7,6 @@ import { IconClose } from 'vtex.dreamstore-icons'
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
 
-
 const OPEN_SIDEBAR_CLASS = categoryMenu.sidebarOpen
 
 export default class SideBar extends Component {

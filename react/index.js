@@ -67,11 +67,11 @@ class CategoryMenu extends Component {
     return (this.departmentsSelected && departmentsSelected.length) || categories
   }
 
-  renderSideBar(){
+  renderSideBar() {
     const {
       data: { categories = [] },
       intl,
-      showSubcategories
+      showSubcategories,
     } = this.props
     const { sideBarVisible } = this.state
 
@@ -90,7 +90,7 @@ class CategoryMenu extends Component {
     )
   }
 
-  renderMenu(){
+  renderMenu() {
     const {
       data: { categories = [] },
       intl,
@@ -101,12 +101,12 @@ class CategoryMenu extends Component {
     return (
       <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
         <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-            {showDepartmentsCategory && 
-              <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
-                children: categories,
-                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-              }} />
-            }
+          {showDepartmentsCategory &&
+          <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
+            children: categories,
+            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+          }} />
+          }
           {this.departments.map(category => (
             <Fragment key={category.id}>
               <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
