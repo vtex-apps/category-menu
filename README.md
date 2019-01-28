@@ -2,6 +2,13 @@
 
 Category Menu is a canonical app that any VTEX store can install.
 
+## Release schedule
+| Release  | Status              | Initial Release | Maintenance LTS Start | End-of-life | Dreamstore Compatibility
+| :--:     | :---:               |  :---:          | :---:                 | :---:       | :---: 
+| [1.x]    | **Maintenance LTS** |  2018-08-24     | 2018-11-20            | March 2019  | 1.x
+| [2.x]    | **Current Release** |  2018-11-20     |                       |             | 2.x
+
+
 ## Continuous Integrations 
 
 ### Travis CI 
