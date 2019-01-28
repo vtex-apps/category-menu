@@ -43,6 +43,8 @@ export default class ItemContainer extends Component {
   }
 
   renderLinkSecondLevel(parentSlug, item, subItem) {
+    const { onCloseMenu } = this.props
+
     const params = {
       department: parentSlug || item.slug,
       category: parentSlug ? item.slug : subItem.slug,
@@ -51,7 +53,7 @@ export default class ItemContainer extends Component {
     return (
       <li key={subItem.id} className="list pa0">
         <Link
-          onClick={this.props.onCloseMenu}
+          onClick={onCloseMenu}
           page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
           className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
           params={params}
@@ -77,14 +79,14 @@ export default class ItemContainer extends Component {
   }
 
   render() {
-    const { containerStyle } = this.props
+    const { containerStyle, categories, parentSlug } = this.props
     return (
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
         <ul className="w-100 w-90-l w-80-xl center flex flex-wrap pa0 list">
-          {this.props.categories.map(category => (
+          {categories.map(category => (
             <li key={category.id} className="dib pa2">
               <ul>
-                {this.renderLinkFirstLevel(this.props.parentSlug, category)}
+                {this.renderLinkFirstLevel(parentSlug, category)}
                 {this.renderChildren(category)}
               </ul>
             </li>

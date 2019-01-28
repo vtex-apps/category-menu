@@ -76,7 +76,7 @@ export default class CategoryItem extends Component {
 
   render() {
     return (
-      <li className={`${categoryMenu.container} flex items-center db list`}
+      <li className={`${categoryMenu.categoryContainer} flex items-center db list`}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isOnHover: true })}
         onMouseLeave={this.handleCloseMenu}
