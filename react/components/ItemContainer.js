@@ -20,7 +20,7 @@ export default class ItemContainer extends Component {
     showSecondLevel: PropTypes.bool,
 
     /** Custom styles to item container */
-    containerStyle: PropTypes.string,
+    containerStyle: PropTypes.object,
   }
 
   renderLinkFirstLevel(parentSlug, item) {
