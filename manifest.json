@@ -18,6 +18,7 @@
     "vtex.store-components": "3.x",
     "vtex.store-graphql": "2.x",
     "vtex.styleguide": "9.x",
-    "vtex.use-svg": "1.x"
+    "vtex.use-svg": "1.x",
+    "vtex.dreamstore-icons": "0.x"
   }
 }
