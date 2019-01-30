@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { withRuntimeContext } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
 
-import Icon from 'vtex.use-svg/Icon'
-import categoryMenu from '../categoryMenu.css'
+import { withRuntimeContext } from 'vtex.render-runtime'
+import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
 
+import categoryMenu from '../categoryMenu.css'
 
 
 class SideBarItem extends Component {
@@ -93,8 +93,8 @@ class SideBarItem extends Component {
             hasChildren && (
               <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
                 {this.state.open
-                  ? <Icon id="nav-minus" size={16} />
-                  : <Icon id="nav-plus" size={16} />
+                  ? <IconMinus size={16} />
+                  : <IconPlus size={16} />
                 }
               </span>
             )

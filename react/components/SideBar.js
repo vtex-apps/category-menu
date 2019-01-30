@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import { Animation } from 'vtex.store-components'
-import { IconClose } from 'vtex.styleguide'
+import { IconClose } from 'vtex.dreamstore-icons'
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
 
@@ -74,7 +74,7 @@ export default class SideBar extends Component {
               className={`${categoryMenu.sidebarHeader} flex justify-between items-center pa5 pointer`}
               onClick={onClose}
             >
-              <IconClose size={24} color="#585959" />
+              <IconClose size={24} activeClassName="c-muted-1" />
             </div>
             <div className={`${categoryMenu.sidebarContent} pb7`}>
               {this.props.departments.map(department => (
