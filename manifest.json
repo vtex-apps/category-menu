@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "category-menu",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "title": "Category Menu",
   "description": "Displays the categories for the store in a menu",
   "defaultLocale": "pt-BR",
