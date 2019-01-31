@@ -3,8 +3,12 @@ import React, { Component, Fragment } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
+<<<<<<< HEAD
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose } from 'ramda'
+=======
+import classNames from 'classnames'
+>>>>>>> Add menu disposition types on storefront
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
@@ -12,6 +16,10 @@ import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
+import categoryMenuDisposition, {
+  getMenuDispositionNames,
+  getMenuDispositionValues,
+} from './utils/categoryMenuDisposition' 
 
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
@@ -35,6 +43,8 @@ class CategoryMenu extends Component {
     showAllDepartments: PropTypes.bool,
     /** Whether to show subcategories or not */
     showSubcategories: PropTypes.bool,
+    /** Defines the disposition of the category menu */
+    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
@@ -49,6 +59,7 @@ class CategoryMenu extends Component {
     mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
+    menuDisposition: categoryMenuDisposition.DISPLAY_LEFT.value,
     departments: [],
   }
 
@@ -73,7 +84,7 @@ class CategoryMenu extends Component {
       intl,
       showSubcategories,
     } = this.props
-    const { sideBarVisible } = this.state
+    
 
     return (
       <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
@@ -96,14 +107,21 @@ class CategoryMenu extends Component {
       intl,
       showAllDepartments,
       showSubcategories,
+      menuDisposition,
     } = this.props
     
     const {
       params: {department = ""}
     } = this.props.runtime.route
+    
+    const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m ph3 ph5-m ph8-l ph9-xl`, {
+      'justify-start': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'justify-end': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
+    })
 
     return (
-      <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
+      <nav className={desktopClasses}>
         <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
           {showAllDepartments &&
           <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
@@ -150,6 +168,14 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       type: 'boolean',
       title: 'editor.category-menu.show-departments-category.title',
       default: CategoryMenu.defaultProps.showAllDepartments,
+    },
+    menuDisposition: {
+      title: 'editor.category-menu.disposition-type.title',
+      type: 'string',
+      enum: getMenuDispositionValues(),
+      enumNames: getMenuDispositionNames(),
+      default: categoryMenuDisposition.DISPLAY_LEFT.value,
+      isLayout: true,
     },
     showSubcategories: {
       type: 'boolean',
