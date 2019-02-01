@@ -7,7 +7,6 @@ import { IconClose } from 'vtex.dreamstore-icons'
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
 
-
 const OPEN_SIDEBAR_CLASS = categoryMenu.sidebarOpen
 
 export default class SideBar extends Component {
@@ -55,7 +54,7 @@ export default class SideBar extends Component {
   }
 
   render() {
-    const { visible, onClose, showSubcategories } = this.props
+    const { visible, onClose, showSubcategories, departments } = this.props
 
     const scrimClasses = classNames(`${categoryMenu.sidebarScrim} fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40`, {
       dn: !visible,
@@ -76,19 +75,18 @@ export default class SideBar extends Component {
             >
               <IconClose size={24} activeClassName="c-muted-1" />
             </div>
-            <div className={`${categoryMenu.sidebarContent} pb7`}>
-              {this.props.departments.map(department => (
-                <Fragment key={department.id}>
-                  <span className="flex w-90 center"></span>
+            <ul className={`${categoryMenu.sidebarContent} pb7 list ma0 pa0`}>
+              {departments.map(department => (
+                <li key={department.id} className="list ma0 pa0">
                   <SideBarItem
                     item={department}
                     linkValues={[department.slug]}
                     onClose={onClose}
                     showSubcategories={showSubcategories}
                   />
-                </Fragment>
+                </li>
               ))}
-            </div>
+            </ul>
           </aside>
         </Animation>
       </Fragment>

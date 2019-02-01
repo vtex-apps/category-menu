@@ -154,10 +154,10 @@ exports[`CategoryMenu component should match snapshot 1`] = `
       showSubcategories={true}
     >
       <nav
-        className="undefined bg-base dn flex-m justify-center"
+        className="undefined relative dn-s flex-ns justify-center items-center bg-base"
       >
-        <div
-          className="flex flex-wrap justify-center items-end t-action overflow-hidden"
+        <ul
+          className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
         >
           <CategoryItem
             category={
@@ -194,263 +194,267 @@ exports[`CategoryMenu component should match snapshot 1`] = `
             noRedirect={true}
             subcategoryLevels={2}
           >
-            <div
-              className="undefined flex justify-center items-center"
+            <li
+              className="undefined flex items-center db list"
               onMouseEnter={[Function]}
               onMouseLeave={[Function]}
             >
-              <a
-                className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                href="#"
+              <span
+                className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
               >
                 DEPARTMENTS
-              </a>
-              <div
-                className="absolute w-100 left-0"
-                style={
+              </span>
+              <ItemContainer
+                categories={
+                  Array [
+                    Object {
+                      "children": Array [],
+                      "hasChildren": false,
+                      "href": "#1",
+                      "id": 1,
+                      "name": "Category 1",
+                      "slug": "category-1",
+                    },
+                    Object {
+                      "children": Array [],
+                      "hasChildren": false,
+                      "href": "#2",
+                      "id": 2,
+                      "name": "Category 2",
+                      "slug": "category-2",
+                    },
+                    Object {
+                      "children": Array [],
+                      "hasChildren": false,
+                      "href": "#3",
+                      "id": 3,
+                      "name": "Category 3",
+                      "slug": "category-3",
+                    },
+                  ]
+                }
+                containerStyle={
                   Object {
                     "display": "none",
                     "top": undefined,
                   }
                 }
+                onCloseMenu={[Function]}
+                showSecondLevel={true}
               >
-                <ItemContainer
-                  categories={
-                    Array [
-                      Object {
-                        "children": Array [],
-                        "hasChildren": false,
-                        "href": "#1",
-                        "id": 1,
-                        "name": "Category 1",
-                        "slug": "category-1",
-                      },
-                      Object {
-                        "children": Array [],
-                        "hasChildren": false,
-                        "href": "#2",
-                        "id": 2,
-                        "name": "Category 2",
-                        "slug": "category-2",
-                      },
-                      Object {
-                        "children": Array [],
-                        "hasChildren": false,
-                        "href": "#3",
-                        "id": 3,
-                        "name": "Category 3",
-                        "slug": "category-3",
-                      },
-                    ]
+                <div
+                  className="undefined absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
+                  style={
+                    Object {
+                      "display": "none",
+                      "top": undefined,
+                    }
                   }
-                  onCloseMenu={[Function]}
-                  showSecondLevel={true}
                 >
-                  <div
-                    className="undefined w-100 bg-base pb2 bw1 bb b--muted-3"
+                  <ul
+                    className="w-100 w-90-l w-80-xl center flex flex-wrap pa0 list"
                   >
-                    <div
-                      className="w-100 w-90-l w-80-xl center ph3-s ph7-m ph6-xl"
+                    <li
+                      className="dib pa2"
+                      key="1"
                     >
-                      <div
-                        className="fl db pa2"
-                        key="1"
-                      >
-                        <Link
-                          className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
-                          onClick={[Function]}
-                          page="store.search#department"
-                          params={
-                            Object {
-                              "department": "category-1",
-                            }
-                          }
+                      <ul>
+                        <li
+                          className="list pa0"
                         >
-                          <a
+                          <Link
                             className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
-                            href="/category-1/s"
-                          >
-                            CATEGORY 1
-                          </a>
-                        </Link>
-                      </div>
-                      <div
-                        className="fl db pa2"
-                        key="2"
-                      >
-                        <Link
-                          className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
-                          onClick={[Function]}
-                          page="store.search#department"
-                          params={
-                            Object {
-                              "department": "category-2",
+                            onClick={[Function]}
+                            page="store.search#department"
+                            params={
+                              Object {
+                                "department": "category-1",
+                              }
                             }
-                          }
-                        >
-                          <a
-                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
-                            href="/category-2/s"
                           >
-                            CATEGORY 2
-                          </a>
-                        </Link>
-                      </div>
-                      <div
-                        className="fl db pa2"
-                        key="3"
-                      >
-                        <Link
-                          className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
-                          onClick={[Function]}
-                          page="store.search#department"
-                          params={
-                            Object {
-                              "department": "category-3",
+                            <a
+                              className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                              href="/category-1/s"
+                            >
+                              CATEGORY 1
+                            </a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="dib pa2"
+                      key="2"
+                    >
+                      <ul>
+                        <li
+                          className="list pa0"
+                        >
+                          <Link
+                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                            onClick={[Function]}
+                            page="store.search#department"
+                            params={
+                              Object {
+                                "department": "category-2",
+                              }
                             }
-                          }
-                        >
-                          <a
-                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
-                            href="/category-3/s"
                           >
-                            CATEGORY 3
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </ItemContainer>
-              </div>
-            </div>
+                            <a
+                              className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                              href="/category-2/s"
+                            >
+                              CATEGORY 2
+                            </a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li
+                      className="dib pa2"
+                      key="3"
+                    >
+                      <ul>
+                        <li
+                          className="list pa0"
+                        >
+                          <Link
+                            className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                            onClick={[Function]}
+                            page="store.search#department"
+                            params={
+                              Object {
+                                "department": "category-3",
+                              }
+                            }
+                          >
+                            <a
+                              className="undefined db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover"
+                              href="/category-3/s"
+                            >
+                              CATEGORY 3
+                            </a>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </ItemContainer>
+            </li>
           </CategoryItem>
-          <div
-            className="flex items-center"
-            key="1"
-          >
-            <CategoryItem
-              category={
-                Object {
-                  "children": Array [],
-                  "hasChildren": false,
-                  "href": "#1",
-                  "id": 1,
-                  "name": "Category 1",
-                  "slug": "category-1",
-                }
+          <CategoryItem
+            category={
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#1",
+                "id": 1,
+                "name": "Category 1",
+                "slug": "category-1",
               }
-              subcategoryLevels={2}
-            >
-              <div
-                className="undefined flex justify-center items-center"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-              >
-                <Link
-                  className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                  onClick={[Function]}
-                  page="store.search#department"
-                  params={
-                    Object {
-                      "department": "category-1",
-                    }
-                  }
-                >
-                  <a
-                    className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                    href="/category-1/s"
-                  >
-                    CATEGORY 1
-                  </a>
-                </Link>
-              </div>
-            </CategoryItem>
-          </div>
-          <div
-            className="flex items-center"
-            key="2"
+            }
+            subcategoryLevels={2}
           >
-            <CategoryItem
-              category={
-                Object {
-                  "children": Array [],
-                  "hasChildren": false,
-                  "href": "#2",
-                  "id": 2,
-                  "name": "Category 2",
-                  "slug": "category-2",
-                }
-              }
-              subcategoryLevels={2}
+            <li
+              className="undefined flex items-center db list"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
-              <div
-                className="undefined flex justify-center items-center"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-              >
-                <Link
-                  className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                  onClick={[Function]}
-                  page="store.search#department"
-                  params={
-                    Object {
-                      "department": "category-2",
-                    }
+              <Link
+                className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+                onClick={[Function]}
+                page="store.search#department"
+                params={
+                  Object {
+                    "department": "category-1",
                   }
+                }
+              >
+                <a
+                  className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+                  href="/category-1/s"
                 >
-                  <a
-                    className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                    href="/category-2/s"
-                  >
-                    CATEGORY 2
-                  </a>
-                </Link>
-              </div>
-            </CategoryItem>
-          </div>
-          <div
-            className="flex items-center"
-            key="3"
+                  CATEGORY 1
+                </a>
+              </Link>
+            </li>
+          </CategoryItem>
+          <CategoryItem
+            category={
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#2",
+                "id": 2,
+                "name": "Category 2",
+                "slug": "category-2",
+              }
+            }
+            subcategoryLevels={2}
           >
-            <CategoryItem
-              category={
-                Object {
-                  "children": Array [],
-                  "hasChildren": false,
-                  "href": "#3",
-                  "id": 3,
-                  "name": "Category 3",
-                  "slug": "category-3",
-                }
-              }
-              subcategoryLevels={2}
+            <li
+              className="undefined flex items-center db list"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
-              <div
-                className="undefined flex justify-center items-center"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-              >
-                <Link
-                  className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                  onClick={[Function]}
-                  page="store.search#department"
-                  params={
-                    Object {
-                      "department": "category-3",
-                    }
+              <Link
+                className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+                onClick={[Function]}
+                page="store.search#department"
+                params={
+                  Object {
+                    "department": "category-2",
                   }
+                }
+              >
+                <a
+                  className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+                  href="/category-2/s"
                 >
-                  <a
-                    className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
-                    href="/category-3/s"
-                  >
-                    CATEGORY 3
-                  </a>
-                </Link>
-              </div>
-            </CategoryItem>
-          </div>
-        </div>
+                  CATEGORY 2
+                </a>
+              </Link>
+            </li>
+          </CategoryItem>
+          <CategoryItem
+            category={
+              Object {
+                "children": Array [],
+                "hasChildren": false,
+                "href": "#3",
+                "id": 3,
+                "name": "Category 3",
+                "slug": "category-3",
+              }
+            }
+            subcategoryLevels={2}
+          >
+            <li
+              className="undefined flex items-center db list"
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <Link
+                className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+                onClick={[Function]}
+                page="store.search#department"
+                params={
+                  Object {
+                    "department": "category-3",
+                  }
+                }
+              >
+                <a
+                  className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+                  href="/category-3/s"
+                >
+                  CATEGORY 3
+                </a>
+              </Link>
+            </li>
+          </CategoryItem>
+        </ul>
       </nav>
     </CategoryMenu>
   </InjectIntl(CategoryMenu)>

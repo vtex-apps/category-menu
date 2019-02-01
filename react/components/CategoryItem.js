@@ -7,14 +7,13 @@ import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
 
-
 /**
  * Component that represents a single category displayed in the menu, also displays
  * the subcategories, if the provided category has them
  */
 export default class CategoryItem extends Component {
   state = {
-    isHover: false,
+    isOnHover: false,
   }
 
   static propTypes = {
@@ -22,61 +21,69 @@ export default class CategoryItem extends Component {
     category: categoryItemShape.isRequired,
     /** Set use of Link component */
     noRedirect: PropTypes.bool,
-    /** Whether to show subcategories or not */
+    /** Number of subcategory levels */
     subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
   }
 
-  handleCloseMenu = () => (this.setState({ isHover: false }))
+  handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
-  render() {
-    const { category, subcategoryLevels } = this.props
-    const { isHover } = this.state
+  renderCategory() {
+    const { category: { name, slug }, noRedirect } = this.props
+    const { isOnHover } = this.state
 
-    const containerStyle = {
-      top: this.item && this.item.offsetTop + this.item.clientHeight,
-      display: isHover ? 'flex' : 'none',
-    }
-
-    const linkClasses = classNames(
-      'w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
-        'b--transparent': !isHover,
-        'b--action-primary': isHover,
+    const categoryClasses = classNames(
+      'w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
+        'b--transparent': !isOnHover,
+        'b--action-primary pointer': isOnHover,
       }
     )
 
-    const itemClasses = `${categoryMenu.container} flex justify-center items-center`
+    return noRedirect ? (
+      <span className={categoryClasses}>
+        {name.toUpperCase()}
+      </span>
+    ) : (
+      <Link
+        onClick={this.handleCloseMenu}
+        page="store.search#department"
+        params={{ department: slug }}
+        className={categoryClasses}
+      >
+        {name.toUpperCase()}
+      </Link>
+    )
+  }
 
+  renderChildren() {
+    const { category, subcategoryLevels } = this.props
+    const { isOnHover } = this.state
+
+    const containerStyle = {
+      top: this.item && this.item.offsetTop + this.item.clientHeight,
+      display: isOnHover ? 'flex' : 'none',
+    }
+
+    return subcategoryLevels > 0 && category.children.length > 0 && (
+      <ItemContainer
+        containerStyle={containerStyle}
+        categories={category.children}
+        parentSlug={category.slug}
+        onCloseMenu={this.handleCloseMenu}
+        showSecondLevel={subcategoryLevels === 2}
+      />
+    )
+  }
+
+  render() {
     return (
-      <div className={itemClasses}
+      <li className={`${categoryMenu.itemContainer} flex items-center db list`}
         ref={e => { this.item = e }}
-        onMouseEnter={() => this.setState({ isHover: true })}
+        onMouseEnter={() => this.setState({ isOnHover: true })}
         onMouseLeave={this.handleCloseMenu}
       >
-        {this.props.noRedirect ? (
-          <a href="#" className={linkClasses}>
-            {category.name.toUpperCase()}
-          </a>
-        ) : (
-            <Link
-              onClick={this.handleCloseMenu}
-              page="store.search#department"
-              params={{ department: category.slug }}
-              className={linkClasses}
-            >
-              {category.name.toUpperCase()}
-            </Link>
-          )}
-        {subcategoryLevels > 0 && category.children.length > 0 && (
-          <div className="absolute w-100 left-0" style={containerStyle}>
-            <ItemContainer
-              categories={category.children}
-              parentSlug={category.slug}
-              onCloseMenu={this.handleCloseMenu}
-              showSecondLevel={subcategoryLevels === 2}
-            />
-          </div>
-        )}
-      </div>
+        {this.renderCategory()}
+        {this.renderChildren()}
+      </li>
     )
   }
 }

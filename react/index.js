@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
+import { withRuntimeContext } from 'vtex.render-runtime'
+import { compose } from 'ramda'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
@@ -11,7 +13,6 @@ import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
 
-const MAX_NUMBER_OF_MENUS = 6
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
 /**
@@ -59,53 +60,69 @@ class CategoryMenu extends Component {
     this.setState({ sideBarVisible: !this.state.sideBarVisible })
   }
 
-  get departmentsSelected() {
+  get departments() {
     const { data: { categories = [] }, departments } = this.props
     const departmentsIds = departments.map(dept => dept.id)
-    return categories.filter(category => departmentsIds.includes(category.id))
+    const departmentsSelected = categories.filter(category => departmentsIds.includes(category.id))
+    return (this.departmentsSelected && departmentsSelected.length) || categories
+  }
+
+  renderSideBar() {
+    const {
+      data: { categories = [] },
+      intl,
+      showSubcategories,
+    } = this.props
+    const { sideBarVisible } = this.state
+
+    return (
+      <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
+        <SideBar
+          visible={sideBarVisible}
+          title={intl.formatMessage({ id: 'category-menu.departments.title' })}
+          departments={categories}
+          onClose={this.handleSidebarToggle}
+          showSubcategories={showSubcategories} />
+        <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
+          <IconMenu size={20} />
+        </div>
+      </div>
+    )
+  }
+
+  renderMenu() {
+    const {
+      data: { categories = [] },
+      intl,
+      showDepartmentsCategory,
+      showSubcategories,
+    } = this.props
+
+    return (
+      <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
+        <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+          {showDepartmentsCategory &&
+          <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
+            children: categories,
+            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+          }} />
+          }
+          {this.departments.map(category => (
+            <Fragment key={category.id}>
+              <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
+            </Fragment>
+          ))}
+        </ul>
+      </nav>
+    )
   }
 
   render() {
     const {
-      data: { categories = [] },
-      intl,
       mobileMode,
-      showDepartmentsCategory,
-      showSubcategories
     } = this.props
-    const departments = this.departmentsSelected.length && this.departmentsSelected ||
-      categories.slice(0, MAX_NUMBER_OF_MENUS)
 
-    if (mobileMode) {
-      return (
-        <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
-          <SideBar
-            visible={this.state.sideBarVisible}
-            title={intl.formatMessage({ id: 'category-menu.departments.title' })}
-            departments={categories}
-            onClose={this.handleSidebarToggle}
-            showSubcategories={showSubcategories} />
-          <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
-            <IconMenu size={20} />
-          </div>
-        </div>
-      )
-    }
-    return (
-      <nav className={`${categoryMenu.container} bg-base dn flex-m justify-center`}>
-        <div className="flex flex-wrap justify-center items-end t-action overflow-hidden">
-          {showDepartmentsCategory && <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
-            children: categories,
-            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-          }} />}
-          {departments.map(category => (
-            <div key={category.id} className="flex items-center">
-              <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
-            </div>
-          ))}
-        </div>
-      </nav>
-    )
+    return mobileMode ? this.renderSideBar() : this.renderMenu()
   }
 }
 
@@ -140,7 +157,6 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       title: 'category-menu.departments.title',
       type: 'array',
       minItems: 0,
-      maxItems: MAX_NUMBER_OF_MENUS,
       items: {
         title: 'editor.category-menu.departments.items.title',
         type: 'object',
@@ -155,4 +171,4 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
   },
 }
 
-export default graphql(getCategories)(CategoryMenuWithIntl)
+export default compose(graphql(getCategories), withRuntimeContext)(CategoryMenuWithIntl)

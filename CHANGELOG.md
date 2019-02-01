@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.8.1] - 2019-02-01
+### Fixed
+- Use `ul` and `li` and improve code quality.
+
 ## [2.8.0] - 2019-01-30
 ### Changed
 - Use icons from `vtex.dreamstore-icons`.

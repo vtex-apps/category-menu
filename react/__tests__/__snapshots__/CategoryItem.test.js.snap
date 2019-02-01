@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CategoryItem component should match snapshot 1`] = `
-<div
-  className="undefined flex justify-center items-center"
+<li
+  className="undefined flex items-center db list"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <Link
-    className="w-100 pv5 mh6 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
+    className="w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
     onClick={[Function]}
     page="store.search#department"
     params={
@@ -18,5 +18,5 @@ exports[`CategoryItem component should match snapshot 1`] = `
   >
     CATEGORY
   </Link>
-</div>
+</li>
 `;
