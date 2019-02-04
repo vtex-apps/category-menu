@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.8.2] - 2019-02-04
+### Fixed
+- Fix the return result of 'get departments()' function allowing the customization of categories by props.
+
 ## [2.8.1] - 2019-02-01
 ### Fixed
 - Use `ul` and `li` and improve code quality.
