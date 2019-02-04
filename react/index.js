@@ -32,7 +32,7 @@ class CategoryMenu extends Component {
     /** Set mobile mode */
     mobileMode: PropTypes.bool,
     /** Whether to show the departments category or not */
-    showDepartmentsCategory: PropTypes.bool,
+    showAllDepartments: PropTypes.bool,
     /** Whether to show subcategories or not */
     showSubcategories: PropTypes.bool,
     /** Intl */
@@ -47,7 +47,7 @@ class CategoryMenu extends Component {
     showPromotionCategory: false,
     showGiftCategory: false,
     mobileMode: false,
-    showDepartmentsCategory: true,
+    showAllDepartments: false,
     showSubcategories: true,
     departments: [],
   }
@@ -94,14 +94,14 @@ class CategoryMenu extends Component {
     const {
       data: { categories = [] },
       intl,
-      showDepartmentsCategory,
+      showAllDepartments,
       showSubcategories,
     } = this.props
 
     return (
       <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
         <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-          {showDepartmentsCategory &&
+          {showAllDepartments &&
           <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
             children: categories,
             name: intl.formatMessage({ id: 'category-menu.departments.title' }),
@@ -138,10 +138,10 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       title: 'editor.category-menu.show-promotion-category.title',
       default: CategoryMenu.defaultProps.showPromotionCategory,
     },
-    showDepartmentsCategory: {
+    showAllDepartments: {
       type: 'boolean',
       title: 'editor.category-menu.show-departments-category.title',
-      default: CategoryMenu.defaultProps.showDepartmentsCategory,
+      default: CategoryMenu.defaultProps.showAllDepartments,
     },
     showSubcategories: {
       type: 'boolean',
