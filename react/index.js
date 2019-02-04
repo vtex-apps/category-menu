@@ -64,7 +64,8 @@ class CategoryMenu extends Component {
     const { data: { categories = [] }, departments } = this.props
     const departmentsIds = departments.map(dept => dept.id)
     const departmentsSelected = categories.filter(category => departmentsIds.includes(category.id))
-    return (this.departmentsSelected && departmentsSelected.length) || categories
+
+    return (departmentsSelected.length && departmentsSelected) || categories
   }
 
   renderSideBar() {
@@ -80,7 +81,7 @@ class CategoryMenu extends Component {
         <SideBar
           visible={sideBarVisible}
           title={intl.formatMessage({ id: 'category-menu.departments.title' })}
-          departments={categories}
+          departments={this.departments}
           onClose={this.handleSidebarToggle}
           showSubcategories={showSubcategories} />
         <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
