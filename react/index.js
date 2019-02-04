@@ -70,7 +70,6 @@ class CategoryMenu extends Component {
 
   renderSideBar() {
     const {
-      data: { categories = [] },
       intl,
       showSubcategories,
     } = this.props
