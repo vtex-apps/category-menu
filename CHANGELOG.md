@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.8.3] - 2019-02-04
+### Changed
+- Rename 'showDepartmentsCategory' to 'showAllDepartments'.
+
 ## [2.8.2] - 2019-02-04
 ### Fixed
 - Fix the return result of 'get departments()' function allowing the customization of categories by props.
