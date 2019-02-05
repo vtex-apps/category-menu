@@ -86,7 +86,7 @@ class CategoryMenu extends Component {
     const { sideBarVisible } = this.state
 
     return (
-      <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
+      <div className={`${categoryMenu.sidebarContainer} ${categoryMenu.mobile}`}>
         <SideBar
           visible={sideBarVisible}
           title={intl.formatMessage({ id: 'category-menu.departments.title' })}
@@ -125,15 +125,15 @@ class CategoryMenu extends Component {
         <nav className={desktopClasses}>
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showAllDepartments &&
-            <CategoryItem
-              noRedirect
-              menuDisposition={menuDisposition}
-              subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
-              category={{
-                children: categories,
-                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-              }}
-            />
+              <CategoryItem
+                noRedirect
+                menuDisposition={menuDisposition}
+                subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+                category={{
+                  children: categories,
+                  name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+                }}
+              />
             }
             {this.departments.map((category) => (
               <Fragment key={category.id}>
