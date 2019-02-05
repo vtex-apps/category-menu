@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.9.0] - 2019-02-05
+### Added
+- Highlight the selected category in desktop view.
+
 ## [2.8.3] - 2019-02-04
 ### Changed
 - Rename 'showDepartmentsCategory' to 'showAllDepartments'.
