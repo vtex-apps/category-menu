@@ -97,6 +97,10 @@ class CategoryMenu extends Component {
       showAllDepartments,
       showSubcategories,
     } = this.props
+    
+    const {
+      params: {department = ""}
+    } = this.props.runtime.route
 
     return (
       <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
@@ -109,7 +113,11 @@ class CategoryMenu extends Component {
           }
           {this.departments.map(category => (
             <Fragment key={category.id}>
-              <CategoryItem category={category} subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} />
+              <CategoryItem 
+                category={category} 
+                subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} 
+                isCategorySelected={department === category.slug}
+              />
             </Fragment>
           ))}
         </ul>

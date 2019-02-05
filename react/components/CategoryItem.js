@@ -28,13 +28,14 @@ export default class CategoryItem extends Component {
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
   renderCategory() {
-    const { category: { name, slug }, noRedirect } = this.props
+    const { category: { name, slug }, noRedirect, isCategorySelected } = this.props
     const { isOnHover } = this.state
 
     const categoryClasses = classNames(
       'w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
-        'b--transparent': !isOnHover,
+        'b--transparent': !isOnHover && !isCategorySelected,
         'b--action-primary pointer': isOnHover,
+        'b--action-primary pointer': isCategorySelected,
       }
     )
 
