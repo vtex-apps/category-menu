@@ -91,7 +91,7 @@ class SideBarItem extends Component {
     })
 
     return (
-      <li className={`${sidebarItemContainer} flex justify-between items-center pa5 pointer list ma0`}
+      <li className={`${categoryMenu.sidebarItemContainer} flex justify-between items-center pa5 pointer list ma0`}
         onClick={this.handleItemClick}
       >
         <span className={sideBarItemTitleClasses}>
