@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.10.5] - 2019-02-14
 ### Added
 - Add API docs.
+### Fixed
+- Fix alignment of subcategories items.
 
 ### Fixed
 - Add missing css-handles in components in order to allow customization with CSS Modules. 
