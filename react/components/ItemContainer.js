@@ -6,7 +6,7 @@ import { Container } from 'vtex.store-components'
 
 import PropTypes from 'prop-types'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuDisposition from '../utils/categoryMenuDisposition' 
+import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
 
 /**
  * Component responsible dor rendering an array of categories and its respective subcategories
@@ -21,7 +21,8 @@ export default class ItemContainer extends Component {
     onCloseMenu: PropTypes.func.isRequired,
     /** Whether to show second level links or not */
     showSecondLevel: PropTypes.bool,
-
+    /** Defines the disposition of the category menu */
+    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
   }
@@ -93,7 +94,7 @@ export default class ItemContainer extends Component {
     const columnItemClasses = classNames({
       'pl0 pr7': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
       'pr0 pl7': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-    }) 
+    })
 
     return (
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>

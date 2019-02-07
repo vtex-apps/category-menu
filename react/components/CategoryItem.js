@@ -6,7 +6,7 @@ import { categoryItemShape } from '../propTypes'
 import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuDisposition from '../utils/categoryMenuDisposition' 
+import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -24,12 +24,16 @@ export default class CategoryItem extends Component {
     noRedirect: PropTypes.bool,
     /** Number of subcategory levels */
     subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
+    /** Defines the disposition of the category menu */
+    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
+    /** Menu category selection */
+    isCategorySelected: PropTypes.bool,
   }
 
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
   renderCategory() {
-    const { category: { name, slug }, noRedirect, isCategorySelected, menuDisposition} = this.props
+    const { category: { name, slug }, noRedirect, isCategorySelected, menuDisposition } = this.props
     const { isOnHover } = this.state
 
     const categoryClasses = classNames(

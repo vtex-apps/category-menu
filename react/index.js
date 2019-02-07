@@ -17,7 +17,7 @@ import categoryMenu from './categoryMenu.css'
 import categoryMenuDisposition, {
   getMenuDispositionNames,
   getMenuDispositionValues,
-} from './utils/categoryMenuDisposition' 
+} from './utils/categoryMenuDisposition'
 
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
@@ -82,7 +82,7 @@ class CategoryMenu extends Component {
       intl,
       showSubcategories,
     } = this.props
-    
+
     const { sideBarVisible } = this.state
 
     return (
@@ -108,15 +108,15 @@ class CategoryMenu extends Component {
       showSubcategories,
       menuDisposition,
     } = this.props
-    
+
     const {
-      params: {department = ""}
+      params: { department = '' },
     } = this.props.runtime.route
-    
+
     const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
       'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
       'justify-end mw9': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
+      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
     })
 
     return (
@@ -124,22 +124,22 @@ class CategoryMenu extends Component {
         <nav className={desktopClasses}>
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showAllDepartments &&
-            <CategoryItem 
-              noRedirect 
-              menuDisposition={menuDisposition} 
+            <CategoryItem
+              noRedirect
+              menuDisposition={menuDisposition}
               subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
               category={{
                 children: categories,
                 name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-              }} 
+              }}
             />
             }
-            {this.departments.map((category, index) => (
+            {this.departments.map((category) => (
               <Fragment key={category.id}>
-                <CategoryItem 
+                <CategoryItem
                   menuDisposition={menuDisposition}
-                  category={category} 
-                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} 
+                  category={category}
+                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
                   isCategorySelected={department === category.slug}
                 />
               </Fragment>
