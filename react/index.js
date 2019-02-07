@@ -3,12 +3,10 @@ import React, { Component, Fragment } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
-<<<<<<< HEAD
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose } from 'ramda'
-=======
 import classNames from 'classnames'
->>>>>>> Add menu disposition types on storefront
+import { Container } from 'vtex.store-components'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
@@ -85,6 +83,7 @@ class CategoryMenu extends Component {
       showSubcategories,
     } = this.props
     
+    const { sideBarVisible } = this.state
 
     return (
       <div className={`${categoryMenu.container} ${categoryMenu.mobile}`}>
@@ -114,32 +113,40 @@ class CategoryMenu extends Component {
       params: {department = ""}
     } = this.props.runtime.route
     
-    const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m ph3 ph5-m ph8-l ph9-xl`, {
-      'justify-start': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-      'justify-end': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+    const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
+      'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'justify-end mw9': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
       'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
     })
 
     return (
-      <nav className={desktopClasses}>
-        <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-          {showAllDepartments &&
-          <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
-            children: categories,
-            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-          }} />
-          }
-          {this.departments.map(category => (
-            <Fragment key={category.id}>
-              <CategoryItem 
-                category={category} 
-                subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} 
-                isCategorySelected={department === category.slug}
-              />
-            </Fragment>
-          ))}
-        </ul>
-      </nav>
+      <Container className="justify-center flex">
+        <nav className={desktopClasses}>
+          <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+            {showAllDepartments &&
+            <CategoryItem 
+              noRedirect 
+              menuDisposition={menuDisposition} 
+              subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+              category={{
+                children: categories,
+                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+              }} 
+            />
+            }
+            {this.departments.map((category, index) => (
+              <Fragment key={category.id}>
+                <CategoryItem 
+                  menuDisposition={menuDisposition}
+                  category={category} 
+                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} 
+                  isCategorySelected={department === category.slug}
+                />
+              </Fragment>
+            ))}
+          </ul>
+        </nav>
+      </Container>
     )
   }
 

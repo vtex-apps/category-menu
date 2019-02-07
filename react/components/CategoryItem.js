@@ -6,6 +6,7 @@ import { categoryItemShape } from '../propTypes'
 import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
+import categoryMenuDisposition from '../utils/categoryMenuDisposition' 
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -28,13 +29,16 @@ export default class CategoryItem extends Component {
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
   renderCategory() {
-    const { category: { name, slug }, noRedirect, isCategorySelected } = this.props
+    const { category: { name, slug }, noRedirect, isCategorySelected, menuDisposition} = this.props
     const { isOnHover } = this.state
 
     const categoryClasses = classNames(
-      'w-100 pv5 mh6 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
+      'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
         'b--transparent': !isOnHover && !isCategorySelected,
-        'b--action-primary pointer': isOnHover || isCategorySelected
+        'b--action-primary pointer': isOnHover || isCategorySelected,
+        'mr8': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+        'ml8': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+        'mh6': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
       }
     )
 
@@ -55,7 +59,7 @@ export default class CategoryItem extends Component {
   }
 
   renderChildren() {
-    const { category, subcategoryLevels } = this.props
+    const { category, subcategoryLevels, menuDisposition } = this.props
     const { isOnHover } = this.state
 
     const containerStyle = {
@@ -65,6 +69,7 @@ export default class CategoryItem extends Component {
 
     return subcategoryLevels > 0 && category.children.length > 0 && (
       <ItemContainer
+        menuDisposition={menuDisposition}
         containerStyle={containerStyle}
         categories={category.children}
         parentSlug={category.slug}
