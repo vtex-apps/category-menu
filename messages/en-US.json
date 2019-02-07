@@ -8,5 +8,9 @@
   "category-menu.departments.title": "Departments",
   "editor.category-menu.departments.items.title": "Department",
   "editor.category-menu.departments.items.id": "Department Id",
-  "category-menu.all-category.title": "See All"
+  "category-menu.all-category.title": "See All",
+  "editor.category-menu.disposition-type.title": "Menu disposition",
+  "editor.category-menu.disposition-type.center": "Middle",
+  "editor.category-menu.disposition-type.left": "Left",
+  "editor.category-menu.disposition-type.right": "Right"
 }

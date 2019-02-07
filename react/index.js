@@ -5,6 +5,8 @@ import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose } from 'ramda'
+import classNames from 'classnames'
+import { Container } from 'vtex.store-components'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
@@ -12,6 +14,10 @@ import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
+import categoryMenuDisposition, {
+  getMenuDispositionNames,
+  getMenuDispositionValues,
+} from './utils/categoryMenuDisposition'
 
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
@@ -35,6 +41,8 @@ class CategoryMenu extends Component {
     showAllDepartments: PropTypes.bool,
     /** Whether to show subcategories or not */
     showSubcategories: PropTypes.bool,
+    /** Defines the disposition of the category menu */
+    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
@@ -49,6 +57,7 @@ class CategoryMenu extends Component {
     mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
+    menuDisposition: categoryMenuDisposition.DISPLAY_LEFT.value,
     departments: [],
   }
 
@@ -73,6 +82,7 @@ class CategoryMenu extends Component {
       intl,
       showSubcategories,
     } = this.props
+
     const { sideBarVisible } = this.state
 
     return (
@@ -96,32 +106,47 @@ class CategoryMenu extends Component {
       intl,
       showAllDepartments,
       showSubcategories,
+      menuDisposition,
     } = this.props
-    
+
     const {
-      params: {department = ""}
+      params: { department = '' },
     } = this.props.runtime.route
 
+    const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
+      'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'justify-end mw9': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+    })
+
     return (
-      <nav className={`${categoryMenu.container} relative dn-s flex-ns justify-center items-center bg-base`}>
-        <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-          {showAllDepartments &&
-          <CategoryItem noRedirect subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} category={{
-            children: categories,
-            name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-          }} />
-          }
-          {this.departments.map(category => (
-            <Fragment key={category.id}>
-              <CategoryItem 
-                category={category} 
-                subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories} 
-                isCategorySelected={department === category.slug}
-              />
-            </Fragment>
-          ))}
-        </ul>
-      </nav>
+      <Container className="justify-center flex">
+        <nav className={desktopClasses}>
+          <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+            {showAllDepartments &&
+            <CategoryItem
+              noRedirect
+              menuDisposition={menuDisposition}
+              subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+              category={{
+                children: categories,
+                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+              }}
+            />
+            }
+            {this.departments.map((category) => (
+              <Fragment key={category.id}>
+                <CategoryItem
+                  menuDisposition={menuDisposition}
+                  category={category}
+                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+                  isCategorySelected={department === category.slug}
+                />
+              </Fragment>
+            ))}
+          </ul>
+        </nav>
+      </Container>
     )
   }
 
@@ -150,6 +175,14 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       type: 'boolean',
       title: 'editor.category-menu.show-departments-category.title',
       default: CategoryMenu.defaultProps.showAllDepartments,
+    },
+    menuDisposition: {
+      title: 'editor.category-menu.disposition-type.title',
+      type: 'string',
+      enum: getMenuDispositionValues(),
+      enumNames: getMenuDispositionNames(),
+      default: categoryMenuDisposition.DISPLAY_LEFT.value,
+      isLayout: true,
     },
     showSubcategories: {
       type: 'boolean',

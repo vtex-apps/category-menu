@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'vtex.render-runtime'
 import { categoryPropType } from '../propTypes'
+import classNames from 'classnames'
+import { Container } from 'vtex.store-components'
 
 import PropTypes from 'prop-types'
 import categoryMenu from '../categoryMenu.css'
+import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
 
 /**
  * Component responsible dor rendering an array of categories and its respective subcategories
@@ -18,7 +21,8 @@ export default class ItemContainer extends Component {
     onCloseMenu: PropTypes.func.isRequired,
     /** Whether to show second level links or not */
     showSecondLevel: PropTypes.bool,
-
+    /** Defines the disposition of the category menu */
+    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
   }
@@ -79,19 +83,33 @@ export default class ItemContainer extends Component {
   }
 
   render() {
-    const { containerStyle, categories, parentSlug } = this.props
+    const { containerStyle, categories, parentSlug, menuDisposition } = this.props
+
+    const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
+      'justify-start': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'justify-end': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+    })
+
+    const columnItemClasses = classNames({
+      'pl0 pr7': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'pr0 pl7': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+    })
+
     return (
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
-        <ul className="w-100 w-90-l w-80-xl center flex flex-wrap pa0 list">
-          {categories.map(category => (
-            <li key={category.id} className="dib pa2">
-              <ul>
-                {this.renderLinkFirstLevel(parentSlug, category)}
-                {this.renderChildren(category)}
-              </ul>
-            </li>
-          ))}
-        </ul>
+        <Container className="justify-center w-100 flex">
+          <ul className={containerClasses}>
+            {categories.map(category => (
+              <li key={category.id} className="dib pa2">
+                <ul className={columnItemClasses}>
+                  {this.renderLinkFirstLevel(parentSlug, category)}
+                  {this.renderChildren(category)}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </Container>
       </div>
     )
   }

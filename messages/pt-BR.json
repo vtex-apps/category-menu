@@ -8,5 +8,10 @@
   "category-menu.departments.title": "Departamentos",
   "editor.category-menu.departments.items.title": "Departamento",
   "editor.category-menu.departments.items.id": "Id do Departamento",
-  "category-menu.all-category.title": "Ver Todos"
+  "category-menu.all-category.title": "Ver Todos",
+  "editor.category-menu.disposition-type.title": "Disposição do menu",
+  "editor.category-menu.disposition-type.center": "Centro",
+  "editor.category-menu.disposition-type.left": "Esquerda",
+  "editor.category-menu.disposition-type.right": "Direita"
+  
 }
