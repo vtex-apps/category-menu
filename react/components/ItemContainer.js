@@ -28,16 +28,24 @@ export default class ItemContainer extends Component {
   }
 
   renderLinkFirstLevel(parentSlug, item) {
+    const { menuDisposition } = this.props
     const params = {
       department: parentSlug || item.slug,
     }
+
+    const firstLevelLinkClasses = classNames(`${categoryMenu.linkLevel2} db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`, {
+      'pr4': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'pl4': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+      'ph4': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
+    })
+
     if (parentSlug) params.category = item.slug
     return (
       <li className="list pa0">
         <Link
           onClick={this.props.onCloseMenu}
           page={parentSlug ? 'store.search#category' : 'store.search#department'}
-          className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
+          className={firstLevelLinkClasses}
           params={params}
         >
           {item.name.toUpperCase()}
@@ -47,19 +55,26 @@ export default class ItemContainer extends Component {
   }
 
   renderLinkSecondLevel(parentSlug, item, subItem) {
-    const { onCloseMenu } = this.props
+    const { onCloseMenu, menuDisposition } = this.props
 
     const params = {
       department: parentSlug || item.slug,
       category: parentSlug ? item.slug : subItem.slug,
     }
+
+    const secondLevelLinkClasses = classNames(`${categoryMenu.linkLevel3} db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`, {
+      'pr5': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+      'pl5': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+      'ph5': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
+    })
+
     if (parentSlug) params.subcategory = subItem.slug
     return (
       <li key={subItem.id} className="list pa0">
         <Link
           onClick={onCloseMenu}
           page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
-          className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
+          className={secondLevelLinkClasses}
           params={params}
         >
           {subItem.name}
@@ -101,7 +116,7 @@ export default class ItemContainer extends Component {
         <Container className="justify-center w-100 flex">
           <ul className={containerClasses}>
             {categories.map(category => (
-              <li key={category.id} className="dib pa2">
+              <li key={category.id} className="dib">
                 <ul className={columnItemClasses}>
                   {this.renderLinkFirstLevel(parentSlug, category)}
                   {this.renderChildren(category)}

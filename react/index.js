@@ -57,7 +57,7 @@ class CategoryMenu extends Component {
     mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
-    menuDisposition: categoryMenuDisposition.DISPLAY_LEFT.value,
+    menuDisposition: categoryMenuDisposition.DISPLAY_CENTER.value,
     departments: [],
   }
 
@@ -182,7 +182,7 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       type: 'string',
       enum: getMenuDispositionValues(),
       enumNames: getMenuDispositionNames(),
-      default: categoryMenuDisposition.DISPLAY_LEFT.value,
+      default: categoryMenuDisposition.DISPLAY_CENTER.value,
       isLayout: true,
     },
     showSubcategories: {
