@@ -1,4 +1,4 @@
-import { values, map } from 'ramda'
+import { values, pluck } from 'ramda'
 
 const categoryMenuDisposition = {
   DISPLAY_CENTER: {
@@ -16,11 +16,11 @@ const categoryMenuDisposition = {
 }
 
 export function getMenuDispositionNames() {
-  return map(opt => opt.name, values(categoryMenuDisposition))
+  return pluck('name', values(categoryMenuDisposition))
 }
 
 export function getMenuDispositionValues() {
-  return map(opt => opt.value, values(categoryMenuDisposition))
+  return pluck('value', values(categoryMenuDisposition))
 }
 
 export default categoryMenuDisposition
