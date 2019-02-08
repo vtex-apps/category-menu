@@ -1,11 +1,10 @@
-VTEX Category Menu
-=====
+# VTEX Category Menu
 
 ## Description
 The VTEX Category Menu app shows a department list of the store on an customizable menu. 
 This is a VTEX app that is used by Dreamstore product.
 
-:loudspeaker: **Disclaimer:** Don't fork this project, use, contribute, or open issue with your feature request.
+:loudspeaker: **Disclaimer:** Don't fork this project. Use, contribute, or open issue with your feature request.
 
 ## Release schedule
 | Release  | Status              | Initial Release | Maintenance LTS Start | End-of-life | Dreamstore Compatibility
@@ -16,7 +15,6 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
 
 ## Table of Contents
 - [Usage](#usage)
-- [API](#api)
   - [Blocks API](#blocks-api)
     - [Configuration](#configuration)
   - [Styles API](#styles-api)
@@ -24,9 +22,9 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
 
 ## Usage
 
-This app use our store builder with the blocks architecture. To know more about Store Builder [click here.](https://help.vtex.com/en/tutorial/understanding-storebuilder-and-stylesbuilder#structuring-and-configuring-our-store-with-object-object)
+This app uses our store builder with the blocks architecture. To know more about Store Builder [click here.](https://help.vtex.com/en/tutorial/understanding-storebuilder-and-stylesbuilder#structuring-and-configuring-our-store-with-object-object)
 
-To use this app you need to import in your dependencies on `manifest.json`.
+To use this app you need to add it in your dependencies in the `manifest.json` file.
 
 ```json
   dependencies: {
@@ -39,7 +37,7 @@ Then, add `category-menu` block into your app theme, like we do in our [Dreamsto
 ### Blocks API
 :construction: :construction: :construction:
 
-This app have an interface that describes what are the rules that the blocks must implement when you want to use the category-menu block. 
+This app has an interface that describes what rules must be implemented by a block when you want to use the category-menu block.
 
 ```json
   "category-menu": {
@@ -49,7 +47,7 @@ This app have an interface that describes what are the rules that the blocks mus
 ```
 
 #### Configuration 
-Through the Storefront you can change the behavior and interface of minicart. But, you also can make adjusts in your theme app, like Dreamstore does.
+Through the Storefront you can change the behavior and interface of category-menu. But, you can also make adjusts in your theme app, like Dreamstore does.
 
 | Prop name          | Type       | Description                                                                 |
 | ------------------ | ---------- | --------------------------------------------------------------------------- |
