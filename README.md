@@ -19,6 +19,7 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
     - [Configuration](#configuration)
   - [Styles API](#styles-api)
 - [Troubleshooting](#troubleshooting)
+- [Tests](#tests)
 
 ## Usage
 
@@ -69,3 +70,22 @@ Items:
 
 ## Troubleshooting
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/category-menu/issues). Also feel free to [open issues](https://github.com/vtex-apps/category-menu/issues/new) or contribute with pull requests.
+
+## Tests
+:construction: :construction: :construction:
+
+### Running Tests
+
+To run the test suit, type the following in the terminal, inside the folder `react`
+
+```sh
+$ npm t     # this
+$ yarn test # or this one
+```
+
+To update the tests snapshots use
+
+```sh
+$ npm t -- -u  # like this
+$ yarn test -u # or this
+```
