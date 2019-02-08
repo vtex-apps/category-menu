@@ -12,9 +12,15 @@
   }
 }
 
+<<<<<<< HEAD
 .linkLevel2 {}
+=======
+.container {}
 
-.linkLevel3 {}
+.firstLevelLink {}
+>>>>>>> Update css modules variables name
+
+.secondLevelLink {}
 
 .sidebarOpen {}
 

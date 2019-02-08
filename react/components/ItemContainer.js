@@ -33,7 +33,7 @@ export default class ItemContainer extends Component {
       department: parentSlug || item.slug,
     }
 
-    const firstLevelLinkClasses = classNames(`${categoryMenu.linkLevel2} db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`, {
+    const firstLevelLinkClasses = classNames(`${categoryMenu.firstLevelLink} db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`, {
       'pr4': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
       'pl4': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
       'ph4': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
@@ -62,7 +62,7 @@ export default class ItemContainer extends Component {
       category: parentSlug ? item.slug : subItem.slug,
     }
 
-    const secondLevelLinkClasses = classNames(`${categoryMenu.linkLevel3} db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`, {
+    const secondLevelLinkClasses = classNames(`${categoryMenu.secondLevelLink} db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`, {
       'pr5': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
       'pl5': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
       'ph5': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
