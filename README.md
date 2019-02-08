@@ -56,8 +56,13 @@ Through the Storefront you can change the behavior and interface of category-men
 | `showAllDepartments`              | `Boolean`  | Shows all departments category in menu                              |
 | `menuDisposition`                   | `Enum`  | Indicates the disposition of the menu on the screen (left, center, right)                                     |
 | `showSubcategories`        | `Boolean`   | Decides if the subcategories will be displayed
-| `departments` | `Array`   | List of departments to be displayed on the menu  |
+| `departments` | `Array(items)`   | List of departments `items` to be displayed on the menu  |
 
+Items:
+
+| Prop name          | Type       | Description                                                                 |
+| ------------------ | ---------- | --------------------------------------------------------------------------- |
+| `id`                      | `Number`   | The department Id to be displayed on the menu               |
 
 ### Styles API
 :construction: :construction: :construction:
