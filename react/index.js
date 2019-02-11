@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
 import { withRuntimeContext } from 'vtex.render-runtime'
-import { compose } from 'ramda'
+import { compose, path } from 'ramda'
 import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
 
@@ -107,11 +107,12 @@ class CategoryMenu extends Component {
       showAllDepartments,
       showSubcategories,
       menuDisposition,
+      runtime,
     } = this.props
 
-    const {
-      params: { department = '' },
-    } = this.props.runtime.route
+    const pathName = path(['route', 'params', 'department'], runtime)
+
+    const department = pathName ? pathName : ''
 
     const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
       'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
