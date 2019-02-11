@@ -9,6 +9,7 @@ import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
 
 import CategoryItem from './components/CategoryItem'
+import AdditionalItem from './components/AdditionalItem'
 import SideBar from './components/SideBar'
 import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
@@ -59,7 +60,8 @@ class CategoryMenu extends Component {
     mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
-    menuPosition: categoryMenuPosition.DISPLAY_CENTER.value,
+    menuDisposition: categoryMenuDisposition.DISPLAY_LEFT.value,
+    additionalItems: [],
     departments: [],
   }
 
@@ -119,7 +121,7 @@ class CategoryMenu extends Component {
 
     const pathName = path(['route', 'params', 'department'], runtime)
 
-    const department = pathName ? pathName : ''
+    const currentSlug = pathName ? pathName : ''
 
     const desktopClasses = classNames(
       `${categoryMenu.container} w-100 bg-base dn flex-m`,
@@ -157,10 +159,17 @@ class CategoryMenu extends Component {
                 <CategoryItem
                   menuPosition={menuPosition}
                   category={category}
-                  subcategoryLevels={
-                    DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
-                  }
-                  isCategorySelected={department === category.slug}
+                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+                  isCategorySelected={currentSlug === category.slug}
+                />
+              </Fragment>
+            ))}
+            {additionalItems.map(item => (
+              <Fragment key={item.id}>
+                <AdditionalItem 
+                  item={item} 
+                  menuDisposition={menuDisposition}
+                  currentSlug={currentSlug}
                 />
               </Fragment>
             ))}
