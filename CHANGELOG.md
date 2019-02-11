@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.10.1] - 2019-02-11
+### Fixed
+- Get path correctly using ramda.
+
 ## [2.10.0] - 2019-02-07
 ### Added
 - Customization of the menu disposition (left, center, right).
