@@ -76,18 +76,16 @@ export default class CategoryItem extends Component {
     return params
   }
 
-  toSecondLevelChild(itemSlug, child, subCategory){
-    
+  toSecondLevelChild(itemSlug, child, subCategory){  
     const { slug : parentSlug } = child
     const { slug } = subCategory
-    console.log(parentSlug)
+    
     const params = {
       department: itemSlug || parentSlug,
       category : itemSlug ? parentSlug : slug,
       ...(itemSlug && { subcategory: slug }),
     }
-    
-    console.log({...subCategory, params})
+  
     return {...subCategory, params}
   }
 

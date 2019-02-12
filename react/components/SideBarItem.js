@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
+import { Link } from 'vtex.render-runtime'
 
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
@@ -13,7 +14,7 @@ class SideBarItem extends Component {
     /** Sidebar's item. */
     item: PropTypes.object.isRequired,
     /** Link values to create the redirect. */
-    linkValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+    linkValues: PropTypes.arrayOf(PropTypes.string),
     /** Closes sidebar. */
     onClose: PropTypes.func.isRequired,
     /** Runtime context. */
@@ -54,10 +55,11 @@ class SideBarItem extends Component {
     const { onClose, linkValues, runtime } = this.props
 
     const [department, category, subcategory] = linkValues
-    const params = { department }
-
-    if (category) params.category = category
-    if (subcategory) params.subcategory = subcategory
+    const params = { 
+      department, 
+      ...(category && {category: category}),
+      ...(subcategory && {subcategory: subcategory})
+    }
 
     const page = category
       ? subcategory
@@ -65,19 +67,6 @@ class SideBarItem extends Component {
         : 'store.search#category'
       : 'store.search#department'
 
-    runtime.navigate({
-      page,
-      params,
-      fallbackToWindowLocation: false,
-    })
-    onClose()
-  }
-
-  handleDepartmentClick = () => {
-    const { runtime, onClose, linkValues } = this.props
-    const [department] = linkValues
-    const params = { department }
-    const page = 'store.search#department'
     runtime.navigate({
       page,
       params,
@@ -117,6 +106,25 @@ class SideBarItem extends Component {
     )
   }
 
+  getLinkAllProps = () => {
+    const { linkValues, item: { slug } } = this.props
+    
+    if(!linkValues && slug){
+      return {
+        to: slug,
+      }
+    }else{
+      const [department] = linkValues
+      const params = { department }
+      const page='store.search#department'
+      return {
+        page,
+        params,
+        fallbackToWindowLocation: false,
+      }
+    }
+  }
+
   renderChildren() {
     const {
       item: { children },
@@ -128,32 +136,32 @@ class SideBarItem extends Component {
     } = this.props
     const { open } = this.state
 
-    return (
-      this.showSubCategories &&
-      open && (
-        <Fragment>
-          <li
-            className="pa5 pointer t-body c-muted-2 ma0 list"
-            onClick={this.handleDepartmentClick}
+    return this.showSubCategories && open && (
+      <Fragment>
+        <li className="pa5 pointer t-body c-muted-2 ma0 list"
+          onClick={this.handleSeeAllClick}>
+          <Link
+            onClick={onClose}
+            {...this.getLinkAllProps()}
           >
-            <FormattedMessage id="category-menu.all-category.title">
+            <FormattedMessage id="category-menu.all-category.title" >
               {txt => <span className="pl4">{txt}</span>}
             </FormattedMessage>
+          </Link>
+        </li>
+        {children.map(child => (
+          <li key={child.id} className="list ma0 pa0">
+            <SideBarItem
+              showSubcategories={showSubcategories}
+              item={child}
+              linkValues={linkValues ? [...linkValues, child.slug] : child.slug}
+              onClose={onClose}
+              treeLevel={treeLevel + 1}
+              runtime={runtime}
+            />
           </li>
-          {children.map(child => (
-            <li key={child.id} className="list ma0 pa0">
-              <SideBarItem
-                showSubcategories={showSubcategories}
-                item={child}
-                linkValues={[...linkValues, child.slug]}
-                onClose={onClose}
-                treeLevel={treeLevel + 1}
-                runtime={runtime}
-              />
-            </li>
-          ))}
-        </Fragment>
-      )
+        ))}
+      </Fragment>
     )
   }
 

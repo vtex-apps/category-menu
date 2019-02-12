@@ -87,7 +87,11 @@ class CategoryMenu extends Component {
   }
 
   renderSideBar() {
-    const { intl, showSubcategories } = this.props
+    const {
+      intl,
+      showSubcategories,
+      additionalItems,
+    } = this.props
 
     const { sideBarVisible } = this.state
 
@@ -101,6 +105,7 @@ class CategoryMenu extends Component {
           departments={this.departments}
           onClose={this.handleSidebarToggle}
           showSubcategories={showSubcategories}
+          additionalItems={additionalItems} 
         />
         <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
           <IconMenu size={20} />

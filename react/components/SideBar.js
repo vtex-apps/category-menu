@@ -27,6 +27,7 @@ export default class SideBar extends Component {
     title: 'Departments',
     departments: [],
     onClose: () => {},
+    additionalItems: [],
   }
 
   updateComponent() {
@@ -54,7 +55,7 @@ export default class SideBar extends Component {
   }
 
   render() {
-    const { visible, onClose, showSubcategories, departments } = this.props
+    const { visible, onClose, showSubcategories, departments, additionalItems } = this.props
 
     const scrimClasses = classNames(
       `${
@@ -92,6 +93,16 @@ export default class SideBar extends Component {
                   <SideBarItem
                     item={department}
                     linkValues={[department.slug]}
+                    onClose={onClose}
+                    showSubcategories={showSubcategories}
+                  />
+                </li>
+              ))}
+              {additionalItems.map(item => (
+                <li key={item.id} className="list ma0 pa0">
+                  <SideBarItem
+                    item={item}
+                    showSeeAll={false}
                     onClose={onClose}
                     showSubcategories={showSubcategories}
                   />
