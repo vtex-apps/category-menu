@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.10.2] - 2019-02-12
+### Fixed
+- Fix position on mobile.
+
 ## [2.10.1] - 2019-02-11
 ### Fixed
 - Get path correctly using ramda.
