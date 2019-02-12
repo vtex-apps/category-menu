@@ -76,10 +76,27 @@ export default class CategoryItem extends Component {
     return params
   }
 
-  toItems(children, parentSlug){
+  toSecondLevelChild(itemSlug, child, subCategory){
+    
+    const { slug : parentSlug } = child
+    const { slug } = subCategory
+    console.log(parentSlug)
+    const params = {
+      department: itemSlug || parentSlug,
+      category : itemSlug ? parentSlug : slug,
+      ...(itemSlug && { subcategory: slug }),
+    }
+    
+    console.log({...subCategory, params})
+    return {...subCategory, params}
+  }
+
+  toItems(category){
+    const { children, slug: itemSlug } = category
     return children.map(child => ({
-      ...child, 
-      params: this.paramsForChild(child, parentSlug),
+      ...child,
+      children: child.children && child.children.map(subCategory => this.toSecondLevelChild(itemSlug, child, subCategory)),
+      params: this.paramsForChild(child, itemSlug),
     }))
   }
 
@@ -96,9 +113,9 @@ export default class CategoryItem extends Component {
       <ItemContainer
         menuPosition={menuPosition}
         containerStyle={containerStyle}
-        items={this.toItems(category.children, category.slug)}
-        page={category.slug ? 'store.search#category' : 'store.search#department'}
-        parentSlug={category.slug}
+        items={this.toItems(category)}
+        pageFirstLevel={category.slug ? 'store.search#category' : 'store.search#department'}
+        pageSecondLevel={category.slug ? 'store.search#subcategory' : 'store.search#category' }
         onCloseMenu={this.handleCloseMenu}
         showSecondLevel={subcategoryLevels === 2}
       />

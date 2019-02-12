@@ -25,21 +25,21 @@ export default class ItemContainer extends Component {
     menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
-    /** Page to be used in first level. If your item is a search, this variable must be defined so as the param in each one of the items. Otherwise each item must have a slug*/
-    page: PropTypes.string,
-
+    /** Page to be used in first level. If your item is a search, this variable must be defined so as the param in each one of the items. Otherwise each item must have a slug */
+    pageFirstLevel: PropTypes.string,
+    /** Page to be used in second level. If your item is a search, this variable must be defined so as the param in each one of the items. Otherwise each item must have a slug */
     pageSecondLevel: PropTypes.string,
   }
 
-  renderLinkFirstLevel({ name, params, slug}) {
-    const { page, onCloseMenu } = this.props
+  renderLinkFirstLevel({ name, params, slug }) {
+    const { pageFirstLevel, onCloseMenu } = this.props
 
     return (
       <li className="list pa0">
         <Link
           onClick={onCloseMenu}
-          page={page}
-          to={slug}
+          page={pageFirstLevel}
+          to={pageFirstLevel ? undefined : slug}
           className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
           params={params}
         >
@@ -49,35 +49,22 @@ export default class ItemContainer extends Component {
     )
   }
 
-  renderLinkSecondLevel(parentSlug, item, subItem) {
-    /**
-    const { onCloseMenu } = this.props
+  renderLinkSecondLevel(subItem) {
+    const { onCloseMenu, pageSecondLevel } = this.props
 
-    const params = {
-      department: parentSlug || item.slug,
-      category: parentSlug ? item.slug : subItem.slug,
-    }
-
-    const secondLevelLinkClasses = classNames(`${categoryMenu.secondLevelLink} db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`, {
-      'pr5': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'pl5': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'ph5': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value
-    })
-
-    if (parentSlug) params.subcategory = subItem.slug
     return (
       <li key={subItem.id} className="list pa0">
         <Link
           onClick={onCloseMenu}
-          page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
-          className={secondLevelLinkClasses}
-          params={params}
+          page={pageSecondLevel}
+          to={pageSecondLevel ? undefined : subItem.slug}
+          className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
+          params={subItem.params}
         >
-          {subItem.name}
+          {subItem.name.toUpperCase()}
         </Link>
       </li>
     )
-    **/
   }
 
   shouldRenderSecondLevel({ children }) {
@@ -88,7 +75,7 @@ export default class ItemContainer extends Component {
 
   renderChildren(item) {
     return this.shouldRenderSecondLevel(item) && item.children.map(subItem =>
-      this.renderLinkSecondLevel(item, subItem)
+      this.renderLinkSecondLevel(subItem)
     )
   }
 

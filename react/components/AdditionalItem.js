@@ -53,6 +53,7 @@ export default class AdditionalItem extends Component {
         <ItemContainer
           menuDisposition={menuDisposition}
           containerStyle={containerStyle}
+          showSecondLevel={children.some(child => child.children && child.children.length > 0)}
           items={children}
           onCloseMenu={() => this.setState({isHovered: false})}
         />
