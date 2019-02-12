@@ -53,7 +53,7 @@ export default class ItemContainer extends Component {
     const { onCloseMenu, pageSecondLevel } = this.props
 
     return (
-      <li key={subItem.id} className="list pa0">
+      <li key={subItem.name} className="list pa0">
         <Link
           onClick={onCloseMenu}
           page={pageSecondLevel}
@@ -98,7 +98,7 @@ export default class ItemContainer extends Component {
         <Container className="justify-center w-100 flex">
           <ul className={containerClasses}>
             {items.map(item => (
-              <li key={item.id} className="dib pa2">
+              <li key={item.name} className="dib pa2">
                 <ul className={columnItemClasses}>
                   {this.renderLinkFirstLevel(item)}
                   {this.renderChildren(item)}

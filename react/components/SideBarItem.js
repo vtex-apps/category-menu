@@ -47,31 +47,34 @@ class SideBarItem extends Component {
     if (this.showSubCategories) {
       this.setState({ open: !this.state.open })
     } else {
-      this.navigateToPage()
+      this.navigate()
     }
   }
 
-  navigateToPage() {
-    const { onClose, linkValues, runtime } = this.props
+  navigate() {
+    const { onClose, linkValues, runtime, item : { slug } } = this.props
+    if (linkValues) {
+      const [department, category, subcategory] = linkValues
+      const params = { 
+        department, 
+        ...(category && { category: category }),
+        ...(subcategory && { subcategory: subcategory })
+      }
 
-    const [department, category, subcategory] = linkValues
-    const params = { 
-      department, 
-      ...(category && {category: category}),
-      ...(subcategory && {subcategory: subcategory})
+      const page = category? 
+        (subcategory ? 'store.search#subcategory' : 'store.search#category')
+        : 'store.search#department'
+
+      runtime.navigate({
+        page,
+        params,
+        fallbackToWindowLocation: false,
+      })
+    } else {
+      runtime.navigate({
+        to: slug
+      })
     }
-
-    const page = category
-      ? subcategory
-        ? 'store.search#subcategory'
-        : 'store.search#category'
-      : 'store.search#department'
-
-    runtime.navigate({
-      page,
-      params,
-      fallbackToWindowLocation: false,
-    })
     onClose()
   }
 
@@ -108,15 +111,14 @@ class SideBarItem extends Component {
 
   getLinkAllProps = () => {
     const { linkValues, item: { slug } } = this.props
-    
-    if(!linkValues && slug){
+    if (!linkValues) {
       return {
         to: slug,
       }
-    }else{
+    } else {
       const [department] = linkValues
       const params = { department }
-      const page='store.search#department'
+      const page = 'store.search#department'
       return {
         page,
         params,
@@ -126,8 +128,8 @@ class SideBarItem extends Component {
   }
 
   renderChildren() {
-    const {
-      item: { children },
+    const { 
+      item: { children, slug },
       runtime,
       linkValues,
       onClose,
@@ -135,26 +137,28 @@ class SideBarItem extends Component {
       showSubcategories,
     } = this.props
     const { open } = this.state
-
     return this.showSubCategories && open && (
       <Fragment>
-        <li className="pa5 pointer t-body c-muted-2 ma0 list"
-          onClick={this.handleSeeAllClick}>
-          <Link
-            onClick={onClose}
-            {...this.getLinkAllProps()}
-          >
-            <FormattedMessage id="category-menu.all-category.title" >
-              {txt => <span className="pl4">{txt}</span>}
-            </FormattedMessage>
-          </Link>
-        </li>
+        {(linkValues || slug ) && 
+          (<li className="pa5 pointer ma0 list"
+            onClick={this.handleSeeAllClick}>
+            <Link
+              className="db link no-underline outline-0 tl t-small truncate c-on-muted-3"
+              onClick={onClose}
+              {...this.getLinkAllProps()}
+            >
+              <FormattedMessage id="category-menu.all-category.title" >
+                {txt => <span className="pl4">{txt}</span>}
+              </FormattedMessage>
+            </Link>
+          </li>)
+        }
         {children.map(child => (
           <li key={child.id} className="list ma0 pa0">
             <SideBarItem
               showSubcategories={showSubcategories}
               item={child}
-              linkValues={linkValues ? [...linkValues, child.slug] : child.slug}
+              linkValues={linkValues && [...linkValues, child.slug]}
               onClose={onClose}
               treeLevel={treeLevel + 1}
               runtime={runtime}
