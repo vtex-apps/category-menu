@@ -48,7 +48,7 @@ This app has an interface that describes what rules must be implemented by a blo
 ```
 
 #### Configuration 
-Through the Storefront you can change the behavior and interface of category-menu. But, you can also make adjusts in your theme app, like Dreamstore does.
+Through the Storefront you can change the behavior and interface of `CategoryMenu`. But, you can also make adjusts in your theme app, like Dreamstore does.
 
 | Prop name          | Type       | Description                                                                 |
 | ------------------ | ---------- | --------------------------------------------------------------------------- |
@@ -66,7 +66,37 @@ Items:
 | `id`                      | `Number`   | The department Id to be displayed on the menu               |
 
 ### Styles API
-:construction: :construction: :construction:
+This app has CSS customization through `CSS Modules`. CSS Modules is a CSS file in which all class names and animation names are scoped locally by default. You can read more about CSS Modules [here](https://github.com/css-modules/css-modules).
+
+We use it `css-loader` to generate a CSS token on a HTML element. For example, the builder generate a CSS token based on app vendor, name and major version. Like `container` token declared in category-menu, generate the classname `vtex.category-menu-2-x-container`.
+
+Below, we describe the tokens, their explanation and the component where it is located.
+
+| Token name         | Component          | Description                                            |
+| ------------------ | ----------         |------------------------------------------------------- |
+| `container`        | [index](https://github.com/vtex-apps/category-menu/blob/master/react/index.js)           | The main container of Category Menu for all sizes                        |
+| `mobile`          | [index](https://github.com/vtex-apps/category-menu/blob/master/react/index.js)            | The main container of Category Menu for mobile size                                        |
+| `animation`            | [SideBar](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBar.js)            | Category menu mobile sidebar animation         |
+| `sidebarOpen`              | [SideBar](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBar.js)            | Active when the sidebar is opened                        | 
+| `sidebarScrim`          | [SideBar](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBar.js)  | the sidebar shadow backdrop content                           |
+| `sidebar`     | [SideBar](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBar.js)   | The main container of sidebar                     |
+| `sidebarHeader`     | [SideBar](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBar.js)  | The sidebar header container                     |
+| `sidebarContent`  | [SideBar](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBar.js)   | The sidebar content container              | 
+| `firstLevelLink`    | [ItemContainer](https://github.com/vtex-apps/category-menu/blob/master/react/components/ItemContainer.js)          | First level of the Category Menu, the main categories links                      |
+| `secondLevelLink `          | [ItemContainer](https://github.com/vtex-apps/category-menu/blob/master/react/components/ItemContainer.js)          | Second level of the Category Menu, the subcategories links                        |
+| `itemContainer`    | [CategoryItem](https://github.com/vtex-apps/category-menu/blob/master/react/components/CategoryItem.js)            | Main container of a category item/department                                    |
+| `sidebarItem`     | [SideBarItem](https://github.com/vtex-apps/category-menu/blob/master/react/components/SideBarItem.js)   | The container of a sidebar category item/department     |
+
+To override the default CSS, you need to import `styles` on your manifest:
+
+```json
+  "builders": {
+    "styles": "1.x"
+  }
+```
+
+Also, create a `vtex.categoryMenu.css` file in `styles/css` for your handlers customization.
+
 
 ## Troubleshooting
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/category-menu/issues). Also feel free to [open issues](https://github.com/vtex-apps/category-menu/issues/new) or contribute with pull requests.
