@@ -6,15 +6,15 @@ function lazyFunction(f) {
   }
 }
 
-export const categoryPropType = PropTypes.shape({
+export const itemPropType = PropTypes.shape({
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),
+  children: PropTypes.arrayOf(lazyFunction(() => itemPropType)),
 })
 
 export const categoryItemShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   slug: PropTypes.string,
-  children: PropTypes.arrayOf(lazyFunction(() => categoryPropType)),
+  children: PropTypes.arrayOf(lazyFunction(() => itemPropType)),
 })

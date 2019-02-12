@@ -11,19 +11,14 @@ export default class AdditionalItem extends Component {
     
     state = { isHovered : false }
 
-    get isSelected(){
-      const { currentSlug, item: { slug } } = this.props
-      return currentSlug === slug
-    }
-
     renderTitle(){        
-        const { item: { title, slug }, menuDisposition } = this.props
+        const { item: { name, slug }, menuDisposition, isSelected } = this.props
         const { isHovered } = this.state
 
         const categoryClasses = classNames(
           'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
-            'b--transparent': !isHovered && !this.isSelected,
-            'b--action-primary pointer': isHovered || this.isSelected,
+            'b--transparent': !isHovered && !isSelected,
+            'b--action-primary pointer': isHovered || isSelected,
             'mr8': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
             'ml8': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
             'mh6': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
@@ -36,11 +31,11 @@ export default class AdditionalItem extends Component {
             to={slug}
             className={categoryClasses}
           >
-            {title.toUpperCase()}
+            {name.toUpperCase()}
           </Link> 
         ) : (
           <span className={categoryClasses}>
-            {title.toUpperCase()}
+            {name.toUpperCase()}
           </span>
         )
     }
@@ -48,7 +43,7 @@ export default class AdditionalItem extends Component {
     renderChildren(){
       const { item: { children }, menuDisposition } = this.props
       const { isHovered } = this.state
-
+    
       const containerStyle = {
         top: this.item && this.item.offsetTop + this.item.clientHeight,
         display: isHovered ? 'flex' : 'none',
@@ -58,7 +53,7 @@ export default class AdditionalItem extends Component {
         <ItemContainer
           menuDisposition={menuDisposition}
           containerStyle={containerStyle}
-          categories={children}
+          items={children}
           onCloseMenu={() => this.setState({isHovered: false})}
         />
       )

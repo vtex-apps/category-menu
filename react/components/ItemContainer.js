@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'vtex.render-runtime'
-import { categoryPropType } from '../propTypes'
+import { itemPropType } from '../propTypes'
 import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
 
@@ -14,7 +14,7 @@ import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMe
 export default class ItemContainer extends Component {
   static propTypes = {
     /** Category to be displayed */
-    categories: PropTypes.arrayOf(categoryPropType),
+    items: PropTypes.arrayOf(itemPropType).isRequired,
     /** Department slug */
     parentSlug: PropTypes.string,
     /** Close menu callback */
@@ -25,37 +25,33 @@ export default class ItemContainer extends Component {
     menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
+    /** Page to be used in first level. If your item is a search, this variable must be defined so as the param in each one of the items. Otherwise each item must have a slug*/
+    page: PropTypes.string,
+
+    pageSecondLevel: PropTypes.string,
   }
 
-  renderLinkFirstLevel(item) {
-    const { parentSlug } = this.props
-    const params = {
-      department: parentSlug || item.slug,
-    }
+  renderLinkFirstLevel({ name, params, slug}) {
+    const { page, onCloseMenu } = this.props
 
-    const firstLevelLinkClasses = classNames(`${categoryMenu.firstLevelLink} db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`, {
-      'pr4': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'pl4': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'ph4': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value
-    })
-
-    if (parentSlug) params.category = item.slug
     return (
       <li className="list pa0">
         <Link
-          onClick={this.props.onCloseMenu}
-          page={parentSlug ? 'store.search#category' : 'store.search#department'}
-          className={firstLevelLinkClasses}
+          onClick={onCloseMenu}
+          page={page}
+          to={slug}
+          className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
           params={params}
         >
-          {item.name.toUpperCase()}
+          {name.toUpperCase()}
         </Link>
       </li>
     )
   }
 
   renderLinkSecondLevel(parentSlug, item, subItem) {
-    const { onCloseMenu, menuPosition } = this.props
+    /**
+    const { onCloseMenu } = this.props
 
     const params = {
       department: parentSlug || item.slug,
@@ -81,24 +77,23 @@ export default class ItemContainer extends Component {
         </Link>
       </li>
     )
+    **/
   }
 
-  shouldRenderSecondLevel(category) {
-    const { children } = category
+  shouldRenderSecondLevel({ children }) {
     const { showSecondLevel } = this.props
 
     return children && children.length > 0 && showSecondLevel
   }
 
-  renderChildren(category) {
-    const { parentSlug } = this.props
-    return this.shouldRenderSecondLevel(category) && category.children.map(subCategory =>
-      this.renderLinkSecondLevel(parentSlug, category, subCategory)
+  renderChildren(item) {
+    return this.shouldRenderSecondLevel(item) && item.children.map(subItem =>
+      this.renderLinkSecondLevel(item, subItem)
     )
   }
 
   render() {
-    const { containerStyle, categories, menuDisposition, additionalItems } = this.props
+    const { containerStyle, items, menuDisposition } = this.props
 
     const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
       'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
@@ -115,11 +110,11 @@ export default class ItemContainer extends Component {
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
         <Container className="justify-center w-100 flex">
           <ul className={containerClasses}>
-            {categories.map(category => (
-              <li key={category.id} className="dib">
+            {items.map(item => (
+              <li key={item.id} className="dib pa2">
                 <ul className={columnItemClasses}>
-                  {this.renderLinkFirstLevel(category)}
-                  {this.renderChildren(category)}
+                  {this.renderLinkFirstLevel(item)}
+                  {this.renderChildren(item)}
                 </ul>
               </li>
             ))}

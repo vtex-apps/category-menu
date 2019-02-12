@@ -11,7 +11,7 @@ import { Container } from 'vtex.store-components'
 import CategoryItem from './components/CategoryItem'
 import AdditionalItem from './components/AdditionalItem'
 import SideBar from './components/SideBar'
-import { categoryPropType } from './propTypes'
+import { itemPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
@@ -34,7 +34,7 @@ class CategoryMenu extends Component {
     /** Categories query data */
     data: PropTypes.shape({
       loading: PropTypes.bool.isRequired,
-      categories: PropTypes.arrayOf(categoryPropType),
+      categories: PropTypes.arrayOf(itemPropType),
     }),
     /** Set mobile mode */
     mobileMode: PropTypes.bool,
@@ -117,11 +117,13 @@ class CategoryMenu extends Component {
       showSubcategories,
       menuPosition,
       runtime,
+      additionalItems,
     } = this.props
 
-    const pathName = path(['route', 'params', 'department'], runtime)
+    const departamentPath = path(['route', 'params', 'department'], runtime)
+    const fullPath = path(['route', 'path'], runtime)
 
-    const currentSlug = pathName ? pathName : ''
+    const currentSlug = departamentPath ? departamentPath : fullPath
 
     const desktopClasses = classNames(
       `${categoryMenu.container} w-100 bg-base dn flex-m`,
@@ -164,12 +166,12 @@ class CategoryMenu extends Component {
                 />
               </Fragment>
             ))}
-            {additionalItems.map(item => (
+            {additionalItems && additionalItems.map(item => (
               <Fragment key={item.id}>
                 <AdditionalItem 
                   item={item} 
                   menuDisposition={menuDisposition}
-                  currentSlug={currentSlug}
+                  isSelected={currentSlug && currentSlug.includes(item.slug) && item.slug !== '/'}
                 />
               </Fragment>
             ))}

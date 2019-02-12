@@ -68,6 +68,21 @@ export default class CategoryItem extends Component {
     )
   }
 
+  paramsForChild = (child, parentSlug) => {
+    const params = {
+      department: parentSlug || child.slug,
+    }
+    if (parentSlug) params.category = child.slug
+    return params
+  }
+
+  toItems(children, parentSlug){
+    return children.map(child => ({
+      ...child, 
+      params: this.paramsForChild(child, parentSlug),
+    }))
+  }
+
   renderChildren() {
     const { category, subcategoryLevels, menuPosition } = this.props
     const { isOnHover } = this.state
@@ -77,18 +92,16 @@ export default class CategoryItem extends Component {
       display: isOnHover ? 'flex' : 'none',
     }
 
-    return (
-      subcategoryLevels > 0 &&
-      category.children.length > 0 && (
-        <ItemContainer
-          menuPosition={menuPosition}
-          containerStyle={containerStyle}
-          categories={category.children}
-          parentSlug={category.slug}
-          onCloseMenu={this.handleCloseMenu}
-          showSecondLevel={subcategoryLevels === 2}
-        />
-      )
+    return subcategoryLevels > 0 && category.children.length > 0 && (
+      <ItemContainer
+        menuPosition={menuPosition}
+        containerStyle={containerStyle}
+        items={this.toItems(category.children, category.slug)}
+        page={category.slug ? 'store.search#category' : 'store.search#department'}
+        parentSlug={category.slug}
+        onCloseMenu={this.handleCloseMenu}
+        showSecondLevel={subcategoryLevels === 2}
+      />
     )
   }
 
