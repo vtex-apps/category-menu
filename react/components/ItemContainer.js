@@ -25,9 +25,11 @@ export default class ItemContainer extends Component {
     menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
-    /** Page to be used in first level. If your item is a search, this variable must be defined so as the param in each one of the items. Otherwise each item must have a slug */
+    /** Page to be used in first level items. If your item is a search, this variable must be defined so as the param in each one of the items. 
+     *  Otherwise each item must have a slug that describe the item path relative to the host. */
     pageFirstLevel: PropTypes.string,
-    /** Page to be used in second level. If your item is a search, this variable must be defined so as the param in each one of the items. Otherwise each item must have a slug */
+    /** Page to be used in second level items. If your item is a search, this variable must be defined so as the param in each one of the items.
+     *  Otherwise each item must have a slug that describe the item path relative to the host. */
     pageSecondLevel: PropTypes.string,
   }
 

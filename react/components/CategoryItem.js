@@ -16,7 +16,7 @@ import categoryMenuPosition, {
  */
 export default class CategoryItem extends Component {
   state = {
-    isOnHover: false,
+    isHovered: false,
   }
 
   static propTypes = {
@@ -32,6 +32,7 @@ export default class CategoryItem extends Component {
     isCategorySelected: PropTypes.bool,
   }
 
+<<<<<<< HEAD
   handleCloseMenu = () => this.setState({ isOnHover: false })
 
   renderCategory() {
@@ -51,6 +52,23 @@ export default class CategoryItem extends Component {
         mr8: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
         ml8: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
         mh6: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+=======
+  handleCloseMenu = () => (this.setState({ isHovered: false }))
+
+  renderCategory() {
+    const { category: { name, slug }, noRedirect, isCategorySelected, menuDisposition } = this.props
+    const { isHovered } = this.state
+
+    console.log(name, slug)
+
+    const categoryClasses = classNames(
+      'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
+        'b--transparent': !isHovered && !isCategorySelected,
+        'b--action-primary pointer': isHovered || isCategorySelected,
+        'mr8': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
+        'ml8': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+        'mh6': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+>>>>>>> add Title component to reuse code
       }
     )
 
@@ -99,12 +117,12 @@ export default class CategoryItem extends Component {
   }
 
   renderChildren() {
-    const { category, subcategoryLevels, menuPosition } = this.props
-    const { isOnHover } = this.state
+    const { category, subcategoryLevels, menuDisposition } = this.props
+    const { isHovered } = this.state
 
     const containerStyle = {
       top: this.item && this.item.offsetTop + this.item.clientHeight,
-      display: isOnHover ? 'flex' : 'none',
+      display: isHovered ? 'flex' : 'none',
     }
 
     return subcategoryLevels > 0 && category.children.length > 0 && (
@@ -122,12 +140,9 @@ export default class CategoryItem extends Component {
 
   render() {
     return (
-      <li
-        className={`${categoryMenu.itemContainer} flex items-center db list`}
-        ref={e => {
-          this.item = e
-        }}
-        onMouseEnter={() => this.setState({ isOnHover: true })}
+      <li className={`${categoryMenu.itemContainer} flex items-center db list`}
+        ref={e => { this.item = e }}
+        onMouseEnter={() => this.setState({ isHovered: true })}
         onMouseLeave={this.handleCloseMenu}
       >
         {this.renderCategory()}
