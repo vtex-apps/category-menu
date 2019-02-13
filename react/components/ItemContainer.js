@@ -51,19 +51,19 @@ export default class ItemContainer extends Component {
     )
   }
 
-  renderLinkSecondLevel(subItem) {
+  renderLinkSecondLevel({name, params, slug}) {
     const { onCloseMenu, pageSecondLevel } = this.props
 
     return (
-      <li key={subItem.name} className="list pa0">
+      <li key={name} className="list pa0">
         <Link
           onClick={onCloseMenu}
           page={pageSecondLevel}
-          to={pageSecondLevel ? undefined : subItem.slug}
+          to={pageSecondLevel ? undefined : slug}
           className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
-          params={subItem.params}
+          params={params}
         >
-          {subItem.name.toUpperCase()}
+          {name.toUpperCase()}
         </Link>
       </li>
     )
@@ -71,8 +71,7 @@ export default class ItemContainer extends Component {
 
   shouldRenderSecondLevel({ children }) {
     const { showSecondLevel } = this.props
-
-    return children && children.length > 0 && showSecondLevel
+    return children && !!children.length && showSecondLevel
   }
 
   renderChildren(item) {
@@ -82,7 +81,12 @@ export default class ItemContainer extends Component {
   }
 
   render() {
-    const { containerStyle, items, menuDisposition } = this.props
+    const { items, menuPosition, containerRef, isShowing } = this.props
+
+    const containerStyle = {
+      top: containerRef && containerRef.offsetTop + containerRef.clientHeight,
+      display: isShowing ? 'flex' : 'none',
+    }
 
     const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
       'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
@@ -95,7 +99,7 @@ export default class ItemContainer extends Component {
       'pr0 pl7': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
     })
 
-    return (
+    return items && !!items.length && (
       <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
         <Container className="justify-center w-100 flex">
           <ul className={containerClasses}>

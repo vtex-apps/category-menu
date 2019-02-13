@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
 import { categoryItemShape } from '../propTypes'
 
+import ItemTitle from './ItemTitle'
 import ItemContainer from './ItemContainer'
-import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuPosition, {
+import {
   getMenuPositionValues,
 } from '../utils/categoryMenuPosition'
 
 /**
- * Component that represents a single category displayed in the menu, also displays
+ * Component that represents a single category displayed in the menu. also displays
  * the subcategories, if the provided category has them
  */
 export default class CategoryItem extends Component {
@@ -32,28 +31,7 @@ export default class CategoryItem extends Component {
     isCategorySelected: PropTypes.bool,
   }
 
-<<<<<<< HEAD
   handleCloseMenu = () => this.setState({ isOnHover: false })
-
-  renderCategory() {
-    const {
-      category: { name, slug },
-      noRedirect,
-      isCategorySelected,
-      menuPosition,
-    } = this.props
-    const { isOnHover } = this.state
-
-    const categoryClasses = classNames(
-      'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1',
-      {
-        'b--transparent': !isOnHover && !isCategorySelected,
-        'b--action-primary pointer': isOnHover || isCategorySelected,
-        mr8: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        ml8: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-        mh6: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-=======
-  handleCloseMenu = () => (this.setState({ isHovered: false }))
 
   renderCategory() {
     const { category: { name, slug }, noRedirect, isCategorySelected, menuDisposition } = this.props
@@ -68,7 +46,6 @@ export default class CategoryItem extends Component {
         'mr8': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
         'ml8': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
         'mh6': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
->>>>>>> add Title component to reuse code
       }
     )
 
@@ -107,46 +84,43 @@ export default class CategoryItem extends Component {
     return {...subCategory, params}
   }
 
-  toItems(category){
-    const { children, slug: itemSlug } = category
+  toItems(children, slug){
     return children.map(child => ({
       ...child,
-      children: child.children && child.children.map(subCategory => this.toSecondLevelChild(itemSlug, child, subCategory)),
-      params: this.paramsForChild(child, itemSlug),
+      children: child.children && child.children.map(subCategory => this.toSecondLevelChild(slug, child, subCategory)),
+      params: this.paramsForChild(child, slug),
     }))
   }
 
-  renderChildren() {
-    const { category, subcategoryLevels, menuDisposition } = this.props
-    const { isHovered } = this.state
-
-    const containerStyle = {
-      top: this.item && this.item.offsetTop + this.item.clientHeight,
-      display: isHovered ? 'flex' : 'none',
-    }
-
-    return subcategoryLevels > 0 && category.children.length > 0 && (
-      <ItemContainer
-        menuPosition={menuPosition}
-        containerStyle={containerStyle}
-        items={this.toItems(category)}
-        pageFirstLevel={category.slug ? 'store.search#category' : 'store.search#department'}
-        pageSecondLevel={category.slug ? 'store.search#subcategory' : 'store.search#category' }
-        onCloseMenu={this.handleCloseMenu}
-        showSecondLevel={subcategoryLevels === 2}
-      />
-    )
-  }
-
   render() {
+    const { category : { children, slug, name }, isCategorySelected, menuDisposition, subcategoryLevels } = this.props
+    const { isHovered } = this.state
     return (
       <li className={`${categoryMenu.itemContainer} flex items-center db list`}
         ref={e => { this.item = e }}
         onMouseEnter={() => this.setState({ isHovered: true })}
-        onMouseLeave={this.handleCloseMenu}
+        onMouseLeave={() => this.setState({ isHovered: false })}
       >
-        {this.renderCategory()}
-        {this.renderChildren()}
+        <ItemTitle
+            onClick={this.handleCloseMenu}
+            item={{name, params: { department: slug } }} 
+            page={"store.search#department"}
+            isSelected={isCategorySelected} 
+            showBorder={isHovered || isCategorySelected}
+            menuDisposition={menuDisposition}
+        />
+        {subcategoryLevels > 0 && (
+          <ItemContainer
+            menuDisposition={menuDisposition}
+            containerRef={this.item}
+            isShowing={isHovered}
+            items={this.toItems(children, slug)}
+            pageFirstLevel={slug ? 'store.search#category' : 'store.search#department'}
+            pageSecondLevel={slug ? 'store.search#subcategory' : 'store.search#category' }
+            onCloseMenu={this.handleCloseMenu}
+            showSecondLevel={subcategoryLevels === 2}
+          />
+        )}
       </li>
     )
   }
