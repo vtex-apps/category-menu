@@ -6,7 +6,7 @@ import { Container } from 'vtex.store-components'
 
 import PropTypes from 'prop-types'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
+import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMenuPosition'
 
 /**
  * Component responsible dor rendering an array of categories and its respective subcategories
@@ -21,22 +21,22 @@ export default class ItemContainer extends Component {
     onCloseMenu: PropTypes.func.isRequired,
     /** Whether to show second level links or not */
     showSecondLevel: PropTypes.bool,
-    /** Defines the disposition of the category menu */
-    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
+    /** Defines the position of the category menu */
+    menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
   }
 
   renderLinkFirstLevel(parentSlug, item) {
-    const { menuDisposition } = this.props
+    const { menuPosition } = this.props
     const params = {
       department: parentSlug || item.slug,
     }
 
     const firstLevelLinkClasses = classNames(`${categoryMenu.firstLevelLink} db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`, {
-      'pr4': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-      'pl4': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-      'ph4': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
+      'pr4': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'pl4': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      'ph4': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value
     })
 
     if (parentSlug) params.category = item.slug
@@ -55,7 +55,7 @@ export default class ItemContainer extends Component {
   }
 
   renderLinkSecondLevel(parentSlug, item, subItem) {
-    const { onCloseMenu, menuDisposition } = this.props
+    const { onCloseMenu, menuPosition } = this.props
 
     const params = {
       department: parentSlug || item.slug,
@@ -63,9 +63,9 @@ export default class ItemContainer extends Component {
     }
 
     const secondLevelLinkClasses = classNames(`${categoryMenu.secondLevelLink} db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`, {
-      'pr5': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-      'pl5': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-      'ph5': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value
+      'pr5': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'pl5': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      'ph5': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value
     })
 
     if (parentSlug) params.subcategory = subItem.slug
@@ -98,17 +98,17 @@ export default class ItemContainer extends Component {
   }
 
   render() {
-    const { containerStyle, categories, parentSlug, menuDisposition } = this.props
+    const { containerStyle, categories, parentSlug, menuPosition } = this.props
 
     const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
-      'justify-start': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-      'justify-end': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+      'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'justify-end': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      'justify-center': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
     })
 
     const columnItemClasses = classNames({
-      'pl0 pr7': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-      'pr0 pl7': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
+      'pl0 pr7': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'pr0 pl7': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
     })
 
     return (

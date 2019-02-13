@@ -6,7 +6,7 @@ import { categoryItemShape } from '../propTypes'
 import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
+import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMenuPosition'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -24,8 +24,8 @@ export default class CategoryItem extends Component {
     noRedirect: PropTypes.bool,
     /** Number of subcategory levels */
     subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
-    /** Defines the disposition of the category menu */
-    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
+    /** Defines the position of the category menu */
+    menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Menu category selection */
     isCategorySelected: PropTypes.bool,
   }
@@ -33,16 +33,16 @@ export default class CategoryItem extends Component {
   handleCloseMenu = () => (this.setState({ isOnHover: false }))
 
   renderCategory() {
-    const { category: { name, slug }, noRedirect, isCategorySelected, menuDisposition } = this.props
+    const { category: { name, slug }, noRedirect, isCategorySelected, menuPosition } = this.props
     const { isOnHover } = this.state
 
     const categoryClasses = classNames(
       'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
         'b--transparent': !isOnHover && !isCategorySelected,
         'b--action-primary pointer': isOnHover || isCategorySelected,
-        'mr8': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-        'ml8': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-        'mh6': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+        'mr8': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+        'ml8': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+        'mh6': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
       }
     )
 
@@ -63,7 +63,7 @@ export default class CategoryItem extends Component {
   }
 
   renderChildren() {
-    const { category, subcategoryLevels, menuDisposition } = this.props
+    const { category, subcategoryLevels, menuPosition } = this.props
     const { isOnHover } = this.state
 
     const containerStyle = {
@@ -73,7 +73,7 @@ export default class CategoryItem extends Component {
 
     return subcategoryLevels > 0 && category.children.length > 0 && (
       <ItemContainer
-        menuDisposition={menuDisposition}
+        menuPosition={menuPosition}
         containerStyle={containerStyle}
         categories={category.children}
         parentSlug={category.slug}

@@ -14,10 +14,10 @@ import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
-import categoryMenuDisposition, {
-  getMenuDispositionNames,
-  getMenuDispositionValues,
-} from './utils/categoryMenuDisposition'
+import categoryMenuPosition, {
+  getMenuPositionNames,
+  getMenuPositionValues,
+} from './utils/categoryMenuPosition'
 
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
@@ -41,8 +41,8 @@ class CategoryMenu extends Component {
     showAllDepartments: PropTypes.bool,
     /** Whether to show subcategories or not */
     showSubcategories: PropTypes.bool,
-    /** Defines the disposition of the category menu */
-    menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
+    /** Defines the position of the category menu */
+    menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
@@ -57,7 +57,7 @@ class CategoryMenu extends Component {
     mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
-    menuDisposition: categoryMenuDisposition.DISPLAY_CENTER.value,
+    menuPosition: categoryMenuPosition.DISPLAY_CENTER.value,
     departments: [],
   }
 
@@ -106,7 +106,7 @@ class CategoryMenu extends Component {
       intl,
       showAllDepartments,
       showSubcategories,
-      menuDisposition,
+      menuPosition,
       runtime,
     } = this.props
 
@@ -115,9 +115,9 @@ class CategoryMenu extends Component {
     const department = pathName ? pathName : ''
 
     const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
-      'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-      'justify-end mw9': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-      'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+      'justify-start mw9': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'justify-end mw9': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      'justify-center': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
     })
 
     return (
@@ -125,6 +125,7 @@ class CategoryMenu extends Component {
         <nav className={desktopClasses}>
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showAllDepartments &&
+<<<<<<< HEAD
               <CategoryItem
                 noRedirect
                 menuDisposition={menuDisposition}
@@ -134,11 +135,22 @@ class CategoryMenu extends Component {
                   name: intl.formatMessage({ id: 'category-menu.departments.title' }),
                 }}
               />
+=======
+            <CategoryItem
+              noRedirect
+              menuPosition={menuPosition}
+              subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+              category={{
+                children: categories,
+                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+              }}
+            />
+>>>>>>> Changing disposition to position
             }
             {this.departments.map((category) => (
               <Fragment key={category.id}>
                 <CategoryItem
-                  menuDisposition={menuDisposition}
+                  menuPosition={menuPosition}
                   category={category}
                   subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
                   isCategorySelected={department === category.slug}
@@ -177,12 +189,12 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       title: 'editor.category-menu.show-departments-category.title',
       default: CategoryMenu.defaultProps.showAllDepartments,
     },
-    menuDisposition: {
+    menuPosition: {
       title: 'editor.category-menu.disposition-type.title',
       type: 'string',
-      enum: getMenuDispositionValues(),
-      enumNames: getMenuDispositionNames(),
-      default: categoryMenuDisposition.DISPLAY_CENTER.value,
+      enum: getMenuPositionValues(),
+      enumNames: getMenuPositionNames(),
+      default: categoryMenuPosition.DISPLAY_CENTER.value,
       isLayout: true,
     },
     showSubcategories: {
