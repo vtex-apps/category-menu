@@ -72,7 +72,7 @@ Through the Storefront you can change the behavior and interface of `CategoryMen
 | `showPromotionCategory` | `Boolean`   | Shows the promotion category in menu               | false |
 | `showGiftCategory`     | `Boolean`  | Shows the gift category in menu                               | false|
 | `showAllDepartments`     | `Boolean`  | Shows all departments category in menu                              | true|
-| `menuDisposition`      | `Enum (left, center, right)`  | Indicates the disposition of the menu on the screen   | center|
+| `menuDisposition`      | `Enum`  | Indicates the disposition of the menu on the screen. Possible values: left, center, right   | center|
 | `showSubcategories`    | `Boolean`   | Decides if the subcategories will be displayed |true|
 | `departments` | `Array(items)`   | List of departments `items` to be displayed on the menu  | []|
 
