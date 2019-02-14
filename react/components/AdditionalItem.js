@@ -1,21 +1,25 @@
-import  React, { Fragment, Component } from 'react'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+
+import { itemPropType } from '../propTypes'
 
 import ChildrenContainer from './ChildrenContainer'
 import ItemTitle from './ItemTitle'
-import ItemContainer from './ItemContainer';
-export default ({ 
-  item, 
-  item: { children }, 
-  menuDisposition, 
-  isSelected 
+import ItemContainer from './ItemContainer'
+
+const AdditionalItem = ({
+  item,
+  item: { children },
+  menuDisposition,
+  isSelected,
 }) => (
   <ItemContainer>
-    {({isHovered, containerRef, setIsHovered }) => (
+    {({ isHovered, containerRef, setIsHovered }) => (
       <Fragment>
-        <ItemTitle 
+        <ItemTitle
           item={item}
-          menuDisposition={menuDisposition} 
-          isSelected={isSelected} 
+          menuDisposition={menuDisposition}
+          isSelected={isSelected}
           showBorder={isHovered}
         />
         <ChildrenContainer
@@ -30,3 +34,11 @@ export default ({
     )}
   </ItemContainer>
 )
+
+AdditionalItem.propTypes = {
+  item: itemPropType,
+  menuDisposition: PropTypes.string,
+  isSelected: PropTypes.bool,
+}
+
+export default AdditionalItem

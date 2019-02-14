@@ -1,13 +1,14 @@
 import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+
 import { Link } from 'vtex.render-runtime'
 
 import categoryMenuDisposition, {
   getMenuDispositionValues,
 } from '../utils/categoryMenuDisposition'
 
-import itemPropType from '../propTypes'
+import { itemPropType } from '../propTypes'
 
 const ItemTitle = ({ item: { name, slug, params }, page, showBorder, onClick, menuDisposition }) => {
   const classes = classNames(
@@ -37,11 +38,17 @@ const ItemTitle = ({ item: { name, slug, params }, page, showBorder, onClick, me
   )
 }
 
-ItemTitle.proptypes = {
-  item: itemPropType,
+ItemTitle.propTypes = {
+  item: itemPropType.isRequired,
+  /** Page to which the user will be redirected. If is null, the item slug will be used, if present*/
   page: PropTypes.string,
-  showBorder: PropTypes.boll,
+  /** Params to be used in the page that the user will be redirected, if page is specified */
+  params: PropTypes.object,
+  /** Indicates if the bottom border must be shown */
+  showBorder: PropTypes.bool,
+  /** Function to be called when this item is clicked. */
   onClick: PropTypes.function,
+  /** Indicates the disposition of the menu */
   menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
 }
 

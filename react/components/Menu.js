@@ -2,32 +2,32 @@ import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import { path } from 'ramda'
 import { injectIntl, intlShape } from 'react-intl'
-
-import { itemPropType } from '../propTypes'
+import PropTypes from 'prop-types'
 
 import { Container } from 'vtex.store-components'
 import { useRuntime } from 'vtex.render-runtime'
 
 import CategoryItem from './CategoryItem'
 import AdditionalItem from './AdditionalItem'
+import { itemPropType } from '../propTypes'
 
 import categoryMenu from '../categoryMenu.css'
 
-import categoryMenuDisposition from '../utils/categoryMenuDisposition'
+import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
 
 const Menu = ({
-    categories = [],
-    departments,
-    intl,
-    showAllDepartments,
-    subcategoryLevels,
-    menuDisposition,
-    additionalItems,
+  categories = [],
+  departments,
+  intl,
+  showAllDepartments,
+  subcategoryLevels,
+  menuDisposition,
+  additionalItems,
 }) => {
   const departamentPath = path(['route', 'params', 'department'], useRuntime())
   const fullPath = path(['route', 'path'], useRuntime())
 
-  const currentSlug = departamentPath ? departamentPath : fullPath
+  const currentSlug = departamentPath || fullPath
 
   const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
     'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
@@ -61,8 +61,8 @@ const Menu = ({
           ))}
           {additionalItems && additionalItems.map(item => (
             <Fragment key={item.slug ? item.slug : item.name}>
-              <AdditionalItem 
-                item={item} 
+              <AdditionalItem
+                item={item}
                 menuDisposition={menuDisposition}
                 isSelected={currentSlug && currentSlug.includes(item.slug) && item.slug !== '/'}
               />
@@ -74,13 +74,20 @@ const Menu = ({
   )
 }
 
-Menu.prototypes = {
-  categories: PropTypes.arrayOf(itemPropType),
+Menu.propTypes = {
+  /** Departments to be shown in menu */
   departments: PropTypes.arrayOf(itemPropType),
+  /** Categories to be shown in menu */
+  categories: PropTypes.arrayOf(itemPropType),
+  /** Intl to internationalize messages */
   intl: intlShape,
+  /** Indicates if the departments item must be shown */
   showAllDepartments: PropTypes.bool,
+  /** Number of the subcategory levels of the menu */
   subcategoryLevels: PropTypes.number,
-  menuDisposition: PropTypes.string,
+  /** Indicates the menu disposition */
+  menuDisposition: PropTypes.oneOf(getMenuDispositionValues),
+  /** Additional Items to be shown in menu */
   additionalItems: PropTypes.arrayOf(itemPropType),
 }
 

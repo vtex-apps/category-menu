@@ -6,6 +6,7 @@ import { Animation } from 'vtex.store-components'
 import { IconClose } from 'vtex.dreamstore-icons'
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
+import { itemPropType } from '../propTypes'
 
 const OPEN_SIDEBAR_CLASS = categoryMenu.sidebarOpen
 
@@ -21,6 +22,8 @@ export default class SideBar extends Component {
     visible: PropTypes.bool,
     /** Whether to show subcategories or not */
     showSubcategories: PropTypes.bool,
+    /** Additional items to be shown in sidebar */
+    additionalItems: itemPropType,
   }
 
   static defaultProps = {

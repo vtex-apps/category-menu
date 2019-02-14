@@ -49,6 +49,14 @@ class CategoryMenu extends Component {
         id: PropTypes.number,
       })
     ),
+    /** Additional items */
+    additionalItems: PropTypes.arrayOf(itemPropType),
+    /** Render runtime */
+    runtime: PropTypes.shape({
+      hints: PropTypes.shape({
+        mobile: PropTypes.bool,
+      }),
+    }),
   }
 
   static defaultProps = {
@@ -61,7 +69,6 @@ class CategoryMenu extends Component {
     additionalItems: [],
     departments: [],
   }
-
 
   state = {
     sideBarVisible: false,
@@ -118,7 +125,7 @@ class CategoryMenu extends Component {
       showAllDepartments,
       showSubcategories,
       menuDisposition,
-      
+      additionalItems,
     } = this.props
 
     return (
@@ -135,7 +142,7 @@ class CategoryMenu extends Component {
 
   render() {
     const {
-      runtime: { hints: { mobile }},
+      runtime: { hints: { mobile } },
     } = this.props
 
     return mobile ? this.renderSideBar() : this.renderMenu()

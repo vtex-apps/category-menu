@@ -2,9 +2,8 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
-import { Link } from 'vtex.render-runtime'
 
-import { withRuntimeContext } from 'vtex.render-runtime'
+import { Link, withRuntimeContext } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
 
 import categoryMenu from '../categoryMenu.css'
@@ -52,13 +51,13 @@ class SideBarItem extends Component {
   }
 
   navigate() {
-    const { onClose, linkValues, runtime, item : { slug } } = this.props
+    const { onClose, linkValues, runtime, item: { slug } } = this.props
     if (linkValues) {
       const [department, category, subcategory] = linkValues
-      const params = { 
-        department, 
+      const params = {
+        department,
         ...(category && { category: category }),
-        ...(subcategory && { subcategory: subcategory })
+        ...(subcategory && { subcategory: subcategory }),
       }
 
       const page = category? 
@@ -72,7 +71,7 @@ class SideBarItem extends Component {
       })
     } else {
       runtime.navigate({
-        to: slug
+        to: slug,
       })
     }
     onClose()
@@ -115,21 +114,21 @@ class SideBarItem extends Component {
       return {
         to: slug,
       }
-    } else {
-      const [department] = linkValues
-      const params = { department }
-      const page = 'store.search#department'
-      return {
-        page,
-        params,
-        fallbackToWindowLocation: false,
-      }
+    }
+    const [department] = linkValues
+    const params = { department }
+    const page = 'store.search#department'
+    return {
+      page,
+      params,
+      fallbackToWindowLocation: false,
     }
   }
 
   renderChildren() {
-    const { 
-      item: { children, slug },
+    const {
+      item: { children, slug, name},
+      item,
       runtime,
       linkValues,
       onClose,
@@ -137,19 +136,23 @@ class SideBarItem extends Component {
       showSubcategories,
     } = this.props
     const { open } = this.state
+    
     return this.showSubCategories && open && (
       <Fragment>
-        {(linkValues || slug ) && 
+        {(linkValues || slug) &&
           (<li className="pa5 pointer ma0 list"
             onClick={this.handleSeeAllClick}>
             <Link
-              className="db link no-underline outline-0 tl t-small truncate c-on-muted-3"
+              className="db link no-underline outline-0 tl t-small truncate c-muted-2"
               onClick={onClose}
               {...this.getLinkAllProps()}
             >
-              <FormattedMessage id="category-menu.all-category.title" >
-                {txt => <span className="pl4">{txt}</span>}
-              </FormattedMessage>
+              {linkValues 
+                ? <FormattedMessage id="category-menu.all-category.title" >
+                    {txt => <span className="pl4">{txt}</span>}
+                  </FormattedMessage>
+                : <span className="pl4">{name}</span>
+              }
             </Link>
           </li>)
         }

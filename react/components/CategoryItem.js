@@ -12,12 +12,11 @@ import ItemContainer from './ItemContainer'
  * the subcategories, if the provided category has them
  */
 const CategoryItem = ({
-  category : { children, slug, name },
+  category: { children, slug, name },
   isCategorySelected,
   menuDisposition,
-  subcategoryLevels
+  subcategoryLevels,
 }) => {
-
   const paramsForChild = (child, parentSlug) => {
     const params = {
       department: parentSlug || child.slug,
@@ -27,16 +26,16 @@ const CategoryItem = ({
   }
 
   const toSecondLevelChild = (itemSlug, child, subCategory) => {
-    const { slug : parentSlug } = child
+    const { slug: parentSlug } = child
     const { slug } = subCategory
-    
+
     const params = {
       department: itemSlug || parentSlug,
-      category : itemSlug ? parentSlug : slug,
+      category: itemSlug ? parentSlug : slug,
       ...(itemSlug && { subcategory: slug }),
     }
-  
-    return {...subCategory, params}
+
+    return { ...subCategory, params }
   }
 
   const toItems = (children, slug) => {
@@ -46,34 +45,34 @@ const CategoryItem = ({
       params: paramsForChild(child, slug),
     }))
   }
-  
+
   return (
     <ItemContainer key={name}>
       {({ isHovered, containerRef, setIsHovered }) => (
         <Fragment>
           <ItemTitle
-              onClick={() => setIsHovered(false)}
-              item={{name, params: { department: slug } }} 
-              page={"store.search#department"}
-              isSelected={isCategorySelected} 
-              showBorder={isHovered || isCategorySelected}
-              menuDisposition={menuDisposition}
+            onClick={() => setIsHovered(false)}
+            item={{ name, params: { department: slug } }}
+            page={'store.search#department'}
+            isSelected={isCategorySelected}
+            showBorder={isHovered || isCategorySelected}
+            menuDisposition={menuDisposition}
           />
           {subcategoryLevels > 0 && (
-              <ChildrenContainer
-                menuDisposition={menuDisposition}
-                containerRef={containerRef}
-                isShowing={isHovered}
-                items={toItems(children, slug)}
-                pageFirstLevel={slug ? 'store.search#category' : 'store.search#department'}
-                pageSecondLevel={slug ? 'store.search#subcategory' : 'store.search#category' }
-                onCloseMenu={() => setIsHovered(false)}
-                showSecondLevel={subcategoryLevels === 2}
-              />
-            )
+            <ChildrenContainer
+              menuDisposition={menuDisposition}
+              containerRef={containerRef}
+              isShowing={isHovered}
+              items={toItems(children, slug)}
+              pageFirstLevel={slug ? 'store.search#category' : 'store.search#department'}
+              pageSecondLevel={slug ? 'store.search#subcategory' : 'store.search#category'}
+              onCloseMenu={() => setIsHovered(false)}
+              showSecondLevel={subcategoryLevels === 2}
+            />
+          )
           }
-          </Fragment>
-        )
+        </Fragment>
+      )
       }
     </ItemContainer>
   )
