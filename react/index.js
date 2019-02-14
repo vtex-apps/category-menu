@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.dreamstore-icons'
 import { withRuntimeContext } from 'vtex.render-runtime'
-import { compose, path } from 'ramda'
-import classNames from 'classnames'
-import { Container } from 'vtex.store-components'
+import { compose } from 'ramda'
 
-import CategoryItem from './components/CategoryItem'
-import AdditionalItem from './components/AdditionalItem'
 import SideBar from './components/SideBar'
+import Menu from './components/Menu'
 import { itemPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
@@ -65,6 +62,7 @@ class CategoryMenu extends Component {
     departments: [],
   }
 
+
   state = {
     sideBarVisible: false,
   }
@@ -117,79 +115,30 @@ class CategoryMenu extends Component {
   renderMenu() {
     const {
       data: { categories = [] },
-      intl,
       showAllDepartments,
       showSubcategories,
-      menuPosition,
-      runtime,
-      additionalItems,
+      menuDisposition,
+      
     } = this.props
 
-    const departamentPath = path(['route', 'params', 'department'], runtime)
-    const fullPath = path(['route', 'path'], runtime)
-
-    const currentSlug = departamentPath ? departamentPath : fullPath
-
-    const desktopClasses = classNames(
-      `${categoryMenu.container} w-100 bg-base dn flex-m`,
-      {
-        'justify-start':
-          menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        'justify-end':
-          menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-        'justify-center':
-          menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-      }
-    )
-
     return (
-      <nav className={desktopClasses}>
-        <Container className="justify-center flex">
-          <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-            {showAllDepartments && (
-              <CategoryItem
-                noRedirect
-                menuPosition={menuPosition}
-                subcategoryLevels={
-                  DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
-                }
-                category={{
-                  children: categories,
-                  name: intl.formatMessage({
-                    id: 'category-menu.departments.title',
-                  }),
-                }}
-              />
-            )}
-            {this.departments.map(category => (
-              <Fragment key={category.id}>
-                <CategoryItem
-                  menuPosition={menuPosition}
-                  category={category}
-                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
-                  isCategorySelected={currentSlug === category.slug}
-                />
-              </Fragment>
-            ))}
-            {additionalItems && additionalItems.map(item => (
-              <Fragment key={item.id}>
-                <AdditionalItem 
-                  item={item} 
-                  menuDisposition={menuDisposition}
-                  isSelected={currentSlug && currentSlug.includes(item.slug) && item.slug !== '/'}
-                />
-              </Fragment>
-            ))}
-          </ul>
-        </Container>
-      </nav>
+      <Menu
+        categories={categories}
+        showAllDepartments={showAllDepartments}
+        menuDisposition={menuDisposition}
+        subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+        departments={this.departments}
+        additionalItems={additionalItems}
+      />
     )
   }
 
   render() {
-    const { mobileMode } = this.props
+    const {
+      runtime: { hints: { mobile }},
+    } = this.props
 
-    return mobileMode ? this.renderSideBar() : this.renderMenu()
+    return mobile ? this.renderSideBar() : this.renderMenu()
   }
 }
 

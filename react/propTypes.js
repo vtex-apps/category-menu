@@ -7,7 +7,7 @@ function lazyFunction(f) {
 }
 
 export const itemPropType = PropTypes.shape({
-  id: PropTypes.number.isRequired,
+  id: PropTypes.number,
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   params: PropTypes.object,
