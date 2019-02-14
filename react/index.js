@@ -125,17 +125,6 @@ class CategoryMenu extends Component {
         <nav className={desktopClasses}>
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showAllDepartments &&
-<<<<<<< HEAD
-              <CategoryItem
-                noRedirect
-                menuDisposition={menuDisposition}
-                subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
-                category={{
-                  children: categories,
-                  name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-                }}
-              />
-=======
             <CategoryItem
               noRedirect
               menuPosition={menuPosition}
@@ -145,7 +134,6 @@ class CategoryMenu extends Component {
                 name: intl.formatMessage({ id: 'category-menu.departments.title' }),
               }}
             />
->>>>>>> Changing disposition to position
             }
             {this.departments.map((category) => (
               <Fragment key={category.id}>
