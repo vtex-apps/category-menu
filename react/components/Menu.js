@@ -86,7 +86,7 @@ Menu.propTypes = {
   /** Number of the subcategory levels of the menu */
   subcategoryLevels: PropTypes.number,
   /** Indicates the menu disposition */
-  menuDisposition: PropTypes.oneOf(getMenuDispositionValues),
+  menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
   /** Additional Items to be shown in menu */
   additionalItems: PropTypes.arrayOf(itemPropType),
 }

@@ -35,7 +35,7 @@ const CategoryItem = ({
       ...(itemSlug && { subcategory: slug }),
     }
 
-    return { ...subCategory, params }
+    return { ...subCategory, params, page: itemSlug ? 'store.search#subcategory' : 'store.search#category'}
   }
 
   const toItems = (children, slug) => {
@@ -43,11 +43,12 @@ const CategoryItem = ({
       ...child,
       children: child.children && child.children.map(subCategory => toSecondLevelChild(slug, child, subCategory)),
       params: paramsForChild(child, slug),
+      page: slug ? 'store.search#category' : 'store.search#department',
     }))
   }
 
   return (
-    <ItemContainer key={name}>
+    <ItemContainer itemKey={name}>
       {({ isHovered, containerRef, setIsHovered }) => (
         <Fragment>
           <ItemTitle
@@ -64,8 +65,6 @@ const CategoryItem = ({
               containerRef={containerRef}
               isShowing={isHovered}
               items={toItems(children, slug)}
-              pageFirstLevel={slug ? 'store.search#category' : 'store.search#department'}
-              pageSecondLevel={slug ? 'store.search#subcategory' : 'store.search#category'}
               onCloseMenu={() => setIsHovered(false)}
               showSecondLevel={subcategoryLevels === 2}
             />

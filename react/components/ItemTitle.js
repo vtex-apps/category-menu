@@ -47,7 +47,7 @@ ItemTitle.propTypes = {
   /** Indicates if the bottom border must be shown */
   showBorder: PropTypes.bool,
   /** Function to be called when this item is clicked. */
-  onClick: PropTypes.function,
+  onClick: PropTypes.func,
   /** Indicates the disposition of the menu */
   menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
 }

@@ -74,13 +74,24 @@ Through the Storefront you can change the behavior and interface of `CategoryMen
 | `showAllDepartments`     | `Boolean`  | Shows all departments category in menu                              | true|
 | `menuDisposition`      | `Enum`  | Indicates the disposition of the menu on the screen. Possible values: left, center, right   | center|
 | `showSubcategories`    | `Boolean`   | Decides if the subcategories will be displayed |true|
-| `departments` | `Array(items)`   | List of departments `items` to be displayed on the menu  | []|
+| `departments` | `Array(Department)`   | List of `department` to be displayed in the menu  | []|
+| `additionalItems` | `Array(Item)` | List of `item` to be displayed in the menu | [] |
 
-Items:
+Department:
 
 | Prop name          | Type       | Description                                                                 |
 | ------------------ | ---------- | --------------------------------------------------------------------------- |
-| `id`                      | `Number`   | The department Id to be displayed on the menu               |
+| `id` | `Number` | The department id |
+
+Item:
+
+| Prop name          | Type       | Description                                                                 |
+| ------------------ | ---------- | --------------------------------------------------------------------------- |
+| `name` | `String` | The name of the item |
+| `slug` | `String` | The slug of the item. It must describe the relative path of the item, considering the root of the store.|
+| `page` | `String` | The page to which the item will redirect. Can be used in conjunction with params to redirect to a search
+| `params` | `Object` | The params for the page of this item. Must be undefined if no page is defined for the item
+| `children` | `Array(item)` | The children of this item. There can be at most 2 levels of children above an item. It means that if one item has one child (lets call it A), and  A has a child B, and B has a child C, the children of C won't be considered.|
 
 ### Styles API
 

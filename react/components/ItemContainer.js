@@ -8,7 +8,7 @@ export default class ItemContainer extends Component {
     /** Function to render children */
     children: PropTypes.func.isRequired,
     /** Key to be used in container */
-    key: PropTypes.string.isRequired,
+    itemKey: PropTypes.string.isRequired,
   }
 
   state = { isHovered: false }
@@ -16,12 +16,12 @@ export default class ItemContainer extends Component {
   setIsHovered = isHovered => this.setState({ isHovered })
 
   render() {
-    const { children, key } = this.props
+    const { children, itemKey } = this.props
     const { isHovered } = this.state
 
     return (
-      <li className={`${categoryMenu.itemContainer} flex items-center db list`} key={key}
-        ref={e => { this.containerRef = e }}
+      <li className={`${categoryMenu.itemContainer} flex items-center db list`} key={itemKey}
+        ref={e => this.containerRef = e}
         onMouseEnter={() => this.setState({ isHovered: true })}
         onMouseLeave={() => this.setState({ isHovered: false })}
       >

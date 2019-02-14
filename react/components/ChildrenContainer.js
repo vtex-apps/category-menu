@@ -11,7 +11,7 @@ import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/cate
 /**
  * Component responsible dor rendering an array of categories and its respective subcategories
  */
-export default class ChilrenContainer extends Component {
+export default class ChildrenContainer extends Component {
   static propTypes = {
     /** Category to be displayed */
     items: PropTypes.arrayOf(itemPropType).isRequired,
@@ -22,30 +22,24 @@ export default class ChilrenContainer extends Component {
     /** Indicates if the children must be shown */
     isShowing: PropTypes.bool,
     /** Ref to the parent container. Used to position the children below it */
-    containerRef: PropTypes.elementType,
+    containerRef: PropTypes.object,
     /** Whether to show second level links or not */
     showSecondLevel: PropTypes.bool,
     /** Defines the disposition of the category menu */
     menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
     /** Custom styles to item container */
     containerStyle: PropTypes.object,
-    /** Page to be used in first level items. If your item is a search, this variable must be defined so as the param in each one of the items.
-     *  Otherwise each item must have a slug that describe the item path relative to the host. */
-    pageFirstLevel: PropTypes.string,
-    /** Page to be used in second level items. If your item is a search, this variable must be defined so as the param in each one of the items.
-     *  Otherwise each item must have a slug that describe the item path relative to the host. */
-    pageSecondLevel: PropTypes.string,
   }
 
-  renderLinkFirstLevel({ name, params, slug }) {
-    const { pageFirstLevel, onCloseMenu } = this.props
+  renderLinkFirstLevel({ name, params, slug, page }) {
+    const { onCloseMenu } = this.props
 
     return (
       <li className="list pa0">
         <Link
           onClick={onCloseMenu}
-          page={pageFirstLevel}
-          to={pageFirstLevel ? undefined : slug}
+          page={page}
+          to={page ? undefined : slug}
           className={`${categoryMenu.linkLevel2} db link no-underline pa4 outline-0 tl t-small truncate c-on-base underline-hover`}
           params={params}
         >
@@ -55,15 +49,15 @@ export default class ChilrenContainer extends Component {
     )
   }
 
-  renderLinkSecondLevel({ name, params, slug }) {
-    const { onCloseMenu, pageSecondLevel } = this.props
+  renderLinkSecondLevel({ name, params, slug, page }) {
+    const { onCloseMenu } = this.props
 
     return (
       <li key={name} className="list pa0">
         <Link
           onClick={onCloseMenu}
-          page={pageSecondLevel}
-          to={pageSecondLevel ? undefined : slug}
+          page={page}
+          to={page ? undefined : slug}
           className={`${categoryMenu.linkLevel3} db pa3 ph5 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`}
           params={params}
         >
