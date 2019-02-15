@@ -1,6 +1,6 @@
 import { values, pluck } from 'ramda'
 
-const categoryMenuDisposition = {
+const categoryMenuPosition = {
   DISPLAY_CENTER: {
     name: 'editor.category-menu.disposition-type.center',
     value: 'center',
@@ -15,12 +15,12 @@ const categoryMenuDisposition = {
   },
 }
 
-export function getMenuDispositionNames() {
-  return pluck('name', values(categoryMenuDisposition))
+export function getMenuPositionNames() {
+  return pluck('name', values(categoryMenuPosition))
 }
 
-export function getMenuDispositionValues() {
-  return pluck('value', values(categoryMenuDisposition))
+export function getMenuPositionValues() {
+  return pluck('value', values(categoryMenuPosition))
 }
 
-export default categoryMenuDisposition
+export default categoryMenuPosition
