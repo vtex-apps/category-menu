@@ -6,7 +6,9 @@ import { Container } from 'vtex.store-components'
 
 import PropTypes from 'prop-types'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMenuPosition'
+import categoryMenuPosition, {
+  getMenuPositionValues,
+} from '../utils/categoryMenuPosition'
 
 /**
  * Component responsible dor rendering an array of categories and its respective subcategories
@@ -33,18 +35,25 @@ export default class ItemContainer extends Component {
       department: parentSlug || item.slug,
     }
 
-    const firstLevelLinkClasses = classNames(`${categoryMenu.firstLevelLink} db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`, {
-      'pr4': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'pl4': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'ph4': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value
-    })
+    const firstLevelLinkClasses = classNames(
+      `${
+        categoryMenu.firstLevelLink
+      } db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`,
+      {
+        pr4: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+        pl4: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+        ph4: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+      }
+    )
 
     if (parentSlug) params.category = item.slug
     return (
       <li className="list pa0">
         <Link
           onClick={this.props.onCloseMenu}
-          page={parentSlug ? 'store.search#category' : 'store.search#department'}
+          page={
+            parentSlug ? 'store.search#category' : 'store.search#department'
+          }
           className={firstLevelLinkClasses}
           params={params}
         >
@@ -62,18 +71,25 @@ export default class ItemContainer extends Component {
       category: parentSlug ? item.slug : subItem.slug,
     }
 
-    const secondLevelLinkClasses = classNames(`${categoryMenu.secondLevelLink} db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`, {
-      'pr5': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'pl5': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'ph5': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value
-    })
+    const secondLevelLinkClasses = classNames(
+      `${
+        categoryMenu.secondLevelLink
+      } db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`,
+      {
+        pr5: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+        pl5: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+        ph5: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+      }
+    )
 
     if (parentSlug) params.subcategory = subItem.slug
     return (
       <li key={subItem.id} className="list pa0">
         <Link
           onClick={onCloseMenu}
-          page={parentSlug ? 'store.search#subcategory' : 'store.search#category'}
+          page={
+            parentSlug ? 'store.search#subcategory' : 'store.search#category'
+          }
           className={secondLevelLinkClasses}
           params={params}
         >
@@ -92,8 +108,11 @@ export default class ItemContainer extends Component {
 
   renderChildren(category) {
     const { parentSlug } = this.props
-    return this.shouldRenderSecondLevel(category) && category.children.map(subCategory =>
-      this.renderLinkSecondLevel(parentSlug, category, subCategory)
+    return (
+      this.shouldRenderSecondLevel(category) &&
+      category.children.map(subCategory =>
+        this.renderLinkSecondLevel(parentSlug, category, subCategory)
+      )
     )
   }
 
@@ -103,7 +122,8 @@ export default class ItemContainer extends Component {
     const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
       'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
       'justify-end': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'justify-center': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+      'justify-center':
+        menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
     })
 
     const columnItemClasses = classNames({
@@ -112,7 +132,12 @@ export default class ItemContainer extends Component {
     })
 
     return (
-      <div className={`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`} style={containerStyle}>
+      <div
+        className={`${
+          categoryMenu.itemContainer
+        } absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`}
+        style={containerStyle}
+      >
         <Container className="justify-center w-100 flex">
           <ul className={containerClasses}>
             {categories.map(category => (

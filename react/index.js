@@ -46,9 +46,11 @@ class CategoryMenu extends Component {
     /** Intl */
     intl: intlShape,
     /** Departments to be shown in the desktop mode. */
-    departments: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-    })),
+    departments: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+      })
+    ),
   }
 
   static defaultProps = {
@@ -70,29 +72,34 @@ class CategoryMenu extends Component {
   }
 
   get departments() {
-    const { data: { categories = [] }, departments } = this.props
+    const {
+      data: { categories = [] },
+      departments,
+    } = this.props
     const departmentsIds = departments.map(dept => dept.id)
-    const departmentsSelected = categories.filter(category => departmentsIds.includes(category.id))
+    const departmentsSelected = categories.filter(category =>
+      departmentsIds.includes(category.id)
+    )
 
     return (departmentsSelected.length && departmentsSelected) || categories
   }
 
   renderSideBar() {
-    const {
-      intl,
-      showSubcategories,
-    } = this.props
+    const { intl, showSubcategories } = this.props
 
     const { sideBarVisible } = this.state
 
     return (
-      <div className={`${categoryMenu.sidebarContainer} ${categoryMenu.mobile}`}>
+      <div
+        className={`${categoryMenu.sidebarContainer} ${categoryMenu.mobile}`}
+      >
         <SideBar
           visible={sideBarVisible}
           title={intl.formatMessage({ id: 'category-menu.departments.title' })}
           departments={this.departments}
           onClose={this.handleSidebarToggle}
-          showSubcategories={showSubcategories} />
+          showSubcategories={showSubcategories}
+        />
         <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
           <IconMenu size={20} />
         </div>
@@ -114,33 +121,48 @@ class CategoryMenu extends Component {
 
     const department = pathName ? pathName : ''
 
-    const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
-      'justify-start mw9': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'justify-end mw9': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'justify-center': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-    })
+    const desktopClasses = classNames(
+      `${categoryMenu.container} w-100 bg-base dn flex-m`,
+      {
+        'justify-start mw9':
+          menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+        'justify-end mw9':
+          menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+        'justify-center':
+          menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+      }
+    )
 
     return (
-      <Container className="justify-center flex">
+      <Container
+        className="justify-center flex"
+        style={{ overflow: 'overlay' }}
+      >
         <nav className={desktopClasses}>
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-            {showAllDepartments &&
-            <CategoryItem
-              noRedirect
-              menuPosition={menuPosition}
-              subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
-              category={{
-                children: categories,
-                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
-              }}
-            />
-            }
-            {this.departments.map((category) => (
+            {showAllDepartments && (
+              <CategoryItem
+                noRedirect
+                menuPosition={menuPosition}
+                subcategoryLevels={
+                  DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
+                }
+                category={{
+                  children: categories,
+                  name: intl.formatMessage({
+                    id: 'category-menu.departments.title',
+                  }),
+                }}
+              />
+            )}
+            {this.departments.map(category => (
               <Fragment key={category.id}>
                 <CategoryItem
                   menuPosition={menuPosition}
                   category={category}
-                  subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
+                  subcategoryLevels={
+                    DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
+                  }
                   isCategorySelected={department === category.slug}
                 />
               </Fragment>
@@ -152,9 +174,7 @@ class CategoryMenu extends Component {
   }
 
   render() {
-    const {
-      mobileMode,
-    } = this.props
+    const { mobileMode } = this.props
 
     return mobileMode ? this.renderSideBar() : this.renderMenu()
   }
@@ -213,4 +233,7 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
   },
 }
 
-export default compose(graphql(getCategories), withRuntimeContext)(CategoryMenuWithIntl)
+export default compose(
+  graphql(getCategories),
+  withRuntimeContext
+)(CategoryMenuWithIntl)

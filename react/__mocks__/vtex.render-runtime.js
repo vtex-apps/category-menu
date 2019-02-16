@@ -11,12 +11,19 @@ export class NoSSR extends Component {
   }
 }
 
-export function Link({ params, className, children }) { // eslint-disable-line react/prop-types
+export function Link({ params, className, children }) {
+  // eslint-disable-line react/prop-types
   return (
-    <a className={className} href={`/${params.department}/s`}>{children}</a>
+    <a className={className} href={`/${params.department}/s`}>
+      {children}
+    </a>
   )
 }
 
-export const withRuntimeContext = (component) => (<component runtime={{
-  navigate: () => {},
-}} />)
+export const withRuntimeContext = component => (
+  <component
+    runtime={{
+      navigate: () => {},
+    }}
+  />
+)

@@ -26,7 +26,7 @@ export default class SideBar extends Component {
   static defaultProps = {
     title: 'Departments',
     departments: [],
-    onClose: () => { },
+    onClose: () => {},
   }
 
   updateComponent() {
@@ -56,9 +56,14 @@ export default class SideBar extends Component {
   render() {
     const { visible, onClose, showSubcategories, departments } = this.props
 
-    const scrimClasses = classNames(`${categoryMenu.sidebarScrim} fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40`, {
-      dn: !visible,
-    })
+    const scrimClasses = classNames(
+      `${
+        categoryMenu.sidebarScrim
+      } fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40`,
+      {
+        dn: !visible,
+      }
+    )
 
     return (
       <Fragment>
@@ -68,9 +73,15 @@ export default class SideBar extends Component {
           type="drawerRight"
           className={`${categoryMenu.animation} fixed w-80 top-0 z-max`}
         >
-          <aside className={`${categoryMenu.sidebar} w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}>
+          <aside
+            className={`${
+              categoryMenu.sidebar
+            } w-100 bg-base z-max vh-100 shadow-5 overflow-scroll`}
+          >
             <div
-              className={`${categoryMenu.sidebarHeader} flex justify-between items-center pa5 pointer`}
+              className={`${
+                categoryMenu.sidebarHeader
+              } flex justify-between items-center pa5 pointer`}
               onClick={onClose}
             >
               <IconClose size={24} activeClassName="c-muted-1" />

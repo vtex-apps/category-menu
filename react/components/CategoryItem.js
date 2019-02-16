@@ -6,7 +6,9 @@ import { categoryItemShape } from '../propTypes'
 import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
 import categoryMenu from '../categoryMenu.css'
-import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMenuPosition'
+import categoryMenuPosition, {
+  getMenuPositionValues,
+} from '../utils/categoryMenuPosition'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -30,26 +32,30 @@ export default class CategoryItem extends Component {
     isCategorySelected: PropTypes.bool,
   }
 
-  handleCloseMenu = () => (this.setState({ isOnHover: false }))
+  handleCloseMenu = () => this.setState({ isOnHover: false })
 
   renderCategory() {
-    const { category: { name, slug }, noRedirect, isCategorySelected, menuPosition } = this.props
+    const {
+      category: { name, slug },
+      noRedirect,
+      isCategorySelected,
+      menuPosition,
+    } = this.props
     const { isOnHover } = this.state
 
     const categoryClasses = classNames(
-      'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
+      'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1',
+      {
         'b--transparent': !isOnHover && !isCategorySelected,
         'b--action-primary pointer': isOnHover || isCategorySelected,
-        'mr8': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        'ml8': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-        'mh6': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+        mr8: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+        ml8: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+        mh6: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
       }
     )
 
     return noRedirect ? (
-      <span className={categoryClasses}>
-        {name.toUpperCase()}
-      </span>
+      <span className={categoryClasses}>{name.toUpperCase()}</span>
     ) : (
       <Link
         onClick={this.handleCloseMenu}
@@ -71,22 +77,28 @@ export default class CategoryItem extends Component {
       display: isOnHover ? 'flex' : 'none',
     }
 
-    return subcategoryLevels > 0 && category.children.length > 0 && (
-      <ItemContainer
-        menuPosition={menuPosition}
-        containerStyle={containerStyle}
-        categories={category.children}
-        parentSlug={category.slug}
-        onCloseMenu={this.handleCloseMenu}
-        showSecondLevel={subcategoryLevels === 2}
-      />
+    return (
+      subcategoryLevels > 0 &&
+      category.children.length > 0 && (
+        <ItemContainer
+          menuPosition={menuPosition}
+          containerStyle={containerStyle}
+          categories={category.children}
+          parentSlug={category.slug}
+          onCloseMenu={this.handleCloseMenu}
+          showSecondLevel={subcategoryLevels === 2}
+        />
+      )
     )
   }
 
   render() {
     return (
-      <li className={`${categoryMenu.itemContainer} flex items-center db list`}
-        ref={e => { this.item = e }}
+      <li
+        className={`${categoryMenu.itemContainer} flex items-center db list`}
+        ref={e => {
+          this.item = e
+        }}
         onMouseEnter={() => this.setState({ isOnHover: true })}
         onMouseLeave={this.handleCloseMenu}
       >
