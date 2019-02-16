@@ -13,7 +13,7 @@ import { itemPropType } from '../propTypes'
 
 import categoryMenu from '../categoryMenu.css'
 
-import categoryMenuDisposition, { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
+import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMenuPosition'
 
 const Menu = ({
   categories = [],
@@ -21,7 +21,7 @@ const Menu = ({
   intl,
   showAllDepartments,
   subcategoryLevels,
-  menuDisposition,
+  menuPosition,
   additionalItems,
 }) => {
   const departamentPath = path(['route', 'params', 'department'], useRuntime())
@@ -30,9 +30,9 @@ const Menu = ({
   const currentSlug = departamentPath || fullPath
 
   const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
-    'justify-start mw9': menuDisposition === categoryMenuDisposition.DISPLAY_LEFT.value,
-    'justify-end mw9': menuDisposition === categoryMenuDisposition.DISPLAY_RIGHT.value,
-    'justify-center': menuDisposition === categoryMenuDisposition.DISPLAY_CENTER.value,
+    'justify-start mw9': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+    'justify-end mw9': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+    'justify-center': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
   })
 
   return (
@@ -41,7 +41,7 @@ const Menu = ({
         <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
           {showAllDepartments &&
             <CategoryItem
-              menuDisposition={menuDisposition}
+              menuPosition={menuPosition}
               subcategoryLevels={subcategoryLevels}
               category={{
                 children: categories,
@@ -52,7 +52,7 @@ const Menu = ({
           {departments.map(category => (
             <Fragment key={category.id}>
               <CategoryItem
-                menuDisposition={menuDisposition}
+                menuPosition={menuPosition}
                 category={category}
                 subcategoryLevels={subcategoryLevels}
                 isCategorySelected={currentSlug === category.slug}
@@ -63,7 +63,7 @@ const Menu = ({
             <Fragment key={item.slug ? item.slug : item.name}>
               <AdditionalItem
                 item={item}
-                menuDisposition={menuDisposition}
+                menuPosition={menuPosition}
                 isSelected={currentSlug && currentSlug.includes(item.slug) && item.slug !== '/'}
               />
             </Fragment>
@@ -85,8 +85,8 @@ Menu.propTypes = {
   showAllDepartments: PropTypes.bool,
   /** Number of the subcategory levels of the menu */
   subcategoryLevels: PropTypes.number,
-  /** Indicates the menu disposition */
-  menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
+  /** Indicates the menu position */
+  menuPosition: PropTypes.oneOf(getMenuPositionValues()),
   /** Additional Items to be shown in menu */
   additionalItems: PropTypes.arrayOf(itemPropType),
 }

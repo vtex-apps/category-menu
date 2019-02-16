@@ -47,7 +47,7 @@ Now, you can change the behavior of the `category-menu` block that is in the sto
       "showGiftCategory": true,
       "showAllDepartments": true,
       "showSubcategories": true,
-      "menuDisposition": "center",
+      "menuPosition": "center",
       "departments": []
     }
   }
@@ -72,7 +72,7 @@ Through the Storefront you can change the behavior and interface of `CategoryMen
 | `showPromotionCategory` | `Boolean`   | Shows the promotion category in menu               | false |
 | `showGiftCategory`     | `Boolean`  | Shows the gift category in menu                               | false|
 | `showAllDepartments`     | `Boolean`  | Shows all departments category in menu                              | true|
-| `menuDisposition`      | `Enum`  | Indicates the disposition of the menu on the screen. Possible values: left, center, right   | center|
+| `menuPosition`      | `Enum`  | Indicates the position of the menu on the screen. Possible values: left, center, right   | center|
 | `showSubcategories`    | `Boolean`   | Decides if the subcategories will be displayed |true|
 | `departments` | `Array(Department)`   | List of `department` to be displayed in the menu  | []|
 | `additionalItems` | `Array(Item)` | List of `item` to be displayed in the menu | [] |

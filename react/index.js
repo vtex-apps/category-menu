@@ -65,7 +65,7 @@ class CategoryMenu extends Component {
     mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
-    menuDisposition: categoryMenuDisposition.DISPLAY_LEFT.value,
+    menuPosition: categoryMenuPosition.DISPLAY_CENTER.value,
     additionalItems: [],
     departments: [],
   }
@@ -124,7 +124,7 @@ class CategoryMenu extends Component {
       data: { categories = [] },
       showAllDepartments,
       showSubcategories,
-      menuDisposition,
+      menuPosition,
       additionalItems,
     } = this.props
 
@@ -132,7 +132,7 @@ class CategoryMenu extends Component {
       <Menu
         categories={categories}
         showAllDepartments={showAllDepartments}
-        menuDisposition={menuDisposition}
+        menuPosition={menuPosition}
         subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
         departments={this.departments}
         additionalItems={additionalItems}
@@ -167,7 +167,7 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       default: CategoryMenu.defaultProps.showAllDepartments,
     },
     menuPosition: {
-      title: 'editor.category-menu.disposition-type.title',
+      title: 'editor.category-menu.position-type.title',
       type: 'string',
       enum: getMenuPositionValues(),
       enumNames: getMenuPositionNames(),

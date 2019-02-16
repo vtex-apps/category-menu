@@ -10,7 +10,7 @@ import ItemContainer from './ItemContainer'
 const AdditionalItem = ({
   item,
   item: { children, name },
-  menuDisposition,
+  menuPosition,
   isSelected,
 }) => (
   <ItemContainer itemKey={name}>
@@ -18,18 +18,20 @@ const AdditionalItem = ({
       <Fragment>
         <ItemTitle
           item={item}
-          menuDisposition={menuDisposition}
+          menuPosition={menuPosition}
           isSelected={isSelected}
           showBorder={isHovered}
         />
-        <ChildrenContainer
-          menuDisposition={menuDisposition}
-          containerRef={containerRef}
-          showSecondLevel={children.some(child => child.children && child.children.length > 0)}
-          items={children}
-          isShowing={isHovered}
-          onCloseMenu={() => setIsHovered(false)}
-        />
+        {children && children.length > 0 && 
+          <ChildrenContainer
+            menuPosition={menuPosition}
+            containerRef={containerRef}
+            showSecondLevel={children.some(child => child.children && child.children.length > 0)}
+            items={children}
+            isShowing={isHovered}
+            onCloseMenu={() => setIsHovered(false)}
+          />
+        }
       </Fragment>
     )}
   </ItemContainer>
@@ -37,7 +39,7 @@ const AdditionalItem = ({
 
 AdditionalItem.propTypes = {
   item: itemPropType,
-  menuDisposition: PropTypes.string,
+  menuPosition: PropTypes.string,
   isSelected: PropTypes.bool,
 }
 

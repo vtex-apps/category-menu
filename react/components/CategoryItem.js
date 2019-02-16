@@ -4,7 +4,7 @@ import { categoryItemShape } from '../propTypes'
 
 import ItemTitle from './ItemTitle'
 import ChildrenContainer from './ChildrenContainer'
-import { getMenuDispositionValues } from '../utils/categoryMenuDisposition'
+import { getMenuPositionValues } from '../utils/categoryMenuPosition'
 import ItemContainer from './ItemContainer'
 
 /**
@@ -14,7 +14,7 @@ import ItemContainer from './ItemContainer'
 const CategoryItem = ({
   category: { children, slug, name },
   isCategorySelected,
-  menuDisposition,
+  menuPosition,
   subcategoryLevels,
 }) => {
   const paramsForChild = (child, parentSlug) => {
@@ -53,15 +53,14 @@ const CategoryItem = ({
         <Fragment>
           <ItemTitle
             onClick={() => setIsHovered(false)}
-            item={{ name, params: { department: slug } }}
-            page={'store.search#department'}
+            item={{ name, ...(slug && { params: {department: slug } }), page:"store.search#department"}}
             isSelected={isCategorySelected}
             showBorder={isHovered || isCategorySelected}
-            menuDisposition={menuDisposition}
+            menuPosition={menuPosition}
           />
           {subcategoryLevels > 0 && (
             <ChildrenContainer
-              menuDisposition={menuDisposition}
+              menuPosition={menuPosition}
               containerRef={containerRef}
               isShowing={isHovered}
               items={toItems(children, slug)}
@@ -82,8 +81,8 @@ CategoryItem.propTypes = {
   category: categoryItemShape.isRequired,
   /** Number of subcategory levels */
   subcategoryLevels: PropTypes.oneOf([0, 1, 2]),
-  /** Defines the disposition of the category menu */
-  menuDisposition: PropTypes.oneOf(getMenuDispositionValues()),
+  /** Defines the position of the category menu */
+  menuPosition: PropTypes.oneOf(getMenuPositionValues()),
   /** Menu category selection */
   isCategorySelected: PropTypes.bool,
 }

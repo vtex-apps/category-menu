@@ -2,15 +2,15 @@ import { values, pluck } from 'ramda'
 
 const categoryMenuPosition = {
   DISPLAY_CENTER: {
-    name: 'editor.category-menu.disposition-type.center',
+    name: 'editor.category-menu.position-type.center',
     value: 'center',
   },
   DISPLAY_LEFT: {
-    name: 'editor.category-menu.disposition-type.left',
+    name: 'editor.category-menu.position-type.left',
     value: 'left',
   },
   DISPLAY_RIGHT: {
-    name: 'editor.category-menu.disposition-type.right',
+    name: 'editor.category-menu.position-type.right',
     value: 'right',
   },
 }

@@ -9,8 +9,8 @@
   "editor.category-menu.departments.items.title": "Department",
   "editor.category-menu.departments.items.id": "Department Id",
   "category-menu.all-category.title": "See All",
-  "editor.category-menu.disposition-type.title": "Menu position",
-  "editor.category-menu.disposition-type.center": "Middle",
-  "editor.category-menu.disposition-type.left": "Left",
-  "editor.category-menu.disposition-type.right": "Right"
+  "editor.category-menu.position-type.title": "Menu position",
+  "editor.category-menu.position-type.center": "Middle",
+  "editor.category-menu.position-type.left": "Left",
+  "editor.category-menu.position-type.right": "Right"
 }
