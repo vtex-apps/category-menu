@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.11.0] - 2019-02-15
 ### Fixed
-- Main overflow to allow any parent to component to fit and resize `category-menu` in a container.
+- Main overflow to allow any container to fit and resize `category-menu`.
 ### Added
-- Prettier for better codding style.
+- Prettier for better coding style.
 
 ## [2.10.5] - 2019-02-14
 ### Added
