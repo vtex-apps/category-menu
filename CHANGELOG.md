@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.11.1] - 2019-02-18
+
 ## [2.11.0] - 2019-02-15
 ### Fixed
 - Main overflow to allow any container to fit and resize `category-menu`.
