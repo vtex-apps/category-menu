@@ -90,20 +90,26 @@ class SideBarItem extends Component {
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
 
+    const sideBarContainerClasses = classNames(
+      categoryMenu.sidebarItemContainer,
+      'flex justify-between items-center pa5 pointer list ma0'      
+    )
     const sideBarItemTitleClasses = classNames('', {
       't-heading-4 lh-solid': treeLevel === 1,
     })
 
+    const sideBarSpanClasses = classNames(
+      treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
+    )
+
     return (
       <li
-        className={`${
-          categoryMenu.sidebarItemContainer
-        } flex justify-between items-center pa5 pointer list ma0`}
+        className={sideBarContainerClasses}
         onClick={this.handleItemClick}
       >
         <span className={sideBarItemTitleClasses}>{item.name}</span>
         {this.showSubCategories && (
-          <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
+          <span className={sideBarSpanClasses}>
             {isOpened ? <IconMinus size={16} /> : <IconPlus size={16} />}
           </span>
         )}
