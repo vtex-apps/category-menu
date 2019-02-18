@@ -13,7 +13,7 @@ const ChildLink = ({ item: { name, params, slug, page }, onClick, className}) =>
           className={className}
           params={params}
         >
-          {name.toUpperCase()}
+          {name}
         </Link>
       </li>
     )

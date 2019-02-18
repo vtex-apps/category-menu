@@ -12,7 +12,7 @@ import { itemPropType } from '../propTypes'
 
 const ItemTitle = ({ item: { name, slug, params, page }, showBorder, onClick, menuPosition }) => {
   const classes = classNames(
-    'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1', {
+    'w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
       'b--transparent': !showBorder,
       'b--action-primary pointer': showBorder,
       'mr8': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
@@ -29,11 +29,11 @@ const ItemTitle = ({ item: { name, slug, params, page }, showBorder, onClick, me
       params={params}
       className={classes}
     >
-      {name.toUpperCase()}
+      {name}
     </Link>
   ) : (
     <span className={classes}>
-      {name.toUpperCase()}
+      {name}
     </span>
   )
 }
