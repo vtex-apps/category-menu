@@ -8,7 +8,6 @@ import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
 
 import categoryMenu from '../categoryMenu.css'
 
-
 class SideBarItem extends Component {
   static propTypes = {
     /** Sidebar's item. */
@@ -36,7 +35,10 @@ class SideBarItem extends Component {
   }
 
   get showSubCategories() {
-    const { item: { children }, showSubcategories } = this.props
+    const {
+      item: { children },
+      showSubcategories,
+    } = this.props
     return showSubcategories && children && children.length > 0
   }
 
@@ -58,7 +60,9 @@ class SideBarItem extends Component {
     if (subcategory) params.subcategory = subcategory
 
     const page = category
-      ? (subcategory ? 'store.search#subcategory' : 'store.search#category')
+      ? subcategory
+        ? 'store.search#subcategory'
+        : 'store.search#category'
       : 'store.search#department'
 
     runtime.navigate({
@@ -86,63 +90,70 @@ class SideBarItem extends Component {
     const { item, treeLevel } = this.props
     const { open: isOpened } = this.state
 
+    const sideBarContainerClasses = classNames(
+      categoryMenu.sidebarItemContainer,
+      'flex justify-between items-center pa5 pointer list ma0'      
+    )
     const sideBarItemTitleClasses = classNames('', {
       't-heading-4 lh-solid': treeLevel === 1,
     })
 
+    const sideBarSpanClasses = classNames(
+      treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
+    )
+
     return (
-      <li className={`${categoryMenu.sidebarItemContainer} flex justify-between items-center pa5 pointer list ma0`}
+      <li
+        className={sideBarContainerClasses}
         onClick={this.handleItemClick}
       >
-        <span className={sideBarItemTitleClasses}>
-          {item.name}
-        </span>
-        {
-          this.showSubCategories && (
-            <span className={treeLevel === 1 ? 'c-on-base' : 'c-muted-3'}>
-              {isOpened
-                ? <IconMinus size={16} />
-                : <IconPlus size={16} />
-              }
-            </span>
-          )
-        }
+        <span className={sideBarItemTitleClasses}>{item.name}</span>
+        {this.showSubCategories && (
+          <span className={sideBarSpanClasses}>
+            {isOpened ? <IconMinus size={16} /> : <IconPlus size={16} />}
+          </span>
+        )}
       </li>
     )
   }
 
   renderChildren() {
-    const { 
+    const {
       item: { children },
       runtime,
-      linkValues, 
+      linkValues,
       onClose,
       treeLevel,
-      showSubcategories
+      showSubcategories,
     } = this.props
     const { open } = this.state
 
-    return this.showSubCategories && open && (
-      <Fragment>
-        <li className="pa5 pointer t-body c-muted-2 ma0 list"
-          onClick={this.handleDepartmentClick}>
-          <FormattedMessage id="category-menu.all-category.title" >
-            {txt => <span className="pl4">{txt}</span>}
-          </FormattedMessage>
-        </li>
-        {children.map(child => (
-          <li key={child.id} className="list ma0 pa0">
-            <SideBarItem
-              showSubcategories={showSubcategories}
-              item={child}
-              linkValues={[...linkValues, child.slug]}
-              onClose={onClose}
-              treeLevel={treeLevel + 1}
-              runtime={runtime}
-            />
+    return (
+      this.showSubCategories &&
+      open && (
+        <Fragment>
+          <li
+            className="pa5 pointer t-body c-muted-2 ma0 list"
+            onClick={this.handleDepartmentClick}
+          >
+            <FormattedMessage id="category-menu.all-category.title">
+              {txt => <span className="pl4">{txt}</span>}
+            </FormattedMessage>
           </li>
-        ))}
-      </Fragment>
+          {children.map(child => (
+            <li key={child.id} className="list ma0 pa0">
+              <SideBarItem
+                showSubcategories={showSubcategories}
+                item={child}
+                linkValues={[...linkValues, child.slug]}
+                onClose={onClose}
+                treeLevel={treeLevel + 1}
+                runtime={runtime}
+              />
+            </li>
+          ))}
+        </Fragment>
+      )
     )
   }
 
@@ -150,7 +161,8 @@ class SideBarItem extends Component {
     const { treeLevel } = this.props
 
     const sideBarItemClasses = classNames(
-      `${categoryMenu.sidebarItem} list pa0 ma0`, {
+      `${categoryMenu.sidebarItem} list pa0 ma0`,
+      {
         'c-muted-2 t-body pl4': treeLevel > 1,
         'c-on-base': treeLevel === 1,
       }
