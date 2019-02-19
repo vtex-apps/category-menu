@@ -20,10 +20,23 @@ export function Link({ params, className, children }) {
   )
 }
 
-export const withRuntimeContext = component => (
-  <component
-    runtime={{
-      navigate: () => {},
-    }}
-  />
-)
+export const withRuntimeContext = Wrapped => {
+  const WithRuntimeContext = (props) => (
+    <Wrapped
+      {...props}
+      runtime={{
+        navigate: () => {},
+        hints: { mobile: false }
+      }}
+    />
+  )
+
+  return WithRuntimeContext
+}
+
+export const useRuntime = () => {
+  return {
+    navigate: () => {},
+    hints: { mobile: false }
+  }
+}

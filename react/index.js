@@ -147,9 +147,7 @@ class CategoryMenu extends Component {
   }
 }
 
-export const CategoryMenuWithIntl = injectIntl(CategoryMenu)
-
-CategoryMenuWithIntl.schema = CategoryMenu.schema = {
+CategoryMenu.schema = CategoryMenu.schema = {
   title: 'editor.category-menu.title',
   description: 'editor.category-menu.description',
   type: 'object',
@@ -202,5 +200,6 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
 
 export default compose(
   graphql(getCategories),
-  withRuntimeContext
-)(CategoryMenuWithIntl)
+  withRuntimeContext,
+  injectIntl,
+)(CategoryMenu)
