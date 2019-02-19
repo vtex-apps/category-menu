@@ -134,7 +134,7 @@ class CategoryMenu extends Component {
     )
 
     return (
-      <Container className="justify-center flex overflow-hidden">
+      <Container className="justify-center flex">
         <nav className={desktopClasses}>
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showAllDepartments && (
