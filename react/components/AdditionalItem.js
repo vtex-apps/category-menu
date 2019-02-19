@@ -22,16 +22,18 @@ const AdditionalItem = ({
           isSelected={isSelected}
           showBorder={isHovered}
         />
-        {children && children.length > 0 && 
+        {children && children.length > 0 && (
           <ChildrenContainer
             menuPosition={menuPosition}
             containerRef={containerRef}
-            showSecondLevel={children.some(child => child.children && child.children.length > 0)}
+            showSecondLevel={children.some(
+              child => child.children && child.children.length > 0
+            )}
             items={children}
             isShowing={isHovered}
             onCloseMenu={() => setIsHovered(false)}
           />
-        }
+        )}
       </Fragment>
     )}
   </ItemContainer>

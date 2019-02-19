@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
 import { Animation } from 'vtex.store-components'
 import { IconClose } from 'vtex.dreamstore-icons'
+
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
 import { itemPropType } from '../propTypes'
@@ -58,7 +58,13 @@ export default class SideBar extends Component {
   }
 
   render() {
-    const { visible, onClose, showSubcategories, departments, additionalItems } = this.props
+    const {
+      visible,
+      onClose,
+      showSubcategories,
+      departments,
+      additionalItems,
+    } = this.props
 
     const scrimClasses = classNames(
       `${

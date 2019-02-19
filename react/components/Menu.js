@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { path } from 'ramda'
 import { injectIntl, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
-
 import { Container } from 'vtex.store-components'
 import { useRuntime } from 'vtex.render-runtime'
 
@@ -13,7 +12,9 @@ import { itemPropType } from '../propTypes'
 
 import categoryMenu from '../categoryMenu.css'
 
-import categoryMenuPosition, { getMenuPositionValues } from '../utils/categoryMenuPosition'
+import categoryMenuPosition, {
+  getMenuPositionValues,
+} from '../utils/categoryMenuPosition'
 
 const Menu = ({
   categories = [],
@@ -29,26 +30,34 @@ const Menu = ({
 
   const currentSlug = departamentPath || fullPath
 
-  const desktopClasses = classNames(`${categoryMenu.container} w-100 bg-base dn flex-m`, {
-    'justify-start mw9': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-    'justify-end mw9': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-    'justify-center': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-  })
+  const desktopClasses = classNames(
+    `${categoryMenu.container} w-100 bg-base dn flex-m`,
+    {
+      'justify-start mw9':
+        menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'justify-end mw9':
+        menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      'justify-center':
+        menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+    }
+  )
 
   return (
-    <Container className="justify-center flex">
+    <Container className="justify-center flex overflow-hidden">
       <nav className={desktopClasses}>
         <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-          {showAllDepartments &&
+          {showAllDepartments && (
             <CategoryItem
               menuPosition={menuPosition}
               subcategoryLevels={subcategoryLevels}
               category={{
                 children: categories,
-                name: intl.formatMessage({ id: 'category-menu.departments.title' }),
+                name: intl.formatMessage({
+                  id: 'category-menu.departments.title',
+                }),
               }}
             />
-          }
+          )}
           {departments.map(category => (
             <Fragment key={category.id}>
               <CategoryItem
@@ -59,15 +68,20 @@ const Menu = ({
               />
             </Fragment>
           ))}
-          {additionalItems && additionalItems.map(item => (
-            <Fragment key={item.slug ? item.slug : item.name}>
-              <AdditionalItem
-                item={item}
-                menuPosition={menuPosition}
-                isSelected={currentSlug && currentSlug.includes(item.slug) && item.slug !== '/'}
-              />
-            </Fragment>
-          ))}
+          {additionalItems &&
+            additionalItems.map(item => (
+              <Fragment key={item.slug ? item.slug : item.name}>
+                <AdditionalItem
+                  item={item}
+                  menuPosition={menuPosition}
+                  isSelected={
+                    currentSlug &&
+                    currentSlug.includes(item.slug) &&
+                    item.slug !== '/'
+                  }
+                />
+              </Fragment>
+            ))}
         </ul>
       </nav>
     </Container>

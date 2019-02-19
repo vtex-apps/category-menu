@@ -10,18 +10,24 @@ import categoryMenuPosition, {
 
 import { itemPropType } from '../propTypes'
 
-const ItemTitle = ({ item: { name, slug, params, page }, showBorder, onClick, menuPosition }) => {
+const ItemTitle = ({
+  item: { name, slug, params, page },
+  showBorder,
+  onClick,
+  menuPosition,
+}) => {
   const classes = classNames(
-    'w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1', {
+    'w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1',
+    {
       'b--transparent': !showBorder,
       'b--action-primary pointer': showBorder,
-      'mr8': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'ml8': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'mh6': menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+      mr8: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      ml8: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      mh6: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
     }
   )
 
-  return (slug || (page && params)) ? (
+  return slug || (page && params) ? (
     <Link
       onClick={onClick}
       to={slug}
@@ -32,9 +38,7 @@ const ItemTitle = ({ item: { name, slug, params, page }, showBorder, onClick, me
       {name}
     </Link>
   ) : (
-    <span className={classes}>
-      {name}
-    </span>
+    <span className={classes}>{name}</span>
   )
 }
 

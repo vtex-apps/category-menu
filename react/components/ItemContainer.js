@@ -1,38 +1,35 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import categoryMenu from '../categoryMenu.css'
 
-export default class ItemContainer extends Component {
-  static propTypes = {
-    /** Function to render children */
-    children: PropTypes.func.isRequired,
-    /** Key to be used in container */
-    itemKey: PropTypes.string.isRequired,
-  }
+const ItemContainer = ({ children, itemKey }) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const containerRef = useRef(null)
 
-  state = { isHovered: false }
-
-  setIsHovered = isHovered => this.setState({ isHovered })
-
-  render() {
-    const { children, itemKey } = this.props
-    const { isHovered } = this.state
-
-    return (
-      <li className={`${categoryMenu.itemContainer} flex items-center db list`} key={itemKey}
-        ref={e => this.containerRef = e}
-        onMouseEnter={() => this.setState({ isHovered: true })}
-        onMouseLeave={() => this.setState({ isHovered: false })}
-      >
-        {
-          children({
-            isHovered,
-            containerRef: this.containerRef,
-            setIsHovered: this.setIsHovered,
-          })
-        }
-      </li>
-    )
-  }
+  return (
+    <li
+      className={`${categoryMenu.itemContainer} flex items-center db list`}
+      key={itemKey}
+      ref={containerRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {children({
+        isHovered,
+        containerRef: containerRef && containerRef.current,
+        setIsHovered: setIsHovered,
+      })}
+    </li>
+  )
 }
+
+ItemContainer.propTypes = {
+  /** Function to render children */
+  children: PropTypes.func.isRequired,
+  /** Key to be used in container */
+  itemKey: PropTypes.string.isRequired,
+}
+
+export default ItemContainer

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
+import { compose } from 'ramda'
 import { IconMenu } from 'vtex.dreamstore-icons'
 import { withRuntimeContext } from 'vtex.render-runtime'
-import { compose } from 'ramda'
 
 import SideBar from './components/SideBar'
 import Menu from './components/Menu'
@@ -92,11 +92,7 @@ class CategoryMenu extends Component {
   }
 
   renderSideBar() {
-    const {
-      intl,
-      showSubcategories,
-      additionalItems,
-    } = this.props
+    const { intl, showSubcategories, additionalItems } = this.props
 
     const { sideBarVisible } = this.state
 
@@ -110,7 +106,7 @@ class CategoryMenu extends Component {
           departments={this.departments}
           onClose={this.handleSidebarToggle}
           showSubcategories={showSubcategories}
-          additionalItems={additionalItems} 
+          additionalItems={additionalItems}
         />
         <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
           <IconMenu size={20} />
@@ -142,7 +138,9 @@ class CategoryMenu extends Component {
 
   render() {
     const {
-      runtime: { hints: { mobile } },
+      runtime: {
+        hints: { mobile },
+      },
     } = this.props
 
     return mobile ? this.renderSideBar() : this.renderMenu()

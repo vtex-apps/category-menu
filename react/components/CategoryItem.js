@@ -35,16 +35,27 @@ const CategoryItem = ({
       ...(itemSlug && { subcategory: slug }),
     }
 
-    return { ...subCategory, params, page: itemSlug ? 'store.search#subcategory' : 'store.search#category'}
+    return {
+      ...subCategory,
+      params,
+      page: itemSlug ? 'store.search#subcategory' : 'store.search#category',
+    }
   }
 
   const toItems = (children, slug) => {
-    return children && children.map(child => ({
-      ...child,
-      children: child.children && child.children.map(subCategory => toSecondLevelChild(slug, child, subCategory)),
-      params: paramsForChild(child, slug),
-      page: slug ? 'store.search#category' : 'store.search#department',
-    }))
+    return (
+      children &&
+      children.map(child => ({
+        ...child,
+        children:
+          child.children &&
+          child.children.map(subCategory =>
+            toSecondLevelChild(slug, child, subCategory)
+          ),
+        params: paramsForChild(child, slug),
+        page: slug ? 'store.search#category' : 'store.search#department',
+      }))
+    )
   }
 
   return (
@@ -53,7 +64,11 @@ const CategoryItem = ({
         <Fragment>
           <ItemTitle
             onClick={() => setIsHovered(false)}
-            item={{ name, ...(slug && { params: {department: slug } }), page:"store.search#department"}}
+            item={{
+              name,
+              ...(slug && { params: { department: slug } }),
+              page: 'store.search#department',
+            }}
             isSelected={isCategorySelected}
             showBorder={isHovered || isCategorySelected}
             menuPosition={menuPosition}
@@ -67,11 +82,9 @@ const CategoryItem = ({
               onCloseMenu={() => setIsHovered(false)}
               showSecondLevel={subcategoryLevels === 2}
             />
-          )
-          }
+          )}
         </Fragment>
-      )
-      }
+      )}
     </ItemContainer>
   )
 }

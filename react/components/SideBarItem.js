@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
-
 import { Link, withRuntimeContext } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
 
@@ -51,7 +50,12 @@ class SideBarItem extends Component {
   }
 
   navigate() {
-    const { onClose, linkValues, runtime, item: { slug } } = this.props
+    const {
+      onClose,
+      linkValues,
+      runtime,
+      item: { slug },
+    } = this.props
     if (linkValues) {
       const [department, category, subcategory] = linkValues
       const params = {
@@ -60,8 +64,10 @@ class SideBarItem extends Component {
         ...(subcategory && { subcategory: subcategory }),
       }
 
-      const page = category? 
-        (subcategory ? 'store.search#subcategory' : 'store.search#category')
+      const page = category
+        ? subcategory
+          ? 'store.search#subcategory'
+          : 'store.search#category'
         : 'store.search#department'
 
       runtime.navigate({
@@ -83,7 +89,7 @@ class SideBarItem extends Component {
 
     const sideBarContainerClasses = classNames(
       categoryMenu.sidebarItemContainer,
-      'flex justify-between items-center pa5 pointer list ma0'      
+      'flex justify-between items-center pa5 pointer list ma0'
     )
     const sideBarItemTitleClasses = classNames('', {
       't-body lh-solid': treeLevel === 1,
@@ -94,10 +100,7 @@ class SideBarItem extends Component {
     )
 
     return (
-      <li
-        className={sideBarContainerClasses}
-        onClick={this.handleItemClick}
-      >
+      <li className={sideBarContainerClasses} onClick={this.handleItemClick}>
         <span className={sideBarItemTitleClasses}>{item.name}</span>
         {this.showSubCategories && (
           <span className={sideBarSpanClasses}>
@@ -109,7 +112,10 @@ class SideBarItem extends Component {
   }
 
   getLinkAllProps = () => {
-    const { linkValues, item: { slug } } = this.props
+    const {
+      linkValues,
+      item: { slug },
+    } = this.props
     if (!linkValues) {
       return {
         to: slug,
@@ -127,7 +133,7 @@ class SideBarItem extends Component {
 
   renderChildren() {
     const {
-      item: { children, slug, name},
+      item: { children, slug, name },
       item,
       runtime,
       linkValues,
@@ -136,39 +142,45 @@ class SideBarItem extends Component {
       showSubcategories,
     } = this.props
     const { open } = this.state
-    
-    return this.showSubCategories && open && (
-      <Fragment>
-        {(linkValues || slug) &&
-          (<li className="pa5 pointer ma0 list"
-            onClick={this.handleSeeAllClick}>
-            <Link
-              className="db link no-underline outline-0 tl t-small truncate c-muted-2"
-              onClick={onClose}
-              {...this.getLinkAllProps()}
+
+    return (
+      this.showSubCategories &&
+      open && (
+        <Fragment>
+          {(linkValues || slug) && (
+            <li
+              className="pa5 pointer ma0 list"
+              onClick={this.handleSeeAllClick}
             >
-              {linkValues 
-                ? <FormattedMessage id="category-menu.all-category.title" >
+              <Link
+                className="db link no-underline outline-0 tl t-small truncate c-muted-2"
+                onClick={onClose}
+                {...this.getLinkAllProps()}
+              >
+                {linkValues ? (
+                  <FormattedMessage id="category-menu.all-category.title">
                     {txt => <span className="pl4">{txt}</span>}
                   </FormattedMessage>
-                : <span className="pl4">{name}</span>
-              }
-            </Link>
-          </li>)
-        }
-        {children.map(child => (
-          <li key={child.id} className="list ma0 pa0">
-            <SideBarItem
-              showSubcategories={showSubcategories}
-              item={child}
-              linkValues={linkValues && [...linkValues, child.slug]}
-              onClose={onClose}
-              treeLevel={treeLevel + 1}
-              runtime={runtime}
-            />
-          </li>
-        ))}
-      </Fragment>
+                ) : (
+                  <span className="pl4">{name}</span>
+                )}
+              </Link>
+            </li>
+          )}
+          {children.map(child => (
+            <li key={child.id} className="list ma0 pa0">
+              <SideBarItem
+                showSubcategories={showSubcategories}
+                item={child}
+                linkValues={linkValues && [...linkValues, child.slug]}
+                onClose={onClose}
+                treeLevel={treeLevel + 1}
+                runtime={runtime}
+              />
+            </li>
+          ))}
+        </Fragment>
+      )
     )
   }
 
