@@ -7,7 +7,9 @@ src/
 package.json
 README.md
 CHANGELOG.md
-react/__tests__/**
-react/__mocks__/**
 react/.babelrc
 react/setupTests.js
+react/**/__tests__/**
+react/**/__mocks__/**
+react/**/*.test.js
+react/testUtils/**/*
