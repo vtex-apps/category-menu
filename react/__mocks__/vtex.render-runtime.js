@@ -21,7 +21,7 @@ export function Link({ params, className, children }) {
 }
 
 export const withRuntimeContext = Wrapped => {
-  const WithRuntimeContext = (props) => (
+  return (props) => (
     <Wrapped
       {...props}
       runtime={{
@@ -30,8 +30,6 @@ export const withRuntimeContext = Wrapped => {
       }}
     />
   )
-
-  return WithRuntimeContext
 }
 
 export const useRuntime = () => {

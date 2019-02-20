@@ -122,6 +122,7 @@ class CategoryMenu extends Component {
       showSubcategories,
       menuPosition,
       additionalItems,
+      intl,
     } = this.props
 
     return (
@@ -131,6 +132,9 @@ class CategoryMenu extends Component {
         menuPosition={menuPosition}
         subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
         departments={this.departments}
+        departmentsTitle={intl.formatMessage({
+          id: 'category-menu.departments.title',
+        })}
         additionalItems={additionalItems}
       />
     )
@@ -201,5 +205,5 @@ CategoryMenu.schema = CategoryMenu.schema = {
 export default compose(
   graphql(getCategories),
   withRuntimeContext,
-  injectIntl,
+  injectIntl
 )(CategoryMenu)

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import classNames from 'classnames'
 import { path } from 'ramda'
-import { injectIntl, intlShape } from 'react-intl'
 import PropTypes from 'prop-types'
 import { Container } from 'vtex.store-components'
 import { useRuntime } from 'vtex.render-runtime'
@@ -19,7 +18,7 @@ import categoryMenuPosition, {
 const Menu = ({
   categories = [],
   departments,
-  intl,
+  departmentsTitle,
   showAllDepartments,
   subcategoryLevels,
   menuPosition,
@@ -52,9 +51,7 @@ const Menu = ({
               subcategoryLevels={subcategoryLevels}
               category={{
                 children: categories,
-                name: intl.formatMessage({
-                  id: 'category-menu.departments.title',
-                }),
+                name: departmentsTitle,
               }}
             />
           )}
@@ -93,8 +90,8 @@ Menu.propTypes = {
   departments: PropTypes.arrayOf(itemPropType),
   /** Categories to be shown in menu */
   categories: PropTypes.arrayOf(itemPropType),
-  /** Intl to internationalize messages */
-  intl: intlShape,
+  /** Title to show all departments tab */
+  departmentsTitle: PropTypes.string,
   /** Indicates if the departments item must be shown */
   showAllDepartments: PropTypes.bool,
   /** Number of the subcategory levels of the menu */
@@ -105,4 +102,4 @@ Menu.propTypes = {
   additionalItems: PropTypes.arrayOf(itemPropType),
 }
 
-export default injectIntl(Menu)
+export default Menu
