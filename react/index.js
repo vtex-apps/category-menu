@@ -201,9 +201,7 @@ CategoryMenu.schema = CategoryMenu.schema = {
     },
   },
 }
+const LocalCategoryMenu = compose(withRuntimeContext, injectIntl)(CategoryMenu)
+export { LocalCategoryMenu }
 
-export default compose(
-  graphql(getCategories),
-  withRuntimeContext,
-  injectIntl
-)(CategoryMenu)
+export default compose(graphql(getCategories), withRuntimeContext, injectIntl)(CategoryMenu)

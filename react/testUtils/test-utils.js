@@ -4,25 +4,26 @@ import { IntlProvider } from 'react-intl'
 import defaultStrings from '../../messages/en-US.json'
 
 const customRender = (node, options) => {
- const rendered = reactTestingLibrary.render(
-   <IntlProvider messages={defaultStrings} locale="en-US">
-     {node}
-   </IntlProvider>,
-   options
- )
+  const rendered = reactTestingLibrary.render(
+    <IntlProvider messages={defaultStrings} locale="en-US">
+      {node}
+    </IntlProvider>,
+    options
+  )
 
- return {
-   ...rendered,
-   rerender: newUi =>
-     customRender(newUi, {
-       container: rendered.container,
-       baseElement: rendered.baseElement,
-     }),
- }
+  return {
+    ...rendered,
+    rerender: newUi =>
+      customRender(newUi, {
+        container: rendered.container,
+        baseElement: rendered.baseElement,
+      }),
+  }
 }
 
 // re-export everything
 module.exports = {
- ...reactTestingLibrary,
- render: customRender,
+  ...reactTestingLibrary,
+  render: customRender,
+  createClientMock: createClientMock,
 }

@@ -3,7 +3,6 @@ import { render } from '@vtex/test-tools/react'
 import { CategoryMenuWithIntl } from '../index'
 
 describe('CategoryMenu component', () => {
-  let wrapper
   const mockedCategories = [
     {
       id: 1,
