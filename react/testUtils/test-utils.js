@@ -24,6 +24,5 @@ const customRender = (node, options) => {
 // re-export everything
 module.exports = {
   ...reactTestingLibrary,
-  render: customRender,
-  createClientMock: createClientMock,
+  render: customRender
 }
