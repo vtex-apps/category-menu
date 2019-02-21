@@ -95,7 +95,7 @@ class SideBarItem extends Component {
       'flex justify-between items-center pa5 pointer list ma0'      
     )
     const sideBarItemTitleClasses = classNames('', {
-      't-heading-4 lh-solid': treeLevel === 1,
+      't-body lh-solid': treeLevel === 1,
     })
 
     const sideBarSpanClasses = classNames(
