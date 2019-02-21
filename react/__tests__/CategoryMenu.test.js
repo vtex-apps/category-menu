@@ -1,6 +1,11 @@
 import React from 'react'
+<<<<<<< HEAD
 import { render } from '@vtex/test-tools/react'
 import { CategoryMenuWithIntl } from '../index'
+=======
+import { render } from 'test-utils'
+import { LocalCategoryMenu } from '../index'
+>>>>>>> Update snapshots and remove unecessary imports
 
 describe('CategoryMenu component', () => {
   const mockedCategories = [
