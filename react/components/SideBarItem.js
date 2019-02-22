@@ -134,7 +134,6 @@ class SideBarItem extends Component {
   renderChildren() {
     const {
       item: { children, slug, name },
-      item,
       runtime,
       linkValues,
       onClose,

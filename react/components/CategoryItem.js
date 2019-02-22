@@ -8,8 +8,7 @@ import { getMenuPositionValues } from '../utils/categoryMenuPosition'
 import ItemContainer from './ItemContainer'
 
 /**
- * Component that represents a single category displayed in the menu. also displays
- * the subcategories, if the provided category has them
+ * Component that renders a category and the container for its subcategories in the menu.
  */
 const CategoryItem = ({
   category: { children, slug, name },
