@@ -48,7 +48,8 @@ Now, you can change the behavior of the `category-menu` block that is in the sto
       "showAllDepartments": true,
       "showSubcategories": true,
       "menuPosition": "center",
-      "departments": []
+      "departments": [],
+      "additionalItems": []
     }
   }
 ```
