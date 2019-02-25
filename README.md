@@ -139,3 +139,7 @@ You can check if others are passing through similar issues [here](https://github
 ## Tests
 
 To execute our tests go to react/ folder and run yarn test
+
+### Travis CI
+
+ [![Build Status](https://api.travis-ci.org/vtex-apps/category-menu.svg?branch=master)](https://travis-ci.org/vtex-apps/category-menu)
