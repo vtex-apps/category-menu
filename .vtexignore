@@ -4,6 +4,7 @@ react/node_modules/
 src/
 .eslintrc
 .gitignore
+.prettierrc
 package.json
 README.md
 CHANGELOG.md
