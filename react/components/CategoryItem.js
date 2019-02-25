@@ -58,7 +58,7 @@ const CategoryItem = ({
   }
 
   return (
-    <ItemContainer itemKey={name}>
+    <ItemContainer>
       {({ isHovered, containerRef, setIsHovered }) => (
         <Fragment>
           <ItemTitle

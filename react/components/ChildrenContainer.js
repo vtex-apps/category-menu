@@ -102,7 +102,6 @@ export default class ChildrenContainer extends Component {
                 <li key={item.name} className="dib">
                   <ul className={columnItemClasses}>
                     <ChildLink
-                      key={item.name}
                       item={item}
                       onClick={onCloseMenu}
                       className={firstLevelLinkClasses}

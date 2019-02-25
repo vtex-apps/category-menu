@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import { path } from 'ramda'
 import PropTypes from 'prop-types'
@@ -56,28 +56,26 @@ const Menu = ({
             />
           )}
           {departments.map(category => (
-            <Fragment key={category.id}>
-              <CategoryItem
-                menuPosition={menuPosition}
-                category={category}
-                subcategoryLevels={subcategoryLevels}
-                isCategorySelected={currentSlug === category.slug}
-              />
-            </Fragment>
+            <CategoryItem
+              key={category.id}
+              menuPosition={menuPosition}
+              category={category}
+              subcategoryLevels={subcategoryLevels}
+              isCategorySelected={currentSlug === category.slug}
+            />
           ))}
           {additionalItems &&
             additionalItems.map(item => (
-              <Fragment key={item.slug ? item.slug : item.name}>
-                <AdditionalItem
-                  item={item}
-                  menuPosition={menuPosition}
-                  isSelected={
-                    currentSlug &&
-                    currentSlug.includes(item.slug) &&
-                    item.slug !== '/'
-                  }
-                />
-              </Fragment>
+              <AdditionalItem
+                key={item.slug ? item.slug : item.name}
+                item={item}
+                menuPosition={menuPosition}
+                isSelected={
+                  currentSlug &&
+                  currentSlug.includes(item.slug) &&
+                  item.slug !== '/'
+                }
+              />
             ))}
         </ul>
       </nav>

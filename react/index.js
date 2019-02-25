@@ -91,12 +91,22 @@ class CategoryMenu extends Component {
     return (departmentsSelected.length && departmentsSelected) || categories
   }
 
-  renderSideBar() {
-    const { intl, showSubcategories, additionalItems } = this.props
+  render() {
+    const {
+      data: { categories = [] },
+      showAllDepartments,
+      showSubcategories,
+      menuPosition,
+      additionalItems,
+      intl,
+      runtime: {
+        hints: { mobile },
+      },
+    } = this.props
 
     const { sideBarVisible } = this.state
 
-    return (
+    return mobile ? (
       <div
         className={`${categoryMenu.sidebarContainer} ${categoryMenu.mobile}`}
       >
@@ -112,20 +122,7 @@ class CategoryMenu extends Component {
           <IconMenu size={20} />
         </div>
       </div>
-    )
-  }
-
-  renderMenu() {
-    const {
-      data: { categories = [] },
-      showAllDepartments,
-      showSubcategories,
-      menuPosition,
-      additionalItems,
-      intl,
-    } = this.props
-
-    return (
+    ) : (
       <Menu
         categories={categories}
         showAllDepartments={showAllDepartments}
@@ -138,16 +135,6 @@ class CategoryMenu extends Component {
         additionalItems={additionalItems}
       />
     )
-  }
-
-  render() {
-    const {
-      runtime: {
-        hints: { mobile },
-      },
-    } = this.props
-
-    return mobile ? this.renderSideBar() : this.renderMenu()
   }
 }
 

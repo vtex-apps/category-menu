@@ -9,11 +9,11 @@ import ItemContainer from './ItemContainer'
 
 const AdditionalItem = ({
   item,
-  item: { children, name },
+  item: { children },
   menuPosition,
   isSelected,
 }) => (
-  <ItemContainer itemKey={name}>
+  <ItemContainer>
     {({ isHovered, containerRef, setIsHovered }) => (
       <Fragment>
         <ItemTitle
