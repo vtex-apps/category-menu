@@ -1,4 +1,4 @@
-import React from  'react'
+import React from 'react'
 import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
 

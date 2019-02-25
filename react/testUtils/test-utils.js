@@ -24,5 +24,5 @@ const customRender = (node, options) => {
 // re-export everything
 module.exports = {
   ...reactTestingLibrary,
-  render: customRender
+  render: customRender,
 }
