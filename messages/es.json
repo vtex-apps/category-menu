@@ -1,16 +1,23 @@
 {
+  "category-menu.all-category.title": "Ver Todos",
+  "category-menu.departments.title": "Departamentos",
   "editor.category-menu.title": "Menú de categorías",
   "editor.category-menu.description": "Un menú que muestra una lista de categorías disponibles en la tienda",
   "editor.category-menu.show-promotion-category.title": "Mostrar la categoría de promoción",
   "editor.category-menu.show-departments-category.title": "Mostrar la categoría de departamentos",
   "editor.category-menu.show-subcategories.title": "Mostrar subcategorías",
   "editor.category-menu.show-gift-category.title": "Mostrar la categoría de regalos",
-  "category-menu.departments.title": "Departamentos",
   "editor.category-menu.departments.items.title": "Departamento",
   "editor.category-menu.departments.items.id": "Id del Departamento",
-  "category-menu.all-category.title": "Ver Todos",
   "editor.category-menu.position-type.title": "Posición del menú",
   "editor.category-menu.position-type.center": "Centro",
   "editor.category-menu.position-type.left": "Izquierda",
-  "editor.category-menu.position-type.right": "Derecho"
+  "editor.category-menu.position-type.right": "Derecho",
+  
+  "editor.category-menu.additional-items.title": "Elementos adicionales",
+  "editor.category-menu.additional-items.items.title": "Elementos",
+  "editor.category-menu.additional-items.items.name": "Nombre",
+  "editor.category-menu.additional-items.items.slug": "Slug",
+  "editor.category-menu.additional-items.items.children": "Sub Elementos",
+  "editor.category-menu.additional-items.items.children.child.title" : "Título del subelemento"
 }

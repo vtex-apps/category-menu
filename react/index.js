@@ -138,7 +138,7 @@ class CategoryMenu extends Component {
   }
 }
 
-CategoryMenu.schema = CategoryMenu.schema = {
+CategoryMenu.schema = {
   title: 'editor.category-menu.title',
   description: 'editor.category-menu.description',
   type: 'object',
@@ -172,7 +172,7 @@ CategoryMenu.schema = CategoryMenu.schema = {
       default: CategoryMenu.defaultProps.showGiftCategory,
     },
     departments: {
-      title: 'category-menu.departments.title',
+      title: 'editor.category-menu.departments.title',
       type: 'array',
       minItems: 0,
       items: {
@@ -186,8 +186,48 @@ CategoryMenu.schema = CategoryMenu.schema = {
         },
       },
     },
+    additionalItems: {
+      title: 'editor.category-menu.additional-items.title',
+      type: 'array',
+      minItems: 0,
+      items: {
+        title: 'editor.category-menu.additional-items.items.title',
+        type: 'object',
+        properties: {
+          name: {
+            title: 'editor.category-menu.additional-items.items.name',
+            type: 'string',
+          },
+          slug: {
+            title: 'editor.category-menu.additional-items.items.slug',
+            type: 'string',
+          },
+          children: {
+            title: 'editor.category-menu.additional-items.items.children',
+            type: 'array',
+            minItems: 0,
+            items: {
+              title:
+                'editor.category-menu.additional-items.items.children.child.title',
+              type: 'object',
+              properties: {
+                name: {
+                  title: 'editor.category-menu.additional-items.items.name',
+                  type: 'string',
+                },
+                slug: {
+                  title: 'editor.category-menu.additional-items.items.slug',
+                  type: 'string',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 }
+
 const LocalCategoryMenu = compose(
   withRuntimeContext,
   injectIntl

@@ -26,7 +26,7 @@ const AdditionalItem = ({
           <ChildrenContainer
             menuPosition={menuPosition}
             containerRef={containerRef}
-            showSecondLevel={children.some(
+            showSecondLevel={children && children.some(
               child => child.children && child.children.length > 0
             )}
             items={children}
