@@ -138,6 +138,40 @@ class CategoryMenu extends Component {
   }
 }
 
+const simpleItemProps = {
+  name: {
+    title: 'editor.category-menu.additional-items.items.name',
+    type: 'string',
+  },
+  slug: {
+    title: 'editor.category-menu.additional-items.items.slug',
+    type: 'string',
+  },
+}
+
+const additionalItemsSchema = {
+  title: 'editor.category-menu.additional-items.title',
+  type: 'array',
+  minItems: 0,
+  items: {
+    title: 'editor.category-menu.additional-item.title',
+    type: 'object',
+    properties: {
+      ...simpleItemProps,
+      children: {
+        title: 'editor.category-menu.additional-items.items.children',
+        type: 'array',
+        minItems: 0,
+        items: {
+          title: 'editor.category-menu.additional-items.items.children',
+          type: 'object',
+          properties: { ...simpleItemProps },
+        },
+      },
+    },
+  },
+}
+
 CategoryMenu.schema = {
   title: 'editor.category-menu.title',
   description: 'editor.category-menu.description',
@@ -186,45 +220,7 @@ CategoryMenu.schema = {
         },
       },
     },
-    additionalItems: {
-      title: 'editor.category-menu.additional-items.title',
-      type: 'array',
-      minItems: 0,
-      items: {
-        title: 'editor.category-menu.additional-items.items.title',
-        type: 'object',
-        properties: {
-          name: {
-            title: 'editor.category-menu.additional-items.items.name',
-            type: 'string',
-          },
-          slug: {
-            title: 'editor.category-menu.additional-items.items.slug',
-            type: 'string',
-          },
-          children: {
-            title: 'editor.category-menu.additional-items.items.children',
-            type: 'array',
-            minItems: 0,
-            items: {
-              title:
-                'editor.category-menu.additional-items.items.children.child.title',
-              type: 'object',
-              properties: {
-                name: {
-                  title: 'editor.category-menu.additional-items.items.name',
-                  type: 'string',
-                },
-                slug: {
-                  title: 'editor.category-menu.additional-items.items.slug',
-                  type: 'string',
-                },
-              },
-            },
-          },
-        },
-      },
-    },
+    additionalItems: { ...additionalItemsSchema },
   },
 }
 

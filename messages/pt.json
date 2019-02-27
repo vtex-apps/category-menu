@@ -13,11 +13,10 @@
   "editor.category-menu.position-type.center": "Centro",
   "editor.category-menu.position-type.left": "Esquerda",
   "editor.category-menu.position-type.right": "Direita",
-  
   "editor.category-menu.additional-items.title": "Items adicionais",
   "editor.category-menu.additional-items.items.title": "Itens",
   "editor.category-menu.additional-items.items.name": "Nome",
   "editor.category-menu.additional-items.items.slug": "Slug",
   "editor.category-menu.additional-items.items.children": "Subitens",
-  "editor.category-menu.additional-items.items.children.child.title" : "Título do subitem"
+  "editor.category-menu.additional-items.items.children.child.title": "Título do subitem"
 }

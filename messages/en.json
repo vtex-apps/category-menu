@@ -8,16 +8,20 @@
   "editor.category-menu.show-departments-category.title": "Show the departments category",
   "editor.category-menu.show-subcategories.title": "Show subcategories",
   "editor.category-menu.show-gift-category.title": "Show the gifts category",
+  
   "editor.category-menu.departments.items.title": "Department",
   "editor.category-menu.departments.items.id": "Department Id",
+
   "editor.category-menu.position-type.title": "Menu position",
   "editor.category-menu.position-type.center": "Middle",
   "editor.category-menu.position-type.left": "Left",
   "editor.category-menu.position-type.right": "Right",
-  "editor.category-menu.additional-items.title": "Additional Items",
+  
+  "editor.category-menu.additional-item.title": "Additional Items",
+  "editor.category-menu.additional-items.title": "Additional Item",
   "editor.category-menu.additional-items.items.title": "Items",
   "editor.category-menu.additional-items.items.name": "Name",
   "editor.category-menu.additional-items.items.slug": "Slug",
   "editor.category-menu.additional-items.items.children": "Sub items",
-  "editor.category-menu.additional-items.items.children.child.title" : "Child title"
+  "editor.category-menu.additional-items.items.children.child.title": "Child title"
 }

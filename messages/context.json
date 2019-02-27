@@ -1,12 +1,28 @@
 {
+  "category-menu.departments.title": "category-menu.departments.title",
+  "category-menu.all-category.title": "category-menu.all-category.title",
+
   "editor.category-menu.title": "editor.category-menu.title",
   "editor.category-menu.description": "editor.category-menu.description",
   "editor.category-menu.show-promotion-category.title": "editor.category-menu.show-promotion-category.title",
   "editor.category-menu.show-departments-category.title": "editor.category-menu.show-departments-category.title",
   "editor.category-menu.show-subcategories.title": "editor.category-menu.show-subcategories.title",
   "editor.category-menu.show-gift-category.title": "editor.category-menu.show-gift-category.title",
-  "category-menu.departments.title": "category-menu.departments.title",
+  
   "editor.category-menu.departments.items.title": "editor.category-menu.departments.items.title",
   "editor.category-menu.departments.items.id": "editor.category-menu.departments.items.id",
-  "category-menu.all-category.title": "category-menu.all-category.title"
+
+  "editor.category-menu.position-type.title": "Title for the editor of the menu's position",
+  "editor.category-menu.position-type.center": "Center menu's position text",
+  "editor.category-menu.position-type.left": "Left menu's position text",
+  "editor.category-menu.position-type.right": "Right menu's position text",
+
+  "editor.category-menu.additional-item.title": "Main Additional Item label",
+  "editor.category-menu.additional-items.title": "Additional Items label",
+  "editor.category-menu.additional-items.items.title": "Items label",
+  "editor.category-menu.additional-items.items.name": "Label for the name of an additional item",
+  "editor.category-menu.additional-items.items.slug": "Additional item slug label",
+  "editor.category-menu.additional-items.items.children": "Sub items label",
+  "editor.category-menu.additional-items.items.children.child.title": "Child title label"
+
 }
