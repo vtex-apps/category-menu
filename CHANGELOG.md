@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.11.4] - 2019-02-27
+
 ### Changed
 
 - Component `Container` inside nav container in order to make menu full-width
