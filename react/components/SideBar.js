@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 import { Animation } from 'vtex.store-components'
-import { IconClose } from 'vtex.dreamstore-icons'
+import { IconClose } from 'vtex.store-icons'
 import SideBarItem from './SideBarItem'
 import categoryMenu from '../categoryMenu.css'
 

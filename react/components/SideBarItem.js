@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
 
 import { withRuntimeContext } from 'vtex.render-runtime'
-import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
+import { IconMinus, IconPlus } from 'vtex.store-icons'
 
 import categoryMenu from '../categoryMenu.css'
 
@@ -92,7 +92,7 @@ class SideBarItem extends Component {
 
     const sideBarContainerClasses = classNames(
       categoryMenu.sidebarItemContainer,
-      'flex justify-between items-center pa5 pointer list ma0'      
+      'flex justify-between items-center pa5 pointer list ma0'
     )
     const sideBarItemTitleClasses = classNames('', {
       't-body lh-solid': treeLevel === 1,
@@ -103,10 +103,7 @@ class SideBarItem extends Component {
     )
 
     return (
-      <li
-        className={sideBarContainerClasses}
-        onClick={this.handleItemClick}
-      >
+      <li className={sideBarContainerClasses} onClick={this.handleItemClick}>
         <span className={sideBarItemTitleClasses}>{item.name}</span>
         {this.showSubCategories && (
           <span className={sideBarSpanClasses}>
