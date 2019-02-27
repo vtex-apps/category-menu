@@ -43,6 +43,7 @@ const ItemTitle = ({
 }
 
 ItemTitle.propTypes = {
+  /** Item to be displayed as a title */
   item: itemPropType.isRequired,
   /** Page to which the user will be redirected. If is null, the item slug will be used, if present*/
   page: PropTypes.string,

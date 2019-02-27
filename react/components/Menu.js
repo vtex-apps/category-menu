@@ -16,7 +16,7 @@ import categoryMenuPosition, {
 } from '../utils/categoryMenuPosition'
 
 const Menu = ({
-  categories = [],
+  categories,
   departments,
   departmentsTitle,
   showAllDepartments,
@@ -64,19 +64,18 @@ const Menu = ({
               isCategorySelected={currentSlug === category.slug}
             />
           ))}
-          {additionalItems &&
-            additionalItems.map(item => (
-              <AdditionalItem
-                key={item.slug ? item.slug : item.name}
-                item={item}
-                menuPosition={menuPosition}
-                isSelected={
-                  currentSlug &&
-                  currentSlug.includes(item.slug) &&
-                  item.slug !== '/'
-                }
-              />
-            ))}
+          {additionalItems.map(item => (
+            <AdditionalItem
+              key={item.slug ? item.slug : item.name}
+              item={item}
+              menuPosition={menuPosition}
+              isSelected={
+                currentSlug &&
+                currentSlug.includes(item.slug) &&
+                item.slug !== '/'
+              }
+            />
+          ))}
         </ul>
       </nav>
     </Container>
@@ -88,16 +87,22 @@ Menu.propTypes = {
   departments: PropTypes.arrayOf(itemPropType),
   /** Categories to be shown in menu */
   categories: PropTypes.arrayOf(itemPropType),
-  /** Title to show all departments tab */
-  departmentsTitle: PropTypes.string,
+  /** Additional Items to be shown in menu */
+  additionalItems: PropTypes.arrayOf(itemPropType),
+  /** Title to show all departments tab. */
+  departmentsTitle: PropTypes.string.isRequired,
   /** Indicates if the departments item must be shown */
   showAllDepartments: PropTypes.bool,
   /** Number of the subcategory levels of the menu */
-  subcategoryLevels: PropTypes.number,
+  subcategoryLevels: PropTypes.number.isRequired,
   /** Indicates the menu position */
-  menuPosition: PropTypes.oneOf(getMenuPositionValues()),
-  /** Additional Items to be shown in menu */
-  additionalItems: PropTypes.arrayOf(itemPropType),
+  menuPosition: PropTypes.oneOf(getMenuPositionValues()).isRequired,
+}
+
+Menu.defaultProps = {
+  departments: [],
+  categories: [],
+  additionalItems: [],
 }
 
 export default Menu

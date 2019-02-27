@@ -2,13 +2,7 @@
   "name": "vtex.category-menu",
   "version": "0.0.0",
   "scripts": {
-<<<<<<< HEAD
     "test": "vtex-test-tools test"
-=======
-    "pretest": "yarn",
-    "test": "jest",
-    "test:watch": "jest --watch"
->>>>>>> Add yarn as pretest and .prettierrc to .vtexignore
   },
   "dependencies": {
     "classnames": "^2.2.6",

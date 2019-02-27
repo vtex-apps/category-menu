@@ -50,8 +50,12 @@ export default class ChildrenContainer extends Component {
 
     const containerStyle = {
       top: containerRef && containerRef.offsetTop + containerRef.clientHeight,
-      display: isShowing ? 'flex' : 'none',
     }
+
+    const itemContainerClasses = classNames(`${categoryMenu.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`, {
+      'flex': isShowing,
+      'dn': !isShowing
+    })
 
     const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
       'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
@@ -91,9 +95,7 @@ export default class ChildrenContainer extends Component {
       items &&
       !!items.length && (
         <div
-          className={`${
-            categoryMenu.itemContainer
-          } absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`}
+          className={itemContainerClasses}
           style={containerStyle}
         >
           <Container className="justify-center w-100 flex">
