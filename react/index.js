@@ -124,9 +124,9 @@ class CategoryMenu extends Component {
     const desktopClasses = classNames(
       `${categoryMenu.container} w-100 bg-base dn flex-m`,
       {
-        'justify-start mw9':
+        'justify-start':
           menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        'justify-end mw9':
+        'justify-end':
           menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
         'justify-center':
           menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
@@ -134,8 +134,8 @@ class CategoryMenu extends Component {
     )
 
     return (
-      <Container className="justify-center flex">
-        <nav className={desktopClasses}>
+      <nav className={desktopClasses}>
+        <Container className="justify-center flex">
           <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
             {showAllDepartments && (
               <CategoryItem
@@ -165,8 +165,8 @@ class CategoryMenu extends Component {
               </Fragment>
             ))}
           </ul>
-        </nav>
-      </Container>
+        </Container>
+      </nav>
     )
   }
 
