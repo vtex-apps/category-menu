@@ -1,6 +1,6 @@
 {
-  "category-menu.departments.title": "category-menu.departments.title",
-  "category-menu.all-category.title": "category-menu.all-category.title",
+  "category-menu.departments.title": "All departments item title",
+  "category-menu.all-category.title": "Label for all items in a category",
 
   "editor.category-menu.title": "editor.category-menu.title",
   "editor.category-menu.description": "editor.category-menu.description",
@@ -8,7 +8,7 @@
   "editor.category-menu.show-departments-category.title": "editor.category-menu.show-departments-category.title",
   "editor.category-menu.show-subcategories.title": "editor.category-menu.show-subcategories.title",
   "editor.category-menu.show-gift-category.title": "editor.category-menu.show-gift-category.title",
-  
+  "editor.category-menu.departments.title": "Title of the departments Section",
   "editor.category-menu.departments.items.title": "editor.category-menu.departments.items.title",
   "editor.category-menu.departments.items.id": "editor.category-menu.departments.items.id",
 
@@ -22,7 +22,6 @@
   "editor.category-menu.additional-items.items.title": "Items label",
   "editor.category-menu.additional-items.items.name": "Label for the name of an additional item",
   "editor.category-menu.additional-items.items.slug": "Additional item slug label",
-  "editor.category-menu.additional-items.items.children": "Sub items label",
-  "editor.category-menu.additional-items.items.children.child.title": "Child title label"
-
+  "editor.category-menu.additional-items.items.first-level-subitem.title": "First level Sub items label",
+  "editor.category-menu.additional-items.items.second-level-subitem.title": "Second level Sub items label"
 }

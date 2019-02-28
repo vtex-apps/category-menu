@@ -159,11 +159,11 @@ const additionalItemsSchema = {
     properties: {
       ...simpleItemProps,
       children: {
-        title: 'editor.category-menu.additional-items.items.children',
+        title: 'editor.category-menu.additional-items.items.first-level-subitem.title',
         type: 'array',
         minItems: 0,
         items: {
-          title: 'editor.category-menu.additional-items.items.children',
+          title: 'editor.category-menu.additional-items.items.second-level-subitem.title',
           type: 'object',
           properties: { ...simpleItemProps },
         },

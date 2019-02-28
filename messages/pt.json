@@ -18,5 +18,7 @@
   "editor.category-menu.additional-items.items.name": "Nome",
   "editor.category-menu.additional-items.items.slug": "Slug",
   "editor.category-menu.additional-items.items.children": "Subitens",
-  "editor.category-menu.additional-items.items.children.child.title": "Título do subitem"
+  "editor.category-menu.additional-items.items.children.child.title": "Título do subitem",
+  "editor.category-menu.additional-items.items.first-level-subitem.title": "Subitem de primeiro nível",
+  "editor.category-menu.additional-items.items.second-level-subitem.title": "Subitem de segundo nível"
 }

@@ -17,6 +17,6 @@
   "editor.category-menu.additional-items.items.title": "Elementos",
   "editor.category-menu.additional-items.items.name": "Nombre",
   "editor.category-menu.additional-items.items.slug": "Slug",
-  "editor.category-menu.additional-items.items.children": "Sub Elementos",
-  "editor.category-menu.additional-items.items.children.child.title": "Título del subelemento"
+  "editor.category-menu.additional-items.items.first-level-subitem": "Sub elementos de primer nivel",
+  "editor.category-menu.additional-items.items.second-level-subitem": "Sub elementos de segundo nivel"
 }
