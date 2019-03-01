@@ -107,10 +107,22 @@ exports[`CategoryMenu component should match snapshot 1`] = `
           class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-3/s"
         >
+<<<<<<< HEAD
           CATEGORY 3
         </a>
       </li>
     </ul>
+=======
+          <a
+            class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+            href="/category-3/s"
+          >
+            Category 3
+          </a>
+        </li>
+      </ul>
+    </section>
+>>>>>>> Update snapshot
   </nav>
 </DocumentFragment>
 `;
