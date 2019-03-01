@@ -6,6 +6,7 @@ import { Link, withRuntimeContext } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
 
 import categoryMenu from '../categoryMenu.css'
+import messages from '../utils/messages'
 
 class SideBarItem extends Component {
   static propTypes = {
@@ -157,7 +158,7 @@ class SideBarItem extends Component {
                 {...this.getLinkAllProps()}
               >
                 {linkValues ? (
-                  <FormattedMessage id="category-menu.all-category.title">
+                  <FormattedMessage {...messages.seeAll}>
                     {txt => <span className="pl4">{txt}</span>}
                   </FormattedMessage>
                 ) : (

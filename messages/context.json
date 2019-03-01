@@ -1,27 +1,21 @@
 {
   "category-menu.departments.title": "All departments item title",
-  "category-menu.all-category.title": "Label for all items in a category",
-
-  "editor.category-menu.title": "editor.category-menu.title",
-  "editor.category-menu.description": "editor.category-menu.description",
-  "editor.category-menu.show-promotion-category.title": "editor.category-menu.show-promotion-category.title",
-  "editor.category-menu.show-departments-category.title": "editor.category-menu.show-departments-category.title",
-  "editor.category-menu.show-subcategories.title": "editor.category-menu.show-subcategories.title",
-  "editor.category-menu.show-gift-category.title": "editor.category-menu.show-gift-category.title",
-  "editor.category-menu.departments.title": "Title of the departments Section",
-  "editor.category-menu.departments.items.title": "editor.category-menu.departments.items.title",
-  "editor.category-menu.departments.items.id": "editor.category-menu.departments.items.id",
-
+  "category-menu.see-all": "Label to see all items from a category option",
+  "editor.category-menu.title": "Title used with category menu's schema",
+  "editor.category-menu.description": "Description of the category menu for the component's schema",
+  "editor.category-menu.show-departments-category.title": "Title used with the show all departments option",
+  "editor.category-menu.show-subcategories.title": "Title used with the show subcategories option",
+  "editor.category-menu.departments.title": "Title of the departments section",
+  "editor.category-menu.departments.items.title": "Title used with category menu's schema for the departments listing",
+  "editor.category-menu.departments.items.id": "Label used with the id of departments",
   "editor.category-menu.position-type.title": "Title for the editor of the menu's position",
   "editor.category-menu.position-type.center": "Center menu's position text",
   "editor.category-menu.position-type.left": "Left menu's position text",
   "editor.category-menu.position-type.right": "Right menu's position text",
-
-  "editor.category-menu.additional-item.title": "Main Additional Item label",
-  "editor.category-menu.additional-items.title": "Additional Items label",
+  "editor.category-menu.additional-items.title": "Title used with Additional Items",
   "editor.category-menu.additional-items.items.title": "Items label",
   "editor.category-menu.additional-items.items.name": "Label for the name of an additional item",
   "editor.category-menu.additional-items.items.slug": "Additional item slug label",
-  "editor.category-menu.additional-items.items.first-level-subitem.title": "First level Sub items label",
-  "editor.category-menu.additional-items.items.second-level-subitem.title": "Second level Sub items label"
+  "editor.category-menu.additional-items.first-level-subitem.title": "First level Sub items label",
+  "editor.category-menu.additional-items.second-level-subitem.title": "Second level Sub items label"
 }

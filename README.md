@@ -43,8 +43,6 @@ Now, you can change the behavior of the `category-menu` block that is in the sto
 ```json
 "category-menu": {
     "props": {
-      "showPromotionCategory": true,
-      "showGiftCategory": true,
       "showAllDepartments": true,
       "showSubcategories": true,
       "menuPosition": "center",
@@ -70,8 +68,6 @@ Through the Storefront you can change the behavior and interface of `CategoryMen
 
 | Prop name          | Type       | Description                                                                 | Default Value |
 | ------------------ | ---------- | --------------------------------------------------------------------------- | -------------- |
-| `showPromotionCategory` | `Boolean`   | Shows the promotion category in menu               | false |
-| `showGiftCategory`     | `Boolean`  | Shows the gift category in menu                               | false|
 | `showAllDepartments`     | `Boolean`  | Shows all departments category in menu                              | true|
 | `menuPosition`      | `Enum`  | Indicates the position of the menu on the screen. Possible values: left, center, right   | center|
 | `showSubcategories`    | `Boolean`   | Decides if the subcategories will be displayed |true|

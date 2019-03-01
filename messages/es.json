@@ -1,12 +1,11 @@
 {
-  "category-menu.all-category.title": "Ver Todos",
   "category-menu.departments.title": "Departamentos",
+  "category-menu.see-all": "Ver Todos",
   "editor.category-menu.title": "Menú de categorías",
   "editor.category-menu.description": "Un menú que muestra una lista de categorías disponibles en la tienda",
-  "editor.category-menu.show-promotion-category.title": "Mostrar la categoría de promoción",
   "editor.category-menu.show-departments-category.title": "Mostrar la categoría de departamentos",
   "editor.category-menu.show-subcategories.title": "Mostrar subcategorías",
-  "editor.category-menu.show-gift-category.title": "Mostrar la categoría de regalos",
+  "editor.category-menu.departments.title": "Departamentos",
   "editor.category-menu.departments.items.title": "Departamento",
   "editor.category-menu.departments.items.id": "Id del Departamento",
   "editor.category-menu.position-type.title": "Posición del menú",
@@ -17,6 +16,6 @@
   "editor.category-menu.additional-items.items.title": "Elementos",
   "editor.category-menu.additional-items.items.name": "Nombre",
   "editor.category-menu.additional-items.items.slug": "Slug",
-  "editor.category-menu.additional-items.items.first-level-subitem": "Sub elementos de primer nivel",
-  "editor.category-menu.additional-items.items.second-level-subitem": "Sub elementos de segundo nivel"
+  "editor.category-menu.additional-items.first-level-subitem.title": "Sub elementos de primer nivel",
+  "editor.category-menu.additional-items.second-level-subitem.title": "Sub elementos de segundo nivel"
 }

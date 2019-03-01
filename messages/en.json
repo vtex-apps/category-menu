@@ -1,27 +1,21 @@
 {
   "category-menu.departments.title": "Departments",
-  "category-menu.all-category.title": "See All",
-  
+  "category-menu.see-all": "See All",
   "editor.category-menu.title": "Category menu",
   "editor.category-menu.description": "A menu showing a list of the available categories on the store",
-  "editor.category-menu.show-promotion-category.title": "Show the promotion category",
   "editor.category-menu.show-departments-category.title": "Show the departments category",
   "editor.category-menu.show-subcategories.title": "Show subcategories",
-  "editor.category-menu.show-gift-category.title": "Show the gifts category",
-  
+  "editor.category-menu.departments.title": "Departments",
   "editor.category-menu.departments.items.title": "Department",
   "editor.category-menu.departments.items.id": "Department Id",
-
   "editor.category-menu.position-type.title": "Menu position",
   "editor.category-menu.position-type.center": "Middle",
   "editor.category-menu.position-type.left": "Left",
   "editor.category-menu.position-type.right": "Right",
-  
-  "editor.category-menu.additional-item.title": "Additional Items",
-  "editor.category-menu.additional-items.title": "Additional Item",
+  "editor.category-menu.additional-items.title": "Additional Items",
   "editor.category-menu.additional-items.items.title": "Items",
   "editor.category-menu.additional-items.items.name": "Name",
   "editor.category-menu.additional-items.items.slug": "Slug",
-  "editor.category-menu.additional-items.items.first-level-subitem.title": "First level Sub items",
-  "editor.category-menu.additional-items.items.second-level-subitem.title": "Second level Sub items"
+  "editor.category-menu.additional-items.first-level-subitem.title": "First level Sub items",
+  "editor.category-menu.additional-items.second-level-subitem.title": "Second level Sub items"
 }

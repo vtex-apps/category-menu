@@ -16,6 +16,7 @@ import categoryMenuPosition, {
   getMenuPositionNames,
   getMenuPositionValues,
 } from './utils/categoryMenuPosition'
+import messages from './utils/messages'
 
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
@@ -24,10 +25,6 @@ const DEFAULT_SUBCATEGORIES_LEVELS = 1
  */
 class CategoryMenu extends Component {
   static propTypes = {
-    /** Whether to show the promotion category or not */
-    showPromotionCategory: PropTypes.bool,
-    /** Whether to show the gift category or not */
-    showGiftCategory: PropTypes.bool,
     /** Categories query data */
     data: PropTypes.shape({
       loading: PropTypes.bool.isRequired,
@@ -60,9 +57,6 @@ class CategoryMenu extends Component {
   }
 
   static defaultProps = {
-    showPromotionCategory: false,
-    showGiftCategory: false,
-    mobileMode: false,
     showAllDepartments: true,
     showSubcategories: true,
     menuPosition: categoryMenuPosition.DISPLAY_CENTER.value,
@@ -112,7 +106,7 @@ class CategoryMenu extends Component {
       >
         <SideBar
           visible={sideBarVisible}
-          title={intl.formatMessage({ id: 'category-menu.departments.title' })}
+          title={intl.formatMessage(messages.allDepartmentsTitle)}
           departments={this.departments}
           onClose={this.handleSidebarToggle}
           showSubcategories={showSubcategories}
@@ -129,43 +123,53 @@ class CategoryMenu extends Component {
         menuPosition={menuPosition}
         subcategoryLevels={DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories}
         departments={this.departments}
-        departmentsTitle={intl.formatMessage({
-          id: 'category-menu.departments.title',
-        })}
+        departmentsTitle={intl.formatMessage(messages.allDepartmentsTitle)}
         additionalItems={additionalItems}
       />
     )
   }
 }
 
-const simpleItemProps = {
+const simpleItemSchema = {
   name: {
-    title: 'editor.category-menu.additional-items.items.name',
+    title: messages.itemTitle,
     type: 'string',
   },
   slug: {
-    title: 'editor.category-menu.additional-items.items.slug',
+    title: messages.itemSlug,
     type: 'string',
   },
 }
 
 const additionalItemsSchema = {
-  title: 'editor.category-menu.additional-items.title',
+  title: messages.additionalItemsTitle,
   type: 'array',
   minItems: 0,
   items: {
-    title: 'editor.category-menu.additional-item.title',
+    title: messages.additionalItemsTitle,
     type: 'object',
     properties: {
-      ...simpleItemProps,
+      ...simpleItemSchema,
       children: {
-        title: 'editor.category-menu.additional-items.items.first-level-subitem.title',
+        title: messages.subItemFirstLevelTitle,
         type: 'array',
         minItems: 0,
         items: {
-          title: 'editor.category-menu.additional-items.items.second-level-subitem.title',
+          title: messages.subItemFirstLevelTitle,
           type: 'object',
-          properties: { ...simpleItemProps },
+          properties: {
+            ...simpleItemSchema,
+            children: {
+              title: messages.subItemSecondLevelTitle,
+              type: 'array',
+              minItems: 0,
+              items: {
+                title: messages.subItemSecondLevelTitle,
+                type: 'object',
+                properties: simpleItemSchema,
+              },
+            },
+          },
         },
       },
     },
@@ -173,22 +177,17 @@ const additionalItemsSchema = {
 }
 
 CategoryMenu.schema = {
-  title: 'editor.category-menu.title',
-  description: 'editor.category-menu.description',
+  title: messages.categoryMenuTitle,
+  description: messages.categoryMenuDescription,
   type: 'object',
   properties: {
-    showPromotionCategory: {
-      type: 'boolean',
-      title: 'editor.category-menu.show-promotion-category.title',
-      default: CategoryMenu.defaultProps.showPromotionCategory,
-    },
     showAllDepartments: {
       type: 'boolean',
-      title: 'editor.category-menu.show-departments-category.title',
+      title: messages.showAllDepartmentsTitle,
       default: CategoryMenu.defaultProps.showAllDepartments,
     },
     menuPosition: {
-      title: 'editor.category-menu.position-type.title',
+      title: messages.menuPositionTitle,
       type: 'string',
       enum: getMenuPositionValues(),
       enumNames: getMenuPositionNames(),
@@ -197,24 +196,19 @@ CategoryMenu.schema = {
     },
     showSubcategories: {
       type: 'boolean',
-      title: 'editor.category-menu.show-subcategories.title',
+      title: messages.showSubcategoriesTitle,
       default: CategoryMenu.defaultProps.showSubcategories,
     },
-    showGiftCategory: {
-      type: 'boolean',
-      title: 'editor.category-menu.show-gift-category.title',
-      default: CategoryMenu.defaultProps.showGiftCategory,
-    },
     departments: {
-      title: 'editor.category-menu.departments.title',
+      title: messages.departmentsTitle,
       type: 'array',
       minItems: 0,
       items: {
-        title: 'editor.category-menu.departments.items.title',
+        title: messages.departmentsItemsTitle,
         type: 'object',
         properties: {
           id: {
-            title: 'editor.category-menu.departments.items.id',
+            title: messages.departmentIdTitle,
             type: 'number',
           },
         },
