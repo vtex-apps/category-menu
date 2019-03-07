@@ -23,7 +23,7 @@ export default class SideBar extends Component {
     /** Whether to show subcategories or not */
     showSubcategories: PropTypes.bool,
     /** Additional items to be shown in sidebar */
-    additionalItems: itemPropType,
+    additionalItems: PropTypes.arrayOf(itemPropType),
   }
 
   static defaultProps = {

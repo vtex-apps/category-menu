@@ -124,9 +124,10 @@ exports[`CategoryMenu component should match menu snapshot 1`] = `
 
 exports[`CategoryMenu component should match sidebar snapshot 1`] = `
 <DocumentFragment>
-  <nav
-    class="container w-100 bg-base dn flex-m justify-center"
+  <div
+    class="sidebarContainer mobile"
   >
+<<<<<<< HEAD
     <ul
       class="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
     >
@@ -238,13 +239,90 @@ exports[`CategoryMenu component should match sidebar snapshot 1`] = `
           <a
             class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
             href="/category-3/s"
+=======
+    <div
+      class="sidebarScrim fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40 dn"
+    />
+    <aside
+      class="sidebar w-100 bg-base z-max vh-100 shadow-5 overflow-scroll"
+    >
+      <div
+        class="sidebarHeader flex justify-between items-center pa5 pointer"
+      >
+        <span>
+          IconClose
+        </span>
+      </div>
+      <ul
+        class="sidebarContent pb7 list ma0 pa0"
+      >
+        <li
+          class="list ma0 pa0"
+        >
+          <ul
+            class="sidebarItem list pa0 ma0 c-on-base"
           >
-            Category 3
-          </a>
+            <li
+              class="sidebarItemContainer flex justify-between items-center pa5 pointer list ma0"
+            >
+              <span
+                class="t-body lh-solid"
+              >
+                Category 1
+              </span>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="list ma0 pa0"
+        >
+          <ul
+            class="sidebarItem list pa0 ma0 c-on-base"
+          >
+            <li
+              class="sidebarItemContainer flex justify-between items-center pa5 pointer list ma0"
+            >
+              <span
+                class="t-body lh-solid"
+              >
+                Category 2
+              </span>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="list ma0 pa0"
+        >
+          <ul
+            class="sidebarItem list pa0 ma0 c-on-base"
+>>>>>>> Fix proptype and add snapshot of the sidebar
+          >
+            <li
+              class="sidebarItemContainer flex justify-between items-center pa5 pointer list ma0"
+            >
+              <span
+                class="t-body lh-solid"
+              >
+                Category 3
+              </span>
+            </li>
+          </ul>
         </li>
       </ul>
+<<<<<<< HEAD
     </section>
 >>>>>>> Update snapshot
   </nav>
+=======
+    </aside>
+    <div
+      class="flex pa4 pointer"
+    >
+      <span>
+        IconMenu
+      </span>
+    </div>
+  </div>
+>>>>>>> Fix proptype and add snapshot of the sidebar
 </DocumentFragment>
 `;

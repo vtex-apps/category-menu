@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { mergeRight } from 'ramda'
 
 export class NoSSR extends Component {
   static propTypes = {
@@ -21,20 +22,25 @@ export function Link({ params, className, children }) {
 }
 
 export const withRuntimeContext = Wrapped => {
-  return (props) => (
-    <Wrapped
-      {...props}
-      runtime={{
-        navigate: () => {},
-        hints: { mobile: false }
-      }}
-    />
-  )
+  return ({ runtime, ...props }) => {
+    return (
+      <Wrapped
+        {...props}
+        runtime={mergeRight(
+          {
+            navigate: () => {},
+            hints: { mobile: true },
+          },
+          runtime || {}
+        )}
+      />
+    )
+  }
 }
 
 export const useRuntime = () => {
   return {
     navigate: () => {},
-    hints: { mobile: false }
+    hints: { mobile: false },
   }
 }
