@@ -62,4 +62,15 @@ describe('CategoryMenu component', () => {
 
     expect(element).toBeNull()
   })
+
+  it('should match sidebar snapshot', () => {
+    const { asFragment } = render(
+      <LocalCategoryMenu
+        runtime={{ hints: { mobile: true } }}
+        data={{ categories: mockedCategories, loading: false }}
+        departments={departments}
+      />
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
