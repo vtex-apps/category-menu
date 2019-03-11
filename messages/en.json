@@ -12,10 +12,10 @@
   "editor.category-menu.position-type.center": "Middle",
   "editor.category-menu.position-type.left": "Left",
   "editor.category-menu.position-type.right": "Right",
-  "editor.category-menu.additional-items.title": "Additional Items",
+  "editor.category-menu.additional-items.title": "Additional Item",
   "editor.category-menu.additional-items.items.title": "Items",
   "editor.category-menu.additional-items.items.name": "Name",
   "editor.category-menu.additional-items.items.slug": "Slug",
-  "editor.category-menu.additional-items.first-level-subitem.title": "First level Sub items",
-  "editor.category-menu.additional-items.second-level-subitem.title": "Second level Sub items"
+  "editor.category-menu.additional-items.first-level-subitem.title": "First level Sub item",
+  "editor.category-menu.additional-items.second-level-subitem.title": "Second level Sub item"
 }

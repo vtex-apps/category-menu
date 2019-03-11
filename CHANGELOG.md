@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 
-- Allow addition of custom items.
+- Allow addition of custom link items and update messages descriptions.
 
 ## [2.11.5] - 2019-03-14
 ### Changed
