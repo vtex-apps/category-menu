@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render } from '@vtex/test-tools/react'
 
 import CategoryItem from '../components/CategoryItem'
 
@@ -21,16 +21,16 @@ describe('CategoryItem component', () => {
       ],
     }
 
-    wrapper = shallow(<CategoryItem category={categoryMock} />)
+    wrapper = render(<CategoryItem category={categoryMock} />)
   })
 
   it('should have the correct href', () => {
-    expect(wrapper.find({ params: { department: 'category' } }).exists()).toBe(
-      true
-    )
+    const element = wrapper.getByText(/CATEGORY/)
+
+    expect(element.href).toMatch(/\/category\/s$/)
   })
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
