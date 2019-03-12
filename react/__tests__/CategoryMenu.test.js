@@ -1,6 +1,5 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { IntlProvider } from 'react-intl'
+import { render } from '@vtex/test-tools/react'
 import { CategoryMenuWithIntl } from '../index'
 
 describe('CategoryMenu component', () => {
@@ -35,18 +34,15 @@ describe('CategoryMenu component', () => {
     ]
 
     const departments = mockedCategories.map(category => ({ id: category.id }))
-    const messages = require('../../messages/en-US.json')
 
-    wrapper = mount(
-      <IntlProvider locale="en-US" messages={messages}>
-        <CategoryMenuWithIntl
-          data={{
-            categories: mockedCategories,
-            loading: false,
-          }}
-          departments={departments}
-        />
-      </IntlProvider>
+    wrapper = render(
+      <CategoryMenuWithIntl
+        data={{
+          categories: mockedCategories,
+          loading: false,
+        }}
+        departments={departments}
+      />
     )
   })
 
@@ -55,10 +51,12 @@ describe('CategoryMenu component', () => {
   })
 
   it('should match snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it("shouldn't be able to find a `Category 4` item", () => {
-    expect(wrapper.containsMatchingElement(<a>Category 4</a>)).toBe(false)
+    const element = wrapper.queryByText(/Category 4/)
+
+    expect(element).toBeNull()
   })
 })

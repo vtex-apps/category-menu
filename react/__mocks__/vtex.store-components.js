@@ -5,3 +5,9 @@ export class Animation extends Component {
     return this.props.children
   }
 }
+
+export class Container extends Component {
+  render() {
+    return this.props.children
+  }
+}

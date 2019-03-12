@@ -2,34 +2,18 @@
   "name": "vtex.category-menu",
   "version": "0.0.0",
   "scripts": {
-    "test": "vtex-scripts test"
+    "test": "vtex-test-tools test"
   },
   "dependencies": {
-    "apollo-client": "^2.4.7",
     "classnames": "^2.2.6",
     "graphql": "^14.0.2",
-    "ramda": "^0.26.1",
     "jsdom": "^11.8.0",
     "ramda": "^0.26.1",
     "react-apollo": "^2.3.2",
     "react-intl": "^2.4.0"
   },
   "devDependencies": {
-    "@vtex/vtex-scripts": "^0.4.13",
-    "apollo-client": "^2.2.8",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "identity-obj-proxy": "^3.0.0",
-    "jsdom": "^11.8.0",
-    "react-apollo": "^2.3.2",
-    "react-intl": "^2.4.0"
-  },
-  "vtexScriptsOverride": {
-    "srcPath": "."
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less)$": "identity-obj-proxy"
-    }
+    "@vtex/test-tools": "^0.1.2",
+    "apollo-client": "^2.5.1"
   }
 }
