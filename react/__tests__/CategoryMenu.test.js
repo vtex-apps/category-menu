@@ -3,6 +3,8 @@ import { render } from '@vtex/test-tools/react'
 import { LocalCategoryMenu } from '../index'
 
 describe('CategoryMenu component', () => {
+  let wrapper
+
   const mockedCategories = [
     {
       id: 1,
@@ -30,15 +32,16 @@ describe('CategoryMenu component', () => {
     },
   ]
 
-  beforeEach(() => {
-    const departments = mockedCategories.map(category => ({ id: category.id }))
+  const departments = mockedCategories.map(category => ({ id: category.id }))
 
+  beforeEach(() => {
     wrapper = render(
       <LocalCategoryMenu
         data={{
           categories: mockedCategories,
           loading: false,
         }}
+        runtime={{ hints: { desktop: true, mobile: false } }}
         departments={departments}
       />
     )

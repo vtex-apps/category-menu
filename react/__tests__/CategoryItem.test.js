@@ -25,7 +25,7 @@ describe('CategoryItem component', () => {
   })
 
   it('should have the correct href', () => {
-    const element = wrapper.getByText(/CATEGORY/)
+    const element = wrapper.getByText(/Category/)
 
     expect(element.href).toMatch(/\/category\/s$/)
   })

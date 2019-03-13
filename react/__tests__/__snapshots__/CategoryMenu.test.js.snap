@@ -1,245 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CategoryMenu component should match menu snapshot 1`] = `
-<DocumentFragment>
-  <nav
-    class="container w-100 bg-base dn flex-m justify-center"
-  >
-    <section
-      class="ph3 ph5-m ph8-l ph9-xl justify-center flex"
-    >
-      <ul
-        class="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
-      >
-        <li
-          class="itemContainer flex items-center db list"
-        >
-          <span
-            class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
-          >
-            Departments
-          </span>
-          <div
-            class="itemContainer absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3 dn"
-          >
-            <section
-              class="ph3 ph5-m ph8-l ph9-xl justify-center w-100 flex"
-            >
-              <ul
-                class="w-100 flex flex-wrap pa0 list mw9 justify-center"
-              >
-                <li
-                  class="dib"
-                >
-                  <ul
-                    class=""
-                  >
-                    <li
-                      class="list pa0"
-                    >
-                      <a
-                        class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
-                        href="/category-1/s"
-                      >
-                        Category 1
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li
-                  class="dib"
-                >
-                  <ul
-                    class=""
-                  >
-                    <li
-                      class="list pa0"
-                    >
-                      <a
-                        class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
-                        href="/category-2/s"
-                      >
-                        Category 2
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li
-                  class="dib"
-                >
-                  <ul
-                    class=""
-                  >
-                    <li
-                      class="list pa0"
-                    >
-                      <a
-                        class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
-                        href="/category-3/s"
-                      >
-                        Category 3
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </li>
-        <li
-          class="itemContainer flex items-center db list"
-        >
-          <a
-            class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
-            href="/category-1/s"
-          >
-            Category 1
-          </a>
-        </li>
-        <li
-          class="itemContainer flex items-center db list"
-        >
-          <a
-            class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
-            href="/category-2/s"
-          >
-            Category 2
-          </a>
-        </li>
-        <li
-          class="itemContainer flex items-center db list"
-        >
-          <a
-            class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
-            href="/category-3/s"
-          >
-            Category 3
-          </a>
-        </li>
-      </ul>
-    </section>
-  </nav>
-</DocumentFragment>
-`;
-
 exports[`CategoryMenu component should match sidebar snapshot 1`] = `
 <DocumentFragment>
   <div
     class="sidebarContainer mobile"
   >
-<<<<<<< HEAD
-    <ul
-      class="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
-    >
-      <li
-        class="itemContainer flex items-center db list"
-      >
-        <span
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
-        >
-          DEPARTMENTS
-        </span>
-        <div
-          class="itemContainer absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
-          style="display: none;"
-        >
-          <ul
-            class="w-100 flex flex-wrap pa0 list mw9 justify-center"
-          >
-            <li
-              class="dib"
-            >
-              <ul
-                class=""
-              >
-                <li
-                  class="list pa0"
-                >
-                  <a
-                    class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
-                    href="/category-1/s"
-                  >
-                    CATEGORY 1
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li
-              class="dib"
-            >
-              <ul
-                class=""
-              >
-                <li
-                  class="list pa0"
-                >
-                  <a
-                    class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
-                    href="/category-2/s"
-                  >
-                    CATEGORY 2
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li
-              class="dib"
-            >
-              <ul
-                class=""
-              >
-                <li
-                  class="list pa0"
-                >
-                  <a
-                    class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
-                    href="/category-3/s"
-                  >
-                    CATEGORY 3
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li
-        class="itemContainer flex items-center db list"
-      >
-        <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
-          href="/category-1/s"
-        >
-          CATEGORY 1
-        </a>
-      </li>
-      <li
-        class="itemContainer flex items-center db list"
-      >
-        <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
-          href="/category-2/s"
-        >
-          CATEGORY 2
-        </a>
-      </li>
-      <li
-        class="itemContainer flex items-center db list"
-      >
-        <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
-          href="/category-3/s"
-        >
-<<<<<<< HEAD
-          CATEGORY 3
-        </a>
-      </li>
-    </ul>
-=======
-          <a
-            class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
-            href="/category-3/s"
-=======
     <div
       class="sidebarScrim fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40 dn"
     />
@@ -295,7 +60,6 @@ exports[`CategoryMenu component should match sidebar snapshot 1`] = `
         >
           <ul
             class="sidebarItem list pa0 ma0 c-on-base"
->>>>>>> Fix proptype and add snapshot of the sidebar
           >
             <li
               class="sidebarItemContainer flex justify-between items-center pa5 pointer list ma0"
@@ -309,11 +73,6 @@ exports[`CategoryMenu component should match sidebar snapshot 1`] = `
           </ul>
         </li>
       </ul>
-<<<<<<< HEAD
-    </section>
->>>>>>> Update snapshot
-  </nav>
-=======
     </aside>
     <div
       class="flex pa4 pointer"
@@ -323,6 +82,119 @@ exports[`CategoryMenu component should match sidebar snapshot 1`] = `
       </span>
     </div>
   </div>
->>>>>>> Fix proptype and add snapshot of the sidebar
+</DocumentFragment>
+`;
+
+exports[`CategoryMenu component should match snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="container w-100 bg-base dn flex-m justify-center"
+  >
+    <ul
+      class="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
+    >
+      <li
+        class="itemContainer flex items-center db list"
+      >
+        <span
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+        >
+          Departments
+        </span>
+        <div
+          class="itemContainer absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3 dn"
+        >
+          <ul
+            class="w-100 flex flex-wrap pa0 list mw9 justify-center"
+          >
+            <li
+              class="dib"
+            >
+              <ul
+                class=""
+              >
+                <li
+                  class="list pa0"
+                >
+                  <a
+                    class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
+                    href="/category-1/s"
+                  >
+                    Category 1
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              class="dib"
+            >
+              <ul
+                class=""
+              >
+                <li
+                  class="list pa0"
+                >
+                  <a
+                    class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
+                    href="/category-2/s"
+                  >
+                    Category 2
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              class="dib"
+            >
+              <ul
+                class=""
+              >
+                <li
+                  class="list pa0"
+                >
+                  <a
+                    class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
+                    href="/category-3/s"
+                  >
+                    Category 3
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li
+        class="itemContainer flex items-center db list"
+      >
+        <a
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          href="/category-1/s"
+        >
+          Category 1
+        </a>
+      </li>
+      <li
+        class="itemContainer flex items-center db list"
+      >
+        <a
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          href="/category-2/s"
+        >
+          Category 2
+        </a>
+      </li>
+      <li
+        class="itemContainer flex items-center db list"
+      >
+        <a
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          href="/category-3/s"
+        >
+          Category 3
+        </a>
+      </li>
+    </ul>
+  </nav>
 </DocumentFragment>
 `;
