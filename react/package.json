@@ -2,6 +2,7 @@
   "name": "vtex.category-menu",
   "version": "0.0.0",
   "scripts": {
+    "pretest": "yarn",
     "test": "vtex-test-tools test"
   },
   "dependencies": {
