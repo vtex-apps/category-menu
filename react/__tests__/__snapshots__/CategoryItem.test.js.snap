@@ -6,10 +6,10 @@ exports[`CategoryItem component should match snapshot 1`] = `
     class="itemContainer flex items-center db list"
   >
     <a
-      class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent"
+      class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent"
       href="/category/s"
     >
-      CATEGORY
+      Category
     </a>
   </li>
 </DocumentFragment>

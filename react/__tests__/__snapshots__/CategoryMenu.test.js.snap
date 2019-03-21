@@ -12,9 +12,9 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         class="itemContainer flex items-center db list"
       >
         <span
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
         >
-          DEPARTMENTS
+          Departments
         </span>
         <div
           class="itemContainer absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
@@ -36,7 +36,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
                     href="/category-1/s"
                   >
-                    CATEGORY 1
+                    Category 1
                   </a>
                 </li>
               </ul>
@@ -54,7 +54,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
                     href="/category-2/s"
                   >
-                    CATEGORY 2
+                    Category 2
                   </a>
                 </li>
               </ul>
@@ -72,7 +72,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
                     class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
                     href="/category-3/s"
                   >
-                    CATEGORY 3
+                    Category 3
                   </a>
                 </li>
               </ul>
@@ -84,30 +84,30 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         class="itemContainer flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-1/s"
         >
-          CATEGORY 1
+          Category 1
         </a>
       </li>
       <li
         class="itemContainer flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-2/s"
         >
-          CATEGORY 2
+          Category 2
         </a>
       </li>
       <li
         class="itemContainer flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-3/s"
         >
-          CATEGORY 3
+          Category 3
         </a>
       </li>
     </ul>

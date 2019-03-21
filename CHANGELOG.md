@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- Remove uppercase from links
+
 ## [2.11.5] - 2019-03-14
 ### Changed
 - Change language files to most generic.
