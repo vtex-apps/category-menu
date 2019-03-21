@@ -57,7 +57,7 @@ export default class ItemContainer extends Component {
           className={firstLevelLinkClasses}
           params={params}
         >
-          {item.name.toUpperCase()}
+          {item.name}
         </Link>
       </li>
     )

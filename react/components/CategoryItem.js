@@ -44,7 +44,7 @@ export default class CategoryItem extends Component {
     const { isOnHover } = this.state
 
     const categoryClasses = classNames(
-      'w-100 pv5 no-underline t-small outline-0 db tc ttu link truncate bb bw1 c-muted-1',
+      'w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1',
       {
         'b--transparent': !isOnHover && !isCategorySelected,
         'b--action-primary pointer': isOnHover || isCategorySelected,
@@ -55,7 +55,7 @@ export default class CategoryItem extends Component {
     )
 
     return noRedirect ? (
-      <span className={categoryClasses}>{name.toUpperCase()}</span>
+      <span className={categoryClasses}>{name}</span>
     ) : (
       <Link
         onClick={this.handleCloseMenu}
@@ -63,7 +63,7 @@ export default class CategoryItem extends Component {
         params={{ department: slug }}
         className={categoryClasses}
       >
-        {name.toUpperCase()}
+        {name}
       </Link>
     )
   }
