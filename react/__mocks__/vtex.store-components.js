@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
-export class Animation extends Component {
-  render() {
-    return this.props.children
-  }
-}
+export const Animation = ({ children }) => children
 
 export class Container extends Component {
   render() {
