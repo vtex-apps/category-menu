@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sidebarScrim fixed dim bg-base--inverted top-0 z-1 vw-100 vh-100 o-40"
+  />
+  <aside
+    class="sidebar w-100 bg-base z-max vh-100 shadow-5 overflow-scroll"
+  >
+    <div
+      class="sidebarHeader flex justify-between items-center pa5 pointer"
+    >
+      <svg
+        class="undefined IconClose"
+        height="24"
+        width="24"
+      >
+        <rect
+          height="24"
+          width="24"
+        />
+      </svg>
+    </div>
+    <ul
+      class="sidebarContent pb7 list ma0 pa0"
+    />
+  </aside>
+</DocumentFragment>
+`;

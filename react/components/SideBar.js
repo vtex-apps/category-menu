@@ -30,7 +30,6 @@ export default class SideBar extends Component {
   }
 
   updateComponent() {
-    console.log('test')
     if (this.props.visible) {
       document.body.classList.add(OPEN_SIDEBAR_CLASS)
     } else {
