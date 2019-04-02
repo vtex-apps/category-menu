@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, act } from '@vtex/test-tools/react'
+import { render } from '@vtex/test-tools/react'
 import SideBar from '../components/SideBar'
 
 describe('SideBar component', () => {

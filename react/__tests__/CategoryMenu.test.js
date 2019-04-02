@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, act } from '@vtex/test-tools/react'
+import { render } from '@vtex/test-tools/react'
 import { CategoryMenuWithIntl } from '../index'
 
 describe('CategoryMenu component', () => {
@@ -58,10 +58,4 @@ describe('CategoryMenu component', () => {
 
     expect(element).toBeNull()
   })
-
-  // it('should render specific menu on different devices', () => {
-  //   const { container } = renderComponent({ mobileMode: true })
-
-  //   expect(container.querySelector('.sidebarContainer')).toBeTruthy()
-  // })
 })
