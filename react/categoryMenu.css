@@ -35,3 +35,11 @@
 .menuContainer {}
 
 .sidebarItemContainer {}
+
+.menuItemLabel {}
+
+.itemsListContainer {}
+
+.listItemContainer {
+  max-height: 21.875rem;
+}
