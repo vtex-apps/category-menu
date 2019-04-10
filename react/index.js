@@ -133,7 +133,7 @@ class CategoryMenu extends Component {
       }
     )
 
-    const itemListClass = `${categoryMenu.itemsListContainer} pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3`
+    const itemListClass = classNames(categoryMenu.itemsListContainer, "pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3")
 
     return (
       <nav className={desktopClasses}>

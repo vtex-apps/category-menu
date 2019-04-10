@@ -43,8 +43,8 @@ export default class CategoryItem extends Component {
     } = this.props
     const { isOnHover } = this.state
 
-    const categoryClasses = classNames(
-      `${categoryMenu.menuItemLabel} w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1`,
+    const categoryClasses = classNames(categoryMenu.menuItemLabel,
+      "w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1",
       {
         'b--transparent': !isOnHover && !isCategorySelected,
         'b--action-primary pointer': isOnHover || isCategorySelected,
@@ -93,9 +93,15 @@ export default class CategoryItem extends Component {
   }
 
   render() {
+    
+    const listItemContainerClasses = classNames(
+      categoryMenu.listItemContainer, 
+      categoryMenu.itemContainer, 
+      "flex items-center db list")
+
     return (
       <li
-        className={`${categoryMenu.listItemContainer} flex items-center db list`}
+        className={ listItemContainerClasses }
         ref={e => {
           this.item = e
         }}

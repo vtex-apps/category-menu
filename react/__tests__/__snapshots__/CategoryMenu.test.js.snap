@@ -6,13 +6,13 @@ exports[`CategoryMenu component should match snapshot 1`] = `
     class="container w-100 bg-base dn flex-m justify-center"
   >
     <ul
-      class="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
+      class="itemsListContainer pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
     >
       <li
-        class="itemContainer flex items-center db list"
+        class="listItemContainer itemContainer flex items-center db list"
       >
         <span
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="menuItemLabel w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
         >
           Departments
         </span>
@@ -81,30 +81,30 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         </div>
       </li>
       <li
-        class="itemContainer flex items-center db list"
+        class="listItemContainer itemContainer flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="menuItemLabel w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-1/s"
         >
           Category 1
         </a>
       </li>
       <li
-        class="itemContainer flex items-center db list"
+        class="listItemContainer itemContainer flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="menuItemLabel w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-2/s"
         >
           Category 2
         </a>
       </li>
       <li
-        class="itemContainer flex items-center db list"
+        class="listItemContainer itemContainer flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="menuItemLabel w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-3/s"
         >
           Category 3
