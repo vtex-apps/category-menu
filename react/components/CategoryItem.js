@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'vtex.render-runtime'
 import PropTypes from 'prop-types'
 import { categoryItemShape } from '../propTypes'
+import { Icon } from 'vtex.store-icons'
 
 import ItemContainer from './ItemContainer'
 import classNames from 'classnames'
@@ -30,6 +31,8 @@ export default class CategoryItem extends Component {
     menuPosition: PropTypes.oneOf(getMenuPositionValues()),
     /** Menu category selection */
     isCategorySelected: PropTypes.bool,
+    icon: PropTypes.bool,
+    iconId: PropTypes.string,
   }
 
   handleCloseMenu = () => this.setState({ isOnHover: false })
@@ -40,6 +43,8 @@ export default class CategoryItem extends Component {
       noRedirect,
       isCategorySelected,
       menuPosition,
+      icon = true,
+      iconId,
     } = this.props
     const { isOnHover } = this.state
 
@@ -57,15 +62,16 @@ export default class CategoryItem extends Component {
     return noRedirect ? (
       <span className={categoryClasses}>{name}</span>
     ) : (
-      <Link
-        onClick={this.handleCloseMenu}
-        page="store.search#department"
-        params={{ department: slug }}
-        className={categoryClasses}
-      >
-        {name}
-      </Link>
-    )
+        <Link
+          onClick={this.handleCloseMenu}
+          page="store.search#department"
+          params={{ department: slug }}
+          className={categoryClasses}
+        >
+          {icon && <Icon id="hpa-cart" activeClassName="pr3" />}
+          {name}
+        </Link>
+      )
   }
 
   renderChildren() {

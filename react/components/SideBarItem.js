@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
 
 import { withRuntimeContext } from 'vtex.render-runtime'
-import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
+import { IconMinus, IconPlus } from 'vtex.store-icons'
 
 import categoryMenu from '../categoryMenu.css'
 
