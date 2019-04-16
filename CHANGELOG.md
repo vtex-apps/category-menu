@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Add icon to menu items.
+
 ## [2.11.6] - 2019-03-21
 
 ### Fixed
@@ -14,7 +18,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Remove uppercase from links
 
 ## [2.11.5] - 2019-03-14
+
 ### Changed
+
 - Change language files to most generic.
 
 ## [2.11.4] - 2019-02-27
