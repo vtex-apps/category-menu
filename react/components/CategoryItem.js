@@ -64,7 +64,7 @@ export default class CategoryItem extends Component {
         onClick={this.handleCloseMenu}
         page="store.search#department"
         params={{ department: slug }}
-        className={`${categoryClasses} lh-copy`}
+        className={`${categoryClasses} lh-copy flex items-center`}
       >
         {icon && <Icon id={iconId} activeClassName="pr3" />}
         {name}
