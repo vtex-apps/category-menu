@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
+import { Icon } from 'vtex.store-icons'
 
 import { withRuntimeContext } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.store-icons'
@@ -104,7 +105,10 @@ class SideBarItem extends Component {
 
     return (
       <li className={sideBarContainerClasses} onClick={this.handleItemClick}>
-        <span className={sideBarItemTitleClasses}>{item.name}</span>
+        <span className={sideBarItemTitleClasses}>
+          {item.icon && <Icon id={item.iconId} activeClassName="pr3" />}
+          {item.name}
+        </span>
         {this.showSubCategories && (
           <span className={sideBarSpanClasses}>
             {isOpened ? <IconMinus size={16} /> : <IconPlus size={16} />}

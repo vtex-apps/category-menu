@@ -4,7 +4,7 @@ import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
 import { IconMenu } from 'vtex.store-icons'
 import { withRuntimeContext } from 'vtex.render-runtime'
-import { compose, path } from 'ramda'
+import { compose, path, findIndex, propEq } from 'ramda'
 import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
 
@@ -81,7 +81,19 @@ class CategoryMenu extends Component {
       departmentsIds.includes(category.id)
     )
 
-    return (departmentsSelected.length && departmentsSelected) || categories
+    const departmentsWithIcons =
+      departmentsSelected.length &&
+      departmentsSelected.map(department => {
+        const index = findIndex(propEq('id', department.id))(departments)
+        const dept = departments[index]
+        return {
+          ...department,
+          icon: dept.icon,
+          iconId: dept.iconId,
+        }
+      })
+
+    return (departmentsWithIcons.length && departmentsWithIcons) || categories
   }
 
   renderSideBar() {
@@ -223,6 +235,15 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
           id: {
             title: 'editor.category-menu.departments.items.id',
             type: 'number',
+          },
+          icon: {
+            title: 'editor.category-menu.departments.items.icon.title',
+            type: 'boolean',
+            default: false,
+          },
+          iconId: {
+            title: 'editor.category-menu.departments.items.icon.id',
+            type: 'string',
           },
         },
       },

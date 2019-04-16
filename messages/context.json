@@ -8,5 +8,7 @@
   "category-menu.departments.title": "category-menu.departments.title",
   "editor.category-menu.departments.items.title": "editor.category-menu.departments.items.title",
   "editor.category-menu.departments.items.id": "editor.category-menu.departments.items.id",
-  "category-menu.all-category.title": "category-menu.all-category.title"
+  "category-menu.all-category.title": "category-menu.all-category.title",
+  "editor.category-menu.departments.items.icon.title": "editor.category-menu.departments.items.icon.title",
+  "editor.category-menu.departments.items.icon.id": "editor.category-menu.departments.items.icon.id"
 }

@@ -39,12 +39,10 @@ export default class CategoryItem extends Component {
 
   renderCategory() {
     const {
-      category: { name, slug },
+      category: { name, slug, icon, iconId },
       noRedirect,
       isCategorySelected,
       menuPosition,
-      icon = true,
-      iconId,
     } = this.props
     const { isOnHover } = this.state
 
@@ -62,16 +60,16 @@ export default class CategoryItem extends Component {
     return noRedirect ? (
       <span className={categoryClasses}>{name}</span>
     ) : (
-        <Link
-          onClick={this.handleCloseMenu}
-          page="store.search#department"
-          params={{ department: slug }}
-          className={categoryClasses}
-        >
-          {icon && <Icon id="hpa-cart" activeClassName="pr3" />}
-          {name}
-        </Link>
-      )
+      <Link
+        onClick={this.handleCloseMenu}
+        page="store.search#department"
+        params={{ department: slug }}
+        className={`${categoryClasses} lh-copy`}
+      >
+        {icon && <Icon id={iconId} activeClassName="pr3" />}
+        {name}
+      </Link>
+    )
   }
 
   renderChildren() {

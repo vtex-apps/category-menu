@@ -12,5 +12,7 @@
   "editor.category-menu.disposition-type.title": "Posición del menú",
   "editor.category-menu.disposition-type.center": "Centro",
   "editor.category-menu.disposition-type.left": "Izquierda",
-  "editor.category-menu.disposition-type.right": "Derecho"
+  "editor.category-menu.disposition-type.right": "Derecho",
+  "editor.category-menu.departments.items.icon.title": "Muestra el icono",
+  "editor.category-menu.departments.items.icon.id": "Id de icono"
 }
