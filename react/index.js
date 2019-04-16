@@ -81,17 +81,15 @@ class CategoryMenu extends Component {
       departmentsIds.includes(category.id)
     )
 
-    const departmentsWithIcons =
-      departmentsSelected.length &&
-      departmentsSelected.map(department => {
-        const index = findIndex(propEq('id', department.id))(departments)
-        const dept = departments[index]
-        return {
-          ...department,
-          icon: dept.icon,
-          iconId: dept.iconId,
-        }
-      })
+    const departmentsWithIcons = departmentsSelected.map(department => {
+      const index = findIndex(propEq('id', department.id))(departments)
+      const dept = departments[index]
+      return {
+        ...department,
+        icon: dept.icon,
+        iconId: dept.iconId,
+      }
+    })
 
     return (departmentsWithIcons.length && departmentsWithIcons) || categories
   }
