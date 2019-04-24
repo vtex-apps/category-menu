@@ -95,7 +95,7 @@ class CategoryMenu extends Component {
       >
         <SideBar
           visible={sideBarVisible}
-          title={intl.formatMessage({ id: 'category-menu.departments.title' })}
+          title={intl.formatMessage({ id: 'store/category-menu.departments.title' })}
           departments={this.departments}
           onClose={this.handleSidebarToggle}
           showSubcategories={showSubcategories}
@@ -147,7 +147,7 @@ class CategoryMenu extends Component {
                 category={{
                   children: categories,
                   name: intl.formatMessage({
-                    id: 'category-menu.departments.title',
+                    id: 'store/category-menu.departments.title',
                   }),
                 }}
               />
@@ -180,22 +180,22 @@ class CategoryMenu extends Component {
 export const CategoryMenuWithIntl = injectIntl(CategoryMenu)
 
 CategoryMenuWithIntl.schema = CategoryMenu.schema = {
-  title: 'editor.category-menu.title',
-  description: 'editor.category-menu.description',
+  title: 'admin/editor.category-menu.title',
+  description: 'admin/editor.category-menu.description',
   type: 'object',
   properties: {
     showPromotionCategory: {
       type: 'boolean',
-      title: 'editor.category-menu.show-promotion-category.title',
+      title: 'admin/editor.category-menu.show-promotion-category.title',
       default: CategoryMenu.defaultProps.showPromotionCategory,
     },
     showAllDepartments: {
       type: 'boolean',
-      title: 'editor.category-menu.show-departments-category.title',
+      title: 'admin/editor.category-menu.show-departments-category.title',
       default: CategoryMenu.defaultProps.showAllDepartments,
     },
     menuPosition: {
-      title: 'editor.category-menu.disposition-type.title',
+      title: 'admin/editor.category-menu.disposition-type.title',
       type: 'string',
       enum: getMenuPositionValues(),
       enumNames: getMenuPositionNames(),
@@ -204,24 +204,24 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
     },
     showSubcategories: {
       type: 'boolean',
-      title: 'editor.category-menu.show-subcategories.title',
+      title: 'admin/editor.category-menu.show-subcategories.title',
       default: CategoryMenu.defaultProps.showSubcategories,
     },
     showGiftCategory: {
       type: 'boolean',
-      title: 'editor.category-menu.show-gift-category.title',
+      title: 'admin/editor.category-menu.show-gift-category.title',
       default: CategoryMenu.defaultProps.showGiftCategory,
     },
     departments: {
-      title: 'category-menu.departments.title',
+      title: 'store/category-menu.departments.title',
       type: 'array',
       minItems: 0,
       items: {
-        title: 'editor.category-menu.departments.items.title',
+        title: 'admin/editor.category-menu.departments.items.title',
         type: 'object',
         properties: {
           id: {
-            title: 'editor.category-menu.departments.items.id',
+            title: 'admin/editor.category-menu.departments.items.id',
             type: 'number',
           },
         },

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.12.0] - 2019-04-24
+### Changed
+- Scope messages by domain
+
 ## [2.11.6] - 2019-03-21
 
 ### Fixed
