@@ -133,7 +133,7 @@ class SideBarItem extends Component {
             className="pa5 pointer t-body c-muted-2 ma0 list"
             onClick={this.handleDepartmentClick}
           >
-            <FormattedMessage id="category-menu.all-category.title">
+            <FormattedMessage id="store/category-menu.all-category.title">
               {txt => <span className="pl4">{txt}</span>}
             </FormattedMessage>
           </li>
