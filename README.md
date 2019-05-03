@@ -20,6 +20,7 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
   - [Styles API](#styles-api)
     - [CSS namespaces](#css-namespaces)
 - [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
 - [Tests](#tests)
 
 ## Usage
@@ -123,6 +124,10 @@ Below, we describe the namespaces that are define in the `CategoryMenu`.
 
 ## Troubleshooting
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/category-menu/issues). Also feel free to [open issues](https://github.com/vtex-apps/category-menu/issues/new) or contribute with pull requests.
+
+## Contributing
+
+Check it out [how to contribute](https://github.com/vtex-apps/awesome-io#contributing) with this project. 
 
 ## Tests
 
