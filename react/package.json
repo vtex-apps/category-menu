@@ -4,7 +4,7 @@
   "scripts": {
     "pretest": "yarn",
     "test": "vtex-test-tools test",
-    "lint": "eslint **.js"
+    "lint": "eslint --ext js,jsx,ts,tsx ."
   },
   "dependencies": {
     "classnames": "^2.2.6",
