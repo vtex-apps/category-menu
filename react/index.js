@@ -95,7 +95,9 @@ class CategoryMenu extends Component {
       >
         <SideBar
           visible={sideBarVisible}
-          title={intl.formatMessage({ id: 'store/category-menu.departments.title' })}
+          title={intl.formatMessage({
+            id: 'store/category-menu.departments.title',
+          })}
           departments={this.departments}
           onClose={this.handleSidebarToggle}
           showSubcategories={showSubcategories}
