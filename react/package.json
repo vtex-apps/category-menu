@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "pretest": "yarn",
-    "test": "vtex-test-tools test"
+    "test": "vtex-test-tools test",
+    "lint": "eslint **.js"
   },
   "dependencies": {
     "classnames": "^2.2.6",
