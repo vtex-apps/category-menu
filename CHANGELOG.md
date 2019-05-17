@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.13.0] - 2019-05-17
+
+### Added
+
+- `eslint` configuration. 
+
 ## [2.12.0] - 2019-04-24
 ### Changed
 - Scope messages by domain
