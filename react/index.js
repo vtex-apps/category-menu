@@ -7,6 +7,8 @@ import { withRuntimeContext } from 'vtex.render-runtime'
 import { compose, path } from 'ramda'
 import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
+import { injectIntl, intlShape } from 'react-intl'
+import { formatIOMessage } from 'vtex.native-types'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
@@ -116,6 +118,7 @@ class CategoryMenu extends Component {
       showSubcategories,
       menuPosition,
       runtime,
+      intl
     } = this.props
 
     const pathName = path(['route', 'params', 'department'], runtime)
@@ -141,7 +144,7 @@ class CategoryMenu extends Component {
             {showAllDepartments && (
               <CategoryItem
                 noRedirect
-                menuPosition={menuPosition}
+                menuPosition={formatIOMessage({ id: menuPosition, intl })}
                 subcategoryLevels={
                   DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
                 }
@@ -156,7 +159,7 @@ class CategoryMenu extends Component {
             {this.departments.map(category => (
               <Fragment key={category.id}>
                 <CategoryItem
-                  menuPosition={menuPosition}
+                  menuPosition={formatIOMessage({ id: menuPosition, intl })}
                   category={category}
                   subcategoryLevels={
                     DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
