@@ -15,7 +15,6 @@ import getCategories from './queries/categoriesQuery.gql'
 
 import categoryMenu from './categoryMenu.css'
 import categoryMenuPosition, {
-  getMenuPositionNames,
   getMenuPositionValues,
 } from './utils/categoryMenuPosition'
 
@@ -195,14 +194,6 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-departments-category.title',
       default: CategoryMenu.defaultProps.showAllDepartments,
-    },
-    menuPosition: {
-      title: 'admin/editor.category-menu.disposition-type.title',
-      type: 'string',
-      enum: getMenuPositionValues(),
-      enumNames: getMenuPositionNames(),
-      default: categoryMenuPosition.DISPLAY_CENTER.value,
-      isLayout: true,
     },
     showSubcategories: {
       type: 'boolean',

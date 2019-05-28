@@ -1,0 +1,15 @@
+{
+    "definitions": {
+        "CategoryMenu": {
+          "properties": {
+                "menuPosition": {
+                    "title": "admin/editor.category-menu.disposition-type.title",
+                    "type": "app:vtex.native-types#/definitions/text",
+                    "enum": ["center", "left", "right"],
+                    "enumNames": ["admin/editor.category-menu.disposition-type.center", "admin/editor.category-menu.disposition-type.left", "admin/editor.category-menu.disposition-type.right"],
+                    "default": "center"
+                }
+            }
+        }
+    }
+}
