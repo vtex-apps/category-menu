@@ -1,5 +1,8 @@
 {
   "category-menu": {
-    "component": "index"
+    "component": "index",
+    "content":{
+      "ref": "#/definitions/CategoryMenu"
+    }
   }
 }
