@@ -135,10 +135,12 @@ class CategoryMenu extends Component {
       }
     )
 
+    const itemListClass = classNames(categoryMenu.itemsListContainer, "pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3")
+
     return (
       <nav className={desktopClasses}>
         <Container className="justify-center flex">
-          <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+          <ul className={itemListClass}>
             {showAllDepartments && (
               <CategoryItem
                 noRedirect
