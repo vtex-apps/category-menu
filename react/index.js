@@ -156,12 +156,12 @@ CategoryMenu.schema = {
     showPromotionCategory: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-promotion-category.title',
-      default: CategoryMenu.defaultProps.showPromotionCategory,
+      default: false,
     },
     showAllDepartments: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-departments-category.title',
-      default: CategoryMenu.defaultProps.showAllDepartments,
+      default: true,
     },
     menuPosition: {
       title: 'admin/editor.category-menu.disposition-type.title',
@@ -174,12 +174,12 @@ CategoryMenu.schema = {
     showSubcategories: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-subcategories.title',
-      default: CategoryMenu.defaultProps.showSubcategories,
+      default: true,
     },
     showGiftCategory: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-gift-category.title',
-      default: CategoryMenu.defaultProps.showGiftCategory,
+      default: false,
     },
     departments: {
       title: 'store/category-menu.departments.title',

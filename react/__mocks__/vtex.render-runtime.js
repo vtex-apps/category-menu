@@ -27,3 +27,5 @@ export const withRuntimeContext = component => (
     }}
   />
 )
+
+export const useRuntime = () => ({ navigate: jest.fn() })

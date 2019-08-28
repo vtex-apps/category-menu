@@ -1,6 +1,7 @@
 import React from 'react'
-import { render } from '@vtex/test-tools/react'
-import { CategoryMenuWithIntl } from '../index'
+import { render, wait } from '@vtex/test-tools/react'
+import CategoryMenu from '../index'
+import categoriesQuery from '../queries/categoriesQuery.gql'
 
 describe('CategoryMenu component', () => {
   const mockedCategories = [
@@ -33,29 +34,37 @@ describe('CategoryMenu component', () => {
   const renderComponent = customProps => {
     const departments = mockedCategories.map(category => ({ id: category.id }))
 
-    return render(
-      <CategoryMenuWithIntl
-        data={{
-          categories: mockedCategories,
-          loading: false,
-        }}
-        departments={departments}
-        {...customProps}
-      />
-    )
+    const mocks = [
+      {
+        request: {
+          query: categoriesQuery,
+        },
+        result: {
+          data: { categories: mockedCategories },
+        },
+      },
+    ]
+
+    return render(<CategoryMenu departments={departments} {...customProps} />, {
+      graphql: { mocks },
+    })
   }
 
   it('should be rendered', () => {
     expect(renderComponent()).toBeDefined()
   })
 
-  it('should match snapshot', () => {
-    expect(renderComponent().asFragment()).toMatchSnapshot()
+  it('should match snapshot', async () => {
+    const { asFragment } = renderComponent()
+
+    await wait(() => {})
+
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it("shouldn't be able to find a `Category 4` item", () => {
+  it("shouldn't be able to find a `Category 4` item", async () => {
     const element = renderComponent().queryByText(/Category 4/)
 
-    expect(element).toBeNull()
+    await wait(() => expect(element).toBeNull())
   })
 })

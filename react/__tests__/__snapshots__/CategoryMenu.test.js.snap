@@ -18,7 +18,7 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         </span>
         <div
           class="itemContainer absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
-          style="display: none;"
+          style="top: 0px; display: none;"
         >
           <ul
             class="w-100 flex flex-wrap pa0 list mw9 justify-center"
