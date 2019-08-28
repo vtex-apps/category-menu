@@ -19,7 +19,7 @@
     "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.18",
     "@vtex/test-tools": "^0.1.2",
-    "@vtex/tsconfig": "^0.1.0",
+    "@vtex/tsconfig": "^0.1.1",
     "apollo-client": "^2.5.1"
   },
   "vtexTestTools": {
