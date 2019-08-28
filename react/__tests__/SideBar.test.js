@@ -8,7 +8,7 @@ describe('SideBar component', () => {
       <SideBar
         departments={[]}
         onClose={() => {}}
-        showSubcategories={true}
+        showSubcategories
         visible={false}
         {...customProps}
       />

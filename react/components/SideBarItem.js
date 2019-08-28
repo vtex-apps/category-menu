@@ -1,58 +1,28 @@
-import React, { Component, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
 
-import { withRuntimeContext } from 'vtex.render-runtime'
-import { IconMinus, IconPlus } from 'vtex.dreamstore-icons'
+import { useRuntime } from 'vtex.render-runtime'
+import { IconMinus, IconPlus } from 'vtex.store-icons'
 
-import categoryMenu from '../categoryMenu.css'
+import styles from '../categoryMenu.css'
 
-class SideBarItem extends Component {
-  static propTypes = {
-    /** Sidebar's item. */
-    item: PropTypes.object.isRequired,
-    /** Link values to create the redirect. */
-    linkValues: PropTypes.arrayOf(PropTypes.string).isRequired,
-    /** Closes sidebar. */
-    onClose: PropTypes.func.isRequired,
-    /** Runtime context. */
-    runtime: PropTypes.shape({
-      navigate: PropTypes.func,
-    }),
-    /** Tree level. */
-    treeLevel: PropTypes.number,
-    /** Whether to show subcategories or not */
-    showSubcategories: PropTypes.bool,
-  }
+const SideBarItem = ({
+  treeLevel = 1,
+  item: { children },
+  showSubcategories,
+  onClose,
+  linkValues,
+  item,
+}) => {
+  const runtime = useRuntime()
+  const [open, setOpen] = useState(false)
 
-  static defaultProps = {
-    treeLevel: 1,
-  }
+  const subCategoriesVisible =
+    showSubcategories && children && children.length > 0
 
-  state = {
-    open: false,
-  }
-
-  get showSubCategories() {
-    const {
-      item: { children },
-      showSubcategories,
-    } = this.props
-    return showSubcategories && children && children.length > 0
-  }
-
-  handleItemClick = () => {
-    if (this.showSubCategories) {
-      this.setState({ open: !this.state.open })
-    } else {
-      this.navigateToPage()
-    }
-  }
-
-  navigateToPage() {
-    const { onClose, linkValues, runtime } = this.props
-
+  const navigateToPage = () => {
     const [department, category, subcategory] = linkValues
     const params = { department }
 
@@ -73,8 +43,7 @@ class SideBarItem extends Component {
     onClose()
   }
 
-  handleDepartmentClick = () => {
-    const { runtime, onClose, linkValues } = this.props
+  const handleDepartmentClick = () => {
     const [department] = linkValues
     const params = { department }
     const page = 'store.search#department'
@@ -86,52 +55,46 @@ class SideBarItem extends Component {
     onClose()
   }
 
-  renderCategory() {
-    const { item, treeLevel } = this.props
-    const { open: isOpened } = this.state
+  const handleItemClick = () => {
+    if (subCategoriesVisible) {
+      setOpen(prevOpen => !prevOpen)
+    } else {
+      navigateToPage()
+    }
+  }
 
-    const sideBarContainerClasses = classNames(
-      categoryMenu.sidebarItemContainer,
-      'flex justify-between items-center pa5 pointer list ma0'
-    )
-    const sideBarItemTitleClasses = classNames('', {
-      't-body lh-solid': treeLevel === 1,
-    })
+  const sideBarContainerClasses = classNames(
+    styles.sidebarItemContainer,
+    'flex justify-between items-center pa5 pointer list ma0'
+  )
+  const sideBarItemTitleClasses = classNames('', {
+    't-body lh-solid': treeLevel === 1,
+  })
 
-    const sideBarSpanClasses = classNames(
-      treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
-    )
+  const sideBarSpanClasses = classNames(
+    treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
+  )
 
-    return (
-      <li className={sideBarContainerClasses} onClick={this.handleItemClick}>
+  const sideBarItemClasses = classNames(`${styles.sidebarItem} list pa0 ma0`, {
+    'c-muted-2 t-body pl4': treeLevel > 1,
+    'c-on-base': treeLevel === 1,
+  })
+
+  return (
+    <ul className={sideBarItemClasses}>
+      <li className={sideBarContainerClasses} onClick={handleItemClick}>
         <span className={sideBarItemTitleClasses}>{item.name}</span>
-        {this.showSubCategories && (
+        {subCategoriesVisible && (
           <span className={sideBarSpanClasses}>
-            {isOpened ? <IconMinus size={16} /> : <IconPlus size={16} />}
+            {open ? <IconMinus size={16} /> : <IconPlus size={16} />}
           </span>
         )}
       </li>
-    )
-  }
-
-  renderChildren() {
-    const {
-      item: { children },
-      runtime,
-      linkValues,
-      onClose,
-      treeLevel,
-      showSubcategories,
-    } = this.props
-    const { open } = this.state
-
-    return (
-      this.showSubCategories &&
-      open && (
+      {subCategoriesVisible && open && (
         <Fragment>
           <li
             className="pa5 pointer t-body c-muted-2 ma0 list"
-            onClick={this.handleDepartmentClick}
+            onClick={handleDepartmentClick}
           >
             <FormattedMessage id="store/category-menu.all-category.title">
               {txt => <span className="pl4">{txt}</span>}
@@ -150,28 +113,26 @@ class SideBarItem extends Component {
             </li>
           ))}
         </Fragment>
-      )
-    )
-  }
-
-  render() {
-    const { treeLevel } = this.props
-
-    const sideBarItemClasses = classNames(
-      `${categoryMenu.sidebarItem} list pa0 ma0`,
-      {
-        'c-muted-2 t-body pl4': treeLevel > 1,
-        'c-on-base': treeLevel === 1,
-      }
-    )
-
-    return (
-      <ul className={sideBarItemClasses}>
-        {this.renderCategory()}
-        {this.renderChildren()}
-      </ul>
-    )
-  }
+      )}
+    </ul>
+  )
 }
 
-export default withRuntimeContext(SideBarItem)
+SideBarItem.propTypes = {
+  /** Sidebar's item. */
+  item: PropTypes.object.isRequired,
+  /** Link values to create the redirect. */
+  linkValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+  /** Closes sidebar. */
+  onClose: PropTypes.func.isRequired,
+  /** Runtime context. */
+  runtime: PropTypes.shape({
+    navigate: PropTypes.func,
+  }),
+  /** Tree level. */
+  treeLevel: PropTypes.number,
+  /** Whether to show subcategories or not */
+  showSubcategories: PropTypes.bool,
+}
+
+export default SideBarItem
