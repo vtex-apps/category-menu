@@ -7,20 +7,20 @@
     "lint": "eslint --ext js,jsx,ts,tsx ."
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.3",
     "classnames": "^2.2.6",
     "graphql": "^14.0.2",
     "jsdom": "^11.8.0",
     "ramda": "^0.26.1",
-    "react-apollo": "^2.3.2",
+    "react-apollo": "^2.5.8",
     "react-intl": "^2.4.0"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^24.0.18",
     "@vtex/test-tools": "^0.1.2",
-    "apollo-client": "^2.5.1",
-    "eslint": "^5.16.0",
-    "eslint-config-vtex-react": "^4.1.0",
-    "prettier": "^1.17.1",
-    "typescript": "^3.4.5"
+    "@vtex/tsconfig": "^0.1.1",
+    "apollo-client": "^2.5.1"
   },
   "vtexTestTools": {
     "defaultLocale": "en"

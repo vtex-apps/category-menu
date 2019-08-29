@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { graphql } from 'react-apollo'
 import { injectIntl, intlShape } from 'react-intl'
-import { IconMenu } from 'vtex.dreamstore-icons'
-import { withRuntimeContext } from 'vtex.render-runtime'
+import { IconMenu } from 'vtex.store-icons'
+import { useRuntime } from 'vtex.render-runtime'
 import { compose, path } from 'ramda'
 import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
@@ -13,7 +13,7 @@ import SideBar from './components/SideBar'
 import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
 
-import categoryMenu from './categoryMenu.css'
+import styles from './categoryMenu.css'
 import categoryMenuPosition, {
   getMenuPositionNames,
   getMenuPositionValues,
@@ -24,164 +24,131 @@ const DEFAULT_SUBCATEGORIES_LEVELS = 1
 /**
  * Component that represents the menu containing the categories of the store
  */
-class CategoryMenu extends Component {
-  static propTypes = {
-    /** Whether to show the promotion category or not */
-    showPromotionCategory: PropTypes.bool,
-    /** Whether to show the gift category or not */
-    showGiftCategory: PropTypes.bool,
-    /** Categories query data */
-    data: PropTypes.shape({
-      loading: PropTypes.bool.isRequired,
-      categories: PropTypes.arrayOf(categoryPropType),
-    }),
-    /** Set mobile mode */
-    mobileMode: PropTypes.bool,
-    /** Whether to show the departments category or not */
-    showAllDepartments: PropTypes.bool,
-    /** Whether to show subcategories or not */
-    showSubcategories: PropTypes.bool,
-    /** Defines the position of the category menu */
-    menuPosition: PropTypes.oneOf(getMenuPositionValues()),
-    /** Intl */
-    intl: intlShape,
-    /** Departments to be shown in the desktop mode. */
-    departments: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-      })
-    ),
+const CategoryMenu = ({
+  showPromotionCategory = false,
+  showGiftCategory = false,
+  mobileMode = false,
+  showAllDepartments = true,
+  showSubcategories = true,
+  menuPosition = categoryMenuPosition.DISPLAY_CENTER.value,
+  departments = [],
+  data: { categories = [] },
+  intl,
+}) => {
+  const runtime = useRuntime()
+  const [sideBarVisible, setSidebarVisible] = useState(false)
+
+  const handleSidebarToggle = () => {
+    setSidebarVisible(prevVisible => !prevVisible)
   }
 
-  static defaultProps = {
-    showPromotionCategory: false,
-    showGiftCategory: false,
-    mobileMode: false,
-    showAllDepartments: true,
-    showSubcategories: true,
-    menuPosition: categoryMenuPosition.DISPLAY_CENTER.value,
-    departments: [],
-  }
+  const departmentsIds = departments.map(dept => dept.id)
+  const departmentsSelected = categories.filter(category =>
+    departmentsIds.includes(category.id)
+  )
 
-  state = {
-    sideBarVisible: false,
-  }
+  const visibleDepartments =
+    (departmentsSelected.length && departmentsSelected) || categories
 
-  handleSidebarToggle = () => {
-    this.setState({ sideBarVisible: !this.state.sideBarVisible })
-  }
-
-  get departments() {
-    const {
-      data: { categories = [] },
-      departments,
-    } = this.props
-    const departmentsIds = departments.map(dept => dept.id)
-    const departmentsSelected = categories.filter(category =>
-      departmentsIds.includes(category.id)
-    )
-
-    return (departmentsSelected.length && departmentsSelected) || categories
-  }
-
-  renderSideBar() {
-    const { intl, showSubcategories } = this.props
-
-    const { sideBarVisible } = this.state
-
+  if (mobileMode) {
     return (
-      <div
-        className={`${categoryMenu.sidebarContainer} ${categoryMenu.mobile}`}
-      >
+      <div className={`${styles.sidebarContainer} ${styles.mobile}`}>
         <SideBar
           visible={sideBarVisible}
           title={intl.formatMessage({
             id: 'store/category-menu.departments.title',
           })}
-          departments={this.departments}
-          onClose={this.handleSidebarToggle}
+          departments={visibleDepartments}
+          onClose={handleSidebarToggle}
           showSubcategories={showSubcategories}
         />
-        <div className="flex pa4 pointer" onClick={this.handleSidebarToggle}>
+        <div className="flex pa4 pointer" onClick={handleSidebarToggle}>
           <IconMenu size={20} />
         </div>
       </div>
     )
   }
 
-  renderMenu() {
-    const {
-      data: { categories = [] },
-      intl,
-      showAllDepartments,
-      showSubcategories,
-      menuPosition,
-      runtime,
-    } = this.props
+  const pathName = path(['route', 'params', 'department'], runtime)
 
-    const pathName = path(['route', 'params', 'department'], runtime)
+  const department = pathName ? pathName : ''
 
-    const department = pathName ? pathName : ''
+  const desktopClasses = classNames(
+    `${styles.container} w-100 bg-base dn flex-m`,
+    {
+      'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      'justify-end': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      'justify-center':
+        menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+    }
+  )
 
-    const desktopClasses = classNames(
-      `${categoryMenu.container} w-100 bg-base dn flex-m`,
-      {
-        'justify-start':
-          menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        'justify-end':
-          menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-        'justify-center':
-          menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-      }
-    )
-
-    return (
-      <nav className={desktopClasses}>
-        <Container className="justify-center flex">
-          <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
-            {showAllDepartments && (
+  return (
+    <nav className={desktopClasses}>
+      <Container className="justify-center flex">
+        <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+          {showAllDepartments && (
+            <CategoryItem
+              noRedirect
+              menuPosition={menuPosition}
+              subcategoryLevels={
+                DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
+              }
+              category={{
+                children: categories,
+                name: intl.formatMessage({
+                  id: 'store/category-menu.departments.title',
+                }),
+              }}
+            />
+          )}
+          {visibleDepartments.map(category => (
+            <Fragment key={category.id}>
               <CategoryItem
-                noRedirect
                 menuPosition={menuPosition}
+                category={category}
                 subcategoryLevels={
                   DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
                 }
-                category={{
-                  children: categories,
-                  name: intl.formatMessage({
-                    id: 'store/category-menu.departments.title',
-                  }),
-                }}
+                isCategorySelected={department === category.slug}
               />
-            )}
-            {this.departments.map(category => (
-              <Fragment key={category.id}>
-                <CategoryItem
-                  menuPosition={menuPosition}
-                  category={category}
-                  subcategoryLevels={
-                    DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
-                  }
-                  isCategorySelected={department === category.slug}
-                />
-              </Fragment>
-            ))}
-          </ul>
-        </Container>
-      </nav>
-    )
-  }
-
-  render() {
-    const { mobileMode } = this.props
-
-    return mobileMode ? this.renderSideBar() : this.renderMenu()
-  }
+            </Fragment>
+          ))}
+        </ul>
+      </Container>
+    </nav>
+  )
 }
 
-export const CategoryMenuWithIntl = injectIntl(CategoryMenu)
+CategoryMenu.propTypes = {
+  /** Whether to show the promotion category or not */
+  showPromotionCategory: PropTypes.bool,
+  /** Whether to show the gift category or not */
+  showGiftCategory: PropTypes.bool,
+  /** Categories query data */
+  data: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    categories: PropTypes.arrayOf(categoryPropType),
+  }),
+  /** Set mobile mode */
+  mobileMode: PropTypes.bool,
+  /** Whether to show the departments category or not */
+  showAllDepartments: PropTypes.bool,
+  /** Whether to show subcategories or not */
+  showSubcategories: PropTypes.bool,
+  /** Defines the position of the category menu */
+  menuPosition: PropTypes.oneOf(getMenuPositionValues()),
+  /** Intl */
+  intl: intlShape,
+  /** Departments to be shown in the desktop mode. */
+  departments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+    })
+  ),
+}
 
-CategoryMenuWithIntl.schema = CategoryMenu.schema = {
+CategoryMenu.schema = {
   title: 'admin/editor.category-menu.title',
   description: 'admin/editor.category-menu.description',
   type: 'object',
@@ -189,12 +156,12 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
     showPromotionCategory: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-promotion-category.title',
-      default: CategoryMenu.defaultProps.showPromotionCategory,
+      default: false,
     },
     showAllDepartments: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-departments-category.title',
-      default: CategoryMenu.defaultProps.showAllDepartments,
+      default: true,
     },
     menuPosition: {
       title: 'admin/editor.category-menu.disposition-type.title',
@@ -207,12 +174,12 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
     showSubcategories: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-subcategories.title',
-      default: CategoryMenu.defaultProps.showSubcategories,
+      default: true,
     },
     showGiftCategory: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-gift-category.title',
-      default: CategoryMenu.defaultProps.showGiftCategory,
+      default: false,
     },
     departments: {
       title: 'store/category-menu.departments.title',
@@ -234,5 +201,5 @@ CategoryMenuWithIntl.schema = CategoryMenu.schema = {
 
 export default compose(
   graphql(getCategories),
-  withRuntimeContext
-)(CategoryMenuWithIntl)
+  injectIntl
+)(CategoryMenu)

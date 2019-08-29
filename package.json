@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "eslint": "^6.2.2",
+    "eslint-config-vtex": "^11.0.0",
+    "eslint-config-vtex-react": "^5.0.1",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3"
+  }
+}

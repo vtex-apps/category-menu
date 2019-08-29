@@ -1,156 +1,145 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'vtex.render-runtime'
 import { categoryPropType } from '../propTypes'
 import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
 
 import PropTypes from 'prop-types'
-import categoryMenu from '../categoryMenu.css'
+import styles from '../categoryMenu.css'
 import categoryMenuPosition, {
   getMenuPositionValues,
 } from '../utils/categoryMenuPosition'
 
+const getLinkParams = (parentSlug, item) => {
+  const params = {
+    department: parentSlug || item.slug,
+  }
+
+  if (parentSlug) params.category = item.slug
+
+  return params
+}
+
 /**
  * Component responsible dor rendering an array of categories and its respective subcategories
  */
-export default class ItemContainer extends Component {
-  static propTypes = {
-    /** Category to be displayed */
-    categories: PropTypes.arrayOf(categoryPropType),
-    /** Department slug */
-    parentSlug: PropTypes.string,
-    /** Close menu callback */
-    onCloseMenu: PropTypes.func.isRequired,
-    /** Whether to show second level links or not */
-    showSecondLevel: PropTypes.bool,
-    /** Defines the position of the category menu */
-    menuPosition: PropTypes.oneOf(getMenuPositionValues()),
-    /** Custom styles to item container */
-    containerStyle: PropTypes.object,
-  }
-
-  renderLinkFirstLevel(parentSlug, item) {
-    const { menuPosition } = this.props
-    const params = {
-      department: parentSlug || item.slug,
-    }
-
-    const firstLevelLinkClasses = classNames(
-      `${
-        categoryMenu.firstLevelLink
-      } db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover`,
-      {
-        pr4: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        pl4: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-        ph4: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-      }
-    )
-
-    if (parentSlug) params.category = item.slug
-    return (
-      <li className="list pa0">
-        <Link
-          onClick={this.props.onCloseMenu}
-          page={
-            parentSlug ? 'store.search#category' : 'store.search#department'
-          }
-          className={firstLevelLinkClasses}
-          params={params}
-        >
-          {item.name}
-        </Link>
-      </li>
-    )
-  }
-
-  renderLinkSecondLevel(parentSlug, item, subItem) {
-    const { onCloseMenu, menuPosition } = this.props
-
-    const params = {
-      department: parentSlug || item.slug,
-      category: parentSlug ? item.slug : subItem.slug,
-    }
-
-    const secondLevelLinkClasses = classNames(
-      `${
-        categoryMenu.secondLevelLink
-      } db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover`,
-      {
-        pr5: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-        pl5: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-        ph5: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-      }
-    )
-
-    if (parentSlug) params.subcategory = subItem.slug
-    return (
-      <li key={subItem.id} className="list pa0">
-        <Link
-          onClick={onCloseMenu}
-          page={
-            parentSlug ? 'store.search#subcategory' : 'store.search#category'
-          }
-          className={secondLevelLinkClasses}
-          params={params}
-        >
-          {subItem.name}
-        </Link>
-      </li>
-    )
-  }
-
-  shouldRenderSecondLevel(category) {
+const ItemContainer = ({
+  containerStyle,
+  categories,
+  parentSlug,
+  menuPosition,
+  onCloseMenu,
+  showSecondLevel,
+}) => {
+  const shouldRenderSecondLevel = category => {
     const { children } = category
-    const { showSecondLevel } = this.props
 
     return children && children.length > 0 && showSecondLevel
   }
 
-  renderChildren(category) {
-    const { parentSlug } = this.props
-    return (
-      this.shouldRenderSecondLevel(category) &&
-      category.children.map(subCategory =>
-        this.renderLinkSecondLevel(parentSlug, category, subCategory)
-      )
-    )
-  }
+  const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
+    'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+    'justify-end': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+    'justify-center':
+      menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+  })
 
-  render() {
-    const { containerStyle, categories, parentSlug, menuPosition } = this.props
+  const columnItemClasses = classNames({
+    'pl0 pr7': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+    'pr0 pl7': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+  })
 
-    const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
-      'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'justify-end': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-      'justify-center':
-        menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
-    })
+  const firstLevelLinkClasses = classNames(
+    styles.firstLevelLink,
+    'db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover',
+    {
+      pr4: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      pl4: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      ph4: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+    }
+  )
 
-    const columnItemClasses = classNames({
-      'pl0 pr7': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
-      'pr0 pl7': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
-    })
+  const secondLevelLinkClasses = classNames(
+    styles.secondLevelLink,
+    'db pv3 no-underline outline-0 tl link t-small truncate c-muted-1 underline-hover',
+    {
+      pr5: menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
+      pl5: menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
+      ph5: menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
+    }
+  )
 
-    return (
-      <div
-        className={`${
-          categoryMenu.itemContainer
-        } absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`}
-        style={containerStyle}
-      >
-        <Container className="justify-center w-100 flex">
-          <ul className={containerClasses}>
-            {categories.map(category => (
-              <li key={category.id} className="dib">
-                <ul className={columnItemClasses}>
-                  {this.renderLinkFirstLevel(parentSlug, category)}
-                  {this.renderChildren(category)}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </div>
-    )
-  }
+  return (
+    <div
+      className={`${styles.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`}
+      style={containerStyle}
+    >
+      <Container className="justify-center w-100 flex">
+        <ul className={containerClasses}>
+          {categories.map(category => (
+            <li key={category.id} className="dib">
+              <ul className={columnItemClasses}>
+                <li className="list pa0">
+                  <Link
+                    onClick={onCloseMenu}
+                    page={
+                      parentSlug
+                        ? 'store.search#category'
+                        : 'store.search#department'
+                    }
+                    className={firstLevelLinkClasses}
+                    params={getLinkParams(parentSlug, category)}
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+                {shouldRenderSecondLevel(category) &&
+                  category.children.map(subCategory => {
+                    const params = {
+                      department: parentSlug || category.slug,
+                      category: parentSlug ? category.slug : subCategory.slug,
+                    }
+                    if (parentSlug) params.subcategory = subCategory.slug
+
+                    return (
+                      <li key={subCategory.id} className="list pa0">
+                        <Link
+                          onClick={onCloseMenu}
+                          page={
+                            parentSlug
+                              ? 'store.search#subcategory'
+                              : 'store.search#category'
+                          }
+                          className={secondLevelLinkClasses}
+                          params={params}
+                        >
+                          {subCategory.name}
+                        </Link>
+                      </li>
+                    )
+                  })}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </div>
+  )
 }
+
+ItemContainer.propTypes = {
+  /** Category to be displayed */
+  categories: PropTypes.arrayOf(categoryPropType),
+  /** Department slug */
+  parentSlug: PropTypes.string,
+  /** Close menu callback */
+  onCloseMenu: PropTypes.func.isRequired,
+  /** Whether to show second level links or not */
+  showSecondLevel: PropTypes.bool,
+  /** Defines the position of the category menu */
+  menuPosition: PropTypes.oneOf(getMenuPositionValues()),
+  /** Custom styles to item container */
+  containerStyle: PropTypes.object,
+}
+
+export default ItemContainer
