@@ -12,6 +12,7 @@
     "graphql": "^14.0.2",
     "jsdom": "^11.8.0",
     "ramda": "^0.26.1",
+    "react-amphtml": "^4.0.2",
     "react-apollo": "^2.5.8",
     "react-intl": "^2.4.0"
   },

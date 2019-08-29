@@ -2,7 +2,9 @@ import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Animation } from 'vtex.store-components'
-import { IconClose } from 'vtex.store-icons'
+import { IconMenu, IconClose } from 'vtex.store-icons'
+import { useRuntime } from 'vtex.render-runtime'
+import * as Amp from 'react-amphtml'
 
 import SideBarItem from './SideBarItem'
 import styles from '../categoryMenu.css'
@@ -10,12 +12,13 @@ import styles from '../categoryMenu.css'
 const OPEN_SIDEBAR_CLASS = styles.sidebarOpen
 
 const SideBar = ({
-  title = 'Departments',
   visible,
   onClose = () => {},
   showSubcategories,
   departments = [],
 }) => {
+  const runtime = useRuntime()
+
   useEffect(() => {
     if (visible) {
       document.body.classList.add(OPEN_SIDEBAR_CLASS)
@@ -33,6 +36,35 @@ const SideBar = ({
       dn: !visible,
     }
   )
+
+  if (runtime.amp) {
+    return (
+      <Amp.AmpSidebar
+        specName="default"
+        id="menu-sidebar"
+        className="relative bg-base"
+        side="left"
+        layout="nodisplay"
+      >
+        <button
+          className="absolute top-0 mt3 ml3 left-0 pa4 bg-base bn"
+          on="tap:menu-sidebar.close"
+        >
+          ×
+        </button>
+        <Amp.AmpAccordion className="mt8">
+          {departments.map(department => (
+            <SideBarItem
+              key={department.id}
+              item={department}
+              linkValues={[department.slug]}
+              showSubcategories={showSubcategories}
+            />
+          ))}
+        </Amp.AmpAccordion>
+      </Amp.AmpSidebar>
+    )
+  }
 
   return (
     <Fragment>

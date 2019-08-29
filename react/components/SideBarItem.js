@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
+import * as Amp from 'react-amphtml'
 
 import { useRuntime } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.store-icons'
@@ -10,13 +11,13 @@ import styles from '../categoryMenu.css'
 
 const SideBarItem = ({
   treeLevel = 1,
+  item,
   item: { children },
   showSubcategories,
   onClose,
   linkValues,
-  item,
 }) => {
-  const runtime = useRuntime()
+  const { amp, navigate } = useRuntime()
   const [open, setOpen] = useState(false)
 
   const subCategoriesVisible =
@@ -35,7 +36,7 @@ const SideBarItem = ({
         : 'store.search#category'
       : 'store.search#department'
 
-    runtime.navigate({
+    navigate({
       page,
       params,
       fallbackToWindowLocation: false,
@@ -47,7 +48,7 @@ const SideBarItem = ({
     const [department] = linkValues
     const params = { department }
     const page = 'store.search#department'
-    runtime.navigate({
+    navigate({
       page,
       params,
       fallbackToWindowLocation: false,
@@ -80,6 +81,36 @@ const SideBarItem = ({
     'c-on-base': treeLevel === 1,
   })
 
+  if (amp) {
+    return (
+      <section className="bg-base bl-0 br-0 ba b--muted-4">
+        <h2 className="bg-base c-on-base pa4 bn t-action">{item.name}</h2>
+        <div>
+          {subCategoriesVisible && (
+            <Fragment>
+              <span className="pa5 pointer t-body c-muted-2 ma0 list">
+                <FormattedMessage id="store/category-menu.all-category.title">
+                  {txt => <span className="pl4">{txt}</span>}
+                </FormattedMessage>
+              </span>
+              <Amp.AmpAccordion>
+                {children.map(child => (
+                  <SideBarItem
+                    key={child.id}
+                    item={child}
+                    showSubcategories={showSubcategories}
+                    linkValues={[...linkValues, child.slug]}
+                    treeLevel={treeLevel + 1}
+                  />
+                ))}
+              </Amp.AmpAccordion>
+            </Fragment>
+          )}
+        </div>
+      </section>
+    )
+  }
+
   return (
     <ul className={sideBarItemClasses}>
       <li className={sideBarContainerClasses} onClick={handleItemClick}>
@@ -108,7 +139,6 @@ const SideBarItem = ({
                 linkValues={[...linkValues, child.slug]}
                 onClose={onClose}
                 treeLevel={treeLevel + 1}
-                runtime={runtime}
               />
             </li>
           ))}
@@ -125,10 +155,6 @@ SideBarItem.propTypes = {
   linkValues: PropTypes.arrayOf(PropTypes.string).isRequired,
   /** Closes sidebar. */
   onClose: PropTypes.func.isRequired,
-  /** Runtime context. */
-  runtime: PropTypes.shape({
-    navigate: PropTypes.func,
-  }),
   /** Tree level. */
   treeLevel: PropTypes.number,
   /** Whether to show subcategories or not */

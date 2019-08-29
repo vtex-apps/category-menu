@@ -50,9 +50,9 @@ const CategoryMenu = ({
   const visibleDepartments =
     (departmentsSelected.length && departmentsSelected) || categories
 
-  if (mobileMode) {
+  if (mobileMode || runtime.hints.mobile) {
     return (
-      <div className={`${styles.sidebarContainer} ${styles.mobile}`}>
+      <div className={classNames(styles.sidebarContainer, styles.mobile)}>
         <SideBar
           visible={sideBarVisible}
           title={intl.formatMessage({
@@ -62,9 +62,18 @@ const CategoryMenu = ({
           onClose={handleSidebarToggle}
           showSubcategories={showSubcategories}
         />
-        <div className="flex pa4 pointer" onClick={handleSidebarToggle}>
-          <IconMenu size={20} />
-        </div>
+        {runtime.amp ? (
+          <button
+            className="bn bg-base pa4 flex items-center"
+            on="tap:menu-sidebar.open"
+          >
+            <IconMenu size={20} />
+          </button>
+        ) : (
+          <div className="flex pa4 pointer" onClick={handleSidebarToggle}>
+            <IconMenu size={20} />
+          </div>
+        )}
       </div>
     )
   }
