@@ -64,35 +64,52 @@ const SideBarItem = ({
     }
   }
 
-  const sideBarContainerClasses = classNames(
+  const titleContainerClasses = classNames(
     styles.sidebarItemContainer,
     'flex justify-between items-center pa5 pointer list ma0'
   )
-  const sideBarItemTitleClasses = classNames('', {
-    't-body lh-solid': treeLevel === 1,
+
+  const titleClasses = classNames('ma0 t-body w-auto', {
+    'lh-solid': treeLevel === 1,
   })
 
-  const sideBarSpanClasses = classNames(
-    treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
+  const caretClasses = treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
+
+  const sideBarItemClasses = classNames(
+    styles.sidebarItem,
+    'list pa0 ma0 bg-base',
+    {
+      'c-muted-2 t-body pl4': treeLevel > 1,
+      'c-on-base': treeLevel === 1,
+    }
   )
-
-  const sideBarItemClasses = classNames(`${styles.sidebarItem} list pa0 ma0`, {
-    'c-muted-2 t-body pl4': treeLevel > 1,
-    'c-on-base': treeLevel === 1,
-  })
 
   if (amp) {
     return (
-      <section className="bg-base bl-0 br-0 ba b--muted-4">
-        <h2 className="bg-base c-on-base pa4 bn t-action">{item.name}</h2>
+      <section className={sideBarItemClasses}>
+        <div className="bn bg-base pa0">
+          <div className={titleContainerClasses}>
+            <h2 className={titleClasses}>{item.name}</h2>
+            {subCategoriesVisible && (
+              <span className={caretClasses}>
+                <div className={classNames('dn', styles.iconOpen)}>
+                  <IconPlus size={16} />
+                </div>
+                <div className={classNames('dn', styles.iconClose)}>
+                  <IconMinus size={16} />
+                </div>
+              </span>
+            )}
+          </div>
+        </div>
         <div>
           {subCategoriesVisible && (
             <Fragment>
-              <span className="pa5 pointer t-body c-muted-2 ma0 list">
+              <section className="pa5 pointer t-body c-muted-2 ma0 list">
                 <FormattedMessage id="store/category-menu.all-category.title">
                   {txt => <span className="pl4">{txt}</span>}
                 </FormattedMessage>
-              </span>
+              </section>
               <Amp.AmpAccordion>
                 {children.map(child => (
                   <SideBarItem
@@ -113,10 +130,10 @@ const SideBarItem = ({
 
   return (
     <ul className={sideBarItemClasses}>
-      <li className={sideBarContainerClasses} onClick={handleItemClick}>
-        <span className={sideBarItemTitleClasses}>{item.name}</span>
+      <li className={titleContainerClasses} onClick={handleItemClick}>
+        <span className={titleClasses}>{item.name}</span>
         {subCategoriesVisible && (
-          <span className={sideBarSpanClasses}>
+          <span className={caretClasses}>
             {open ? <IconMinus size={16} /> : <IconPlus size={16} />}
           </span>
         )}

@@ -35,3 +35,11 @@
 .menuContainer {}
 
 .sidebarItemContainer {}
+
+.sidebarItem:not([expanded=""]) > div > div > span > .iconOpen {
+  display: block;
+}
+
+.sidebarItem[expanded=""] > div > div > span > .iconClose {
+  display: block;
+}

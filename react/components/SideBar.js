@@ -42,17 +42,14 @@ const SideBar = ({
       <Amp.AmpSidebar
         specName="default"
         id="menu-sidebar"
-        className="relative bg-base"
+        className="bg-base"
         side="left"
         layout="nodisplay"
       >
-        <button
-          className="absolute top-0 mt3 ml3 left-0 pa4 bg-base bn"
-          on="tap:menu-sidebar.close"
-        >
-          ×
+        <button className="pa5 bg-base bn" on="tap:menu-sidebar.close">
+          <IconClose size={24} activeClassName="c-muted-1" />
         </button>
-        <Amp.AmpAccordion className="mt8">
+        <Amp.AmpAccordion>
           {departments.map(department => (
             <SideBarItem
               key={department.id}
