@@ -3,11 +3,34 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { FormattedMessage } from 'react-intl'
 import * as Amp from 'react-amphtml'
-
-import { useRuntime } from 'vtex.render-runtime'
+import { useRuntime, Link } from 'vtex.render-runtime'
 import { IconMinus, IconPlus } from 'vtex.store-icons'
 
 import styles from '../categoryMenu.css'
+
+const getLinkParams = linkValues => {
+  const [department, category, subcategory] = linkValues
+  const params = { department }
+
+  if (category) params.category = category
+  if (subcategory) params.subcategory = subcategory
+
+  const page = category
+    ? subcategory
+      ? 'store.search#subcategory'
+      : 'store.search#category'
+    : 'store.search#department'
+
+  return { page, params }
+}
+
+const getDepartmentParams = linkValues => {
+  const [department] = linkValues
+  const params = { department }
+  const page = 'store.search#department'
+
+  return { departmentParams: params, departmentPage: page }
+}
 
 const SideBarItem = ({
   treeLevel = 1,
@@ -23,19 +46,10 @@ const SideBarItem = ({
   const subCategoriesVisible =
     showSubcategories && children && children.length > 0
 
+  const { page, params } = getLinkParams(linkValues)
+  const { departmentPage, departmentParams } = getDepartmentParams(linkValues)
+
   const navigateToPage = () => {
-    const [department, category, subcategory] = linkValues
-    const params = { department }
-
-    if (category) params.category = category
-    if (subcategory) params.subcategory = subcategory
-
-    const page = category
-      ? subcategory
-        ? 'store.search#subcategory'
-        : 'store.search#category'
-      : 'store.search#department'
-
     navigate({
       page,
       params,
@@ -45,12 +59,9 @@ const SideBarItem = ({
   }
 
   const handleDepartmentClick = () => {
-    const [department] = linkValues
-    const params = { department }
-    const page = 'store.search#department'
     navigate({
-      page,
-      params,
+      page: departmentPage,
+      params: departmentParams,
       fallbackToWindowLocation: false,
     })
     onClose()
@@ -85,31 +96,45 @@ const SideBarItem = ({
   )
 
   if (amp) {
+    const titleContent = (
+      <>
+        <h2 className={titleClasses}>{item.name}</h2>
+        {subCategoriesVisible && (
+          <span className={caretClasses}>
+            <div className={classNames('dn', styles.iconOpen)}>
+              <IconPlus size={16} />
+            </div>
+            <div className={classNames('dn', styles.iconClose)}>
+              <IconMinus size={16} />
+            </div>
+          </span>
+        )}
+      </>
+    )
+
     return (
       <section className={sideBarItemClasses}>
         <div className="bn bg-base pa0">
-          <div className={titleContainerClasses}>
-            <h2 className={titleClasses}>{item.name}</h2>
-            {subCategoriesVisible && (
-              <span className={caretClasses}>
-                <div className={classNames('dn', styles.iconOpen)}>
-                  <IconPlus size={16} />
-                </div>
-                <div className={classNames('dn', styles.iconClose)}>
-                  <IconMinus size={16} />
-                </div>
-              </span>
-            )}
-          </div>
+          {!subCategoriesVisible ? (
+            <Link className={`${titleContainerClasses} link`}>
+              {titleContent}
+            </Link>
+          ) : (
+            <div className={titleContainerClasses}>{titleContent}</div>
+          )}
         </div>
         <div>
           {subCategoriesVisible && (
             <Fragment>
-              <section className="pa5 pointer t-body c-muted-2 ma0 list">
+              <Link
+                className="pa5 pointer t-body c-muted-2 ma0 list db"
+                page={departmentPage}
+                params={departmentParams}
+              >
                 <FormattedMessage id="store/category-menu.all-category.title">
                   {txt => <span className="pl4">{txt}</span>}
                 </FormattedMessage>
-              </section>
+              </Link>
               <Amp.AmpAccordion>
                 {children.map(child => (
                   <SideBarItem
