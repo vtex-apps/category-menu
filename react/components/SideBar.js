@@ -42,7 +42,7 @@ const SideBar = ({
       <Amp.AmpSidebar
         specName="default"
         id="menu-sidebar"
-        className="bg-base"
+        className="w-100 bg-base"
         side="left"
         layout="nodisplay"
       >
