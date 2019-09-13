@@ -82,6 +82,8 @@ const SideBarItem = ({
 
   const titleClasses = classNames('ma0 t-body w-auto', {
     'lh-solid': treeLevel === 1,
+    'c-muted-2': treeLevel > 1,
+    'c-on-base': treeLevel === 1,
   })
 
   const caretClasses = treeLevel === 1 ? 'c-on-base' : 'c-muted-3'
@@ -90,8 +92,7 @@ const SideBarItem = ({
     styles.sidebarItem,
     'list pa0 ma0 bg-base',
     {
-      'c-muted-2 t-body pl4': treeLevel > 1,
-      'c-on-base': treeLevel === 1,
+      't-body pl4': treeLevel > 1,
     }
   )
 
@@ -116,7 +117,7 @@ const SideBarItem = ({
       <section className={sideBarItemClasses}>
         <div className="bn bg-base pa0">
           {!subCategoriesVisible ? (
-            <Link className={`${titleContainerClasses} link`}>
+            <Link className={`${titleContainerClasses} link color-inherit`}>
               {titleContent}
             </Link>
           ) : (
@@ -127,7 +128,7 @@ const SideBarItem = ({
           {subCategoriesVisible && (
             <Fragment>
               <Link
-                className="pa5 pointer t-body c-muted-2 ma0 list db"
+                className="pa5 pointer t-body c-muted-2 ma0 list db link"
                 page={departmentPage}
                 params={departmentParams}
               >
