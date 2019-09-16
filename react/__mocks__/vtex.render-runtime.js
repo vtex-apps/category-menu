@@ -28,4 +28,11 @@ export const withRuntimeContext = component => (
   />
 )
 
-export const useRuntime = () => ({ navigate: jest.fn() })
+export const useRuntime = () => ({
+  amp: false,
+  navigate: jest.fn(),
+  hints: {
+    desktop: true,
+    mobile: false,
+  },
+})
