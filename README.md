@@ -1,6 +1,7 @@
 # VTEX Category Menu
 
 [![Build Status](https://travis-ci.org/vtex-apps/category-menu.svg?branch=master)](https://travis-ci.org/vtex-apps/category-menu)
+[![AMP compatible](https://img.shields.io/badge/amp-compatible-%230058f0)](https://img.shields.io/badge/amp-compatible-%230058f0)
 
 ## Description
 The VTEX Category Menu app is a store component that shows a department list of the store on an customizable menu, and this app is used by store theme.
