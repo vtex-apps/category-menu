@@ -11,15 +11,17 @@ import styles from '../categoryMenu.css'
 const getLinkParams = linkValues => {
   const [department, category, subcategory] = linkValues
   const params = { department }
+  let page = 'store.search#department'
 
-  if (category) params.category = category
-  if (subcategory) params.subcategory = subcategory
+  if (category) {
+    params.category = category
+    page = 'store.search#category'
+  }
 
-  const page = category
-    ? subcategory
-      ? 'store.search#subcategory'
-      : 'store.search#category'
-    : 'store.search#department'
+  if (subcategory) {
+    params.subcategory = subcategory
+    page = 'store.search#subcategory'
+  }
 
   return { page, params }
 }
