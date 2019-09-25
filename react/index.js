@@ -64,7 +64,7 @@ const CategoryMenu = ({
         />
         {runtime.amp ? (
           <button
-            className="bn bg-base pa4 flex items-center"
+            className="bn bg-transparent pa4 flex items-center"
             on="tap:menu-sidebar.open"
           >
             <IconMenu size={20} />
