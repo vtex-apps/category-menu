@@ -1,6 +1,8 @@
 .itemContainer {
   max-height: 21.875rem;
 }
+.itemContainer--department {}
+.itemContainer--category {}
 
 .animation {
   left: -0.5rem;
@@ -14,9 +16,22 @@
 
 .container {}
 
+.section--department {}
+.section--category {}
+
+.departmentList {}
+.departmentLink {}
+
+.firstLevelList {}
+.firstLevelLinkContainer {}
 .firstLevelLink {}
 
+.secondLevelList {}
+.secondLevelLinkContainer {}
 .secondLevelLink {}
+
+.submenuList {}
+.submenuItem {}
 
 .sidebarOpen {}
 

@@ -85,8 +85,8 @@ const CategoryMenu = ({
 
   return (
     <nav className={desktopClasses}>
-      <Container className="justify-center flex">
-        <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+      <Container className={`${styles['section--department']} justify-center flex`}>
+        <ul className={`${styles.departmentList} pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3`}>
           {showAllDepartments && (
             <CategoryItem
               noRedirect
