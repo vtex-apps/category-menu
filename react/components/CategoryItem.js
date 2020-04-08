@@ -30,6 +30,7 @@ const CategoryItem = ({
   }
 
   const categoryClasses = classNames(
+    styles.departmentLink,
     'w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1',
     {
       'b--transparent': !isHover && !isCategorySelected,
@@ -49,7 +50,7 @@ const CategoryItem = ({
 
   return (
     <li
-      className={`${styles.itemContainer} flex items-center db list`}
+      className={`${styles.itemContainer} ${styles['itemContainer--department']} flex items-center db list`}
       ref={itemRef}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={handleCloseMenu}

@@ -1,10 +1,8 @@
 {
   "admin/editor.category-menu.title": "admin/editor.category-menu.title",
   "admin/editor.category-menu.description": "admin/editor.category-menu.description",
-  "admin/editor.category-menu.show-promotion-category.title": "admin/editor.category-menu.show-promotion-category.title",
   "admin/editor.category-menu.show-departments-category.title": "admin/editor.category-menu.show-departments-category.title",
   "admin/editor.category-menu.show-subcategories.title": "admin/editor.category-menu.show-subcategories.title",
-  "admin/editor.category-menu.show-gift-category.title": "admin/editor.category-menu.show-gift-category.title",
   "admin/editor.category-menu.departments.items.title": "admin/editor.category-menu.departments.items.title",
   "admin/editor.category-menu.departments.items.id": "admin/editor.category-menu.departments.items.id",
   "store/category-menu.departments.title": "store/category-menu.departments.title",

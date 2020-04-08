@@ -6,31 +6,31 @@ exports[`CategoryMenu component should match snapshot 1`] = `
     class="container w-100 bg-base dn flex-m justify-center"
   >
     <ul
-      class="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
+      class="departmentList pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3"
     >
       <li
-        class="itemContainer flex items-center db list"
+        class="itemContainer itemContainer--department flex items-center db list"
       >
         <span
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="departmentLink w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
         >
           Departments
         </span>
         <div
-          class="itemContainer absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
+          class="itemContainer itemContainer--category absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3"
           style="top: 0px; display: none;"
         >
           <ul
-            class="w-100 flex flex-wrap pa0 list mw9 justify-center"
+            class="submenuList w-100 flex flex-wrap pa0 list mw9 justify-center"
           >
             <li
-              class="dib"
+              class="submenuItem dib"
             >
               <ul
-                class=""
+                class="firstLevelList"
               >
                 <li
-                  class="list pa0"
+                  class="firstLevelLinkContainer list pa0"
                 >
                   <a
                     class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
@@ -42,13 +42,13 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               </ul>
             </li>
             <li
-              class="dib"
+              class="submenuItem dib"
             >
               <ul
-                class=""
+                class="firstLevelList"
               >
                 <li
-                  class="list pa0"
+                  class="firstLevelLinkContainer list pa0"
                 >
                   <a
                     class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
@@ -60,13 +60,13 @@ exports[`CategoryMenu component should match snapshot 1`] = `
               </ul>
             </li>
             <li
-              class="dib"
+              class="submenuItem dib"
             >
               <ul
-                class=""
+                class="firstLevelList"
               >
                 <li
-                  class="list pa0"
+                  class="firstLevelLinkContainer list pa0"
                 >
                   <a
                     class="firstLevelLink db pv4 link no-underline outline-0 tl t-small truncate c-on-base underline-hover ph4"
@@ -81,30 +81,30 @@ exports[`CategoryMenu component should match snapshot 1`] = `
         </div>
       </li>
       <li
-        class="itemContainer flex items-center db list"
+        class="itemContainer itemContainer--department flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="departmentLink w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-1/s"
         >
           Category 1
         </a>
       </li>
       <li
-        class="itemContainer flex items-center db list"
+        class="itemContainer itemContainer--department flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="departmentLink w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-2/s"
         >
           Category 2
         </a>
       </li>
       <li
-        class="itemContainer flex items-center db list"
+        class="itemContainer itemContainer--department flex items-center db list"
       >
         <a
-          class="w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
+          class="departmentLink w-100 pv5 no-underline t-small outline-0 db tc link truncate bb bw1 c-muted-1 b--transparent mh6"
           href="/category-3/s"
         >
           Category 3

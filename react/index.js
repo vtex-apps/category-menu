@@ -25,8 +25,6 @@ const DEFAULT_SUBCATEGORIES_LEVELS = 1
  * Component that represents the menu containing the categories of the store
  */
 const CategoryMenu = ({
-  showPromotionCategory = false,
-  showGiftCategory = false,
   mobileMode = false,
   showAllDepartments = true,
   showSubcategories = true,
@@ -85,8 +83,8 @@ const CategoryMenu = ({
 
   return (
     <nav className={desktopClasses}>
-      <Container className="justify-center flex">
-        <ul className="pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3">
+      <Container className={`${styles['section--department']} justify-center flex`}>
+        <ul className={`${styles.departmentList} pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3`}>
           {showAllDepartments && (
             <CategoryItem
               noRedirect
@@ -121,10 +119,6 @@ const CategoryMenu = ({
 }
 
 CategoryMenu.propTypes = {
-  /** Whether to show the promotion category or not */
-  showPromotionCategory: PropTypes.bool,
-  /** Whether to show the gift category or not */
-  showGiftCategory: PropTypes.bool,
   /** Categories query data */
   data: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
@@ -153,11 +147,6 @@ CategoryMenu.schema = {
   description: 'admin/editor.category-menu.description',
   type: 'object',
   properties: {
-    showPromotionCategory: {
-      type: 'boolean',
-      title: 'admin/editor.category-menu.show-promotion-category.title',
-      default: false,
-    },
     showAllDepartments: {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-departments-category.title',
@@ -175,11 +164,6 @@ CategoryMenu.schema = {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-subcategories.title',
       default: true,
-    },
-    showGiftCategory: {
-      type: 'boolean',
-      title: 'admin/editor.category-menu.show-gift-category.title',
-      default: false,
     },
     departments: {
       title: 'store/category-menu.departments.title',

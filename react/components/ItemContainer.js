@@ -37,14 +37,14 @@ const ItemContainer = ({
     return children && children.length > 0 && showSecondLevel
   }
 
-  const containerClasses = classNames('w-100 flex flex-wrap pa0 list mw9', {
+  const containerClasses = classNames(styles.submenuList, 'w-100 flex flex-wrap pa0 list mw9', {
     'justify-start': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
     'justify-end': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
     'justify-center':
       menuPosition === categoryMenuPosition.DISPLAY_CENTER.value,
   })
 
-  const columnItemClasses = classNames({
+  const columnItemClasses = classNames(styles.firstLevelList, {
     'pl0 pr7': menuPosition === categoryMenuPosition.DISPLAY_LEFT.value,
     'pr0 pl7': menuPosition === categoryMenuPosition.DISPLAY_RIGHT.value,
   })
@@ -71,15 +71,15 @@ const ItemContainer = ({
 
   return (
     <div
-      className={`${styles.itemContainer} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`}
+      className={`${styles.itemContainer} ${styles['itemContainer--category']} absolute w-100 left-0 bg-base pb2 bw1 bb b--muted-3`}
       style={containerStyle}
     >
-      <Container className="justify-center w-100 flex">
+      <Container className={`${styles['section--category']} justify-center w-100 flex`}>
         <ul className={containerClasses}>
           {categories.map(category => (
-            <li key={category.id} className="dib">
+            <li key={category.id} className={`${styles.submenuItem} dib`}>
               <ul className={columnItemClasses}>
-                <li className="list pa0">
+                <li className={`${styles.firstLevelLinkContainer} list pa0`}>
                   <Link
                     onClick={onCloseMenu}
                     page={
@@ -102,7 +102,7 @@ const ItemContainer = ({
                     if (parentSlug) params.subcategory = subCategory.slug
 
                     return (
-                      <li key={subCategory.id} className="list pa0">
+                      <li key={subCategory.id} className={`${styles.secondLevelLinkContainer} list pa0`}>
                         <Link
                           onClick={onCloseMenu}
                           page={
