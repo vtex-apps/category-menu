@@ -39,6 +39,7 @@ Category Menu app is a store component that shows a department list of the store
 | `menuDisposition`    | `Enum`         | Indicates the disposition of the menu on the screen. Possible values: `left`, `center`, `right` | `center`      |
 | `showSubcategories`  | `Boolean`      | Decides if the subcategories will be displayed                                                  | `true`        |
 | `departments`        | `Array(items)` | List of departments `items` to be displayed on the menu                                         | `[]`          |
+| `mobileMode`         | `Boolean`      | Use this as `true` to render the category menu in a sidebar                                      | `false`       |
 
 Items:
 
@@ -79,7 +80,6 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 | `submenuList`               |
 
 <!-- DOCS-IGNORE:start -->
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -93,5 +93,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
-
 <!-- DOCS-IGNORE:end -->
