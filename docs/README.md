@@ -33,51 +33,53 @@ Category Menu app is a store component that shows a department list of the store
 }
 ```
 
-| Prop name          | Type       | Description                                                                 | Default Value |
-| ------------------ | ---------- | --------------------------------------------------------------------------- | -------------- |
-| `showAllDepartments`     | `Boolean`  | Shows all departments category in menu                              | true|
-| `menuDisposition`      | `Enum`  | Indicates the disposition of the menu on the screen. Possible values: left, center, right   | center|
-| `showSubcategories`    | `Boolean`   | Decides if the subcategories will be displayed |true|
-| `departments` | `Array(items)`   | List of departments `items` to be displayed on the menu  | []|
+| Prop name            | Type           | Description                                                                                     | Default Value |
+| -------------------- | -------------- | ----------------------------------------------------------------------------------------------- | ------------- |
+| `showAllDepartments` | `Boolean`      | Shows all departments category in menu                                                          | `true`        |
+| `menuDisposition`    | `Enum`         | Indicates the disposition of the menu on the screen. Possible values: `left`, `center`, `right` | `center`      |
+| `showSubcategories`  | `Boolean`      | Decides if the subcategories will be displayed                                                  | `true`        |
+| `departments`        | `Array(items)` | List of departments `items` to be displayed on the menu                                         | `[]`          |
+| `mobileMode`         | `Boolean`      | Use this as `true` to render the category menu in a sidebar                                      | `false`       |
 
 Items:
 
-| Prop name          | Type       | Description                                                                 |
-| ------------------ | ---------- | --------------------------------------------------------------------------- |
-| `id`                      | `Number`   | The department Id to be displayed on the menu               |
+| Prop name | Type     | Description                                   |
+| --------- | -------- | --------------------------------------------- |
+| `id`      | `Number` | The department Id to be displayed on the menu |
 
 ## Customization
 
 In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
-| CSS Handles |
-| --- |
-| `container` |
-| `departmentLink` |
-| `departmentList` |
-| `firstLevelLink` |
-| `firstLevelLinkContainer` |
-| `firstLevelList` |
-| `itemContainer` |
-| `itemContainer--category` |
+| CSS Handles                 |
+| --------------------------- |
+| `container`                 |
+| `departmentLink`            |
+| `departmentList`            |
+| `firstLevelLink`            |
+| `firstLevelLinkContainer`   |
+| `firstLevelList`            |
+| `itemContainer`             |
+| `itemContainer--category`   |
 | `itemContainer--department` |
-| `menuContainer` |
-| `secondLevelLink` |
-| `secondLevelLinkContainer` |
-| `secondLevelList` |
-| `section--category` |
-| `section--department` |
-| `sidebar` |
-| `sidebarContainer` |
-| `sidebarContent` |
-| `sidebarHeader` |
-| `sidebarItem` |
-| `sidebarItemContainer` |
-| `sidebarOpen` |
-| `sidebarScrim` |
-| `submenuItem` |
-| `submenuList` |
+| `menuContainer`             |
+| `secondLevelLink`           |
+| `secondLevelLinkContainer`  |
+| `secondLevelList`           |
+| `section--category`         |
+| `section--department`       |
+| `sidebar`                   |
+| `sidebarContainer`          |
+| `sidebarContent`            |
+| `sidebarHeader`             |
+| `sidebarItem`               |
+| `sidebarItemContainer`      |
+| `sidebarOpen`               |
+| `sidebarScrim`              |
+| `submenuItem`               |
+| `submenuList`               |
 
+<!-- DOCS-IGNORE:start -->
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -87,6 +89,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+<!-- DOCS-IGNORE:end -->
