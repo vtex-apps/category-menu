@@ -43,18 +43,6 @@ const SideBarItem = ({
     onClose()
   }
 
-  const handleDepartmentClick = () => {
-    const [department] = linkValues
-    const params = { department }
-    const page = 'store.search#department'
-    runtime.navigate({
-      page,
-      params,
-      fallbackToWindowLocation: false,
-    })
-    onClose()
-  }
-
   const handleItemClick = () => {
     if (subCategoriesVisible) {
       setOpen(prevOpen => !prevOpen)
@@ -91,10 +79,10 @@ const SideBarItem = ({
         )}
       </li>
       {subCategoriesVisible && open && (
-        <Fragment>
+        <>
           <li
             className="pa5 pointer t-body c-muted-2 ma0 list"
-            onClick={handleDepartmentClick}
+            onClick={navigateToPage}
           >
             <FormattedMessage id="store/category-menu.all-category.title">
               {txt => <span className="pl4">{txt}</span>}
@@ -112,7 +100,7 @@ const SideBarItem = ({
               />
             </li>
           ))}
-        </Fragment>
+        </>
       )}
     </ul>
   )

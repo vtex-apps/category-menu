@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- See all link work inside `category` and `subcategory`in mobile
+
 ## [2.14.1] - 2020-09-02
 ### Fixed
 - Add missing documentation for prop `mobileMode`.
