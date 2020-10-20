@@ -1,6 +1,6 @@
 {
   "name": "vtex.category-menu",
-  "version": "2.14.1",
+  "version": "2.15.0",
   "scripts": {
     "pretest": "yarn",
     "test": "vtex-test-tools test",
