@@ -51,7 +51,7 @@ const CategoryItem = ({
   }
 
   const categoriesChildren = category.children.length
-    ? sortSubcategories === sortSubcategoriesItems.SORT_NAME.name
+    ? sortSubcategories === sortSubcategoriesItems.SORT_NAME.value
       ? category.children.sort((a, b) => (a.name > b.name ? 1 : -1))
       : category.children
     : []
