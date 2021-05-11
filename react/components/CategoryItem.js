@@ -9,6 +9,7 @@ import styles from '../categoryMenu.css'
 import categoryMenuPosition, {
   getMenuPositionValues,
 } from '../utils/categoryMenuPosition'
+import sortSubcategoriesItems, { getSortSubcategoriesValues } from '../utils/sortSubcategoriesItems'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -21,6 +22,7 @@ const CategoryItem = ({
   category: { name, slug },
   noRedirect,
   isCategorySelected,
+  sortSubcategories,
 }) => {
   const [isHover, setHover] = useState(false)
   const itemRef = useRef(null)
@@ -48,9 +50,17 @@ const CategoryItem = ({
     display: isHover ? 'flex' : 'none',
   }
 
+  const categoriesChildren = category.children.length
+    ? sortSubcategories === sortSubcategoriesItems.SORT_NAME.name
+      ? category.children.sort((a, b) => (a.name > b.name ? 1 : -1))
+      : category.children
+    : []
+
   return (
     <li
-      className={`${styles.itemContainer} ${styles['itemContainer--department']} flex items-center db list`}
+      className={`${styles.itemContainer} ${
+        styles['itemContainer--department']
+      } flex items-center db list`}
       ref={itemRef}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={handleCloseMenu}
@@ -67,11 +77,12 @@ const CategoryItem = ({
           {name}
         </Link>
       )}
+
       {subcategoryLevels > 0 && category.children.length > 0 && (
         <ItemContainer
           menuPosition={menuPosition}
           containerStyle={containerStyle}
-          categories={category.children}
+          categories={categoriesChildren}
           parentSlug={category.slug}
           onCloseMenu={handleCloseMenu}
           showSecondLevel={subcategoryLevels === 2}
@@ -92,6 +103,7 @@ CategoryItem.propTypes = {
   menuPosition: PropTypes.oneOf(getMenuPositionValues()),
   /** Menu category selection */
   isCategorySelected: PropTypes.bool,
+  sortSubcategories: PropTypes.oneOf(getSortSubcategoriesValues()),
 }
 
 export default CategoryItem

@@ -18,6 +18,10 @@ import categoryMenuPosition, {
   getMenuPositionNames,
   getMenuPositionValues,
 } from './utils/categoryMenuPosition'
+import sortSubcategoriesItems, {
+  getSortSubcategoriesNames,
+  getSortSubcategoriesValues,
+} from './utils/sortSubcategoriesItems'
 
 const DEFAULT_SUBCATEGORIES_LEVELS = 1
 
@@ -29,6 +33,7 @@ const CategoryMenu = ({
   showAllDepartments = true,
   showSubcategories = true,
   menuPosition = categoryMenuPosition.DISPLAY_CENTER.value,
+  sortSubcategories = sortSubcategoriesItems.SORT_DEFAULT.value,
   departments = [],
   data: { categories = [] },
   intl,
@@ -83,8 +88,12 @@ const CategoryMenu = ({
 
   return (
     <nav className={desktopClasses}>
-      <Container className={`${styles['section--department']} justify-center flex`}>
-        <ul className={`${styles.departmentList} pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3`}>
+      <Container
+        className={`${styles['section--department']} justify-center flex`}
+      >
+        <ul
+          className={`${styles.departmentList} pa0 list ma0 flex flex-wrap flex-row t-action overflow-hidden h3`}
+        >
           {showAllDepartments && (
             <CategoryItem
               noRedirect
@@ -92,6 +101,7 @@ const CategoryMenu = ({
               subcategoryLevels={
                 DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
               }
+              sortSubcategories={sortSubcategories}
               category={{
                 children: categories,
                 name: intl.formatMessage({
@@ -109,6 +119,7 @@ const CategoryMenu = ({
                   DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
                 }
                 isCategorySelected={department === category.slug}
+                sortSubcategories={sortSubcategories}
               />
             </Fragment>
           ))}
@@ -140,6 +151,7 @@ CategoryMenu.propTypes = {
       id: PropTypes.number,
     })
   ),
+  sortSubcategories: PropTypes.oneOf(getSortSubcategoriesValues()),
 }
 
 CategoryMenu.schema = {
@@ -164,6 +176,13 @@ CategoryMenu.schema = {
       type: 'boolean',
       title: 'admin/editor.category-menu.show-subcategories.title',
       default: true,
+    },
+    sortSubcategories: {
+      title: 'admin/editor.category-menu.sort-subcategories.title',
+      type: 'string',
+      enum: getSortSubcategoriesValues(),
+      enumNames: getSortSubcategoriesNames(),
+      default: sortSubcategoriesItems.SORT_DEFAULT.value,
     },
     departments: {
       title: 'store/category-menu.departments.title',
