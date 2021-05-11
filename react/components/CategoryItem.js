@@ -9,7 +9,7 @@ import styles from '../categoryMenu.css'
 import categoryMenuPosition, {
   getMenuPositionValues,
 } from '../utils/categoryMenuPosition'
-import sortSubcategoriesItems, { getSortSubcategoriesValues } from '../utils/sortSubcategoriesItems'
+import { getSortSubcategoriesValues } from '../utils/sortSubcategoriesItems'
 
 /**
  * Component that represents a single category displayed in the menu, also displays
@@ -50,12 +50,6 @@ const CategoryItem = ({
     display: isHover ? 'flex' : 'none',
   }
 
-  const categoriesChildren = category.children.length
-    ? sortSubcategories === sortSubcategoriesItems.SORT_NAME.value
-      ? category.children.sort((a, b) => (a.name > b.name ? 1 : -1))
-      : category.children
-    : []
-
   return (
     <li
       className={`${styles.itemContainer} ${
@@ -82,10 +76,11 @@ const CategoryItem = ({
         <ItemContainer
           menuPosition={menuPosition}
           containerStyle={containerStyle}
-          categories={categoriesChildren}
+          categories={category.children}
           parentSlug={category.slug}
           onCloseMenu={handleCloseMenu}
           showSecondLevel={subcategoryLevels === 2}
+          sortSubcategories={sortSubcategories}
         />
       )}
     </li>
