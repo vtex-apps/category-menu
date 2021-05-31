@@ -8,6 +8,9 @@
   "admin/editor.category-menu.disposition-type.title": "Menu position",
   "admin/editor.category-menu.show-departments-category.title": "Show the departments category",
   "admin/editor.category-menu.show-subcategories.title": "Show subcategories",
+  "admin/editor.category-menu.sort-subcategories.title": "Sort subcategories",
+  "admin/editor.category-menu.sort-type.default": "Default",
+  "admin/editor.category-menu.sort-type.name": "Name",
   "admin/editor.category-menu.title": "Category menu",
   "store/category-menu.all-category.title": "See All",
   "store/category-menu.departments.title": "Departments"

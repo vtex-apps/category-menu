@@ -27,7 +27,8 @@ Category Menu app is a store component that shows a department list of the store
       "showAllDepartments": true,
       "showSubcategories": true,
       "menuDisposition": "center",
-      "departments": []
+      "departments": [],
+      "sortSubcategories": "name"
     }
   }
 }
@@ -39,7 +40,8 @@ Category Menu app is a store component that shows a department list of the store
 | `menuDisposition`    | `Enum`         | Indicates the disposition of the menu on the screen. Possible values: `left`, `center`, `right` | `center`      |
 | `showSubcategories`  | `Boolean`      | Decides if the subcategories will be displayed                                                  | `true`        |
 | `departments`        | `Array(items)` | List of departments `items` to be displayed on the menu                                         | `[]`          |
-| `mobileMode`         | `Boolean`      | Use this as `true` to render the category menu in a sidebar                                      | `false`       |
+| `mobileMode`         | `Boolean`      | Use this as `true` to render the category menu in a sidebar                                     | `false`       |
+| `sortSubcategories`  | `Enum`         | Determine how subcategories are sorted. Possible values `name`                                  |               |
 
 Items:
 
