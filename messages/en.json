@@ -13,5 +13,7 @@
   "admin/editor.category-menu.sort-type.name": "Name",
   "admin/editor.category-menu.title": "Category menu",
   "store/category-menu.all-category.title": "See All",
+  "store/category-menu.explorer.all-from": "See all from",
+  "store/category-menu.explorer.back": "Back",
   "store/category-menu.departments.title": "Departments"
 }

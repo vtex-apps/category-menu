@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "category-menu",
-  "version": "2.16.0",
+  "version": "2.16.1",
   "title": "Category Menu",
   "description": "Displays the categories for the store in a menu",
   "defaultLocale": "pt-BR",
@@ -20,7 +20,8 @@
     "vtex.store-graphql": "2.x",
     "vtex.styleguide": "9.x",
     "vtex.use-svg": "1.x",
-    "vtex.store-icons": "0.x"
+    "vtex.store-icons": "0.x",
+    "vtex.css-handles": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

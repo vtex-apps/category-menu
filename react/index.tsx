@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import { graphql } from 'react-apollo'
+import classNames from 'classnames'
 import { injectIntl, intlShape } from 'react-intl'
+import { compose, path } from 'ramda'
 import { IconMenu } from 'vtex.store-icons'
 import { useRuntime } from 'vtex.render-runtime'
-import { compose, path } from 'ramda'
-import classNames from 'classnames'
 import { Container } from 'vtex.store-components'
 
 import CategoryItem from './components/CategoryItem'
 import SideBar from './components/SideBar'
 import { categoryPropType } from './propTypes'
 import getCategories from './queries/categoriesQuery.gql'
-
 import styles from './categoryMenu.css'
 import categoryMenuPosition, {
   getMenuPositionNames,
@@ -22,14 +21,24 @@ import sortSubcategoriesItems, {
   getSortSubcategoriesNames,
   getSortSubcategoriesValues,
 } from './utils/sortSubcategoriesItems'
+import {
+  DEFAULT_SUBCATEGORIES_LEVELS,
+  MOBILE_DISPLAY_TYPE,
+} from './utils/constants'
 
-const DEFAULT_SUBCATEGORIES_LEVELS = 1
+interface Category {
+  id: number
+  slug: string
+}
+
+type Department = Category
 
 /**
  * Component that represents the menu containing the categories of the store
  */
 const CategoryMenu = ({
   mobileMode = false,
+  mobileDisplayType = MOBILE_DISPLAY_TYPE.ACCORDEON,
   showAllDepartments = true,
   showSubcategories = true,
   menuPosition = categoryMenuPosition.DISPLAY_CENTER.value,
@@ -42,11 +51,11 @@ const CategoryMenu = ({
   const [sideBarVisible, setSidebarVisible] = useState(false)
 
   const handleSidebarToggle = () => {
-    setSidebarVisible(prevVisible => !prevVisible)
+    setSidebarVisible((prevVisible) => !prevVisible)
   }
 
-  const departmentsIds = departments.map(dept => dept.id)
-  const departmentsSelected = categories.filter(category =>
+  const departmentsIds = departments.map((dept: Department) => dept.id)
+  const departmentsSelected = categories.filter((category: Category) =>
     departmentsIds.includes(category.id)
   )
 
@@ -58,15 +67,24 @@ const CategoryMenu = ({
       <div className={`${styles.sidebarContainer} ${styles.mobile}`}>
         <SideBar
           visible={sideBarVisible}
-          title={intl.formatMessage({
-            id: 'store/category-menu.departments.title',
-          })}
+          // title={intl.formatMessage({
+          //   id: 'store/category-menu.departments.title',
+          // })}
           departments={visibleDepartments}
           onClose={handleSidebarToggle}
           showSubcategories={showSubcategories}
+          mobileDisplayType={mobileDisplayType}
         />
-        <div className="flex pa4 pointer" onClick={handleSidebarToggle}>
+        <div
+          className="flex pa4 pointer items-center"
+          onClick={handleSidebarToggle}
+        >
           <IconMenu size={20} />
+          <p className="flex ml4">
+            {intl.formatMessage({
+              id: 'store/category-menu.departments.title',
+            })}
+          </p>
         </div>
       </div>
     )
@@ -74,7 +92,7 @@ const CategoryMenu = ({
 
   const pathName = path(['route', 'params', 'department'], runtime)
 
-  const department = pathName ? pathName : ''
+  const department = pathName || ''
 
   const desktopClasses = classNames(
     `${styles.container} w-100 bg-base dn flex-m`,
@@ -99,7 +117,7 @@ const CategoryMenu = ({
               noRedirect
               menuPosition={menuPosition}
               subcategoryLevels={
-                DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
+                DEFAULT_SUBCATEGORIES_LEVELS + Number(showSubcategories)
               }
               sortSubcategories={sortSubcategories}
               category={{
@@ -110,13 +128,13 @@ const CategoryMenu = ({
               }}
             />
           )}
-          {visibleDepartments.map(category => (
+          {visibleDepartments.map((category: Category) => (
             <Fragment key={category.id}>
               <CategoryItem
                 menuPosition={menuPosition}
                 category={category}
                 subcategoryLevels={
-                  DEFAULT_SUBCATEGORIES_LEVELS + showSubcategories
+                  DEFAULT_SUBCATEGORIES_LEVELS + Number(showSubcategories)
                 }
                 isCategorySelected={department === category.slug}
                 sortSubcategories={sortSubcategories}
@@ -137,6 +155,7 @@ CategoryMenu.propTypes = {
   }),
   /** Set mobile mode */
   mobileMode: PropTypes.bool,
+  mobileDisplayType: PropTypes.string,
   /** Whether to show the departments category or not */
   showAllDepartments: PropTypes.bool,
   /** Whether to show subcategories or not */
@@ -202,7 +221,4 @@ CategoryMenu.schema = {
   },
 }
 
-export default compose(
-  graphql(getCategories),
-  injectIntl
-)(CategoryMenu)
+export default compose(graphql(getCategories), injectIntl)(CategoryMenu)

@@ -1,5 +1,16 @@
 {
   "category-menu": {
-    "component": "index"
+    "component": "index",
+    "allowed": ["before-menu", "after-menu"]
+  },
+  "before-menu": {
+    "component": "Extension",
+    "composition": "children",
+    "allowed": "*"
+  },
+  "after-menu": {
+    "component": "Extension",
+    "composition": "children",
+    "allowed": "*"
   }
 }
