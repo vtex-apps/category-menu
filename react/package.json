@@ -20,7 +20,15 @@
     "@types/jest": "^24.0.18",
     "@vtex/test-tools": "^0.1.2",
     "@vtex/tsconfig": "^0.1.1",
-    "apollo-client": "^2.5.1"
+    "apollo-client": "^2.5.1",
+    "vtex.category-menu": "https://cristi--elefant.myvtex.com/_v/private/typings/linked/v1/vtex.category-menu@2.16.1+build1627629726/public/@types/vtex.category-menu",
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.131.0/public/@types/vtex.render-runtime",
+    "vtex.store-components": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.149.1/public/@types/vtex.store-components",
+    "vtex.store-graphql": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-graphql@2.143.0/public/@types/vtex.store-graphql",
+    "vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.18.0/public/@types/vtex.store-icons",
+    "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.145.0/public/@types/vtex.styleguide",
+    "vtex.use-svg": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.use-svg@1.0.1/public/_types/react"
   },
   "vtexTestTools": {
     "defaultLocale": "en"

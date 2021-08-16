@@ -3,27 +3,33 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { Animation } from 'vtex.store-components'
 import { IconClose } from 'vtex.store-icons'
+import { ExtensionPoint } from 'vtex.render-runtime'
+import _noop from 'lodash/noop'
 
-import SideBarItem from './SideBarItem'
+import Explorer from './Explorer'
+import Accordeon from './Accordeon'
 import styles from '../categoryMenu.css'
+import { MOBILE_DISPLAY_TYPE } from '../utils/constants'
 
 const OPEN_SIDEBAR_CLASS = styles.sidebarOpen
 
 const SideBar = ({
-  title = 'Departments',
   visible,
   onClose = () => {},
   showSubcategories,
   departments = [],
+  mobileDisplayType,
 }) => {
   useEffect(() => {
     if (visible) {
       document.body.classList.add(OPEN_SIDEBAR_CLASS)
 
       return () => document.body.classList.remove(OPEN_SIDEBAR_CLASS)
-    } else {
-      document.body.classList.remove(OPEN_SIDEBAR_CLASS)
     }
+
+    document.body.classList.remove(OPEN_SIDEBAR_CLASS)
+
+    return _noop
   }, [visible])
 
   const scrimClasses = classNames(
@@ -51,18 +57,22 @@ const SideBar = ({
           >
             <IconClose size={24} activeClassName="c-muted-1" />
           </div>
-          <ul className={`${styles.sidebarContent} pb7 list ma0 pa0`}>
-            {departments.map(department => (
-              <li key={department.id} className="list ma0 pa0">
-                <SideBarItem
-                  item={department}
-                  linkValues={[department.slug]}
-                  onClose={onClose}
-                  showSubcategories={showSubcategories}
-                />
-              </li>
-            ))}
-          </ul>
+          <ExtensionPoint id="before-menu" />
+          {mobileDisplayType === MOBILE_DISPLAY_TYPE.EXPLORER ? (
+            <Explorer
+              styles={styles}
+              departments={departments}
+              onClose={onClose}
+            />
+          ) : (
+            <Accordeon
+              styles={styles}
+              departments={departments}
+              onClose={onClose}
+              showSubcategories={showSubcategories}
+            />
+          )}
+          <ExtensionPoint id="after-menu" />
         </aside>
       </Animation>
     </Fragment>
@@ -78,6 +88,8 @@ SideBar.propTypes = {
   visible: PropTypes.bool,
   /** Whether to show subcategories or not */
   showSubcategories: PropTypes.bool,
+  /** Mobile display type */
+  mobileDisplayType: PropTypes.string,
 }
 
 export default SideBar
