@@ -1,0 +1,17 @@
+{
+  "admin/editor.category-menu.departments.items.id": "Department Id",
+  "admin/editor.category-menu.departments.items.title": "Department",
+  "admin/editor.category-menu.description": "A menu showing a list of the available categories on the store",
+  "admin/editor.category-menu.disposition-type.center": "Middle",
+  "admin/editor.category-menu.disposition-type.left": "Left",
+  "admin/editor.category-menu.disposition-type.right": "Right",
+  "admin/editor.category-menu.disposition-type.title": "Menu position",
+  "admin/editor.category-menu.show-departments-category.title": "Show the departments category",
+  "admin/editor.category-menu.show-subcategories.title": "Show subcategories",
+  "admin/editor.category-menu.sort-subcategories.title": "Sort subcategories",
+  "admin/editor.category-menu.sort-type.default": "Default",
+  "admin/editor.category-menu.sort-type.name": "Name",
+  "admin/editor.category-menu.title": "Category menu",
+  "store/category-menu.all-category.title": "See All",
+  "store/category-menu.departments.title": "Departments"
+}
