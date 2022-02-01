@@ -1,0 +1,17 @@
+{
+  "admin/editor.category-menu.departments.items.id": "معرف القسم",
+  "admin/editor.category-menu.departments.items.title": "القسم",
+  "admin/editor.category-menu.description": "قائمة تظهر لائحة الفئات المتاحة في المتجر",
+  "admin/editor.category-menu.disposition-type.center": "متوسط",
+  "admin/editor.category-menu.disposition-type.left": "اليسار",
+  "admin/editor.category-menu.disposition-type.right": "اليمين",
+  "admin/editor.category-menu.disposition-type.title": "موضع القائمة",
+  "admin/editor.category-menu.show-departments-category.title": "إظهار فئة الأقسام",
+  "admin/editor.category-menu.show-subcategories.title": "إظهار الفئات الفرعية",
+  "admin/editor.category-menu.sort-subcategories.title": "فرز الفئات الفرعية",
+  "admin/editor.category-menu.sort-type.default": "الافتراضي",
+  "admin/editor.category-menu.sort-type.name": "الاسم",
+  "admin/editor.category-menu.title": "قائمة الفئة",
+  "store/category-menu.all-category.title": "شاهد الكل",
+  "store/category-menu.departments.title": "الأقسام"
+}
