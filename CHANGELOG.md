@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Arabic translation.
+
 ## [2.16.0] - 2021-05-31
 ### Added
 - `sortSubcategories` as option for `category-menu`
@@ -41,7 +44,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- `eslint` configuration. 
+- `eslint` configuration.
 
 ## [2.12.0] - 2019-04-24
 ### Changed
