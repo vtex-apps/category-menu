@@ -9,7 +9,7 @@
   "admin/editor.category-menu.show-departments-category.title": "إظهار فئة الأقسام",
   "admin/editor.category-menu.show-subcategories.title": "إظهار الفئات الفرعية",
   "admin/editor.category-menu.sort-subcategories.title": "فرز الفئات الفرعية",
-  "admin/editor.category-menu.sort-type.default": "الافتراضي",
+  "admin/editor.category-menu.sort-type.default": "العنوان الرئيسي",
   "admin/editor.category-menu.sort-type.name": "الاسم",
   "admin/editor.category-menu.title": "قائمة الفئة",
   "store/category-menu.all-category.title": "شاهد الكل",
