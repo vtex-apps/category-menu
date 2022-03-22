@@ -1,0 +1,17 @@
+{
+  "admin/editor.category-menu.departments.items.id": "รหัสแผนก",
+  "admin/editor.category-menu.departments.items.title": "แผนก",
+  "admin/editor.category-menu.description": "เมนูแสดงรายการหมวดหมู่ที่มีในร้านค้า",
+  "admin/editor.category-menu.disposition-type.center": "กลาง",
+  "admin/editor.category-menu.disposition-type.left": "ซ้าย",
+  "admin/editor.category-menu.disposition-type.right": "ขวา",
+  "admin/editor.category-menu.disposition-type.title": "ตำแหน่งเมนู",
+  "admin/editor.category-menu.show-departments-category.title": "แสดงหมวดหมู่ของแผนก",
+  "admin/editor.category-menu.show-subcategories.title": "แสดงหมวดหมู่ย่อย",
+  "admin/editor.category-menu.sort-subcategories.title": "จัดเรียงหมวดหมู่ย่อย",
+  "admin/editor.category-menu.sort-type.default": "ค่าเริ่มต้น",
+  "admin/editor.category-menu.sort-type.name": "ชื่อ",
+  "admin/editor.category-menu.title": "เมนูหมวดหมู่",
+  "store/category-menu.all-category.title": "ดูทั้งหมด",
+  "store/category-menu.departments.title": "แผนก"
+}
