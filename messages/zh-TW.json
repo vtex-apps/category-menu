@@ -1,0 +1,17 @@
+{
+  "admin/editor.category-menu.departments.items.id": "部門 ID",
+  "admin/editor.category-menu.departments.items.title": "部門",
+  "admin/editor.category-menu.description": "顯示商店中可用類別列表的選單",
+  "admin/editor.category-menu.disposition-type.center": "中間",
+  "admin/editor.category-menu.disposition-type.left": "左",
+  "admin/editor.category-menu.disposition-type.right": "右",
+  "admin/editor.category-menu.disposition-type.title": "選單位置",
+  "admin/editor.category-menu.show-departments-category.title": "顯示部門類別",
+  "admin/editor.category-menu.show-subcategories.title": "顯示子類別",
+  "admin/editor.category-menu.sort-subcategories.title": "子類別排序",
+  "admin/editor.category-menu.sort-type.default": "預設",
+  "admin/editor.category-menu.sort-type.name": "名稱",
+  "admin/editor.category-menu.title": "類別選單",
+  "store/category-menu.all-category.title": "查看全部",
+  "store/category-menu.departments.title": "部門"
+}
