@@ -1,0 +1,17 @@
+{
+  "admin/editor.category-menu.departments.items.id": "Id Departemen",
+  "admin/editor.category-menu.departments.items.title": "Departemen",
+  "admin/editor.category-menu.description": "Menu yang menampilkan daftar kategori yang tersedia di toko",
+  "admin/editor.category-menu.disposition-type.center": "Tengah",
+  "admin/editor.category-menu.disposition-type.left": "Kiri",
+  "admin/editor.category-menu.disposition-type.right": "Kanan",
+  "admin/editor.category-menu.disposition-type.title": "Posisi menu",
+  "admin/editor.category-menu.show-departments-category.title": "Tampilkan kategori departemen",
+  "admin/editor.category-menu.show-subcategories.title": "Tampilkan subkategori",
+  "admin/editor.category-menu.sort-subcategories.title": "Urutkan subkategori",
+  "admin/editor.category-menu.sort-type.default": "Default",
+  "admin/editor.category-menu.sort-type.name": "Nama",
+  "admin/editor.category-menu.title": "Menu kategori",
+  "store/category-menu.all-category.title": "Lihat Semua",
+  "store/category-menu.departments.title": "Departemen"
+}
