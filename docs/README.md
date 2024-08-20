@@ -6,11 +6,13 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Category Menu app is a store component that shows a department list of the store on an customizable menu, and this app is used by store theme.
+Category Menu app is a store component that shows a department list of the store on a customizable menu.
+
+![category-menu](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/docs/vtex-menu-0.png)
 
 ## Configuration
 
-1. Add the app to your theme's dependencies on the `manifest.json`, for example:
+1. Add the app to your store theme's dependencies on the `manifest.json`, for example:
 
 ```json
   dependencies: {
@@ -18,7 +20,7 @@ Category Menu app is a store component that shows a department list of the store
   }
 ```
 
-2. Add the `category-menu` block into your theme.
+2. Add the `category-menu` block into your store theme.
 
 ```json
 {
@@ -34,6 +36,8 @@ Category Menu app is a store component that shows a department list of the store
 }
 ```
 
+### `category-menu` props
+
 | Prop name            | Type           | Description                                                                                     | Default Value |
 | -------------------- | -------------- | ----------------------------------------------------------------------------------------------- | ------------- |
 | `showAllDepartments` | `Boolean`      | Shows all departments category in menu                                                          | `true`        |
@@ -43,7 +47,7 @@ Category Menu app is a store component that shows a department list of the store
 | `mobileMode`         | `Boolean`      | Use this as `true` to render the category menu in a sidebar                                     | `false`       |
 | `sortSubcategories`  | `Enum`         | Determine how subcategories are sorted. Possible values `name`                                  |               |
 
-Items:
+### `category-menu` items
 
 | Prop name | Type     | Description                                   |
 | --------- | -------- | --------------------------------------------- |
@@ -51,7 +55,7 @@ Items:
 
 ## Customization
 
-In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
+In order to apply CSS customizations in this and other blocks, follow the instructions given on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
 | CSS Handles                 |
 | --------------------------- |
