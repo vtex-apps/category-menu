@@ -6,7 +6,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-The Category Menu app is a store component that shows the store’s department list on a custom menu.
+The Category Menu is a store component that displays a list of departments in a configurable menu layout. It helps organize and present categories and subcategories to improve navigation.
 
 ![category-menu](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/docs/vtex-menu-0.png)
 
