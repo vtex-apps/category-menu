@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Added an image of how the category menu layout looks.
+- Applied Localization review.
+
 ## [2.18.0] - 2022-12-23
 
 ### Fixed

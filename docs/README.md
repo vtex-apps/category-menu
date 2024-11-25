@@ -6,11 +6,13 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-Category Menu app is a store component that shows a department list of the store on an customizable menu, and this app is used by store theme.
+The Category Menu is a store component that displays a list of departments in a configurable menu layout. It helps organize and present categories and subcategories to improve navigation.
+
+![category-menu](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/docs/vtex-menu-0.png)
 
 ## Configuration
 
-1. Add the app to your theme's dependencies on the `manifest.json`, for example:
+1. Add the app to your store theme's dependencies in the `manifest.json`.
 
 ```json
   dependencies: {
@@ -18,7 +20,7 @@ Category Menu app is a store component that shows a department list of the store
   }
 ```
 
-2. Add the `category-menu` block into your theme.
+2. Add the `category-menu` block to your store theme.
 
 ```json
 {
@@ -34,24 +36,26 @@ Category Menu app is a store component that shows a department list of the store
 }
 ```
 
+### `category-menu` props
+
 | Prop name            | Type           | Description                                                                                     | Default Value |
 | -------------------- | -------------- | ----------------------------------------------------------------------------------------------- | ------------- |
-| `showAllDepartments` | `Boolean`      | Shows all departments category in menu                                                          | `true`        |
-| `menuDisposition`    | `Enum`         | Indicates the disposition of the menu on the screen. Possible values: `left`, `center`, `right` | `center`      |
-| `showSubcategories`  | `Boolean`      | Decides if the subcategories will be displayed                                                  | `true`        |
-| `departments`        | `Array(items)` | List of departments `items` to be displayed on the menu                                         | `[]`          |
-| `mobileMode`         | `Boolean`      | Use this as `true` to render the category menu in a sidebar                                     | `false`       |
-| `sortSubcategories`  | `Enum`         | Determine how subcategories are sorted. Possible values `name`                                  |               |
+| `showAllDepartments` | `Boolean`      | Shows all department categories in the menu                                                          | `true`        |
+| `menuDisposition`    | `Enum`         | Indicates the menu's position on the screen. Possible values: `left`, `center`, `right` | `center`      |
+| `showSubcategories`  | `Boolean`      | Defines if the subcategories will be displayed                                                  | `true`        |
+| `departments`        | `Array(items)` | List of department `items` to be displayed on the menu                                         | `[]`          |
+| `mobileMode`         | `Boolean`      | Renders the category menu in a sidebar if set to `true`                                     | `false`       |
+| `sortSubcategories`  | `Enum`         | Determines how subcategories are sorted. Possible value: `name`                                  |               |
 
-Items:
+### `category-menu` items
 
 | Prop name | Type     | Description                                   |
 | --------- | -------- | --------------------------------------------- |
-| `id`      | `Number` | The department Id to be displayed on the menu |
+| `id`      | `Number` | The department ID to be displayed on the menu |
 
 ## Customization
 
-In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
+In order to apply CSS customizations in this and other blocks, follow the instructions on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
 | CSS Handles                 |
 | --------------------------- |
